@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trawly — Daily Digest (Format A)</title>
+<title>Trawly — Format A: Current Design</title>
 <style>
   :root {
     --navy: #0B1426;
@@ -11,16 +11,17 @@
     --indigo-light: #6366F1;
     --sand: #F5F0EB;
     --sand-dark: #E8E0D8;
-    --warm: #D4A574;
     --text: #1a1a2e;
     --text-muted: #64748b;
     --white: #FFFFFF;
-    --green: #10B981;
     --radius: 12px;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family: 'Georgia', 'Times New Roman', serif; color: var(--text); background: #E8E0D8; line-height: 1.65; }
   h1,h2,h3,h4,h5 { font-family: system-ui, -apple-system, sans-serif; line-height: 1.3; }
+  .top-bar { background: var(--navy); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .top-bar .logo { color: white; font-weight: 700; font-size: 18px; font-family: system-ui, sans-serif; }
+  .top-bar .logo span { color: #60A5FA; }
   .email-wrap { max-width: 640px; margin: 32px auto; padding: 0 16px; }
   .email { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12); }
   .email-header { background: var(--navy); color: white; padding: 36px 32px 28px; }
@@ -41,24 +42,28 @@
   .block h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
   .block h3 a { color: var(--text); text-decoration: none; }
   .block p { font-size: 15px; color: #374151; margin-bottom: 10px; }
-  .block .source { font-family: system-ui, sans-serif; font-size: 12px; color: var(--text-muted); }
-  .block .source a { color: var(--indigo); text-decoration: none; }
   .block .why-matters { background: var(--sand); padding: 12px 16px; border-radius: 8px; margin-top: 12px; font-size: 14px; color: #374151; border-left: 3px solid var(--indigo); }
-  .tweet-embed { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 20px; margin: 12px 0; }
-  .tweet-author { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  .tweet-avatar { width: 40px; height: 40px; background: var(--indigo); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: system-ui, sans-serif; font-size: 16px; }
-  .tweet-name { font-family: system-ui, sans-serif; font-size: 14px; font-weight: 700; }
-  .tweet-handle { font-family: system-ui, sans-serif; font-size: 13px; color: var(--text-muted); }
-  .tweet-text { font-size: 15px; margin-bottom: 8px; }
-  .tweet-meta { font-family: system-ui, sans-serif; font-size: 12px; color: var(--text-muted); display: flex; gap: 16px; }
-  .daily-boost { background: linear-gradient(135deg, #FEF3C7, #FFFBEB); border-bottom: none; }
+
+  /* Tweet cards */
+  .tweet-card { background: #f8fafc; border: 1px solid #e1e8ed; border-radius: 12px; padding: 16px 20px; margin: 12px 0; font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 550px; }
+  .tweet-card .tc-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .tweet-card .tc-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+  .tweet-card .tc-name { font-weight: 700; font-size: 14px; }
+  .tweet-card .tc-handle { font-size: 13px; color: #536471; }
+  .tweet-card .tc-text { font-size: 15px; margin-bottom: 10px; line-height: 1.5; }
+  .tweet-card .tc-metrics { font-size: 12px; color: #536471; display: flex; gap: 16px; }
+  .tweet-card .tc-link { display: inline-block; margin-top: 10px; color: #1d9bf0; font-size: 13px; text-decoration: none; font-weight: 600; }
+
+  .daily-boost { background: linear-gradient(135deg, #FEF3C7, #FFFBEB); }
   .daily-boost .block-label { color: #B45309; background: rgba(180,83,9,0.1); }
-  .chops-corner { background: linear-gradient(135deg, #EDE9FE, #F5F3FF); border-bottom: none; }
+  .chops-corner { background: linear-gradient(135deg, #EDE9FE, #F5F3FF); }
   .chops-corner .block-label { color: #7C3AED; background: rgba(124,58,237,0.1); }
+  .dad-zone { background: linear-gradient(135deg, #ECFDF5, #F0FDF4); }
+  .dad-zone .block-label { color: #059669; background: rgba(5,150,105,0.1); }
   .reply-cta { padding: 32px; text-align: center; background: var(--sand); }
   .reply-cta p { font-size: 16px; color: var(--text); margin-bottom: 16px; font-style: italic; }
   .reply-cta .reply-btn { display: inline-block; background: var(--indigo); color: white; padding: 14px 36px; border-radius: 10px; font-family: system-ui, sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; }
-  .reply-cta .hint { font-size: 13px; color: var(--text-muted); margin-top: 12px; font-family: system-ui, sans-serif; }
+  .reply-cta .hint { font-size: 13px; color: var(--text-muted); margin-top: 12px; font-style: normal; font-family: system-ui, sans-serif; }
   .email-footer { padding: 24px 32px; text-align: center; font-family: system-ui, sans-serif; font-size: 12px; color: var(--text-muted); }
   .email-footer a { color: var(--indigo); text-decoration: none; }
   @media (max-width: 640px) {
@@ -70,140 +75,201 @@
 </style>
 </head>
 <body>
+
+<div class="top-bar">
+  <div class="logo">🐟 Trawly</div>
+</div>
+
 <div class="email-wrap">
 <div class="email">
 
   <div class="email-header">
-    <div class="greeting">🎣 Good morning, David.</div>
-    <div class="date">Wednesday, February 25, 2026 · Sydney</div>
-    <div class="tagline">8 stories today — it's a big one. Nvidia, Samsung, and the AI vibes are shifting.</div>
+    <div class="greeting">🌧️ Good morning, David.</div>
+    <div class="date">Thursday, February 26, 2026 · Sydney</div>
+    <div class="tagline">8 stories today — Karpathy dropped a bombshell and someone's AI got stolen.</div>
   </div>
 
+  <!-- WEATHER -->
   <div class="weather-bar">
-    <h4>☀️ Sydney 3-Day Forecast</h4>
+    <h4>☁️ Sydney 3-Day Forecast</h4>
     <div class="weather-grid">
       <div class="weather-day">
-        <div class="wd-icon">🌤️</div>
-        <div class="wd-temp">21–28°C</div>
-        <div class="wd-label">Wed — Warm</div>
+        <div class="wd-icon">🌦️</div>
+        <div class="wd-temp">21–25°C</div>
+        <div class="wd-label">Thu — Showers</div>
       </div>
       <div class="weather-day">
         <div class="wd-icon">⛅</div>
         <div class="wd-temp">20–26°C</div>
-        <div class="wd-label">Thu — Partly Cloudy</div>
+        <div class="wd-label">Fri — Partly Cloudy</div>
       </div>
       <div class="weather-day">
-        <div class="wd-icon">🌧️</div>
-        <div class="wd-temp">19–24°C</div>
-        <div class="wd-label">Fri — Showers</div>
+        <div class="wd-icon">🌤️</div>
+        <div class="wd-temp">20–26°C</div>
+        <div class="wd-label">Sat — Warm</div>
       </div>
     </div>
-    <div class="weather-tip">☀️ Beautiful midweek day — get the boys outside if you can. UV high from 10am. Rain moving in Friday.</div>
+    <div class="weather-tip">☂️ Grab an umbrella today — showers with southerly winds ~36km/h. Weekend looks solid.</div>
   </div>
 
-  <!-- BLOCK 1: AI & Markets -->
+  <!-- OPENCLAW -->
   <div class="block">
-    <div class="block-label">🔥 AI & Markets</div>
-    <h3><a href="https://stockmarketwatch.com/live/stock-market-today/">Nvidia Reports After the Bell Today — The Biggest Earnings Call in AI</a></h3>
-    <p>Nvidia drops Q4 fiscal 2026 earnings after market close today. Wall Street is holding its breath — guidance on Blackwell and H200 GPU lines will set the trajectory for the entire AI infrastructure narrative. The stock is a bellwether: if Blackwell demand is strong, expect another leg up in AI capex. If there's any wobble, the $650B investment thesis gets questioned hard.</p>
-    <div class="why-matters"><strong>Why it matters:</strong> This isn't just a chip company reporting. This is the earnings call that tells you whether the AI boom is accelerating or plateauing. Every tech company's 2026 capex plan depends on what Jensen says tonight.</div>
-    <div class="source">Source: <a href="https://stockmarketwatch.com/live/stock-market-today/">StockMarketWatch</a></div>
-  </div>
+    <div class="block-label">🔥 OpenClaw</div>
+    <h3>Someone's AI Assistant Was the Target in a Breach</h3>
+    <p>Cato Networks' threat research team found a UK company CEO's OpenClaw instance being sold on dark markets. The AI assistant — packed with sensitive data — was the prize, not the server. First documented case of an AI agent targeted as the primary asset in a breach.</p>
 
-  <!-- BLOCK 2: Big Tech -->
-  <div class="block">
-    <div class="block-label">💰 Big Tech</div>
-    <h3><a href="https://www.reuters.com/business/big-tech-invest-about-650-billion-ai-2026-bridgewater-says-2026-02-23/">Big Tech Will Spend $650 Billion on AI This Year</a></h3>
-    <p>Bridgewater Associates just dropped an analysis: Alphabet, Amazon, Meta, and Microsoft will collectively invest roughly $650 billion in AI infrastructure in 2026. That's not a typo. Six hundred and fifty billion dollars. Data centers, GPUs, networking, cooling — the physical backbone of the AI revolution is being built at wartime pace.</p>
-    <div class="tweet-embed">
-      <div class="tweet-author">
-        <div class="tweet-avatar">R</div>
-        <div>
-          <div class="tweet-name">Reuters</div>
-          <div class="tweet-handle">@Reuters · Feb 23</div>
-        </div>
+    <div class="tweet-card">
+      <div class="tc-header">
+        <div class="tc-avatar" style="background:#E84C3D;">C</div>
+        <div><div class="tc-name">Cato Networks</div><div class="tc-handle">@CatoNetworks · Feb 25</div></div>
       </div>
-      <div class="tweet-text">U.S. technology giants Alphabet, Amazon, Meta and Microsoft are expected to collectively invest about $650 billion to scale up AI-related infrastructure this year, Bridgewater Associates says.</div>
-      <div class="tweet-meta"><span>💬 1.2K</span><span>🔁 4.5K</span><span>❤️ 8.9K</span></div>
+      <div class="tc-text">🚨 Cato CTRL found a threat actor selling root shell access to a UK automation company. The real prize? The CEO's OpenClaw-based AI personal assistant, packed with sensitive data — the first documented case of an AI agent as primary breach target.</div>
+      <div class="tc-metrics"><span>❤️ 2.1K</span><span>🔁 892</span><span>🔖 1.4K</span></div>
+      <a href="https://x.com/CatoNetworks/status/2026658538043404745" class="tc-link">View on X →</a>
     </div>
-    <div class="why-matters"><strong>Why it matters:</strong> This is the number that either validates the AI bull case or becomes the cautionary tale. If returns don't materialise, this is the biggest misallocation of capital in history. If they do — you want to be building in this space.</div>
-    <div class="source">Source: <a href="https://www.reuters.com/business/big-tech-invest-about-650-billion-ai-2026-bridgewater-says-2026-02-23/">Reuters</a> · Bridgewater Associates</div>
+
+    <div class="why-matters"><strong>Why it matters:</strong> This is literally us. Our allowlist security setup from Day 1 looks smart now — but worth a quick review. If you're running an AI assistant with access to your life, you're a target.</div>
   </div>
 
-  <!-- BLOCK 3: Consumer Tech -->
+  <!-- OPENCLAW 2: Builder highlight -->
   <div class="block">
-    <div class="block-label">📱 Consumer Tech</div>
-    <h3><a href="https://www.androidcentral.com/news/live/samsung-galaxy-unpacked-live-blog-galaxy-s26">Samsung Galaxy S26 Unpacked — Live Today from San Francisco</a></h3>
-    <p>Samsung's biggest launch of the year kicks off today at 10am PT (4am AEDT Thursday — you'll wake up to the news). The Galaxy S26 series is expected to lean heavily into on-device AI: think real-time translation, AI photo editing, and a "Galaxy AI" assistant that actually does things instead of just searching.</p>
-    <p>Early leaks suggest the S26 Ultra gets a titanium frame redesign, a 200MP camera with AI scene optimization, and a price hike to match. The real story is whether Samsung can make "AI phone" feel like more than a marketing buzzword.</p>
-    <div class="source">Source: <a href="https://www.androidcentral.com/news/live/samsung-galaxy-unpacked-live-blog-galaxy-s26">Android Central</a> · <a href="https://www.tomsguide.com/phones/samsung-phones/samsung-galaxy-unpacked-february-2026-galaxy-s26-galaxy-s26-ultra-and-everything-else-to-expect">Tom's Guide</a></div>
+    <div class="block-label">🔥 OpenClaw</div>
+    <h3>Full Animated Videos from a Single Prompt</h3>
+    <p>Riley Brown showed how OpenClaw can generate animated videos end-to-end: prompt → video → edit → music with ElevenLabs → final cut. All vibecoded. 3,138 bookmarks — bookmark-to-like ratio of 162%. People aren't just liking this, they're saving it to replicate.</p>
+
+    <div class="tweet-card">
+      <div class="tc-header">
+        <div class="tc-avatar" style="background:#1d9bf0;">R</div>
+        <div><div class="tc-name">Riley Brown</div><div class="tc-handle">@rileybrown · Feb 25</div></div>
+      </div>
+      <div class="tc-text">OpenClaw can create animated videos with a skill. Full walkthrough: prompt → video generated → edit with OpenClaw → music with ElevenLabs → final cut. All vibecoded. 🎬</div>
+      <div class="tc-metrics"><span>❤️ 1,936</span><span>🔁 251</span><span>🔖 3,138</span></div>
+      <a href="https://x.com/rileybrown/status/2026159128738226319" class="tc-link">View on X →</a>
+    </div>
   </div>
 
-  <!-- BLOCK 4: The Narrative -->
+  <!-- VIBE CODE -->
   <div class="block">
-    <div class="block-label">🤔 The Narrative</div>
-    <h3><a href="https://www.nytimes.com/2026/02/21/technology/ai-boom-backlash.html">People Loved the Dot-Com Boom. The AI Boom? Not So Much.</a></h3>
-    <p>The New York Times published a fascinating piece on the growing gap between Silicon Valley's AI euphoria and the public's underwhelming enthusiasm. Sam Altman himself admitted AI is "spreading more slowly than he expected." The article draws parallels to the dot-com era — but notes a crucial difference: regular people actually loved the internet. AI? They're mostly anxious about it.</p>
-    <div class="why-matters"><strong>Why it matters:</strong> This is the adoption gap that creates opportunity. If the public hasn't fallen in love with AI yet, there's massive room for products that make AI feel useful rather than threatening. That's literally what Trawly does.</div>
-    <div class="source">Source: <a href="https://www.nytimes.com/2026/02/21/technology/ai-boom-backlash.html">New York Times</a></div>
+    <div class="block-label">🤖 Vibe Code</div>
+    <h3>$41,000 from Vibe Coding on Stream in 139 Days</h3>
+    <p>A developer started vibe coding on livestream 139 days ago. Today, he crossed $41K in revenue. Just a Claude Code subscription. The playbook: build in public → monetise the audience AND the product simultaneously.</p>
+
+    <div class="tweet-card">
+      <div class="tc-header">
+        <div class="tc-avatar" style="background:#8B5CF6;">O</div>
+        <div><div class="tc-name">Om Patel</div><div class="tc-handle">@om_patel5 · Feb 25</div></div>
+      </div>
+      <div class="tc-text">This guy started vibe coding 139 days ago ON LIVE. Today, he just crossed $41,000 in revenue. Crazy to think what you can do with JUST a Claude Code subscription. 🤯</div>
+      <div class="tc-metrics"><span>❤️ 2,651</span><span>🔁 104</span><span>🔖 1,413</span></div>
+      <a href="https://x.com/om_patel5/status/2026447080928002163" class="tc-link">View on X →</a>
+    </div>
+
+    <div class="why-matters"><strong>Why it matters:</strong> Content IS the product. Product IS the content. The streaming + building model is printing money for people who commit to it.</div>
   </div>
 
-  <!-- BLOCK 5: Deep Dive -->
+  <!-- DEEP DIVE / TECH BRO PHILOSOPHY -->
   <div class="block">
-    <div class="block-label">🔬 Deep Dive</div>
-    <h3><a href="https://llm-stats.com/ai-news">Google's Gemini 3.1 Pro — The Quiet Giant</a></h3>
-    <p>While everyone was watching the Claude vs GPT wars, Google DeepMind shipped Gemini 3.1 Pro with a 1 million token context window and scored 77.1% on ARC-AGI-2 — a benchmark designed to test genuine reasoning, not pattern matching. It handles text, images, audio, video, and code in a single model.</p>
-    <p>The context window alone changes the game: you can feed it an entire codebase, a full legal contract, or hours of meeting transcripts and get coherent analysis back. This is the "boring but important" release that developers will actually use every day.</p>
-    <div class="source">Source: <a href="https://llm-stats.com/ai-news">LLM Stats</a></div>
+    <div class="block-label">🧠 Tech Bro Philosophy</div>
+    <h3>Karpathy: CLIs Are the AI Agent Interface</h3>
+    <p>Karpathy's biggest tweet of the day (7,477 bookmarks — absolute monster) makes the case that CLIs are "super exciting precisely because they're legacy technology." Legacy = agent-native. AI agents can natively use, combine, and interact with CLI tools via the terminal. This is why OpenClaw works.</p>
+
+    <div class="tweet-card">
+      <div class="tc-header">
+        <div class="tc-avatar" style="background:#F59E0B;">K</div>
+        <div><div class="tc-name">Andrej Karpathy</div><div class="tc-handle">@karpathy · Feb 25</div></div>
+      </div>
+      <div class="tc-text">CLIs are super exciting precisely because they are a "legacy" technology, which means AI agents can natively and easily use them, combine them, interact with them via the entire terminal toolkit. E.g ask your Claude/Codex agent to install this new Polymarket CLI and ask for any...</div>
+      <div class="tc-metrics"><span>❤️ 9,246</span><span>🔁 840</span><span>🔖 7,477</span></div>
+      <a href="https://x.com/karpathy/status/2026360908398862478" class="tc-link">View on X →</a>
+    </div>
   </div>
 
-  <!-- BLOCK 6: Wildcard -->
+  <!-- RABBIT HOLE -->
+  <div class="block">
+    <div class="block-label">🐰 Rabbit Hole</div>
+    <h3>Karpathy's Token Infrastructure Thesis</h3>
+    <p>Worth 10+ minutes. Karpathy dropped a thread about fundamental constraints in LLM compute infrastructure. Key insight: chip fabrication gives you two distinct resource pools (memory-bound vs compute-bound). The companies that figure out orchestrating them — matching workloads to the right hardware — will capture enormous value.</p>
+    <p>Then read his home lab update: Mac Mini + DGX Spark and it's <em>still not enough compute</em>. The home AI lab era is here.</p>
+
+    <div class="tweet-card">
+      <div class="tc-header">
+        <div class="tc-avatar" style="background:#F59E0B;">K</div>
+        <div><div class="tc-name">Andrej Karpathy</div><div class="tc-handle">@karpathy · Feb 25</div></div>
+      </div>
+      <div class="tc-text">Deep thread on the coming tsunami of token demand and the non-obvious memory + compute constraints in LLM infrastructure. Two completely distinct pools of resources from chip fabrication…</div>
+      <div class="tc-metrics"><span>❤️ 5,886</span><span>🔁 375</span><span>🔖 3,913</span></div>
+      <a href="https://x.com/karpathy/status/2026452488434651264" class="tc-link">View on X →</a>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tc-header">
+        <div class="tc-avatar" style="background:#F59E0B;">K</div>
+        <div><div class="tc-name">Andrej Karpathy</div><div class="tc-handle">@karpathy · Feb 24</div></div>
+      </div>
+      <div class="tc-text">Huge success over the weekend… many people's reaction was why would you need so much compute (mac mini) but I found it's not enough compute, even after adding my DGX spark to the home</div>
+      <div class="tc-metrics"><span>❤️ 4,663</span><span>🔁 131</span><span>🔖 803</span></div>
+      <a href="https://x.com/karpathy/status/2026125291379376196" class="tc-link">View on X →</a>
+    </div>
+  </div>
+
+  <!-- WILDCARD / Levelsio -->
   <div class="block">
     <div class="block-label">💡 Wildcard</div>
-    <h3><a href="https://www.cnbc.com/2026/02/21/ai-summit-india-tech.html">India's AI Summit: Chaos, $200 Billion Dreams, and Sundar Pichai Being Polite About It</a></h3>
-    <p>CNBC's coverage of India's AI Impact Summit is a wild read. Think "tech conference meets Bollywood" — Sundar Pichai and Sam Altman on stage talking up India's potential while behind the scenes it was apparently logistical chaos. Altman told CNBC "the excitement here has been incredible to watch" which is CEO-speak for "this was absolutely bonkers." India's play: massive talent pool, 1.4B consumers, and a government that actually wants AI investment.</p>
-    <div class="source">Source: <a href="https://www.cnbc.com/2026/02/21/ai-summit-india-tech.html">CNBC</a></div>
+    <h3>Levelsio Gets Feedback from the Actual Cyberpunk 2077 Developer</h3>
+    <p>Pieter Levels posted about building something similar to Cyberpunk 2077's Braindance — and the actual developer who built it replied with tips. "Only on X can you post about making something and get a reply from the developer responsible for making it."</p>
+
+    <div class="tweet-card">
+      <div class="tc-header">
+        <div class="tc-avatar" style="background:#10B981;">L</div>
+        <div><div class="tc-name">Pieter Levels</div><div class="tc-handle">@levelsio · Feb 25</div></div>
+      </div>
+      <div class="tc-text">Only on X can you post about making something similar to Cyberpunk 2077's Braindance and get a reply from the developer responsible for making it with tips on how to improve it 🤯</div>
+      <div class="tc-metrics"><span>❤️ 1,289</span><span>🔁 18</span><span>🔖 125</span></div>
+      <a href="https://x.com/levelsio/status/2026521223321047485" class="tc-link">View on X →</a>
+    </div>
   </div>
 
-  <!-- BLOCK 7: Science -->
-  <div class="block">
-    <div class="block-label">🛡️ Worth Knowing</div>
-    <h3><a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/">NASA's Perseverance Rover Is Now Navigating Mars with AI</a></h3>
-    <p>NASA quietly made history: Perseverance is now driving across Mars using routes planned by artificial intelligence instead of human operators. A vision-capable AI analyzes the same terrain images that human planners would review, but it does it faster and can explore more route options. It's not replacing the humans entirely — they review and approve — but the rover covers more ground per sol now.</p>
-    <div class="why-matters"><strong>Why it matters:</strong> This is what good AI looks like — augmenting human capability, not replacing it. Also: we have a robot on another planet driving itself around using AI. That's still cool.</div>
-    <div class="source">Source: <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/">ScienceDaily / NASA</a></div>
+  <!-- DAD ZONE -->
+  <div class="block dad-zone">
+    <div class="block-label">👨‍👧‍👦 Dad Zone</div>
+    <h3>Rainy Day Treasure Hunt</h3>
+    <p>🎨 <strong>Activity:</strong> Showers today = perfect for indoor treasure hunt. Hide 10 objects, draw a simple map for your 5yo, and let your 2yo follow as the "helper." Spatial reasoning + map reading for the big one, sensory exploration for the little one.</p>
+    <p>🧠 <strong>Learning hack:</strong> When your kid asks "why?" — instead of answering, ask "what do YOU think?" Three rounds of this and you'll be amazed at the reasoning they come up with. Socratic method starts at 2.</p>
+    <p>😂 <strong>Dad joke:</strong> Why did the scarecrow win an award? Because he was outstanding in his field. 🌾</p>
   </div>
 
-  <!-- Daily Boost -->
+  <!-- DAILY BOOST -->
   <div class="block daily-boost">
     <div class="block-label">🌟 Daily Boost</div>
-    <h3>Idaho Just Passed a Conversational AI Safety Act</h3>
-    <p>While everyone debates AI regulation in theory, Idaho quietly moved its Conversational AI Safety Act (S 1297) through committee with a "do-pass" recommendation. It's now on second reading. States aren't waiting for Congress. This is happening at the edges — and smart builders are designing for compliance now, not scrambling later.</p>
-    <div class="source" style="color:#92400E;">Source: <a href="https://www.troutmanprivacy.com/2026/02/proposed-state-ai-law-update-february-23-2026/" style="color:#B45309;">Troutman Pepper</a></div>
+    <p style="font-size:17px; font-style:italic; margin-bottom:8px;">"You don't need to see the whole staircase. Just take the first step."</p>
+    <p>I told my wife she should embrace her mistakes. She gave me a hug. 🤗</p>
   </div>
 
-  <!-- Chop's Corner -->
+  <!-- CHOP'S CORNER -->
   <div class="block chops-corner">
     <div class="block-label">⚡ Editor's Corner</div>
-    <h3>The $650 Billion Question</h3>
-    <p>Here's what I keep thinking about: Big Tech is spending $650 billion on AI infrastructure this year. Meanwhile, Sam Altman says adoption is slower than expected, and the NYT says people are more anxious than excited.</p>
-    <p>That gap — between what's being built and what people actually want — is where every opportunity lives. If you can make AI feel useful, approachable, and human? You're selling water in a desert. The infrastructure is being laid whether people want it or not. The question is who builds the products that make them want it.</p>
-    <p style="margin-top:12px; font-style:italic; color:var(--text-muted);">Also — Nvidia reports tonight. If you don't hear from me tomorrow, I'm processing my feelings about GPU supply chains. 🤖</p>
+    <h3>Three Things Jumping Out</h3>
+    <p><strong>1. The security story is about us.</strong> Cato Networks documented a threat actor targeting an OpenClaw instance as the primary asset. Our allowlist setup looks smart — worth a review though.</p>
+    <p><strong>2. Agent-as-a-Service is a business model now.</strong> People are selling OpenClaw agent archetypes as subscriptions. Dev_manoj_shah has a 6-agent sales machine running 24/7 closing deals with zero humans.</p>
+    <p><strong>3. Karpathy's CLI thesis validates everything.</strong> 7,477 bookmarks on "CLIs are the perfect AI agent interface." That's literally what OpenClaw is. And what Trawly is becoming.</p>
+    <p style="margin-top:12px; font-style:italic; color:var(--text-muted);">The $41K vibe coder is proof: content IS the product. Product IS the content. ⚡</p>
   </div>
 
-  <!-- Reply CTA -->
+  <!-- REPLY CTA -->
   <div class="reply-cta">
-    <p>"Was this the right mix today?<br>More markets? Less science? Tell me."</p>
+    <p>"Was this the right mix today?<br>What would you want more or less of?"</p>
     <a href="#" class="reply-btn">💬 Reply to This Brief</a>
-    <div class="hint">Just reply naturally — I learn from every response.</div>
+    <div class="hint">Just reply naturally — "more deep dives" or "less weather." I learn from every response.</div>
   </div>
 
   <div class="email-footer">
     <p>You're receiving this because you asked for it. <a href="#">Manage preferences</a> · <a href="#">Unsubscribe</a></p>
-    <p style="margin-top:8px;">© 2026 Trawly · Trawling the internet for gold.</p>
+    <p style="margin-top:8px;">© 2026 Trawly · Trawling the internet for gold. 🐟</p>
+    <p style="margin-top:4px; font-size:11px; color:#94a3b8;">Est. cost: ~$0.20 | X API: ~80 reads</p>
   </div>
 
 </div>
 </div>
+
 </body>
 </html>
