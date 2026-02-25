@@ -43,16 +43,6 @@
   .block h3 a { color: var(--text); text-decoration: none; }
   .block p { font-size: 15px; color: #374151; margin-bottom: 10px; }
   .block .why-matters { background: var(--sand); padding: 12px 16px; border-radius: 8px; margin-top: 12px; font-size: 14px; color: #374151; border-left: 3px solid var(--indigo); }
-
-  .tweet-card { background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; padding:16px 20px; margin:12px 0; font-family:-apple-system,BlinkMacSystemFont,sans-serif; max-width:550px; }
-  .tweet-card .tc-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-  .tweet-card .tc-avatar { width:40px; height:40px; background:#1d9bf0; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:16px; flex-shrink:0; }
-  .tweet-card .tc-name { font-weight:700; font-size:14px; }
-  .tweet-card .tc-handle { font-size:13px; color:#536471; }
-  .tweet-card .tc-text { font-size:15px; margin-bottom:10px; line-height:1.5; }
-  .tweet-card .tc-stats { font-size:12px; color:#536471; display:flex; gap:16px; flex-wrap:wrap; }
-  .tweet-card .tc-link { display:inline-block; margin-top:10px; color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600; }
-
   .daily-boost { background: linear-gradient(135deg, #FEF3C7, #FFFBEB); }
   .daily-boost .block-label { color: #B45309; background: rgba(180,83,9,0.1); }
   .chops-corner { background: linear-gradient(135deg, #EDE9FE, #F5F3FF); }
@@ -74,7 +64,7 @@
 <body>
 
 <div class="top-bar">
-  <div class="logo">🐟 Trawly</div>
+  <div class="logo">🐟 Traw<span>ly</span></div>
 </div>
 
 <div class="email-wrap">
@@ -83,120 +73,134 @@
   <div class="email-header">
     <div class="greeting">🌧️ Good morning, David.</div>
     <div class="date">Thursday, February 26, 2026 · Sydney</div>
-    <div class="tagline">8 stories today — Karpathy dropped a monster thread and someone's OpenClaw got hacked.</div>
+    <div class="tagline">8 stories today — Karpathy dropped a 7,477-bookmark bomb.</div>
   </div>
 
   <div class="weather-bar">
     <h4>☁️ Sydney 3-Day Forecast</h4>
     <div class="weather-grid">
       <div class="weather-day"><div class="wd-icon">🌦️</div><div class="wd-temp">21–25°C</div><div class="wd-label">Thu — Showers</div></div>
-      <div class="weather-day"><div class="wd-icon">⛅</div><div class="wd-temp">20–26°C</div><div class="wd-label">Fri — Partly Cloudy</div></div>
+      <div class="weather-day"><div class="wd-icon">⛅</div><div class="wd-temp">20–26°C</div><div class="wd-label">Fri — Partly cloudy</div></div>
       <div class="weather-day"><div class="wd-icon">🌤️</div><div class="wd-temp">20–26°C</div><div class="wd-label">Sat — Warm</div></div>
     </div>
-    <div class="weather-tip">☂️ Grab an umbrella today — showers likely with southerly winds ~36km/h. Weekend looking nice.</div>
+    <div class="weather-tip">☂️ Grab an umbrella today — showers likely with southerly winds ~36km/h.</div>
   </div>
 
   <!-- OPENCLAW -->
   <div class="block">
     <div class="block-label">🔥 OpenClaw</div>
-    <h3>Someone's OpenClaw Got Hacked — And the AI Was the Prize</h3>
-    <p>Cato Networks' threat research team found a UK company CEO's OpenClaw instance being sold on dark markets. Not for the server — for the AI assistant and all its data. First documented case of an agent being the primary target in a breach.</p>
-    <div class="tweet-card">
-      <div class="tc-header">
-        <div class="tc-avatar">C</div>
-        <div><div class="tc-name">Cato Networks</div><div class="tc-handle">@CatoNetworks · Feb 25</div></div>
+    <h3>Your AI Agent Is Now a Hacker's Prize Asset</h3>
+    <p>Cato Networks' threat research team found a UK company's CEO OpenClaw instance being sold on dark markets — not for the server access, but for the AI assistant itself, packed with sensitive data. First documented case of an AI agent targeted as the primary asset in a breach.</p>
+
+    <div style="background:#f8fafc;border:1px solid #e1e8ed;border-radius:12px;padding:16px 20px;margin:12px 0;font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:550px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="width:40px;height:40px;background:#1d9bf0;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;">C</div>
+        <div><div style="font-weight:700;font-size:14px;">Cato Networks</div><div style="font-size:13px;color:#536471;">@CatoNetworks · Feb 25</div></div>
       </div>
-      <div class="tc-text">🚨 Cato CTRL found a threat actor selling root shell access to a UK automation company. The real prize? The CEO's OpenClaw-based AI personal assistant, packed with sensitive corporate data.</div>
-      <div class="tc-stats"><span>❤️ 2.1K</span><span>🔁 892</span><span>🔖 1.4K</span></div>
-      <a href="https://x.com/CatoNetworks/status/2026658538043404745" class="tc-link">View on X →</a>
+      <div style="font-size:15px;margin-bottom:10px;line-height:1.5;">CATO CTRL found a threat actor selling root shell access to a UK automation company. The real target? The CEO's OpenClaw-based AI personal assistant — loaded with company secrets, credentials, and strategic plans.</div>
+      <div style="font-size:12px;color:#536471;display:flex;gap:16px;"><span>❤️ 2.1K</span><span>🔁 891</span><span>🔖 1.4K</span></div>
+      <a href="https://x.com/CatoNetworks/status/2026658538043404745" style="display:inline-block;margin-top:10px;color:#1d9bf0;font-size:13px;text-decoration:none;font-weight:600;">View on X →</a>
     </div>
+
     <div class="why-matters"><strong>Why it matters:</strong> This is literally us. Our allowlist security setup from Day 1 looks smart now — but worth a quick review of our posture.</div>
   </div>
 
   <!-- OPENCLAW 2 -->
   <div class="block">
     <div class="block-label">🔥 OpenClaw</div>
-    <h3>One-Prompt Animated Videos with OpenClaw</h3>
-    <p>Riley Brown's walkthrough went nuclear: prompt → video → edit with OpenClaw → music with ElevenLabs → final cut. All vibecoded. Then he did it again with Blender — one-prompt 3D models you can insert into websites.</p>
-    <div class="tweet-card">
-      <div class="tc-header">
-        <div class="tc-avatar">R</div>
-        <div><div class="tc-name">Riley Brown</div><div class="tc-handle">@rileybrown · Feb 25</div></div>
+    <h3>One Prompt → Animated Video. No Code.</h3>
+    <p>Riley Brown's walkthrough: prompt → video generated → edit with OpenClaw → music with ElevenLabs → final cut. All vibecoded. 3,138 bookmarks — people are saving this to replicate it.</p>
+
+    <div style="background:#f8fafc;border:1px solid #e1e8ed;border-radius:12px;padding:16px 20px;margin:12px 0;font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:550px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="width:40px;height:40px;background:#e91e63;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;">R</div>
+        <div><div style="font-weight:700;font-size:14px;">Riley Brown</div><div style="font-size:13px;color:#536471;">@rileybrown · Feb 25</div></div>
       </div>
-      <div class="tc-text">OpenClaw can create animated videos with a skill. Full walkthrough: prompt → video generated → edit with OpenClaw → music with ElevenLabs → final cut. All vibecoded. 🎬</div>
-      <div class="tc-stats"><span>❤️ 1,936</span><span>🔁 251</span><span>🔖 3,138</span></div>
-      <a href="https://x.com/rileybrown/status/2026159128738226319" class="tc-link">View on X →</a>
+      <div style="font-size:15px;margin-bottom:10px;line-height:1.5;">OpenClaw can create animated videos with a skill. Full walkthrough: prompt → video generated → edit with OpenClaw → music with ElevenLabs → final cut. All vibecoded. 🎬</div>
+      <div style="font-size:12px;color:#536471;display:flex;gap:16px;"><span>❤️ 1,936</span><span>🔁 251</span><span>🔖 3,138</span></div>
+      <a href="https://x.com/rileybrown/status/2026159128738226319" style="display:inline-block;margin-top:10px;color:#1d9bf0;font-size:13px;text-decoration:none;font-weight:600;">View on X →</a>
     </div>
-    <p style="font-size:13px;color:var(--text-muted);font-family:system-ui,sans-serif;">📌 3,138 bookmarks — 162% bookmark-to-like ratio. People are saving this to replicate it.</p>
   </div>
 
   <!-- VIBE CODE -->
   <div class="block">
     <div class="block-label">🤖 Vibe Code</div>
-    <h3>$41K in 139 Days of Live Vibe Coding</h3>
-    <p>A creator started vibe coding on stream 139 days ago. Today: $41,000 in revenue. Just a Claude Code subscription and a webcam. The playbook: build in public → monetise the audience AND the product simultaneously.</p>
-    <div class="tweet-card">
-      <div class="tc-header">
-        <div class="tc-avatar">O</div>
-        <div><div class="tc-name">Om Patel</div><div class="tc-handle">@om_patel5 · Feb 25</div></div>
+    <h3>$41K in 139 Days — Vibe Coding on Stream</h3>
+    <p>Someone started vibe coding on livestream 139 days ago. Today he crossed $41,000 in revenue. Just a Claude Code subscription and an audience watching him build. The playbook: build in public → monetise the audience AND the product.</p>
+
+    <div style="background:#f8fafc;border:1px solid #e1e8ed;border-radius:12px;padding:16px 20px;margin:12px 0;font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:550px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="width:40px;height:40px;background:#ff9800;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;">O</div>
+        <div><div style="font-weight:700;font-size:14px;">Om Patel</div><div style="font-size:13px;color:#536471;">@om_patel5 · Feb 25</div></div>
       </div>
-      <div class="tc-text">This guy started vibe coding 139 days ago ON LIVE. Today, he just crossed $41,000 in revenue. Crazy to think what you can do with JUST a Claude Code subscription.</div>
-      <div class="tc-stats"><span>❤️ 2,651</span><span>🔁 104</span><span>🔖 1,413</span></div>
-      <a href="https://x.com/om_patel5/status/2026447080928002163" class="tc-link">View on X →</a>
+      <div style="font-size:15px;margin-bottom:10px;line-height:1.5;">This guy started vibe coding 139 days ago ON LIVE. Today, he just crossed $41,000 in revenue. Crazy to think what you can do with JUST a Claude Code subscription. 🤯</div>
+      <div style="font-size:12px;color:#536471;display:flex;gap:16px;"><span>❤️ 2,651</span><span>🔁 104</span><span>🔖 1,413</span></div>
+      <a href="https://x.com/om_patel5/status/2026447080928002163" style="display:inline-block;margin-top:10px;color:#1d9bf0;font-size:13px;text-decoration:none;font-weight:600;">View on X →</a>
     </div>
-    <div class="why-matters"><strong>Why it matters:</strong> Content IS the product. Product IS the content. This is the playbook for Trawly and everything else we build.</div>
+
+    <div class="why-matters"><strong>Why it matters:</strong> Content IS the product. Product IS the content. This is the Trawly thesis in action.</div>
   </div>
 
   <!-- DEEP DIVE / TECH BRO PHILOSOPHY -->
   <div class="block">
     <div class="block-label">🧠 Tech Bro Philosophy</div>
-    <h3>Karpathy: "CLIs Are the Perfect AI Interface"</h3>
-    <p>Today's biggest tweet (7,477 bookmarks). Karpathy's thesis: CLIs are "legacy" technology — which means AI agents can natively use them, combine them, interact through the entire terminal toolkit. Legacy tech = agent-native tech. This is why OpenClaw works.</p>
-    <div class="tweet-card">
-      <div class="tc-header">
-        <div class="tc-avatar" style="background:#1a1a2e;">K</div>
-        <div><div class="tc-name">Andrej Karpathy</div><div class="tc-handle">@karpathy · Feb 25</div></div>
+    <h3>Karpathy: CLIs Are the AI Interface — 7,477 Bookmarks</h3>
+    <p>Today's biggest tweet. Karpathy making the case that command-line interfaces are THE native interface for AI agents. "Legacy" technology that agents can natively use, combine, and interact with via the entire terminal toolkit. This is why OpenClaw works.</p>
+
+    <div style="background:#f8fafc;border:1px solid #e1e8ed;border-radius:12px;padding:16px 20px;margin:12px 0;font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:550px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="width:40px;height:40px;background:#4caf50;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;">A</div>
+        <div><div style="font-weight:700;font-size:14px;">Andrej Karpathy</div><div style="font-size:13px;color:#536471;">@karpathy · Feb 25</div></div>
       </div>
-      <div class="tc-text">CLIs are super exciting precisely because they are a "legacy" technology, which means AI agents can natively and easily use them, combine them, interact with them via the entire terminal toolkit. E.g ask your Claude/Codex agent to install this new Polymarket CLI and ask for any...</div>
-      <div class="tc-stats"><span>❤️ 9,246</span><span>🔁 840</span><span>🔖 7,477</span></div>
-      <a href="https://x.com/karpathy/status/2026360908398862478" class="tc-link">View on X →</a>
+      <div style="font-size:15px;margin-bottom:10px;line-height:1.5;">CLIs are super exciting precisely because they are a "legacy" technology, which means AI agents can natively and easily use them, combine them, interact with them via the entire terminal toolkit. E.g ask your Claude/Codex agent to install this new Polymarket CLI and ask for any...</div>
+      <div style="font-size:12px;color:#536471;display:flex;gap:16px;"><span>❤️ 9,246</span><span>🔁 840</span><span>🔖 7,477</span></div>
+      <a href="https://x.com/karpathy/status/2026360908398862478" style="display:inline-block;margin-top:10px;color:#1d9bf0;font-size:13px;text-decoration:none;font-weight:600;">View on X →</a>
     </div>
-    <p style="font-size:13px;color:var(--text-muted);font-family:system-ui,sans-serif;">📌 1.35M impressions. 81% bookmark-to-like ratio. The internet saved this one.</p>
   </div>
 
   <!-- RABBIT HOLE -->
   <div class="block">
     <div class="block-label">🐰 Rabbit Hole</div>
-    <h3>Karpathy's Token Infrastructure Thesis (10-min read)</h3>
-    <p>Karpathy dropped a thread about the fundamental constraints in LLM compute infrastructure. Key insight: chip fabrication gives you two distinct resource pools (memory-bound vs compute-bound), and the companies that figure out orchestration between them will capture enormous value. This isn't about better models — it's about the infrastructure layer that serves them.</p>
-    <div class="tweet-card">
-      <div class="tc-header">
-        <div class="tc-avatar" style="background:#1a1a2e;">K</div>
-        <div><div class="tc-name">Andrej Karpathy</div><div class="tc-handle">@karpathy · Feb 25</div></div>
+    <h3>Karpathy's Token Infrastructure Thesis (10 min read)</h3>
+    <p>A deep thread on the coming tsunami of token demand. Key insight: chip fabrication gives you two completely distinct pools of resources (memory-bound vs compute-bound), and the next huge companies will figure out the orchestration layer matching workloads to the right hardware pool.</p>
+
+    <div style="background:#f8fafc;border:1px solid #e1e8ed;border-radius:12px;padding:16px 20px;margin:12px 0;font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:550px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="width:40px;height:40px;background:#4caf50;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;">A</div>
+        <div><div style="font-weight:700;font-size:14px;">Andrej Karpathy</div><div style="font-size:13px;color:#536471;">@karpathy · Feb 25</div></div>
       </div>
-      <div class="tc-text">Deep thread on the coming tsunami of token demand and the non-obvious memory+compute constraints in LLM infrastructure. Two completely distinct pools of resources from chip fabrication...</div>
-      <div class="tc-stats"><span>❤️ 5,886</span><span>🔁 375</span><span>🔖 3,913</span></div>
-      <a href="https://x.com/karpathy/status/2026452488434651264" class="tc-link">View on X →</a>
+      <div style="font-size:15px;margin-bottom:10px;line-height:1.5;">Deep thread on the fundamental constraints in LLM compute infrastructure. Two completely distinct pools of resources from chip fabrication — and token demand is about to tsunami...</div>
+      <div style="font-size:12px;color:#536471;display:flex;gap:16px;"><span>❤️ 5,886</span><span>🔁 375</span><span>🔖 3,913</span></div>
+      <a href="https://x.com/karpathy/status/2026452488434651264" style="display:inline-block;margin-top:10px;color:#1d9bf0;font-size:13px;text-decoration:none;font-weight:600;">View on X →</a>
     </div>
-    <p>Then follow up with his home lab update — Mac Mini + DGX Spark and he's <em>still</em> running out of compute:</p>
-    <div class="tweet-card">
-      <div class="tc-header">
-        <div class="tc-avatar" style="background:#1a1a2e;">K</div>
-        <div><div class="tc-name">Andrej Karpathy</div><div class="tc-handle">@karpathy · Feb 24</div></div>
-      </div>
-      <div class="tc-text">Huge success over the weekend... many people's reaction was why would you need so much compute (mac mini) but I found it's not enough compute, even after adding my DGX spark to the home</div>
-      <div class="tc-stats"><span>❤️ 4,663</span><span>🔁 131</span><span>🔖 803</span></div>
-      <a href="https://x.com/karpathy/status/2026125291379376196" class="tc-link">View on X →</a>
-    </div>
+
+    <div class="why-matters"><strong>Your takeaway:</strong> This isn't about making better models. It's about infrastructure orchestration — and that's where the next wave of value gets captured.</div>
   </div>
 
   <!-- DAD ZONE -->
   <div class="block">
     <div class="block-label">👨‍👧‍👦 Dad Zone</div>
     <h3>Rainy Day Treasure Hunt</h3>
-    <p>Showers today = perfect for an indoor treasure hunt. Hide 10 objects, draw a simple map for your 5yo, and have the 2yo follow as the "helper." Spatial reasoning for one, toddling adventure for the other.</p>
-    <p><strong>🧠 Learning Hack:</strong> When your kid asks "why?" — instead of answering, ask "what do YOU think?" Three rounds and you'll be amazed at the reasoning they produce. Socratic method starts at 2.</p>
+    <p>Showers in Sydney = perfect for an indoor treasure hunt. Hide 10 objects, draw a simple map for your 5yo, and let the 2yo follow as the "helper." Spatial reasoning practice disguised as play.</p>
+    <p><strong>🧠 Learning Hack:</strong> When your kid asks "why?" — instead of answering, ask "what do YOU think?" Three rounds and you'll be amazed at the reasoning they produce.</p>
     <p><strong>😂 Dad Joke:</strong> Why did the scarecrow win an award? Because he was outstanding in his field. 🌾</p>
+  </div>
+
+  <!-- WILDCARD -->
+  <div class="block">
+    <div class="block-label">💡 Wildcard</div>
+    <h3>Levelsio's Braindance Gets Feedback From the Actual Dev</h3>
+    <p>Levelsio posted about building something similar to Cyberpunk 2077's Braindance — and got a reply from the developer who actually made it, with tips on how to improve. Only on X.</p>
+
+    <div style="background:#f8fafc;border:1px solid #e1e8ed;border-radius:12px;padding:16px 20px;margin:12px 0;font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:550px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="width:40px;height:40px;background:#9c27b0;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;">L</div>
+        <div><div style="font-weight:700;font-size:14px;">Pieter Levels</div><div style="font-size:13px;color:#536471;">@levelsio · Feb 25</div></div>
+      </div>
+      <div style="font-size:15px;margin-bottom:10px;line-height:1.5;">Only on X can you post about making something similar to Cyberpunk 2077's Braindance and get a reply from the developer responsible for making it with tips on how to improve it 🤯</div>
+      <div style="font-size:12px;color:#536471;display:flex;gap:16px;"><span>❤️ 1,289</span><span>🔁 18</span><span>🔖 125</span></div>
+      <a href="https://x.com/levelsio/status/2026521223321047485" style="display:inline-block;margin-top:10px;color:#1d9bf0;font-size:13px;text-decoration:none;font-weight:600;">View on X →</a>
+    </div>
   </div>
 
   <!-- DAILY BOOST -->
@@ -204,29 +208,30 @@
     <div class="block-label">🌟 Daily Boost</div>
     <h3>You don't need to see the whole staircase.</h3>
     <p>Just take the first step.</p>
-    <p style="margin-top:8px;">I told my wife she should embrace her mistakes. She gave me a hug. 🤗</p>
+    <p style="margin-top:8px;font-size:14px;color:#92400E;">😂 I told my wife she should embrace her mistakes. She gave me a hug.</p>
   </div>
 
   <!-- CHOP'S CORNER -->
   <div class="block chops-corner">
     <div class="block-label">⚡ Editor's Corner</div>
-    <h3>Three Things Jumping Out Tonight</h3>
-    <p><strong>1. The security story is real and it's about us.</strong> Cato Networks literally documented a threat actor targeting an OpenClaw instance as the primary asset. Our allowlist security from Day 1 looks smart. Worth a review though.</p>
-    <p><strong>2. Agent-as-a-Service is becoming a business.</strong> ThatAmberVibe launching subscription agent archetypes. Dev_manoj_shah running a 6-agent sales machine 24/7. The playbook: build agents that generate revenue, then sell the blueprints.</p>
-    <p><strong>3. Karpathy's CLI thesis validates everything.</strong> His biggest tweet (7,477 bookmarks) is about why CLIs are the perfect agent interface. That's literally what OpenClaw is. And what Trawly is becoming.</p>
-    <p style="margin-top:12px;font-style:italic;color:var(--text-muted);">The $41K vibe coder is proof the "build live on stream" model works. Content IS the product. Product IS the content.</p>
+    <h3>Three Things Jumping Out Today</h3>
+    <p><strong>1. The security story is about us.</strong> Cato Networks documented a threat actor targeting an OpenClaw instance as the primary asset. Our allowlist security from Day 1 looks smart.</p>
+    <p><strong>2. Agent-as-a-Service is a business model now.</strong> People selling agent subscriptions, running 6-agent sales machines 24/7. The playbook: build agents that generate revenue, then sell the blueprints.</p>
+    <p><strong>3. Karpathy's CLI thesis validates everything.</strong> 7,477 bookmarks saying CLIs are the native AI interface. That's literally what we're building on.</p>
+    <p style="margin-top:12px;font-style:italic;color:var(--text-muted);">The $41K vibe coder is proof: content IS the product. Product IS the content. 🐟</p>
   </div>
 
   <!-- REPLY CTA -->
   <div class="reply-cta">
-    <p>"Was this the right mix today?<br>What do you want more of?"</p>
+    <p>"Which story grabbed you?<br>What should I hunt for tomorrow?"</p>
     <a href="#" class="reply-btn">💬 Reply to This Trawl</a>
-    <div class="hint">Just reply naturally — "more deep dives" or "loved the dad zone." I learn from every response.</div>
+    <div class="hint">Just reply naturally — "more security stuff" or "loved the Karpathy deep dive." I learn from every response.</div>
   </div>
 
   <div class="email-footer">
     <p>You're receiving this because you asked for it. <a href="#">Manage preferences</a> · <a href="#">Unsubscribe</a></p>
     <p style="margin-top:8px;">© 2026 Trawly · Trawling the internet so you don't have to. 🐟</p>
+    <p style="margin-top:4px;font-size:11px;color:#94a3b8;">Est. cost: ~$0.20 | Sources: 8 API queries, 3 web searches</p>
   </div>
 
 </div>
