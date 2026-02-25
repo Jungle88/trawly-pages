@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Personal Fitness Coach — Chop</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=DM+Serif+Display&display=swap');
+
+  :root {
+    --teal: #0d9488;
+    --teal-light: #ccfbf1;
+    --teal-dark: #065f57;
+    --warm-white: #fafaf8;
+    --cream: #f5f3ef;
+    --text: #1a1a1a;
+    --text-light: #555;
+    --accent: #f0a500;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 15px; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    color: var(--text);
+    background: var(--warm-white);
+    line-height: 1.65;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 48px 56px;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 72px 24px 56px;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    color: white;
+    border-radius: 16px;
+    margin-bottom: 48px;
+  }
+  .hero-emoji { font-size: 3rem; margin-bottom: 12px; }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .hero .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 400;
+  }
+  .hero .tagline {
+    margin-top: 24px;
+    font-size: 0.9rem;
+    opacity: 0.75;
+    font-style: italic;
+  }
+
+  /* SECTIONS */
+  section { margin-bottom: 40px; }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--teal-dark);
+    margin-bottom: 16px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2 .emoji { font-size: 1.3rem; }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--teal);
+    margin: 20px 0 8px;
+  }
+
+  p { margin-bottom: 12px; color: var(--text-light); }
+  p.lead { font-size: 1.05rem; color: var(--text); }
+
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .card {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid var(--teal);
+  }
+  .card.full { grid-column: 1 / -1; }
+  .card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .card p { font-size: 0.9rem; margin-bottom: 0; }
+
+  /* FLOW */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 16px 0;
+  }
+  .flow-step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    position: relative;
+    padding-bottom: 20px;
+  }
+  .flow-step:last-child { padding-bottom: 0; }
+  .flow-step::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    bottom: 0;
+    width: 2px;
+    background: var(--teal-light);
+  }
+  .flow-step:last-child::before { display: none; }
+  .flow-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .flow-content h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .flow-content p { font-size: 0.9rem; margin-bottom: 0; }
+
+  /* SAMPLE WEEK TABLE */
+  .week-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.88rem;
+  }
+  .week-table th {
+    background: var(--teal);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+  }
+  .week-table th:first-child { border-radius: 8px 0 0 0; }
+  .week-table th:last-child { border-radius: 0 8px 0 0; }
+  .week-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e8e5e0;
+  }
+  .week-table tr:nth-child(even) td { background: var(--cream); }
+  .week-table .rest { color: var(--teal); font-style: italic; }
+
+  /* INTAKE LIST */
+  .intake-list {
+    list-style: none;
+    margin: 16px 0;
+  }
+  .intake-list li {
+    padding: 10px 16px;
+    background: var(--cream);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.93rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .intake-list li .dot {
+    width: 8px; height: 8px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* PRIVACY BOX */
+  .privacy-box {
+    background: var(--teal-light);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 16px 0;
+  }
+  .privacy-box p { color: var(--teal-dark); margin-bottom: 8px; }
+  .privacy-box p:last-child { margin-bottom: 0; }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+    padding: 48px 24px;
+    background: var(--cream);
+    border-radius: 16px;
+    margin-top: 48px;
+  }
+  .cta h2 { justify-content: center; color: var(--teal-dark); }
+  .cta p { color: var(--text-light); max-width: 480px; margin: 0 auto 12px; }
+  .cta .imessage {
+    display: inline-block;
+    margin-top: 16px;
+    background: var(--teal);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: #e8e5e0;
+    margin: 40px 0;
+  }
+
+  /* PRINT */
+  @media print {
+    html { font-size: 13px; }
+    body { background: white; }
+    .page { padding: 32px 40px; max-width: none; }
+    .hero { page-break-after: avoid; }
+    section { page-break-inside: avoid; }
+    .card-grid { page-break-inside: avoid; }
+    .cta { page-break-inside: avoid; }
+  }
+
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-emoji">💪</div>
+    <h1>Your Personal Fitness Coach</h1>
+    <p class="subtitle">Powered by Chop · Available 24/7 via iMessage</p>
+    <p class="tagline">A program built around your life — not the other way around</p>
+  </div>
+
+  <!-- WHAT THIS IS -->
+  <section>
+    <h2><span class="emoji">✨</span> What This Is</h2>
+    <p class="lead">
+      Meet Chop — your personal AI fitness coach, right in your iMessage. No apps to download, no awkward gym sessions with a stranger, no rigid schedules that fall apart when life happens.
+    </p>
+    <p>
+      Chop builds you a fully personalised training program, adjusts it week by week based on how you're feeling, and is always just a text away — whether you need today's workout, a quick form check, a swap for an exercise that doesn't feel right, or just someone in your corner cheering you on.
+    </p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h4>🕐 Always Available</h4>
+        <p>Text anytime — before, during, or after your workout. Early morning or late night. No scheduling needed.</p>
+      </div>
+      <div class="card">
+        <h4>🎯 Fully Personalised</h4>
+        <p>Your program is built around your goals, your equipment, your schedule, and your life with two little ones.</p>
+      </div>
+      <div class="card">
+        <h4>🔄 Adapts With You</h4>
+        <p>Tired? Sore? Can't make the gym? Chop adjusts on the fly — no guilt, just a new plan.</p>
+      </div>
+      <div class="card">
+        <h4>🤝 Zero Judgement</h4>
+        <p>Infinite patience. No stupid questions. Whether it's your first week or your fiftieth, Chop meets you where you are.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <h2><span class="emoji">📱</span> How It Works</h2>
+    <p>Everything happens via iMessage. It's simple:</p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <h4>Tell Chop About You</h4>
+          <p>Your fitness background, goals, any injuries, what equipment you have access to, how many days you can train, and what you actually enjoy doing.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <h4>Get Your Program</h4>
+          <p>Chop builds a personalised weekly training plan — with exercises, sets, reps, rest times, and descriptions so you know exactly what to do.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <h4>Train With Support</h4>
+          <p>Before each session, Chop sends your workout. During the session, text anytime — "is my form right?", "this hurts, what should I swap?", "what weight should I use?". After, a quick check-in: how did it go?</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <h4>Evolve Weekly</h4>
+          <p>Each week, Chop reviews your feedback and progress, then adjusts the program. More of what works, less of what doesn't, progressive overload when you're ready.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-content">
+          <h4>Life Happens? No Problem</h4>
+          <p>Can't make the gym? Chop sends a home or park-with-the-kids alternative within minutes. Missed a session? No guilt — just "want to reschedule?"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ACCOUNTABILITY -->
+  <section>
+    <h2><span class="emoji">🔥</span> Accountability That Actually Works</h2>
+    <p>The hardest part of fitness isn't the workout — it's showing up. Chop helps with that too, without being annoying about it.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h4>☀️ Morning Check-In</h4>
+        <p>A warm, personalised text on training days. Not a robot alarm — a genuine "you've got this" that actually feels good to receive.</p>
+      </div>
+      <div class="card">
+        <h4>💬 Gentle Nudges</h4>
+        <p>Missed a planned session? No guilt trip. Just "hey, want to reschedule for tomorrow, or would a quick home workout work better?"</p>
+      </div>
+      <div class="card">
+        <h4>📊 Weekly Reflections</h4>
+        <p>A quick end-of-week summary: what you crushed, what was tough, how next week's plan adapts. See your progress build over time.</p>
+      </div>
+      <div class="card">
+        <h4>🎉 Celebrating Wins</h4>
+        <p>First pull-up? Consistency streak? Heavier deadlift? Chop notices, remembers, and celebrates with you. Every win counts.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SAMPLE WEEK -->
+  <section>
+    <h2><span class="emoji">📅</span> A Sample Week</h2>
+    <p>Here's what a typical week might look like (this will be fully customised to you once we chat):</p>
+
+    <table class="week-table">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Session</th>
+          <th>Focus</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Monday</strong></td>
+          <td>Strength A</td>
+          <td>Lower body — squats, lunges, glute bridges</td>
+          <td>40 min</td>
+        </tr>
+        <tr>
+          <td><strong>Tuesday</strong></td>
+          <td class="rest">Rest / Light Walk</td>
+          <td class="rest">Recovery, 10-min stretch if you feel like it</td>
+          <td class="rest">—</td>
+        </tr>
+        <tr>
+          <td><strong>Wednesday</strong></td>
+          <td>Strength B</td>
+          <td>Upper body — push-ups, rows, shoulder press</td>
+          <td>35 min</td>
+        </tr>
+        <tr>
+          <td><strong>Thursday</strong></td>
+          <td class="rest">Rest</td>
+          <td class="rest">Full rest day</td>
+          <td class="rest">—</td>
+        </tr>
+        <tr>
+          <td><strong>Friday</strong></td>
+          <td>Full Body + Core</td>
+          <td>Compound movements, core finisher</td>
+          <td>40 min</td>
+        </tr>
+        <tr>
+          <td><strong>Saturday</strong></td>
+          <td>Active Fun</td>
+          <td>Park workout with the kids, walk, swim — your choice</td>
+          <td>30 min</td>
+        </tr>
+        <tr>
+          <td><strong>Sunday</strong></td>
+          <td class="rest">Rest + Reflect</td>
+          <td class="rest">Weekly check-in with Chop, plan next week</td>
+          <td class="rest">—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><em>Every workout comes with full exercise descriptions, so you always know exactly what to do — even if you've never done the exercise before.</em></p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- INTAKE BRIEF -->
+  <section>
+    <h2><span class="emoji">📋</span> What Chop Needs From You</h2>
+    <p>To build your perfect program, Chop will ask you about:</p>
+
+    <ul class="intake-list">
+      <li><span class="dot"></span> Your current fitness level — beginner, intermediate, or somewhere in between</li>
+      <li><span class="dot"></span> Any injuries, pain points, or medical conditions to work around</li>
+      <li><span class="dot"></span> Your goals — strength, weight loss, tone, energy, mental health, a specific event?</li>
+      <li><span class="dot"></span> What equipment you have access to (gym, home, park?)</li>
+      <li><span class="dot"></span> How many days per week you can realistically train</li>
+      <li><span class="dot"></span> How long you want each session to be</li>
+      <li><span class="dot"></span> Exercises you enjoy — and ones you hate</li>
+      <li><span class="dot"></span> Any past experience with PTs or programs (what worked, what didn't)</li>
+      <li><span class="dot"></span> Whether you'd like nutrition guidance too</li>
+    </ul>
+
+    <p>No pressure to have all the answers right away. You can share as much or as little as you want, and Chop will ask smart follow-up questions to fill in the gaps.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRIVACY -->
+  <section>
+    <h2><span class="emoji">🔒</span> Privacy & Trust</h2>
+    <div class="privacy-box">
+      <p><strong>This is your space.</strong> When you're chatting with Chop about your fitness, those conversations are between you and Chop.</p>
+      <p>David won't see your workout details, your check-ins, or anything you share — unless you choose to tell him yourself. In this context, Chop works for <strong>you</strong>.</p>
+      <p>No judgement. No reporting back. Just a coach fully focused on helping you feel strong, confident, and energised.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2><span class="emoji">🚀</span> Ready to Start?</h2>
+    <p>Just send Chop a message. Introduce yourself, share what you're hoping to get out of this, and let's build something that works for <em>your</em> life.</p>
+    <p>No perfect time to start. No prerequisites. Just you, showing up for yourself.</p>
+    <div class="imessage">Text Chop on iMessage →</div>
+  </div>
+
+</div>
+</body>
+</html>
