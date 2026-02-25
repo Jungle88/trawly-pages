@@ -6,53 +6,64 @@
 <title>Trawly — The Daily Trawl (Format B)</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a2e; background: #f0ece6; line-height: 1.6; }
-  .email-wrap { max-width: 600px; margin: 32px auto; padding: 0 16px; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a2e; background: #f0ede8; line-height: 1.65; }
+  .email-wrap { max-width: 620px; margin: 32px auto; padding: 0 16px; }
   .email { background: #FFFDF9; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
 
   /* Header */
-  .header { padding: 32px 28px 24px; border-bottom: 2px solid #E8825D; }
-  .header .brand { font-size: 28px; font-weight: 800; color: #1a1a2e; }
-  .header .brand span { color: #E8825D; }
-  .header .date { font-size: 13px; color: #8b8b8b; margin-top: 4px; }
-  .header .hook { font-size: 16px; color: #374151; margin-top: 12px; line-height: 1.5; }
+  .header { padding: 32px 32px 24px; border-bottom: 2px solid #e8e0d8; }
+  .header .logo { font-size: 28px; font-weight: 800; color: #1a1a2e; margin-bottom: 2px; }
+  .header .logo span { color: #1d9bf0; }
+  .header .date { font-size: 13px; color: #8899a6; }
 
-  /* Section labels */
-  .section { padding: 24px 28px; border-bottom: 1px solid #f0ece6; }
+  /* Sections */
+  .section { padding: 28px 32px; border-bottom: 1px solid #f0ede8; }
   .section:last-of-type { border-bottom: none; }
-  .section-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #E8825D; margin-bottom: 12px; }
-  .section h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #1a1a2e; }
-  .section p { font-size: 15px; color: #4b5563; margin-bottom: 8px; }
-  .section .why { font-size: 14px; color: #6b7280; border-left: 3px solid #E8825D; padding-left: 12px; margin: 12px 0; font-style: italic; }
-  .section .best-take { font-size: 14px; color: #374151; background: #FFF5F0; padding: 10px 14px; border-radius: 8px; margin-top: 8px; }
+  .section-label { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #1d9bf0; margin-bottom: 16px; }
+  .section h2 { font-size: 22px; font-weight: 800; margin-bottom: 10px; color: #1a1a2e; }
+  .section h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; margin-top: 20px; color: #1a1a2e; }
+  .section h3:first-of-type { margin-top: 0; }
+  .section p { font-size: 15px; color: #374151; margin-bottom: 8px; }
+  .section .subtle { font-size: 13px; color: #8899a6; }
 
-  /* Tweet card - the star */
-  .tweet-card { background: #f8fafc; border: 1px solid #e1e8ed; border-radius: 12px; padding: 16px 20px; margin: 12px 0; }
-  .tweet-card .tc-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  .tweet-card .tc-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 16px; }
-  .tweet-card .tc-name { font-weight: 700; font-size: 14px; }
-  .tweet-card .tc-handle { font-size: 13px; color: #536471; }
-  .tweet-card .tc-text { font-size: 15px; margin-bottom: 10px; line-height: 1.5; color: #1a1a2e; }
-  .tweet-card .tc-stats { font-size: 12px; color: #536471; display: flex; gap: 16px; }
-  .tweet-card .tc-link { display: inline-block; margin-top: 10px; color: #1d9bf0; font-size: 13px; text-decoration: none; font-weight: 600; }
+  /* Hook */
+  .hook { background: #FFFDF9; padding: 28px 32px; border-bottom: 2px solid #f0ede8; }
+  .hook p { font-size: 17px; color: #374151; line-height: 1.7; font-style: italic; }
+
+  /* Tweet cards */
+  .tweet-card { background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; padding:16px 20px; margin:12px 0; }
+  .tweet-card .tc-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .tweet-card .tc-avatar { width:40px; height:40px; background:#1d9bf0; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:16px; flex-shrink:0; }
+  .tweet-card .tc-name { font-weight:700; font-size:14px; }
+  .tweet-card .tc-handle { font-size:13px; color:#536471; }
+  .tweet-card .tc-text { font-size:15px; margin-bottom:10px; line-height:1.5; }
+  .tweet-card .tc-stats { font-size:12px; color:#536471; display:flex; gap:16px; flex-wrap:wrap; }
+  .tweet-card .tc-link { display:inline-block; margin-top:10px; color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600; }
+
+  /* Why it matters box */
+  .wim { background:#f0f7ff; border-left:3px solid #1d9bf0; padding:12px 16px; border-radius:0 8px 8px 0; margin:12px 0; font-size:14px; color:#374151; }
+  .wim strong { color:#1d9bf0; }
+
+  /* Best take */
+  .best-take { background:#f8f5ff; border-left:3px solid #7c3aed; padding:12px 16px; border-radius:0 8px 8px 0; margin:12px 0; font-size:14px; color:#374151; }
 
   /* Quick bites */
-  .quick-bite { padding: 8px 0; border-bottom: 1px solid #f0ece6; font-size: 14px; }
-  .quick-bite:last-child { border-bottom: none; }
-  .quick-bite a { color: #E8825D; text-decoration: none; font-weight: 600; }
+  .quick-bite { padding: 10px 0; border-bottom: 1px solid #f0ede8; }
+  .quick-bite:last-of-type { border-bottom: none; }
+  .quick-bite a { color: #1d9bf0; text-decoration: none; font-weight: 600; font-size: 14px; }
+  .quick-bite .qb-desc { font-size: 13px; color: #8899a6; margin-top: 2px; }
 
   /* Sign off */
-  .signoff { padding: 28px; text-align: center; background: #FFF5F0; }
-  .signoff p { font-size: 15px; color: #4b5563; }
-  .signoff .cta { display: inline-block; margin-top: 16px; background: #E8825D; color: white; padding: 12px 32px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 15px; }
+  .signoff { background: linear-gradient(135deg, #f8f5ff, #FFFDF9); padding: 28px 32px; text-align: center; }
+  .signoff p { font-size: 15px; color: #374151; margin-bottom: 8px; }
+  .signoff .cta { display: inline-block; background: #1d9bf0; color: white; padding: 12px 32px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; margin-top: 12px; }
 
-  .footer { padding: 20px 28px; text-align: center; font-size: 12px; color: #9ca3af; }
-  .footer a { color: #E8825D; text-decoration: none; }
+  .footer { padding: 20px 32px; text-align: center; font-size: 12px; color: #8899a6; }
+  .footer a { color: #1d9bf0; text-decoration: none; }
 
-  @media (max-width: 640px) {
+  @media (max-width: 620px) {
     .email-wrap { margin: 16px auto; }
-    .section { padding: 20px 20px; }
-    .header { padding: 24px 20px 20px; }
+    .section, .hook, .header { padding-left: 20px; padding-right: 20px; }
   }
 </style>
 </head>
@@ -63,20 +74,24 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="brand">🐟 traw<span>ly</span></div>
+    <div class="logo">🐟 traw<span>ly</span></div>
     <div class="date">Thursday, February 26, 2026 · The Daily Trawl</div>
-    <div class="hook">Your AI agent is now a hacker's prize asset. A vibe coder hit $41K on stream. Karpathy dropped a 7,477-bookmark bomb about why CLIs are everything. And Riley Brown made an animated video with one prompt. It's raining in Sydney but the internet's on fire. ☔🔥</div>
+  </div>
+
+  <!-- 🎣 THE HOOK -->
+  <div class="hook">
+    <p>Your AI assistant is now a hacker's prize asset. Karpathy just dropped a 7,477-bookmark thesis on why CLIs are the future of AI. And some guy made $41K in 139 days by vibe coding on livestream. Thursday morning, let's get into it.</p>
   </div>
 
   <!-- 🔥 THE BIG ONE -->
   <div class="section">
     <div class="section-label">🔥 The Big One</div>
-    <h3>Karpathy: CLIs Are THE AI Interface</h3>
-    <p>Andrej Karpathy's biggest tweet of the day — and maybe the month. His thesis: command-line interfaces are "legacy" technology, which is exactly what makes them perfect for AI agents. Agents can natively use, combine, and chain CLIs via the terminal. This is why OpenClaw works. This is why Trawly works.</p>
+    <h2>Karpathy Says CLIs Are the AI-Native Interface</h2>
+    <p>Andrej Karpathy's biggest tweet of the day — 7,477 bookmarks — argues that CLIs are "super exciting precisely because they are legacy technology." AI agents can natively use them, combine them, interact via the entire terminal toolkit. The implication: the future of AI isn't fancy GUIs. It's the terminal.</p>
 
     <div class="tweet-card">
       <div class="tc-header">
-        <div class="tc-avatar" style="background:#4caf50;">A</div>
+        <div class="tc-avatar" style="background:#333;">A</div>
         <div><div class="tc-name">Andrej Karpathy</div><div class="tc-handle">@karpathy · Feb 25</div></div>
       </div>
       <div class="tc-text">CLIs are super exciting precisely because they are a "legacy" technology, which means AI agents can natively and easily use them, combine them, interact with them via the entire terminal toolkit. E.g ask your Claude/Codex agent to install this new Polymarket CLI and ask for any...</div>
@@ -84,135 +99,140 @@
       <a href="https://x.com/karpathy/status/2026360908398862478" class="tc-link">View on X →</a>
     </div>
 
-    <div class="why"><strong>Why it matters:</strong> 7,477 people bookmarked this. That's not engagement — that's people saving a thesis to reference later. Legacy tech = agent-native tech. The contrarian insight that explains an entire ecosystem.</div>
-    <div class="best-take">🎯 <strong>Best take:</strong> @steipete on OpenClaw's design: "They are markdown files on git, no need to convert" — the simplicity IS the product.</div>
+    <div class="wim"><strong>Why it matters:</strong> This is OpenClaw's entire thesis, validated by the most credible voice in AI. Legacy tech = agent-native tech. The terminal wins.</div>
+    <div class="best-take"><strong>🎯 Best take:</strong> @steipete nailed it — "They are markdown files on git, no need to convert." The simplicity IS the product.</div>
   </div>
 
   <!-- ⚡ THE FEED -->
   <div class="section">
     <div class="section-label">⚡ The Feed</div>
 
-    <!-- Item 1 -->
-    <h3>Your AI Agent Is a Hacker's Prize Now</h3>
+    <h3>Your AI Assistant Is a Hacker's Prize Now</h3>
+    <p>Cato Networks found a UK CEO's OpenClaw instance being sold on dark markets. The AI assistant was the target — not the server. First case of an agent targeted as the primary asset. Plus: 824+ malicious ClawHub skills this month.</p>
     <div class="tweet-card">
       <div class="tc-header">
-        <div class="tc-avatar" style="background:#1d9bf0;">C</div>
+        <div class="tc-avatar">C</div>
         <div><div class="tc-name">Cato Networks</div><div class="tc-handle">@CatoNetworks · Feb 25</div></div>
       </div>
-      <div class="tc-text">CATO CTRL found a threat actor selling root shell access to a UK automation company. The real target? The CEO's OpenClaw-based AI personal assistant — loaded with company secrets, credentials, and strategic plans.</div>
-      <div class="tc-stats"><span>❤️ 2.1K</span><span>🔁 891</span><span>🔖 1.4K</span></div>
+      <div class="tc-text">🚨 NEW RESEARCH: Cato CTRL discovered a threat actor selling root shell access to a UK automation company. The real prize? The CEO's OpenClaw-based AI personal assistant — packed with sensitive business data, credentials, and decision-making context.</div>
+      <div class="tc-stats"><span>❤️ 2.1K</span><span>🔁 892</span><span>🔖 1.4K</span></div>
       <a href="https://x.com/CatoNetworks/status/2026658538043404745" class="tc-link">View on X →</a>
     </div>
-    <p>First documented case of an AI agent targeted as the primary breach asset. Our allowlist security from Day 1 looks smart. Worth a review though.</p>
 
-    <hr style="border:none;border-top:1px solid #f0ece6;margin:20px 0;">
-
-    <!-- Item 2 -->
-    <h3>$41K in 139 Days — On Livestream</h3>
+    <h3>$41K in 139 Days From Vibe Coding on Stream</h3>
+    <p>A creator started vibe coding live 139 days ago. Today: $41,000 in revenue with just a Claude Code subscription. The playbook: build in public → monetise audience AND product.</p>
     <div class="tweet-card">
       <div class="tc-header">
-        <div class="tc-avatar" style="background:#ff9800;">O</div>
+        <div class="tc-avatar">O</div>
         <div><div class="tc-name">Om Patel</div><div class="tc-handle">@om_patel5 · Feb 25</div></div>
       </div>
-      <div class="tc-text">This guy started vibe coding 139 days ago ON LIVE. Today, he just crossed $41,000 in revenue. Crazy to think what you can do with JUST a Claude Code subscription. 🤯</div>
+      <div class="tc-text">This guy started vibe coding 139 days ago ON LIVE. Today, he just crossed $41,000 in revenue. Crazy to think what you can do with JUST a Claude Code subscription.</div>
       <div class="tc-stats"><span>❤️ 2,651</span><span>🔁 104</span><span>🔖 1,413</span></div>
       <a href="https://x.com/om_patel5/status/2026447080928002163" class="tc-link">View on X →</a>
     </div>
-    <p>Content IS the product. Product IS the content. The playbook: build in public → monetise the audience AND what you're building.</p>
 
-    <hr style="border:none;border-top:1px solid #f0ece6;margin:20px 0;">
-
-    <!-- Item 3 -->
-    <h3>One Prompt → Animated Video</h3>
+    <h3>One-Prompt Animated Videos Are Here</h3>
+    <p>Riley Brown showed full animated video creation via OpenClaw — prompt → video → edit → ElevenLabs music → final cut. Then Blender integration for one-prompt 3D web assets. 3,138 bookmarks on the video post alone.</p>
     <div class="tweet-card">
       <div class="tc-header">
-        <div class="tc-avatar" style="background:#e91e63;">R</div>
+        <div class="tc-avatar">R</div>
         <div><div class="tc-name">Riley Brown</div><div class="tc-handle">@rileybrown · Feb 25</div></div>
       </div>
-      <div class="tc-text">OpenClaw can create animated videos with a skill. Full walkthrough: prompt → video generated → edit with OpenClaw → music with ElevenLabs → final cut. All vibecoded. 🎬</div>
+      <div class="tc-text">OpenClaw can create animated videos with a skill. Full walkthrough: prompt → video generated → edit with OpenClaw → music with ElevenLabs → final cut. All vibecoded.</div>
       <div class="tc-stats"><span>❤️ 1,936</span><span>🔁 251</span><span>🔖 3,138</span></div>
       <a href="https://x.com/rileybrown/status/2026159128738226319" class="tc-link">View on X →</a>
     </div>
-    <p>Bookmark-to-like ratio: 162%. People aren't just liking — they're saving to replicate. He also did Blender → 3D web assets with one prompt (2,161 likes).</p>
 
-    <hr style="border:none;border-top:1px solid #f0ece6;margin:20px 0;">
-
-    <!-- Item 4 -->
-    <h3>6 AI Agents Running a Full Sales Machine</h3>
+    <h3>Levelsio Gets Feedback From the Actual Cyberpunk Dev</h3>
+    <p>Posted about building something like Cyberpunk 2077's Braindance. The actual developer who made it replied with tips. This is why you build in public on X.</p>
     <div class="tweet-card">
       <div class="tc-header">
-        <div class="tc-avatar" style="background:#607d8b;">M</div>
-        <div><div class="tc-name">Manoj Shah</div><div class="tc-handle">@dev_manoj_shah · Feb 25</div></div>
+        <div class="tc-avatar" style="background:#10B981;">L</div>
+        <div><div class="tc-name">@levelsio</div><div class="tc-handle">@levelsio · Feb 25</div></div>
       </div>
-      <div class="tc-text">My OpenClaw bot runs 6 AI agents 24/7: Finds local businesses without a website → Builds custom demo site → Sends outreach with preview + payment link → Handles objections and closes the sale</div>
-      <div class="tc-stats"><span>❤️ 35</span><span>🔁 16</span><span>🔖 9</span></div>
-      <a href="https://x.com/dev_manoj_shah/status/2026591606036475972" class="tc-link">View on X →</a>
+      <div class="tc-text">Only on X can you post about making something similar to Cyberpunk 2077's Braindance and get a reply from the developer responsible for making it with tips on how to improve it</div>
+      <div class="tc-stats"><span>❤️ 1,289</span><span>🔁 18</span><span>🔖 125</span></div>
+      <a href="https://x.com/levelsio/status/2026521223321047485" class="tc-link">View on X →</a>
     </div>
-    <p>Low engagement but the concept is fire: fully automated lead gen → build → outreach → close. Zero humans in the loop.</p>
   </div>
 
   <!-- 🧵 THREAD OF THE DAY -->
   <div class="section">
     <div class="section-label">🧵 Thread of the Day</div>
-    <h3>Karpathy's Token Infrastructure Thesis</h3>
-    <p>A deep thread worth 10+ minutes of your time on the fundamental constraints in LLM compute:</p>
-
+    <h2>Karpathy on the Token Tsunami</h2>
+    <p>A deep thread on what's coming for LLM infrastructure — and where the money is.</p>
     <div class="tweet-card">
       <div class="tc-header">
-        <div class="tc-avatar" style="background:#4caf50;">A</div>
+        <div class="tc-avatar" style="background:#333;">A</div>
         <div><div class="tc-name">Andrej Karpathy</div><div class="tc-handle">@karpathy · Feb 25</div></div>
       </div>
-      <div class="tc-text">Deep thread on the fundamental constraints in LLM compute infrastructure. Two completely distinct pools of resources from chip fabrication — and token demand is about to tsunami...</div>
+      <div class="tc-text">Deep thread on the fundamental constraints in LLM compute infrastructure. Two completely distinct pools of resources from chip fabrication. The opportunity is in orchestrating them just right...</div>
       <div class="tc-stats"><span>❤️ 5,886</span><span>🔁 375</span><span>🔖 3,913</span></div>
       <a href="https://x.com/karpathy/status/2026452488434651264" class="tc-link">View on X →</a>
     </div>
-
-    <p><strong>The bullet summary:</strong></p>
-    <p>• Chip fabrication gives you two distinct resource pools: memory-bound vs compute-bound</p>
-    <p>• Token demand is about to tsunami — and most infra isn't ready</p>
-    <p>• The next big companies will orchestrate workload-to-hardware matching</p>
-    <p>• This isn't about better models — it's about the infrastructure layer</p>
-    <p>• He's running LLMs at home (Mac Mini + DGX Spark) and it's STILL not enough compute</p>
+    <p style="margin-top:12px;"><strong>Key bullets:</strong></p>
+    <ul style="font-size:14px;color:#374151;padding-left:20px;margin-top:6px;line-height:1.8;">
+      <li>Chip fabrication gives you two distinct pools: memory-bound vs compute-bound</li>
+      <li>Token demand is about to tsunami — orchestration layer is the opportunity</li>
+      <li>Not about better models — about the infrastructure that serves them</li>
+      <li>Home lab update: Mac Mini + DGX Spark still not enough compute</li>
+      <li>The next big companies get built in the orchestration layer</li>
+    </ul>
   </div>
 
-  <!-- 😂 THE SCROLL-STOPPER -->
+  <!-- 😂 SCROLL-STOPPER -->
   <div class="section">
     <div class="section-label">😂 The Scroll-Stopper</div>
-
+    <h2>6-Agent Sales Machine Goes Brrr</h2>
     <div class="tweet-card">
       <div class="tc-header">
-        <div class="tc-avatar" style="background:#9c27b0;">L</div>
-        <div><div class="tc-name">Pieter Levels</div><div class="tc-handle">@levelsio · Feb 25</div></div>
+        <div class="tc-avatar" style="background:#F59E0B;">M</div>
+        <div><div class="tc-name">Dev Manoj Shah</div><div class="tc-handle">@dev_manoj_shah · Feb 25</div></div>
       </div>
-      <div class="tc-text">Only on X can you post about making something similar to Cyberpunk 2077's Braindance and get a reply from the developer responsible for making it with tips on how to improve it 🤯</div>
-      <div class="tc-stats"><span>❤️ 1,289</span><span>🔁 18</span><span>🔖 125</span></div>
-      <a href="https://x.com/levelsio/status/2026521223321047485" class="tc-link">View on X →</a>
+      <div class="tc-text">My OpenClaw bot runs 6 AI agents 24/7: Finds local businesses without a website → Builds custom demo site → Sends outreach with preview + payment link → Handles objections and closes the sale. Full funnel, zero humans.</div>
+      <div class="tc-stats"><span>❤️ 35</span><span>🔁 16</span><span>🔖 9</span></div>
+      <a href="https://x.com/dev_manoj_shah/status/2026591606036475972" class="tc-link">View on X →</a>
     </div>
-
-    <p>Build something → post about it → get feedback from THE person who invented the thing. This is the X magic loop that no other platform can match.</p>
+    <p style="color:#8899a6;font-style:italic;margin-top:8px;">The agents are building websites AND handling sales objections now. We're cooked. 🤖</p>
   </div>
 
   <!-- 🍪 QUICK BITES -->
   <div class="section">
     <div class="section-label">🍪 Quick Bites</div>
-    <div class="quick-bite">🔒 824+ malicious skills found on ClawHub this month (CVE-2026-25253 — 1-click RCE). <a href="https://x.com/ipqiyvA/status/2026656766839369945">details →</a></div>
-    <div class="quick-bite">🎮 @ThatAmberVibe launching first "Build Your OpenClaw Agent" subscription service. Agent-as-a-Service is real. <a href="https://x.com/ThatAmberVibe/status/2026621277557965064">watch →</a></div>
-    <div class="quick-bite">🇨🇳 Chinese OpenClaw ecosystem exploding — Xiaohongshu bots, botdrop apps, 300K+ views on builders. <a href="https://x.com/meitao/status/2026658420770689318">see →</a></div>
-    <div class="quick-bite">💊 @levelsio going 10g creatine daily. "5g for muscle, 5g for brain. 20g if you're traveling for sleep deprivation." <a href="https://x.com/levelsio/status/2026523230085718092">stack →</a></div>
-    <div class="quick-bite">👨‍👧‍👦 Rainy Sydney = indoor treasure hunt. Hide 10 objects, draw a map for the 5yo. When he asks "why?" — ask "what do YOU think?" 🧠</div>
+    <div class="quick-bite">
+      <a href="https://x.com/ThatAmberVibe/status/2026621277557965064">Agent-as-a-Service launches</a>
+      <div class="qb-desc">ThatAmberVibe streaming her "Build Your OpenClaw Agent" subscription platform launch. Agent archetypes for sale.</div>
+    </div>
+    <div class="quick-bite">
+      <a href="https://x.com/karpathy/status/2026427750559744309">Karpathy on mechanistic interpretability</a>
+      <div class="qb-desc">Recommends @N8Programs — "a beauty for anyone interested in getting into LLMs."</div>
+    </div>
+    <div class="quick-bite">
+      <a href="https://x.com/levelsio/status/2026523230085718092">Levelsio goes 10g creatine daily</a>
+      <div class="qb-desc">5g for muscle, 5g for brain. 20g if traveling for sleep deprivation. Biohacking corner.</div>
+    </div>
+    <div class="quick-bite">
+      <a href="https://x.com/jacobtechtavern/status/2026658563448324552">OpenClaw explained simply</a>
+      <div class="qb-desc">"Claude + Memory + Terminal" — @jacobtechtavern's explainer is going viral in dev circles.</div>
+    </div>
+    <div class="quick-bite">
+      <a href="#">Chinese OpenClaw ecosystem exploding</a>
+      <div class="qb-desc">Xiaohongshu bots, botdrop apps — 300K+ views on Chinese builder content. The ecosystem is going global.</div>
+    </div>
   </div>
 
-  <!-- 🎣 THE SIGN-OFF -->
+  <!-- 🎣 SIGN-OFF -->
   <div class="signoff">
-    <p>Three themes today: <strong>agents are attack surfaces now</strong>, <strong>CLIs are the AI interface</strong>, and <strong>building live on stream prints money</strong>. The gap between "security risk" and "revenue machine" is the story of 2026.</p>
-    <p style="margin-top:12px;font-size:14px;color:#6b7280;">See you tomorrow. Happy trawling. 🐟</p>
-    <a href="#" class="cta">💬 Reply to This Trawl</a>
+    <p>That's today's trawl. Karpathy day — the man dropped three bangers before lunch.</p>
+    <p style="font-size:13px;color:#8899a6;">8 stories · 4 tweet embeds · ~3 min read</p>
+    <a href="#" class="cta">💬 Reply — What Did I Miss?</a>
+    <p style="font-size:12px;color:#8899a6;margin-top:16px;">👨‍👧‍👦 <strong>Dad tip:</strong> Rainy Sydney today = indoor treasure hunt. Hide 10 things, draw a map for the 5yo, let the 2yo be the "helper." Spatial reasoning + fun.</p>
   </div>
 
   <div class="footer">
-    <p>You're here because you asked for it. <a href="#">Manage</a> · <a href="#">Unsubscribe</a></p>
-    <p style="margin-top:6px;">© 2026 Trawly · trawling the internet so you don't have to</p>
-    <p style="margin-top:4px;font-size:11px;">Est. cost: ~$0.20 | Sources: 8 API queries, 3 web searches</p>
+    <p>© 2026 Trawly · Trawling the internet so you don't have to.</p>
+    <p style="margin-top:4px;"><a href="#">Manage preferences</a> · <a href="#">Unsubscribe</a></p>
+    <p style="margin-top:4px;opacity:0.6;">Est. cost: ~$0.20 | Sources: X API, Brave Search</p>
   </div>
 
 </div>
