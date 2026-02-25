@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly — The Daily Trawl (Format B)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #F7F5F2;
+    color: #1a1a2e;
+    line-height: 1.7;
+  }
+  h1, h2, h3, h4 {
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    line-height: 1.3;
+  }
+
+  .email-wrap { max-width: 600px; margin: 32px auto; padding: 0 16px; }
+  .email {
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Header — clean, minimal */
+  .header {
+    padding: 32px 32px 20px;
+    border-bottom: 2px solid #E8553D;
+  }
+  .header .logo {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #E8553D;
+    margin-bottom: 4px;
+  }
+  .header .date {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    color: #94a3b8;
+  }
+
+  /* Sections */
+  .section {
+    padding: 28px 32px;
+    border-bottom: 1px solid #f1f0ee;
+  }
+  .section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #E8553D;
+    margin-bottom: 16px;
+  }
+
+  /* The Hook */
+  .hook p {
+    font-size: 17px;
+    color: #374151;
+    font-style: italic;
+  }
+
+  /* The Big One */
+  .big-one h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: #1a1a2e;
+  }
+  .big-one p { font-size: 16px; color: #374151; margin-bottom: 10px; }
+  .big-one .callout {
+    background: #FFF8F6;
+    border-left: 3px solid #E8553D;
+    padding: 12px 16px;
+    margin: 14px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  .big-one .callout strong {
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #E8553D;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .big-one .callout p { font-size: 14px; margin: 0; color: #4B5563; }
+  .big-one .link {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    color: #E8553D;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* The Feed */
+  .feed-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f5f4f2;
+  }
+  .feed-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .feed-item h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #1a1a2e;
+  }
+  .feed-item h4 .fire { color: #E8553D; font-size: 14px; }
+  .feed-item p { font-size: 15px; color: #4B5563; margin-bottom: 4px; }
+  .feed-item .attr {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .feed-item .attr a { color: #E8553D; text-decoration: none; }
+
+  /* Thread */
+  .thread h4 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .thread ul {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+  .thread li {
+    font-size: 15px;
+    color: #4B5563;
+    margin-bottom: 8px;
+  }
+  .thread .attr {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .thread .attr a { color: #E8553D; text-decoration: none; }
+
+  /* Scroll Stopper */
+  .scroll-stopper {
+    background: #FFFBF7;
+  }
+  .scroll-stopper p {
+    font-size: 16px;
+    color: #374151;
+  }
+
+  /* Quick Bites */
+  .bites ul { list-style: none; padding: 0; }
+  .bites li {
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    color: #4B5563;
+    padding: 8px 0;
+    border-bottom: 1px solid #f5f4f2;
+  }
+  .bites li:last-child { border-bottom: none; }
+  .bites li a { color: #E8553D; text-decoration: none; font-weight: 600; }
+  .bites li .emoji { margin-right: 8px; }
+
+  /* Sign Off */
+  .signoff {
+    background: #FAFAF8;
+    text-align: center;
+  }
+  .signoff p {
+    font-size: 15px;
+    color: #64748b;
+    font-style: italic;
+  }
+  .signoff .name {
+    font-family: system-ui, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #E8553D;
+    margin-top: 8px;
+    display: block;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 20px 32px;
+    text-align: center;
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    color: #94a3b8;
+  }
+  .footer a { color: #E8553D; text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .section { padding: 24px 20px; }
+    .header { padding: 24px 20px 16px; }
+    .big-one h3 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="email-wrap">
+<div class="email">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">🎣 Trawly</div>
+    <div class="date">Wednesday, February 25, 2026 · 4 min read</div>
+  </div>
+
+  <!-- 🎣 THE HOOK -->
+  <div class="section hook">
+    <div class="section-label">🎣 The Hook</div>
+    <p>Big Tech is throwing $650 billion at AI this year and Sam Altman just admitted people aren't that excited about it. Meanwhile Nvidia reports tonight, Samsung's launching the S26 in San Francisco, and NASA has a robot on Mars driving itself around with AI. The vibes are conflicted. The money is not.</p>
+  </div>
+
+  <!-- 🔥 THE BIG ONE -->
+  <div class="section big-one">
+    <div class="section-label">🔥 The Big One</div>
+    <h3>Nvidia Reports Tonight — And Every AI Bet in the World Hinges on It</h3>
+    <p>Nvidia drops Q4 fiscal 2026 earnings after the bell today. This isn't just a chip company reporting — it's the single data point that tells you whether the $650B AI infrastructure buildout is justified or delusional. Wall Street wants Blackwell demand numbers. If they're strong, the AI capex thesis holds. If there's a wobble, things get interesting fast.</p>
+    <div class="callout">
+      <strong>Why it matters</strong>
+      <p>Bridgewater says Big Tech will spend $650B on AI this year. Nvidia's guidance tonight is the reality check on whether that spending has demand behind it — or if it's the most expensive game of chicken in history.</p>
+    </div>
+    <div class="callout">
+      <strong>Best take</strong>
+      <p>"Everyone's watching Jensen tonight the way sports fans watch the Super Bowl. Except the stakes are $3 trillion in market cap." — StockMarketWatch</p>
+    </div>
+    <a class="link" href="https://stockmarketwatch.com/live/stock-market-today/">Read more →</a>
+  </div>
+
+  <!-- ⚡ THE FEED -->
+  <div class="section">
+    <div class="section-label">⚡ The Feed</div>
+
+    <div class="feed-item">
+      <h4>The AI Boom Has a Popularity Problem <span class="fire">🔥</span></h4>
+      <p>NYT reports people loved the dot-com boom but are mostly anxious about AI. Altman himself says adoption is slower than expected. The gap between Silicon Valley's euphoria and public sentiment is widening — and that's where the opportunity lives for builders who make AI feel human.</p>
+      <div class="attr">Source: <a href="https://www.nytimes.com/2026/02/21/technology/ai-boom-backlash.html">New York Times</a></div>
+    </div>
+
+    <div class="feed-item">
+      <h4>Samsung Galaxy S26 Unpacked — Today in San Francisco</h4>
+      <p>The S26 series goes heavy on on-device AI: real-time translation, AI photo editing, a Galaxy AI assistant that supposedly does things instead of just searching. S26 Ultra gets titanium frame, 200MP camera. The real question: does "AI phone" mean anything yet?</p>
+      <div class="attr">Source: <a href="https://www.androidcentral.com/news/live/samsung-galaxy-unpacked-live-blog-galaxy-s26">Android Central</a></div>
+    </div>
+
+    <div class="feed-item">
+      <h4>Google's Gemini 3.1 Pro Quietly Becomes the Best "Boring" Model</h4>
+      <p>While everyone watched Claude vs GPT, DeepMind shipped a 1M-token context window with 77.1% on ARC-AGI-2. Feed it an entire codebase and get coherent analysis back. This is the developer workhorse release nobody's talking about.</p>
+      <div class="attr">Source: <a href="https://llm-stats.com/ai-news">LLM Stats</a></div>
+    </div>
+
+    <div class="feed-item">
+      <h4>India's AI Summit Was Glorious Chaos</h4>
+      <p>Pichai and Altman on stage talking up India's potential while behind the scenes it was logistical bedlam. Altman: "The excitement here has been incredible" (CEO-speak for "bonkers"). India's pitch: 1.4B consumers, massive talent pool, and a government that wants AI money.</p>
+      <div class="attr">Source: <a href="https://www.cnbc.com/2026/02/21/ai-summit-india-tech.html">CNBC</a></div>
+    </div>
+  </div>
+
+  <!-- 🧵 THREAD OF THE DAY -->
+  <div class="section thread">
+    <div class="section-label">🧵 Thread of the Day</div>
+    <h4>NASA's Perseverance Rover Is Now Self-Driving on Mars</h4>
+    <ul>
+      <li><strong>What happened:</strong> Perseverance is now navigating Mars using AI-planned routes instead of waiting for human operators on Earth</li>
+      <li><strong>How it works:</strong> Vision-capable AI analyzes the same terrain images human planners would, but evaluates more options faster</li>
+      <li><strong>Humans still approve:</strong> It's augmentation, not replacement — the team reviews before the rover moves</li>
+      <li><strong>Result:</strong> More ground covered per sol, more science done, less waiting for Earth-to-Mars command delays</li>
+    </ul>
+    <div class="attr">Source: <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/">ScienceDaily / NASA</a> · Read the full story →</div>
+  </div>
+
+  <!-- 😂 THE SCROLL-STOPPER -->
+  <div class="section scroll-stopper">
+    <div class="section-label">😂 The Scroll-Stopper</div>
+    <p>Idaho just passed a "Conversational AI Safety Act" through committee. Yes, <em>Idaho</em>. The state most famous for potatoes is now regulating chatbots. 2026 is a wild timeline. 🥔🤖</p>
+  </div>
+
+  <!-- 🍪 QUICK BITES -->
+  <div class="section bites">
+    <div class="section-label">🍪 Quick Bites</div>
+    <ul>
+      <li><span class="emoji">💰</span> Big Tech to spend <strong>$650B</strong> on AI infra in 2026, per Bridgewater — <a href="https://www.reuters.com/business/big-tech-invest-about-650-billion-ai-2026-bridgewater-says-2026-02-23/">Reuters</a></li>
+      <li><span class="emoji">🤖</span> Gemini 3.1 Pro: 1M token context, multimodal, 77% on ARC-AGI-2 — <a href="https://llm-stats.com/ai-news">LLM Stats</a></li>
+      <li><span class="emoji">📱</span> Samsung Galaxy S26 Unpacked live today at 10am PT — <a href="https://www.cnet.com/news-live/samsung-galaxy-unpacked-2026/">CNET</a></li>
+      <li><span class="emoji">⚖️</span> Idaho's Conversational AI Safety Act moves to second reading — <a href="https://www.troutmanprivacy.com/2026/02/proposed-state-ai-law-update-february-23-2026/">Troutman Pepper</a></li>
+      <li><span class="emoji">🇮🇳</span> India AI Summit drew Pichai, Altman, and $200B in dreams — <a href="https://www.cnbc.com/2026/02/21/ai-summit-india-tech.html">CNBC</a></li>
+    </ul>
+  </div>
+
+  <!-- 🎣 THE SIGN-OFF -->
+  <div class="section signoff">
+    <div class="section-label">🎣 The Sign-Off</div>
+    <p>Every AI bull and bear is watching the same earnings call tonight. Tomorrow we'll know if $650B was conviction or cope. Have a good Wednesday, David.</p>
+    <span class="name">— Chop ⚡</span>
+  </div>
+
+  <div class="footer">
+    <p>You're getting this because you asked for it. <a href="#">Preferences</a> · <a href="#">Unsubscribe</a></p>
+    <p style="margin-top:6px;">© 2026 Trawly · Trawling the internet for gold.</p>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

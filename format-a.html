@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly — Daily Digest (Format A)</title>
+<style>
+  :root {
+    --navy: #0B1426;
+    --indigo: #4F46E5;
+    --indigo-light: #6366F1;
+    --sand: #F5F0EB;
+    --sand-dark: #E8E0D8;
+    --warm: #D4A574;
+    --text: #1a1a2e;
+    --text-muted: #64748b;
+    --white: #FFFFFF;
+    --green: #10B981;
+    --radius: 12px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Georgia', 'Times New Roman', serif; color: var(--text); background: #E8E0D8; line-height: 1.65; }
+  h1,h2,h3,h4,h5 { font-family: system-ui, -apple-system, sans-serif; line-height: 1.3; }
+  .email-wrap { max-width: 640px; margin: 32px auto; padding: 0 16px; }
+  .email { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12); }
+  .email-header { background: var(--navy); color: white; padding: 36px 32px 28px; }
+  .email-header .greeting { font-size: 24px; font-weight: 800; font-family: system-ui, sans-serif; margin-bottom: 4px; }
+  .email-header .date { font-size: 14px; opacity: 0.55; font-family: system-ui, sans-serif; }
+  .email-header .tagline { font-size: 14px; opacity: 0.7; margin-top: 8px; font-style: italic; }
+  .weather-bar { background: linear-gradient(135deg, #3B82F6, #2563EB); color: white; padding: 16px 32px; font-family: system-ui, sans-serif; }
+  .weather-bar h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 8px; }
+  .weather-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .weather-day { text-align: center; }
+  .weather-day .wd-icon { font-size: 24px; }
+  .weather-day .wd-temp { font-size: 14px; font-weight: 700; margin-top: 2px; }
+  .weather-day .wd-label { font-size: 11px; opacity: 0.7; }
+  .weather-tip { font-size: 13px; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.15); opacity: 0.85; }
+  .block { padding: 28px 32px; border-bottom: 1px solid var(--sand); }
+  .block:last-of-type { border-bottom: none; }
+  .block-label { display: inline-flex; align-items: center; gap: 6px; font-family: system-ui, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--indigo); background: rgba(79,70,229,0.07); padding: 4px 10px; border-radius: 6px; margin-bottom: 14px; }
+  .block h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+  .block h3 a { color: var(--text); text-decoration: none; }
+  .block p { font-size: 15px; color: #374151; margin-bottom: 10px; }
+  .block .source { font-family: system-ui, sans-serif; font-size: 12px; color: var(--text-muted); }
+  .block .source a { color: var(--indigo); text-decoration: none; }
+  .block .why-matters { background: var(--sand); padding: 12px 16px; border-radius: 8px; margin-top: 12px; font-size: 14px; color: #374151; border-left: 3px solid var(--indigo); }
+  .tweet-embed { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 20px; margin: 12px 0; }
+  .tweet-author { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .tweet-avatar { width: 40px; height: 40px; background: var(--indigo); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: system-ui, sans-serif; font-size: 16px; }
+  .tweet-name { font-family: system-ui, sans-serif; font-size: 14px; font-weight: 700; }
+  .tweet-handle { font-family: system-ui, sans-serif; font-size: 13px; color: var(--text-muted); }
+  .tweet-text { font-size: 15px; margin-bottom: 8px; }
+  .tweet-meta { font-family: system-ui, sans-serif; font-size: 12px; color: var(--text-muted); display: flex; gap: 16px; }
+  .daily-boost { background: linear-gradient(135deg, #FEF3C7, #FFFBEB); border-bottom: none; }
+  .daily-boost .block-label { color: #B45309; background: rgba(180,83,9,0.1); }
+  .chops-corner { background: linear-gradient(135deg, #EDE9FE, #F5F3FF); border-bottom: none; }
+  .chops-corner .block-label { color: #7C3AED; background: rgba(124,58,237,0.1); }
+  .reply-cta { padding: 32px; text-align: center; background: var(--sand); }
+  .reply-cta p { font-size: 16px; color: var(--text); margin-bottom: 16px; font-style: italic; }
+  .reply-cta .reply-btn { display: inline-block; background: var(--indigo); color: white; padding: 14px 36px; border-radius: 10px; font-family: system-ui, sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; }
+  .reply-cta .hint { font-size: 13px; color: var(--text-muted); margin-top: 12px; font-family: system-ui, sans-serif; }
+  .email-footer { padding: 24px 32px; text-align: center; font-family: system-ui, sans-serif; font-size: 12px; color: var(--text-muted); }
+  .email-footer a { color: var(--indigo); text-decoration: none; }
+  @media (max-width: 640px) {
+    .email-wrap { margin: 16px auto; }
+    .block { padding: 24px 20px; }
+    .email-header { padding: 28px 20px 20px; }
+    .weather-bar { padding: 14px 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="email-wrap">
+<div class="email">
+
+  <div class="email-header">
+    <div class="greeting">🎣 Good morning, David.</div>
+    <div class="date">Wednesday, February 25, 2026 · Sydney</div>
+    <div class="tagline">8 stories today — it's a big one. Nvidia, Samsung, and the AI vibes are shifting.</div>
+  </div>
+
+  <div class="weather-bar">
+    <h4>☀️ Sydney 3-Day Forecast</h4>
+    <div class="weather-grid">
+      <div class="weather-day">
+        <div class="wd-icon">🌤️</div>
+        <div class="wd-temp">21–28°C</div>
+        <div class="wd-label">Wed — Warm</div>
+      </div>
+      <div class="weather-day">
+        <div class="wd-icon">⛅</div>
+        <div class="wd-temp">20–26°C</div>
+        <div class="wd-label">Thu — Partly Cloudy</div>
+      </div>
+      <div class="weather-day">
+        <div class="wd-icon">🌧️</div>
+        <div class="wd-temp">19–24°C</div>
+        <div class="wd-label">Fri — Showers</div>
+      </div>
+    </div>
+    <div class="weather-tip">☀️ Beautiful midweek day — get the boys outside if you can. UV high from 10am. Rain moving in Friday.</div>
+  </div>
+
+  <!-- BLOCK 1: AI & Markets -->
+  <div class="block">
+    <div class="block-label">🔥 AI & Markets</div>
+    <h3><a href="https://stockmarketwatch.com/live/stock-market-today/">Nvidia Reports After the Bell Today — The Biggest Earnings Call in AI</a></h3>
+    <p>Nvidia drops Q4 fiscal 2026 earnings after market close today. Wall Street is holding its breath — guidance on Blackwell and H200 GPU lines will set the trajectory for the entire AI infrastructure narrative. The stock is a bellwether: if Blackwell demand is strong, expect another leg up in AI capex. If there's any wobble, the $650B investment thesis gets questioned hard.</p>
+    <div class="why-matters"><strong>Why it matters:</strong> This isn't just a chip company reporting. This is the earnings call that tells you whether the AI boom is accelerating or plateauing. Every tech company's 2026 capex plan depends on what Jensen says tonight.</div>
+    <div class="source">Source: <a href="https://stockmarketwatch.com/live/stock-market-today/">StockMarketWatch</a></div>
+  </div>
+
+  <!-- BLOCK 2: Big Tech -->
+  <div class="block">
+    <div class="block-label">💰 Big Tech</div>
+    <h3><a href="https://www.reuters.com/business/big-tech-invest-about-650-billion-ai-2026-bridgewater-says-2026-02-23/">Big Tech Will Spend $650 Billion on AI This Year</a></h3>
+    <p>Bridgewater Associates just dropped an analysis: Alphabet, Amazon, Meta, and Microsoft will collectively invest roughly $650 billion in AI infrastructure in 2026. That's not a typo. Six hundred and fifty billion dollars. Data centers, GPUs, networking, cooling — the physical backbone of the AI revolution is being built at wartime pace.</p>
+    <div class="tweet-embed">
+      <div class="tweet-author">
+        <div class="tweet-avatar">R</div>
+        <div>
+          <div class="tweet-name">Reuters</div>
+          <div class="tweet-handle">@Reuters · Feb 23</div>
+        </div>
+      </div>
+      <div class="tweet-text">U.S. technology giants Alphabet, Amazon, Meta and Microsoft are expected to collectively invest about $650 billion to scale up AI-related infrastructure this year, Bridgewater Associates says.</div>
+      <div class="tweet-meta"><span>💬 1.2K</span><span>🔁 4.5K</span><span>❤️ 8.9K</span></div>
+    </div>
+    <div class="why-matters"><strong>Why it matters:</strong> This is the number that either validates the AI bull case or becomes the cautionary tale. If returns don't materialise, this is the biggest misallocation of capital in history. If they do — you want to be building in this space.</div>
+    <div class="source">Source: <a href="https://www.reuters.com/business/big-tech-invest-about-650-billion-ai-2026-bridgewater-says-2026-02-23/">Reuters</a> · Bridgewater Associates</div>
+  </div>
+
+  <!-- BLOCK 3: Consumer Tech -->
+  <div class="block">
+    <div class="block-label">📱 Consumer Tech</div>
+    <h3><a href="https://www.androidcentral.com/news/live/samsung-galaxy-unpacked-live-blog-galaxy-s26">Samsung Galaxy S26 Unpacked — Live Today from San Francisco</a></h3>
+    <p>Samsung's biggest launch of the year kicks off today at 10am PT (4am AEDT Thursday — you'll wake up to the news). The Galaxy S26 series is expected to lean heavily into on-device AI: think real-time translation, AI photo editing, and a "Galaxy AI" assistant that actually does things instead of just searching.</p>
+    <p>Early leaks suggest the S26 Ultra gets a titanium frame redesign, a 200MP camera with AI scene optimization, and a price hike to match. The real story is whether Samsung can make "AI phone" feel like more than a marketing buzzword.</p>
+    <div class="source">Source: <a href="https://www.androidcentral.com/news/live/samsung-galaxy-unpacked-live-blog-galaxy-s26">Android Central</a> · <a href="https://www.tomsguide.com/phones/samsung-phones/samsung-galaxy-unpacked-february-2026-galaxy-s26-galaxy-s26-ultra-and-everything-else-to-expect">Tom's Guide</a></div>
+  </div>
+
+  <!-- BLOCK 4: The Narrative -->
+  <div class="block">
+    <div class="block-label">🤔 The Narrative</div>
+    <h3><a href="https://www.nytimes.com/2026/02/21/technology/ai-boom-backlash.html">People Loved the Dot-Com Boom. The AI Boom? Not So Much.</a></h3>
+    <p>The New York Times published a fascinating piece on the growing gap between Silicon Valley's AI euphoria and the public's underwhelming enthusiasm. Sam Altman himself admitted AI is "spreading more slowly than he expected." The article draws parallels to the dot-com era — but notes a crucial difference: regular people actually loved the internet. AI? They're mostly anxious about it.</p>
+    <div class="why-matters"><strong>Why it matters:</strong> This is the adoption gap that creates opportunity. If the public hasn't fallen in love with AI yet, there's massive room for products that make AI feel useful rather than threatening. That's literally what Trawly does.</div>
+    <div class="source">Source: <a href="https://www.nytimes.com/2026/02/21/technology/ai-boom-backlash.html">New York Times</a></div>
+  </div>
+
+  <!-- BLOCK 5: Deep Dive -->
+  <div class="block">
+    <div class="block-label">🔬 Deep Dive</div>
+    <h3><a href="https://llm-stats.com/ai-news">Google's Gemini 3.1 Pro — The Quiet Giant</a></h3>
+    <p>While everyone was watching the Claude vs GPT wars, Google DeepMind shipped Gemini 3.1 Pro with a 1 million token context window and scored 77.1% on ARC-AGI-2 — a benchmark designed to test genuine reasoning, not pattern matching. It handles text, images, audio, video, and code in a single model.</p>
+    <p>The context window alone changes the game: you can feed it an entire codebase, a full legal contract, or hours of meeting transcripts and get coherent analysis back. This is the "boring but important" release that developers will actually use every day.</p>
+    <div class="source">Source: <a href="https://llm-stats.com/ai-news">LLM Stats</a></div>
+  </div>
+
+  <!-- BLOCK 6: Wildcard -->
+  <div class="block">
+    <div class="block-label">💡 Wildcard</div>
+    <h3><a href="https://www.cnbc.com/2026/02/21/ai-summit-india-tech.html">India's AI Summit: Chaos, $200 Billion Dreams, and Sundar Pichai Being Polite About It</a></h3>
+    <p>CNBC's coverage of India's AI Impact Summit is a wild read. Think "tech conference meets Bollywood" — Sundar Pichai and Sam Altman on stage talking up India's potential while behind the scenes it was apparently logistical chaos. Altman told CNBC "the excitement here has been incredible to watch" which is CEO-speak for "this was absolutely bonkers." India's play: massive talent pool, 1.4B consumers, and a government that actually wants AI investment.</p>
+    <div class="source">Source: <a href="https://www.cnbc.com/2026/02/21/ai-summit-india-tech.html">CNBC</a></div>
+  </div>
+
+  <!-- BLOCK 7: Science -->
+  <div class="block">
+    <div class="block-label">🛡️ Worth Knowing</div>
+    <h3><a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/">NASA's Perseverance Rover Is Now Navigating Mars with AI</a></h3>
+    <p>NASA quietly made history: Perseverance is now driving across Mars using routes planned by artificial intelligence instead of human operators. A vision-capable AI analyzes the same terrain images that human planners would review, but it does it faster and can explore more route options. It's not replacing the humans entirely — they review and approve — but the rover covers more ground per sol now.</p>
+    <div class="why-matters"><strong>Why it matters:</strong> This is what good AI looks like — augmenting human capability, not replacing it. Also: we have a robot on another planet driving itself around using AI. That's still cool.</div>
+    <div class="source">Source: <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/">ScienceDaily / NASA</a></div>
+  </div>
+
+  <!-- Daily Boost -->
+  <div class="block daily-boost">
+    <div class="block-label">🌟 Daily Boost</div>
+    <h3>Idaho Just Passed a Conversational AI Safety Act</h3>
+    <p>While everyone debates AI regulation in theory, Idaho quietly moved its Conversational AI Safety Act (S 1297) through committee with a "do-pass" recommendation. It's now on second reading. States aren't waiting for Congress. This is happening at the edges — and smart builders are designing for compliance now, not scrambling later.</p>
+    <div class="source" style="color:#92400E;">Source: <a href="https://www.troutmanprivacy.com/2026/02/proposed-state-ai-law-update-february-23-2026/" style="color:#B45309;">Troutman Pepper</a></div>
+  </div>
+
+  <!-- Chop's Corner -->
+  <div class="block chops-corner">
+    <div class="block-label">⚡ Editor's Corner</div>
+    <h3>The $650 Billion Question</h3>
+    <p>Here's what I keep thinking about: Big Tech is spending $650 billion on AI infrastructure this year. Meanwhile, Sam Altman says adoption is slower than expected, and the NYT says people are more anxious than excited.</p>
+    <p>That gap — between what's being built and what people actually want — is where every opportunity lives. If you can make AI feel useful, approachable, and human? You're selling water in a desert. The infrastructure is being laid whether people want it or not. The question is who builds the products that make them want it.</p>
+    <p style="margin-top:12px; font-style:italic; color:var(--text-muted);">Also — Nvidia reports tonight. If you don't hear from me tomorrow, I'm processing my feelings about GPU supply chains. 🤖</p>
+  </div>
+
+  <!-- Reply CTA -->
+  <div class="reply-cta">
+    <p>"Was this the right mix today?<br>More markets? Less science? Tell me."</p>
+    <a href="#" class="reply-btn">💬 Reply to This Brief</a>
+    <div class="hint">Just reply naturally — I learn from every response.</div>
+  </div>
+
+  <div class="email-footer">
+    <p>You're receiving this because you asked for it. <a href="#">Manage preferences</a> · <a href="#">Unsubscribe</a></p>
+    <p style="margin-top:8px;">© 2026 Trawly · Trawling the internet for gold.</p>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
