@@ -96,6 +96,7 @@ a:hover{text-decoration:underline}
 <a href="#pipeline">⚙️ Content Pipeline</a>
 <a href="#delivery">📬 Delivery</a>
 <a href="#feedback">🔁 Feedback Loop</a>
+<a href="#scaling">🏗️ How This Scales</a>
 <a href="#monitoring">📊 Behind the Scenes</a>
 </div>
 </div>
@@ -391,6 +392,320 @@ a:hover{text-decoration:underline}
 <div class="alt-item"><span class="alt-name">MJML</span> — <span class="alt-note">Popular email templating language; good but different syntax to learn</span></div>
 <div class="alt-item"><span class="alt-name">Hand-coded HTML</span> — <span class="alt-note">Maximum control; pain to maintain across email clients</span></div>
 <div class="alt-item"><span class="alt-name">Beefree / Stripo</span> — <span class="alt-note">Drag-and-drop email builders; easier but less programmable</span></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- SCALING SECTION -->
+<!-- ============================================ -->
+<div class="phase" id="scaling">
+<h2>🏗️ How This Scales: From 1 User to 10,000</h2>
+<p>The architecture behind serving thousands of personalised digests every morning</p>
+</div>
+
+<div class="card">
+<div class="card-header">
+<div class="card-num" style="background:#d29922">?</div>
+<div class="card-title">The Question</div>
+</div>
+<div class="card-body">
+<p style="font-size:1.05em;color:#e6edf3;line-height:1.8">Right now, Chop manually builds your daily digest. He picks the sources, runs the queries, calls the AI models, and sends you the email. It works great for one person.<br><br>But what happens when there are <strong style="color:#58a6ff">100 subscribers</strong>? Or <strong style="color:#58a6ff">10,000</strong>? Does Chop clone himself 10,000 times? Does the cost explode?<br><br>No. The whole point of Trawly's architecture is that it <strong>doesn't</strong> work that way.</p>
+</div>
+</div>
+
+<!-- Newspaper Analogy -->
+<div class="card">
+<div class="card-header">
+<div class="card-num" style="background:#3fb950">📰</div>
+<div class="card-title">The Newspaper Analogy</div>
+</div>
+<div class="card-body">
+<div style="background:#0d1117;border-radius:10px;padding:20px;border:1px solid #30363d;margin-bottom:16px">
+<div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:8px;text-align:center">
+<div style="background:#1a2332;border:1px solid #58a6ff;border-radius:8px;padding:16px 8px">
+<div style="font-size:1.5em">🏢</div>
+<div style="color:#58a6ff;font-weight:700;font-size:0.85em;margin-top:6px">The Newsroom</div>
+<div style="color:#8b949e;font-size:0.72em;margin-top:4px">Gathers ALL news once</div>
+<div style="color:#3fb950;font-size:0.72em;font-weight:600">FIXED COST</div>
+</div>
+<div style="color:#484f58;font-size:1.5em">→</div>
+<div style="background:#1a2332;border:1px solid #d29922;border-radius:8px;padding:16px 8px">
+<div style="font-size:1.5em">🖨️</div>
+<div style="color:#d29922;font-weight:700;font-size:0.85em;margin-top:6px">The Editions</div>
+<div style="color:#8b949e;font-size:0.72em;margin-top:4px">Different versions per region</div>
+<div style="color:#d29922;font-size:0.72em;font-weight:600">PER-USER COST</div>
+</div>
+<div style="color:#484f58;font-size:1.5em">→</div>
+<div style="background:#1a2332;border:1px solid #bc8cff;border-radius:8px;padding:16px 8px">
+<div style="font-size:1.5em">📮</div>
+<div style="color:#bc8cff;font-weight:700;font-size:0.85em;margin-top:6px">Delivery</div>
+<div style="color:#8b949e;font-size:0.72em;margin-top:4px">Print &amp; deliver</div>
+<div style="color:#bc8cff;font-size:0.72em;font-weight:600">MARGINAL COST</div>
+</div>
+</div>
+</div>
+<p style="font-size:0.9em;color:#c9d1d9">Think of Trawly like a newspaper. <strong>The newsroom</strong> (reporters, editors) gathers all the news <em>once</em> — whether you have 100 readers or 100,000. Then <strong>different editions</strong> get printed for different regions — the sports section is bigger in cities that care about sport. The newsroom cost is <strong>fixed</strong>. The per-edition cost is just printing and delivery.</p>
+<p style="font-size:0.9em;color:#8b949e;margin-top:8px">Trawly works exactly the same way. Let's break it down.</p>
+</div>
+</div>
+
+<!-- Phase 1: The Newsroom -->
+<div class="card">
+<div class="card-header">
+<div class="card-num" style="background:#3fb950">1</div>
+<div class="card-title">Phase 1: The Newsroom — Shared Content Harvesting</div>
+</div>
+<div class="card-body">
+<div style="background:#0d1117;border-radius:10px;padding:20px;border:1px solid #30363d;margin-bottom:16px">
+<!-- Flow diagram -->
+<div style="text-align:center;margin-bottom:12px;color:#3fb950;font-size:0.8em;font-weight:600;text-transform:uppercase;letter-spacing:1px">Runs ONCE per day — same cost for 20 or 20,000 users</div>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:16px">
+<span style="background:#21262d;border:1px solid #30363d;padding:6px 12px;border-radius:6px;font-size:0.8em;color:#58a6ff">𝕏 Twitter</span>
+<span style="background:#21262d;border:1px solid #30363d;padding:6px 12px;border-radius:6px;font-size:0.8em;color:#ff4500">Reddit</span>
+<span style="background:#21262d;border:1px solid #30363d;padding:6px 12px;border-radius:6px;font-size:0.8em;color:#ff6600">HN</span>
+<span style="background:#21262d;border:1px solid #30363d;padding:6px 12px;border-radius:6px;font-size:0.8em;color:#4285f4">Google News</span>
+<span style="background:#21262d;border:1px solid #30363d;padding:6px 12px;border-radius:6px;font-size:0.8em;color:#ff0000">YouTube</span>
+<span style="background:#21262d;border:1px solid #30363d;padding:6px 12px;border-radius:6px;font-size:0.8em;color:#f5a623">RSS</span>
+</div>
+<div style="text-align:center;color:#484f58;font-size:1.2em;margin-bottom:8px">▼ ▼ ▼</div>
+<div style="background:#161b22;border:2px solid #3fb950;border-radius:10px;padding:14px;text-align:center;margin-bottom:12px">
+<div style="font-size:1.1em;font-weight:700;color:#3fb950">📦 Shared Content Pool</div>
+<div style="color:#8b949e;font-size:0.8em;margin-top:4px">Supabase <code style="color:#bc8cff">content_items</code> table · 2,000-3,000 items/day</div>
+</div>
+<div style="text-align:center;color:#484f58;font-size:1.2em;margin-bottom:8px">▼</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div style="background:#161b22;border:1px solid #d29922;border-radius:8px;padding:12px;text-align:center">
+<div style="color:#d29922;font-weight:600;font-size:0.85em">🎯 Scoring</div>
+<div style="color:#8b949e;font-size:0.75em;margin-top:4px">Gemini Flash Lite rates 1-10</div>
+</div>
+<div style="background:#161b22;border:1px solid #bc8cff;border-radius:8px;padding:12px;text-align:center">
+<div style="color:#bc8cff;font-weight:600;font-size:0.85em">🔄 Deduplication</div>
+<div style="color:#8b949e;font-size:0.75em;margin-top:4px">Embeddings remove near-dupes</div>
+</div>
+</div>
+</div>
+<div class="card-section">
+<h4 class="behind">⚙️ Key insight</h4>
+<p>If 50 users care about AI and 30 care about crypto, we run AI queries + crypto queries <strong>once each</strong> — not 80 times. The content pool is shared. The queries are based on the <em>union</em> of all subscriber topics.<br><br>
+<span class="cost-note">Phase 1 cost: ~$2-3/day FIXED regardless of user count</span></p>
+</div>
+</div>
+</div>
+
+<!-- Phase 2: The Editions -->
+<div class="card">
+<div class="card-header">
+<div class="card-num" style="background:#d29922">2</div>
+<div class="card-title">Phase 2: The Editions — Per-User Personalization</div>
+</div>
+<div class="card-body">
+<div style="background:#0d1117;border-radius:10px;padding:20px;border:1px solid #30363d;margin-bottom:16px">
+<div style="text-align:center;margin-bottom:12px;color:#d29922;font-size:0.8em;font-weight:600;text-transform:uppercase;letter-spacing:1px">Runs PER SUBSCRIBER — in parallel via serverless functions</div>
+<div style="background:#161b22;border:2px solid #3fb950;border-radius:10px;padding:10px;text-align:center;margin-bottom:12px">
+<div style="color:#3fb950;font-weight:600;font-size:0.85em">📦 Shared Content Pool</div>
+</div>
+<div style="text-align:center;color:#484f58;font-size:1em;margin-bottom:8px">▼ ▼ ▼ ▼ ▼</div>
+<!-- Parallel user lanes -->
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px">
+<div style="background:#161b22;border:1px solid #d29922;border-radius:8px;padding:10px;text-align:center">
+<div style="font-size:0.85em;color:#d29922;font-weight:600">👤 User A</div>
+<div style="color:#8b949e;font-size:0.7em;margin-top:4px">AI + Startups</div>
+<div style="color:#484f58;font-size:0.9em;margin:4px 0">↓</div>
+<div style="color:#c9d1d9;font-size:0.7em">Filter → Curate → Write → Send</div>
+</div>
+<div style="background:#161b22;border:1px solid #58a6ff;border-radius:8px;padding:10px;text-align:center">
+<div style="font-size:0.85em;color:#58a6ff;font-weight:600">👤 User B</div>
+<div style="color:#8b949e;font-size:0.7em;margin-top:4px">Crypto + DeFi</div>
+<div style="color:#484f58;font-size:0.9em;margin:4px 0">↓</div>
+<div style="color:#c9d1d9;font-size:0.7em">Filter → Curate → Write → Send</div>
+</div>
+<div style="background:#161b22;border:1px solid #bc8cff;border-radius:8px;padding:10px;text-align:center">
+<div style="font-size:0.85em;color:#bc8cff;font-weight:600">👤 User C</div>
+<div style="color:#8b949e;font-size:0.7em;margin-top:4px">Philosophy + Tech</div>
+<div style="color:#484f58;font-size:0.9em;margin:4px 0">↓</div>
+<div style="color:#c9d1d9;font-size:0.7em">Filter → Curate → Write → Send</div>
+</div>
+</div>
+<div style="text-align:center;color:#8b949e;font-size:0.75em;font-style:italic">All running simultaneously on Vercel serverless functions</div>
+</div>
+<div class="card-section">
+<h4 class="behind">⚙️ Per-user pipeline</h4>
+<ul>
+<li><strong>Filter</strong> — pull items matching this user's topics + source preferences</li>
+<li><strong>Curate</strong> — Claude Sonnet picks the best 8-12 items for THIS user</li>
+<li><strong>Compose</strong> — Claude writes commentary tailored to their interests</li>
+<li><strong>Render</strong> — React Email builds the HTML</li>
+<li><strong>Send</strong> — Resend delivers it</li>
+</ul>
+<p style="margin-top:10px"><span class="cost-note">Phase 2 cost: ~$0.15/user/day (mostly Claude Sonnet calls)</span></p>
+</div>
+</div>
+</div>
+
+<!-- Phase 3: Cohort Optimization -->
+<div class="card">
+<div class="card-header">
+<div class="card-num" style="background:#bc8cff">3</div>
+<div class="card-title">Phase 3: Cohort Optimization (1,000+ Users)</div>
+</div>
+<div class="card-body">
+<div style="background:#0d1117;border-radius:10px;padding:20px;border:1px solid #30363d;margin-bottom:16px">
+<div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px">
+<div style="text-align:center">
+<div style="color:#bc8cff;font-weight:700;font-size:0.9em;margin-bottom:8px">Without Cohorts</div>
+<div style="background:#161b22;border:1px solid #f85149;border-radius:8px;padding:12px">
+<div style="font-size:1.4em;font-weight:700;color:#f85149">1,000</div>
+<div style="color:#8b949e;font-size:0.75em">individual Claude calls</div>
+<div style="color:#f85149;font-size:0.8em;font-weight:600;margin-top:4px">$150/day</div>
+</div>
+</div>
+<div style="color:#3fb950;font-size:1.5em;font-weight:700">→</div>
+<div style="text-align:center">
+<div style="color:#bc8cff;font-weight:700;font-size:0.9em;margin-bottom:8px">With Cohorts</div>
+<div style="background:#161b22;border:1px solid #3fb950;border-radius:8px;padding:12px">
+<div style="font-size:1.4em;font-weight:700;color:#3fb950">~50</div>
+<div style="color:#8b949e;font-size:0.75em">cohort Claude calls</div>
+<div style="color:#3fb950;font-size:0.8em;font-weight:600;margin-top:4px">$7.50/day</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card-section">
+<h4 class="behind">⚙️ How it works</h4>
+<p>Users with 80%+ topic overlap get grouped into <strong>cohorts</strong>. Instead of 1,000 individual curation calls, we create ~50 distinct digest variants and assign users to the closest matching one. Premium/power users can still get fully individual curation.<br><br>
+Think of it like newspaper editions: the Melbourne edition and Sydney edition are 90% the same — they share national news. They only differ on local stories.</p>
+</div>
+</div>
+</div>
+
+<!-- Cost Comparison Table -->
+<div class="card">
+<div class="card-header">
+<div class="card-num" style="background:#d29922">💰</div>
+<div class="card-title">Cost at Scale</div>
+</div>
+<div class="card-body">
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:0.85em">
+<thead>
+<tr style="border-bottom:2px solid #30363d">
+<th style="text-align:left;padding:10px 8px;color:#8b949e;font-weight:600"></th>
+<th style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">20 users</th>
+<th style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">100 users</th>
+<th style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">1,000 users</th>
+<th style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">10,000 users</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid #21262d">
+<td style="padding:10px 8px;color:#3fb950;font-weight:600">Phase 1 (fixed)</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$2.50</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$2.50</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$3.00</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$5.00</td>
+</tr>
+<tr style="border-bottom:1px solid #21262d">
+<td style="padding:10px 8px;color:#d29922;font-weight:600">Phase 2 (per user)</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$3.00</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$15.00</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$7.50*</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$37.50*</td>
+</tr>
+<tr style="border-bottom:1px solid #21262d">
+<td style="padding:10px 8px;color:#58a6ff;font-weight:700">Daily total</td>
+<td style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">$5.50</td>
+<td style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">$17.50</td>
+<td style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">$10.50</td>
+<td style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">$42.50</td>
+</tr>
+<tr style="border-bottom:1px solid #21262d">
+<td style="padding:10px 8px;color:#bc8cff;font-weight:700">Monthly total</td>
+<td style="text-align:center;padding:10px 8px;color:#bc8cff;font-weight:700">$165</td>
+<td style="text-align:center;padding:10px 8px;color:#bc8cff;font-weight:700">$525</td>
+<td style="text-align:center;padding:10px 8px;color:#bc8cff;font-weight:700">$315</td>
+<td style="text-align:center;padding:10px 8px;color:#bc8cff;font-weight:700">$1,275</td>
+</tr>
+<tr>
+<td style="padding:10px 8px;color:#3fb950;font-weight:700">Cost per user/mo</td>
+<td style="text-align:center;padding:10px 8px;color:#3fb950;font-weight:700">$8.25</td>
+<td style="text-align:center;padding:10px 8px;color:#3fb950;font-weight:700">$5.25</td>
+<td style="text-align:center;padding:10px 8px;color:#3fb950;font-weight:700">$0.32</td>
+<td style="text-align:center;padding:10px 8px;color:#3fb950;font-weight:700">$0.13</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:0.78em;color:#8b949e;margin-top:10px">* At 1,000+ users, cohort optimization kicks in — costs drop dramatically. Phase 1 grows slightly with more topics but stays low.</p>
+</div>
+</div>
+
+<!-- What about real-time? -->
+<div class="card">
+<div class="card-header">
+<div class="card-num" style="background:#8b949e">⏱️</div>
+<div class="card-title">What About Real-Time?</div>
+</div>
+<div class="card-body">
+<div class="card-section">
+<p style="font-size:0.9em;color:#c9d1d9">You might wonder: <em>"Why not send updates throughout the day as things happen?"</em><br><br>The daily batch is <strong>deliberate</strong>, not a limitation:</p>
+<ul>
+<li><strong>Cheaper</strong> — one batch run vs. continuous polling and processing</li>
+<li><strong>Simpler</strong> — fewer failure modes, easier to debug and monitor</li>
+<li><strong>Better product</strong> — a morning digest is a <em>ritual</em>, not an interruption. You read it with coffee, not as another notification competing for attention</li>
+<li><strong>Higher quality</strong> — waiting 24 hours means we score content by how it <em>aged</em>, not just initial virality. Flash-in-the-pan tweets get filtered out naturally</li>
+</ul>
+<p style="margin-top:10px;color:#8b949e;font-size:0.85em">If we ever want breaking alerts (e.g., "a company you follow just got acquired"), that's an easy add-on — but the core product stays daily.</p>
+</div>
+</div>
+</div>
+
+<!-- Visual Timeline -->
+<div class="card">
+<div class="card-header">
+<div class="card-num" style="background:#58a6ff">🕐</div>
+<div class="card-title">A Morning in the Life of Trawly</div>
+</div>
+<div class="card-body">
+<div style="position:relative;padding-left:28px">
+<!-- Timeline line -->
+<div style="position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#3fb950,#d29922,#58a6ff,#bc8cff)"></div>
+
+<div style="position:relative;padding:12px 0">
+<div style="position:absolute;left:-24px;top:14px;width:12px;height:12px;border-radius:50%;background:#3fb950;border:2px solid #0d1117"></div>
+<div style="color:#3fb950;font-weight:700;font-size:0.85em">5:00 AM AEDT</div>
+<div style="color:#c9d1d9;font-size:0.85em">🏢 <strong>Harvest starts</strong> — Cron triggers, all source APIs are queried. X, Reddit, HN, Google News, YouTube, RSS feeds. Takes ~20 minutes.</div>
+</div>
+
+<div style="position:relative;padding:12px 0">
+<div style="position:absolute;left:-24px;top:14px;width:12px;height:12px;border-radius:50%;background:#3fb950;border:2px solid #0d1117"></div>
+<div style="color:#3fb950;font-weight:700;font-size:0.85em">5:20 AM</div>
+<div style="color:#c9d1d9;font-size:0.85em">📦 <strong>Content pool filled</strong> — 2,000-3,000 items in the shared pool. Scoring begins.</div>
+</div>
+
+<div style="position:relative;padding:12px 0">
+<div style="position:absolute;left:-24px;top:14px;width:12px;height:12px;border-radius:50%;background:#d29922;border:2px solid #0d1117"></div>
+<div style="color:#d29922;font-weight:700;font-size:0.85em">5:30 AM</div>
+<div style="color:#c9d1d9;font-size:0.85em">🎯 <strong>Scoring & dedup</strong> — Gemini Flash Lite scores everything. Embeddings remove duplicates. Pool narrows to ~200-500 quality items.</div>
+</div>
+
+<div style="position:relative;padding:12px 0">
+<div style="position:absolute;left:-24px;top:14px;width:12px;height:12px;border-radius:50%;background:#58a6ff;border:2px solid #0d1117"></div>
+<div style="color:#58a6ff;font-weight:700;font-size:0.85em">6:00 AM</div>
+<div style="color:#c9d1d9;font-size:0.85em">👤 <strong>Per-user curation begins</strong> — Serverless functions fan out. Each subscriber's digest is curated and composed in parallel.</div>
+</div>
+
+<div style="position:relative;padding:12px 0">
+<div style="position:absolute;left:-24px;top:14px;width:12px;height:12px;border-radius:50%;background:#58a6ff;border:2px solid #0d1117"></div>
+<div style="color:#58a6ff;font-weight:700;font-size:0.85em">6:30 AM</div>
+<div style="color:#c9d1d9;font-size:0.85em">📧 <strong>Emails start sending</strong> — First digests rendered and dispatched via Resend. Staggered to maintain deliverability.</div>
+</div>
+
+<div style="position:relative;padding:12px 0">
+<div style="position:absolute;left:-24px;top:14px;width:12px;height:12px;border-radius:50%;background:#bc8cff;border:2px solid #0d1117"></div>
+<div style="color:#bc8cff;font-weight:700;font-size:0.85em">7:00 AM</div>
+<div style="color:#c9d1d9;font-size:0.85em">✅ <strong>All digests sent</strong> — Cost logged to database. Discord alert confirms success. You wake up and your digest is waiting. ☕</div>
+</div>
 </div>
 </div>
 </div>
