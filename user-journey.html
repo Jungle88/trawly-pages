@@ -75,16 +75,16 @@ a:hover{text-decoration:underline}
 <div class="summary">
 <h2>📊 Quick Summary</h2>
 <div class="summary-grid">
-<div class="summary-stat"><div class="num">10</div><div class="label">Services / APIs</div></div>
-<div class="summary-stat"><div class="num">~$95</div><div class="label">/mo at 20 users</div></div>
-<div class="summary-stat"><div class="num">~$330</div><div class="label">/mo at 1,000 users</div></div>
+<div class="summary-stat"><div class="num">~$0.40</div><div class="label">/digest</div></div>
+<div class="summary-stat"><div class="num">~$12</div><div class="label">/user/month</div></div>
+<div class="summary-stat"><div class="num">~$380</div><div class="label">/mo at 20 users</div></div>
 </div>
 <div class="summary-services" style="margin-top:16px">
 <strong style="color:#c9d1d9">Services:</strong>
-<span>Vercel</span><span>Supabase</span><span>Resend</span><span>X API (official)</span><span>Reddit API</span><span>HN Firebase</span><span>Jina Reader</span><span>Gemini Flash</span><span>GPT-4o-mini</span><span>Claude Sonnet</span><span>OpenAI Embeddings</span><span>Inngest</span>
+<span>Vercel</span><span>Supabase</span><span>Resend</span><span>X API (official)</span><span>Reddit API</span><span>HN Firebase</span><span>Jina Reader</span><span>Claude Opus</span><span>Claude Sonnet</span><span>OpenRouter</span><span>Inngest</span>
 </div>
 <p style="font-size:0.82em;color:#8b949e;margin-top:10px">
-💡 At 20 users: ~$0.19 LLM + ~$0.05 X API + ~$0.01 other data + ~$0.004 email = <strong style="color:#3fb950">~$0.25 per digest</strong>. X API is pay-as-you-go (~$50-100/mo depending on query volume). At $12/mo Pro pricing, you profit from subscriber #10.
+💡 Real production data (3 weeks): Opus single pass ~$0.30-0.40 + X API ~$0.05-0.08 + web ~$0.02 + email ~$0.004 = <strong style="color:#3fb950">~$0.40 per digest</strong>. Fixed infra ~$140/mo. At 20 users: ~$140 + ($0.40 × 30 × 20) = ~$380/mo. At $19/mo pricing = 63% gross margin.
 </p>
 </div>
 
@@ -249,126 +249,31 @@ a:hover{text-decoration:underline}
 </div>
 </div>
 
-<!-- Step 6 -->
+<!-- Step 6 — Opus Single Pass (replaces old steps 6-10) -->
 <div class="card" id="step6">
 <div class="card-header">
 <div class="card-num">6</div>
-<div class="card-title">AI scores and ranks all content</div>
+<div class="card-title">Opus Single Pass — one AI call does everything</div>
 </div>
 <div class="card-body">
 <div class="card-section"><h4 class="user">👤 What you see</h4>
-<p>Nothing yet — but this step decides what you'll read tomorrow.</p>
+<p>Your digest reads like a smart, slightly irreverent friend wrote it — varied, surprising, well-paced. Each item has a crisp summary, original commentary, and a personalised "Why this matters to you" box. Not just "top 10 by engagement." The email feels hand-picked.</p>
 </div>
 <div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
-<p>We now have 2,000-3,000+ pieces of content. Most of it is noise. An AI model reads each one and scores it 1-10 on four dimensions: <strong>relevance</strong> (does it match subscriber topics?), <strong>originality</strong> (is this a new insight or just echoing others?), <strong>engagement quality</strong> (high bookmark-to-like ratio = people saving it, not just liking), and <strong>depth</strong> (is this a thoughtful take or a hot take?). We use the cheapest, fastest model for this bulk work — it's like a first-pass filter.</p>
+<p>You might expect 5 separate AI steps: scoring, deduplication, summarisation, curation, and composition. <strong>In practice, one smart model does it all in a single call.</strong></p>
+<p>Claude Opus 4 receives ~80 fetched posts + the subscriber's taste profile and, in one pass: <strong>scores</strong> each item for relevance and quality, <strong>deduplicates</strong> overlapping stories, <strong>curates</strong> the best 8-12 (balancing variety, pacing, and a wildcard surprise), <strong>composes</strong> the full email with original commentary, transitions, and subject line, and <strong>personalises</strong> with "Why this matters to you" boxes tailored to the reader.</p>
+<p>We tried the multi-step approach first (separate models for scoring, embeddings for dedup, GPT for summaries, Sonnet for curation and composition). After 3 weeks of production data, single-pass Opus was both <strong>cheaper and simpler</strong>. Splitting into steps adds cost and latency without improving quality — each handoff between models loses context.</p>
+<p>Crucially, we write <strong>original AI summaries and editorial commentary</strong> — we never copy-paste tweet text. Every X item links back to the original post ("Read on X →"). <strong>The voice IS the product.</strong></p>
 </div>
 <div class="card-section"><h4 class="tech">🔧 Tech used</h4>
-<p><span class="tech-badge">Gemini 2.0 Flash Lite</span> Google's cheapest model — $0.075 per million input tokens. Perfect for bulk scoring.<br>
-<span class="cost-note">Cost: ~$0.005 per digest run (scoring ~100 items)</span></p>
+<p><span class="tech-badge">Claude Opus 4</span> Anthropic's most capable model — one call handles scoring + curation + composition + personalisation<br>
+<span class="tech-badge">OpenRouter</span> Routes API calls; gives access to all models if we ever need to diversify<br>
+<span class="cost-note">Cost: ~$0.30-0.40 per digest (the single biggest cost — and worth every cent)</span></p>
 </div>
-<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
-<div class="alt-item"><span class="alt-name">GPT-4o-mini</span> — <span class="alt-note">Slightly more expensive but higher quality scoring; good fallback</span></div>
-<div class="alt-item"><span class="alt-name">Claude Haiku</span> — <span class="alt-note">Fast and cheap; comparable to Gemini Flash but from Anthropic</span></div>
-<div class="alt-item"><span class="alt-name">Rule-based scoring</span> — <span class="alt-note">No AI, just engagement thresholds; cheaper but misses nuance</span></div>
-</div>
-</div>
-</div>
-
-<!-- Step 7 -->
-<div class="card" id="step7">
-<div class="card-header">
-<div class="card-num">7</div>
-<div class="card-title">AI removes duplicates</div>
-</div>
-<div class="card-body">
-<div class="card-section"><h4 class="user">👤 What you see</h4>
-<p>You'll never see three different people's takes on the same news — we pick the best one.</p>
-</div>
-<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
-<p>When the same story is covered by a tweet, a Reddit post, and an HN discussion, we need to catch that. Each piece of content is converted into an "embedding" — a list of ~1,500 numbers that represent its meaning. Content with similar meanings will have similar number patterns. When two items are more than 90% similar, we keep the highest-scored one and drop the rest. This uses math (cosine similarity), not an LLM — so it's extremely cheap and fast.</p>
-</div>
-<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
-<p><span class="tech-badge">text-embedding-3-small (OpenAI)</span> Converts text into meaning-vectors — $0.02 per million tokens<br>
-<span class="tech-badge">pgvector (Supabase)</span> PostgreSQL extension that stores and compares embeddings<br>
-<span class="cost-note">Cost: ~$0.001 per digest run</span></p>
-</div>
-<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
-<div class="alt-item"><span class="alt-name">Nomic Embed</span> — <span class="alt-note">Open-source, can self-host; free but requires your own server</span></div>
-<div class="alt-item"><span class="alt-name">Cohere Embed</span> — <span class="alt-note">Good quality, free tier available; comparable pricing</span></div>
-<div class="alt-item"><span class="alt-name">Simple text matching</span> — <span class="alt-note">Compare URLs/titles only; fast but misses paraphrased duplicates</span></div>
-</div>
-</div>
-</div>
-
-<!-- Step 8 -->
-<div class="card" id="step8">
-<div class="card-header">
-<div class="card-num">8</div>
-<div class="card-title">AI writes summaries</div>
-</div>
-<div class="card-body">
-<div class="card-section"><h4 class="user">👤 What you see</h4>
-<p>Each item in your digest has a crisp 2-3 sentence summary that tells you exactly why it matters — without needing to click through.</p>
-</div>
-<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
-<p>The top ~20 items (after scoring and dedup) get summarised by an AI model. This is a different model than the scorer — it's better at writing but costs more, so we only use it on the items that survived the first filter. Each summary captures: what happened, why it matters, and what makes this particular take interesting.</p>
-</div>
-<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
-<p><span class="tech-badge">GPT-4o-mini</span> OpenAI's best value writing model — $0.15/$0.60 per million tokens (in/out)<br>
-<span class="cost-note">Cost: ~$0.03 per digest (summarising ~20 items)</span></p>
-</div>
-<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
-<div class="alt-item"><span class="alt-name">Claude Haiku</span> — <span class="alt-note">Comparable quality and price; good if we want to stay in one ecosystem</span></div>
-<div class="alt-item"><span class="alt-name">Gemini Flash</span> — <span class="alt-note">Cheaper but slightly lower writing quality</span></div>
-</div>
-</div>
-</div>
-
-<!-- Step 9 -->
-<div class="card" id="step9">
-<div class="card-header">
-<div class="card-num">9</div>
-<div class="card-title">AI curates the final 8-12 items</div>
-</div>
-<div class="card-body">
-<div class="card-section"><h4 class="user">👤 What you see</h4>
-<p>Your digest feels like it was hand-picked by a really smart friend — varied, surprising, well-paced. Not just "top 10 by engagement."</p>
-</div>
-<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
-<p>This is the most important (and expensive) step. Claude Sonnet acts as an "editorial AI" — it looks at the top 20 summarised items and selects the best 8-12 for the final digest. But it's not just picking the highest scores. It's thinking about: <strong>variety</strong> (not 8 AI articles), <strong>pacing</strong> (mix of heavy and light), <strong>surprise</strong> (one wildcard item outside the subscriber's usual topics), and <strong>voice consistency</strong> (would Trawly's personality recommend this?). This is where the product's soul lives.</p>
-</div>
-<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
-<p><span class="tech-badge">Claude 4 Sonnet</span> Anthropic's best mid-tier model — $3/$15 per million tokens (in/out). Used here because editorial judgment needs the best reasoning.<br>
-<span class="cost-note">Cost: ~$0.05 per digest — the "expensive" step (but worth it)</span></p>
-</div>
-<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
-<div class="alt-item"><span class="alt-name">GPT-4o</span> — <span class="alt-note">Comparable quality; fallback if Claude is down</span></div>
-<div class="alt-item"><span class="alt-name">Human editor</span> — <span class="alt-note">Best quality but doesn't scale; good for first 2 weeks to train the AI</span></div>
-<div class="alt-item"><span class="alt-name">Rules-based selection</span> — <span class="alt-note">Top N by score; fast and cheap but digests feel algorithmic, not curated</span></div>
-</div>
-</div>
-</div>
-
-<!-- Step 10 -->
-<div class="card" id="step10">
-<div class="card-header">
-<div class="card-num">10</div>
-<div class="card-title">AI composes the actual digest email</div>
-</div>
-<div class="card-body">
-<div class="card-section"><h4 class="user">👤 What you see</h4>
-<p>The email reads like a smart, slightly irreverent friend wrote it — not a robot. Each item has a one-liner commentary ("This thread is why I'm bullish on agents"), smooth transitions, and a punchy subject line.</p>
-</div>
-<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
-<p>Claude Sonnet writes the entire email: the intro paragraph, original commentary on each item, transitions between items, and the subject line. The prompt includes Trawly's "voice guide" — conversational, opinionated but fair, occasionally funny, never corporate. Crucially, we write <strong>original AI summaries and editorial commentary</strong> — we never copy-paste tweet text into emails. Every X item links back to the original post ("Read on X →"). This keeps us fully TOS-compliant and frankly makes a better product — our value is curation + voice, not raw content redistribution. This is the most expensive AI call because the output is long and every word matters. <strong>The voice IS the product.</strong> If the writing is boring, nothing else matters.</p>
-</div>
-<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
-<p><span class="tech-badge">Claude 4 Sonnet</span> Same model as curation — writing quality is paramount<br>
-<span class="cost-note">Cost: ~$0.10 per digest (longest output = most tokens)</span></p>
-</div>
-<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
-<div class="alt-item"><span class="alt-name">Fine-tuned GPT-4o-mini</span> — <span class="alt-note">At 1,000+ subscribers, we could train a smaller model on our best digests. 10x cheaper, similar voice.</span></div>
-<div class="alt-item"><span class="alt-name">GPT-4o</span> — <span class="alt-note">Fallback writer if Anthropic is down</span></div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives considered (and rejected)</h4>
+<div class="alt-item"><span class="alt-name">Multi-step pipeline (Gemini Flash → embeddings → GPT-4o-mini → Sonnet)</span> — <span class="alt-note">Our original design. More complex, similar cost, worse quality due to context loss between steps. Over-engineering.</span></div>
+<div class="alt-item"><span class="alt-name">Claude Sonnet single-pass</span> — <span class="alt-note">Cheaper per token but needs more tokens to match Opus quality. Net cost similar, quality lower.</span></div>
+<div class="alt-item"><span class="alt-name">Haiku pre-filter + Opus</span> — <span class="alt-note">Worth it at 10,000+ users with diverse topics. Not needed until then.</span></div>
 </div>
 </div>
 </div>
@@ -476,21 +381,15 @@ a:hover{text-decoration:underline}
 <div style="color:#8b949e;font-size:0.8em;margin-top:4px">Supabase <code style="color:#bc8cff">content_items</code> table · 2,000-3,000 items/day</div>
 </div>
 <div style="text-align:center;color:#484f58;font-size:1.2em;margin-bottom:8px">▼</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-<div style="background:#161b22;border:1px solid #d29922;border-radius:8px;padding:12px;text-align:center">
-<div style="color:#d29922;font-weight:600;font-size:0.85em">🎯 Scoring</div>
-<div style="color:#8b949e;font-size:0.75em;margin-top:4px">Gemini Flash Lite rates 1-10</div>
-</div>
-<div style="background:#161b22;border:1px solid #bc8cff;border-radius:8px;padding:12px;text-align:center">
-<div style="color:#bc8cff;font-weight:600;font-size:0.85em">🔄 Deduplication</div>
-<div style="color:#8b949e;font-size:0.75em;margin-top:4px">Embeddings remove near-dupes</div>
-</div>
+<div style="background:#161b22;border:2px solid #d29922;border-radius:10px;padding:14px;text-align:center">
+<div style="font-size:1.1em;font-weight:700;color:#d29922">🧠 Ready for Opus Single Pass</div>
+<div style="color:#8b949e;font-size:0.8em;margin-top:4px">One Opus call per user/cohort scores, curates, composes &amp; personalises</div>
 </div>
 </div>
 <div class="card-section">
 <h4 class="behind">⚙️ Key insight</h4>
 <p>If 50 users care about AI and 30 care about crypto, we run AI queries + crypto queries <strong>once each</strong> — not 80 times. The content pool is shared. The queries are based on the <em>union</em> of all subscriber topics.<br><br>
-<span class="cost-note">Phase 1 cost: ~$2-3/day FIXED regardless of user count</span></p>
+<span class="cost-note">Phase 1 cost: ~$2-3/day FIXED regardless of user count (X API + web fetching)</span></p>
 </div>
 </div>
 </div>
@@ -514,19 +413,19 @@ a:hover{text-decoration:underline}
 <div style="font-size:0.85em;color:#d29922;font-weight:600">👤 User A</div>
 <div style="color:#8b949e;font-size:0.7em;margin-top:4px">AI + Startups</div>
 <div style="color:#484f58;font-size:0.9em;margin:4px 0">↓</div>
-<div style="color:#c9d1d9;font-size:0.7em">Filter → Curate → Write → Send</div>
+<div style="color:#c9d1d9;font-size:0.7em">Opus single pass → Render → Send</div>
 </div>
 <div style="background:#161b22;border:1px solid #58a6ff;border-radius:8px;padding:10px;text-align:center">
 <div style="font-size:0.85em;color:#58a6ff;font-weight:600">👤 User B</div>
 <div style="color:#8b949e;font-size:0.7em;margin-top:4px">Crypto + DeFi</div>
 <div style="color:#484f58;font-size:0.9em;margin:4px 0">↓</div>
-<div style="color:#c9d1d9;font-size:0.7em">Filter → Curate → Write → Send</div>
+<div style="color:#c9d1d9;font-size:0.7em">Opus single pass → Render → Send</div>
 </div>
 <div style="background:#161b22;border:1px solid #bc8cff;border-radius:8px;padding:10px;text-align:center">
 <div style="font-size:0.85em;color:#bc8cff;font-weight:600">👤 User C</div>
 <div style="color:#8b949e;font-size:0.7em;margin-top:4px">Philosophy + Tech</div>
 <div style="color:#484f58;font-size:0.9em;margin:4px 0">↓</div>
-<div style="color:#c9d1d9;font-size:0.7em">Filter → Curate → Write → Send</div>
+<div style="color:#c9d1d9;font-size:0.7em">Opus single pass → Render → Send</div>
 </div>
 </div>
 <div style="text-align:center;color:#8b949e;font-size:0.75em;font-style:italic">All running simultaneously on Vercel serverless functions</div>
@@ -534,13 +433,11 @@ a:hover{text-decoration:underline}
 <div class="card-section">
 <h4 class="behind">⚙️ Per-user pipeline</h4>
 <ul>
-<li><strong>Filter</strong> — pull items matching this user's topics + source preferences</li>
-<li><strong>Curate</strong> — Claude Sonnet picks the best 8-12 items for THIS user</li>
-<li><strong>Compose</strong> — Claude writes commentary tailored to their interests</li>
+<li><strong>Opus Single Pass</strong> — one Opus call receives ~80 posts + user profile → scores, curates, composes, and personalises the entire digest with "Why this matters to you" boxes</li>
 <li><strong>Render</strong> — React Email builds the HTML</li>
 <li><strong>Send</strong> — Resend delivers it</li>
 </ul>
-<p style="margin-top:10px"><span class="cost-note">Phase 2 cost: ~$0.15/user/day (mostly Claude Sonnet calls)</span></p>
+<p style="margin-top:10px"><span class="cost-note">Phase 2 cost: ~$0.40/user/day (mostly the single Opus call)</span></p>
 </div>
 </div>
 </div>
@@ -558,8 +455,8 @@ a:hover{text-decoration:underline}
 <div style="color:#bc8cff;font-weight:700;font-size:0.9em;margin-bottom:8px">Without Cohorts</div>
 <div style="background:#161b22;border:1px solid #f85149;border-radius:8px;padding:12px">
 <div style="font-size:1.4em;font-weight:700;color:#f85149">1,000</div>
-<div style="color:#8b949e;font-size:0.75em">individual Claude calls</div>
-<div style="color:#f85149;font-size:0.8em;font-weight:600;margin-top:4px">$150/day</div>
+<div style="color:#8b949e;font-size:0.75em">individual Opus calls</div>
+<div style="color:#f85149;font-size:0.8em;font-weight:600;margin-top:4px">$400/day</div>
 </div>
 </div>
 <div style="color:#3fb950;font-size:1.5em;font-weight:700">→</div>
@@ -567,8 +464,8 @@ a:hover{text-decoration:underline}
 <div style="color:#bc8cff;font-weight:700;font-size:0.9em;margin-bottom:8px">With Cohorts</div>
 <div style="background:#161b22;border:1px solid #3fb950;border-radius:8px;padding:12px">
 <div style="font-size:1.4em;font-weight:700;color:#3fb950">~50</div>
-<div style="color:#8b949e;font-size:0.75em">cohort Claude calls</div>
-<div style="color:#3fb950;font-size:0.8em;font-weight:600;margin-top:4px">$7.50/day</div>
+<div style="color:#8b949e;font-size:0.75em">cohort Opus calls</div>
+<div style="color:#3fb950;font-size:0.8em;font-weight:600;margin-top:4px">$20/day</div>
 </div>
 </div>
 </div>
@@ -601,44 +498,44 @@ Think of it like newspaper editions: the Melbourne edition and Sydney edition ar
 </thead>
 <tbody>
 <tr style="border-bottom:1px solid #21262d">
-<td style="padding:10px 8px;color:#3fb950;font-weight:600">Phase 1 (fixed)</td>
-<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$2.50</td>
-<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$2.50</td>
-<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$3.00</td>
-<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$5.00</td>
+<td style="padding:10px 8px;color:#3fb950;font-weight:600">Fixed infra</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$4.67</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$4.67</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$4.67</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$4.67</td>
 </tr>
 <tr style="border-bottom:1px solid #21262d">
-<td style="padding:10px 8px;color:#d29922;font-weight:600">Phase 2 (per user)</td>
-<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$3.00</td>
-<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$15.00</td>
-<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$7.50*</td>
-<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$37.50*</td>
+<td style="padding:10px 8px;color:#d29922;font-weight:600">Per-user (Opus pass)</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$8.00</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$40.00</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$200*</td>
+<td style="text-align:center;padding:10px 8px;color:#c9d1d9">$1,000*</td>
 </tr>
 <tr style="border-bottom:1px solid #21262d">
 <td style="padding:10px 8px;color:#58a6ff;font-weight:700">Daily total</td>
-<td style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">$5.50</td>
-<td style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">$17.50</td>
-<td style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">$10.50</td>
-<td style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">$42.50</td>
+<td style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">$12.67</td>
+<td style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">$44.67</td>
+<td style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">$205</td>
+<td style="text-align:center;padding:10px 8px;color:#58a6ff;font-weight:700">$1,005</td>
 </tr>
 <tr style="border-bottom:1px solid #21262d">
 <td style="padding:10px 8px;color:#bc8cff;font-weight:700">Monthly total</td>
-<td style="text-align:center;padding:10px 8px;color:#bc8cff;font-weight:700">$165</td>
-<td style="text-align:center;padding:10px 8px;color:#bc8cff;font-weight:700">$525</td>
-<td style="text-align:center;padding:10px 8px;color:#bc8cff;font-weight:700">$315</td>
-<td style="text-align:center;padding:10px 8px;color:#bc8cff;font-weight:700">$1,275</td>
+<td style="text-align:center;padding:10px 8px;color:#bc8cff;font-weight:700">$380</td>
+<td style="text-align:center;padding:10px 8px;color:#bc8cff;font-weight:700">$1,340</td>
+<td style="text-align:center;padding:10px 8px;color:#bc8cff;font-weight:700">$6,150*</td>
+<td style="text-align:center;padding:10px 8px;color:#bc8cff;font-weight:700">$30,150*</td>
 </tr>
 <tr>
 <td style="padding:10px 8px;color:#3fb950;font-weight:700">Cost per user/mo</td>
-<td style="text-align:center;padding:10px 8px;color:#3fb950;font-weight:700">$8.25</td>
-<td style="text-align:center;padding:10px 8px;color:#3fb950;font-weight:700">$5.25</td>
-<td style="text-align:center;padding:10px 8px;color:#3fb950;font-weight:700">$0.32</td>
-<td style="text-align:center;padding:10px 8px;color:#3fb950;font-weight:700">$0.13</td>
+<td style="text-align:center;padding:10px 8px;color:#3fb950;font-weight:700">$19.00</td>
+<td style="text-align:center;padding:10px 8px;color:#3fb950;font-weight:700">$13.40</td>
+<td style="text-align:center;padding:10px 8px;color:#3fb950;font-weight:700">$6.15*</td>
+<td style="text-align:center;padding:10px 8px;color:#3fb950;font-weight:700">$3.02*</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p style="font-size:0.78em;color:#8b949e;margin-top:10px">* At 1,000+ users, cohort optimization kicks in — costs drop dramatically. Phase 1 grows slightly with more topics but stays low.</p>
+<p style="font-size:0.78em;color:#8b949e;margin-top:10px">* At 1,000+ users, cohort optimisation kicks in — users with similar topics share one Opus call. Also may add Haiku pre-filter at 10K+.</p>
 </div>
 </div>
 
@@ -688,13 +585,13 @@ Think of it like newspaper editions: the Melbourne edition and Sydney edition ar
 <div style="position:relative;padding:12px 0">
 <div style="position:absolute;left:-24px;top:14px;width:12px;height:12px;border-radius:50%;background:#d29922;border:2px solid #0d1117"></div>
 <div style="color:#d29922;font-weight:700;font-size:0.85em">5:30 AM</div>
-<div style="color:#c9d1d9;font-size:0.85em">🎯 <strong>Scoring & dedup</strong> — Gemini Flash Lite scores everything. Embeddings remove duplicates. Pool narrows to ~200-500 quality items.</div>
+<div style="color:#c9d1d9;font-size:0.85em">🧠 <strong>Opus single pass begins</strong> — Content pool fed to Opus per user/cohort. One call scores, curates, composes, and personalises.</div>
 </div>
 
 <div style="position:relative;padding:12px 0">
 <div style="position:absolute;left:-24px;top:14px;width:12px;height:12px;border-radius:50%;background:#58a6ff;border:2px solid #0d1117"></div>
 <div style="color:#58a6ff;font-weight:700;font-size:0.85em">6:00 AM</div>
-<div style="color:#c9d1d9;font-size:0.85em">👤 <strong>Per-user curation begins</strong> — Serverless functions fan out. Each subscriber's digest is curated and composed in parallel.</div>
+<div style="color:#c9d1d9;font-size:0.85em">📧 <strong>Digests rendering</strong> — Opus outputs feed into React Email templates. HTML rendered per subscriber.</div>
 </div>
 
 <div style="position:relative;padding:12px 0">
@@ -954,12 +851,12 @@ Think of it like newspaper editions: the Melbourne edition and Sydney edition ar
 <p>Nothing — this is invisible to subscribers. But it's how we know the business is healthy.</p>
 </div>
 <div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
-<p>Every digest run logs its costs to the database: how much we spent on X data ($0.01), LLM calls ($0.19), and email delivery ($0.004 × subscribers). The <strong>digests</strong> table has columns for research_cost, llm_cost, email_cost, and total_cost. At 20 users, a daily digest costs about $0.20 to produce. At 1,000 users, LLM cost stays the same (one digest, many copies) but email cost scales — total ~$4/day. Daily cost alerts go to Discord if something spikes.</p>
+<p>Every digest run logs its costs to the database: X API (~$0.05-0.08), Opus call (~$0.30-0.40), and email delivery ($0.004 × subscribers). The <strong>digests</strong> table has columns for research_cost, llm_cost, email_cost, and total_cost. At 20 users, a daily digest costs about $0.40 per user to produce (~$12.67/day total including fixed infra). Daily cost alerts go to Discord if something spikes.</p>
 </div>
 <div class="card-section"><h4 class="tech">🔧 Tech used</h4>
 <p><span class="tech-badge">Supabase (digests table)</span> Stores per-digest cost breakdown<br>
 <span class="tech-badge">Discord Webhooks</span> Alerts if daily cost exceeds threshold<br>
-<span class="cost-note">Per-digest cost breakdown: LLM ~$0.19 + Data ~$0.01 + Email ~$0.08@20users = ~$0.28 total</span></p>
+<span class="cost-note">Per-digest cost breakdown: Opus ~$0.35 + X API ~$0.06 + web ~$0.02 + email ~$0.004 = ~$0.40 total</span></p>
 </div>
 <div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
 <div class="alt-item"><span class="alt-name">Datadog / Grafana</span> — <span class="alt-note">Professional monitoring dashboards; overkill for now, good at scale</span></div>
@@ -980,9 +877,8 @@ Think of it like newspaper editions: the Melbourne edition and Sydney edition ar
 </div>
 <div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
 <p>Every step in the pipeline has fallbacks:<br>
-• <strong>X data provider down?</strong> → Fall back to Apify or skip X, use other sources.<br>
-• <strong>Claude API down?</strong> → Fall back to GPT-4o for curation and composition.<br>
-• <strong>OpenAI embeddings down?</strong> → Fall back to Nomic embeddings.<br>
+• <strong>X API down?</strong> → Skip X, use other sources (Reddit, HN, News still have content).<br>
+• <strong>Anthropic/Opus down?</strong> → Queue and retry. For MVP, no multi-model fallback needed. OpenRouter gives access to alternatives if we ever need them.<br>
 • <strong>Resend down?</strong> → Queue emails and retry every 15 minutes.<br>
 • <strong>Entire pipeline fails?</strong> → Alert fires in Discord, Chop investigates, subscribers get yesterday's "best of" as a fallback.<br><br>
 Inngest (our job orchestrator) handles automatic retries with exponential backoff — if a step fails, it waits 30s, then 1min, then 2min before giving up and alerting.</p>

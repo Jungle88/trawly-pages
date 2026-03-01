@@ -80,15 +80,14 @@ blockquote{border-left:3px solid #58a6ff;padding:8px 16px;margin:16px 0;color:#8
 <tr><td>X tagging</td><td>Webhook listener</td><td>Included in X API</td><td>—</td></tr>
 </table>
 
-<h3>AI Models</h3>
+<h3>AI Models (Simplified Single-Pass)</h3>
 <table>
 <tr><th>Component</th><th>Choice</th><th>Why</th></tr>
-<tr><td>Scoring LLM</td><td>Gemini 2.0 Flash Lite</td><td>Cheapest for bulk classification. $0.075/MTok in, $0.30/MTok out</td></tr>
-<tr><td>Summary LLM</td><td>GPT-4o-mini</td><td>Best value for summarization. $0.15/MTok in, $0.60/MTok out</td></tr>
-<tr><td>Editorial LLM</td><td>Claude 4 Sonnet</td><td>Final editorial pass — the voice IS the product</td></tr>
-<tr><td>Embeddings</td><td>text-embedding-3-small</td><td>$0.02/MTok — cheapest, good for dedup + similarity</td></tr>
-<tr><td>Fallback</td><td>GPT-4o-mini</td><td>If Claude is down or rate-limited</td></tr>
+<tr><td>Single-pass digest</td><td>Claude Opus 4</td><td>One call does scoring + curation + composition + personalisation. ~$0.30-0.40/digest</td></tr>
+<tr><td>Taste profile update</td><td>Claude Sonnet 4</td><td>Post-engagement profile recalculation. ~$0.05/digest</td></tr>
+<tr><td>Fallback</td><td>Queue and retry</td><td>If Anthropic is down, queue and retry. No multi-model fallback for MVP</td></tr>
 </table>
+<p>Routed through <strong>OpenRouter</strong> for access to all models if we need to optimise at scale.</p>
 
 <h3>Email Delivery</h3>
 <table>
@@ -113,25 +112,20 @@ blockquote{border-left:3px solid #58a6ff;padding:8px 16px;margin:16px 0;color:#8
         │             │
         ▼             ▼
 ┌──────────────────────────────────────────────────────┐
-│         AI AGENT PIPELINE (Inngest + Sub-Agents)      │
+│              SIMPLIFIED PIPELINE                       │
 │                                                        │
-│  FETCH AGENTS (parallel)                               │
-│    Agent-X · Agent-Reddit · Agent-HN · Agent-RSS      │
-│    Agent-YT · Agent-News                               │
+│  FETCH (code, parallel)                                │
+│    X API · Reddit API · HN Firebase · RSS · News      │
 │           ▼                                            │
-│  SCORE ───── Gemini Flash Lite ───── Quality score     │
-│           ▼                                            │
-│  DEDUP ───── Embeddings ───── Remove similar           │
-│           ▼                                            │
-│  SUMMARIZE ── GPT-4o-mini ── Summaries                 │
-│           ▼                                            │
-│  CURATE ──── Claude Sonnet ── Select best 8-12         │
-│           ▼                                            │
-│  COMPOSE ─── Claude Sonnet ── Write digest             │
+│  OPUS SINGLE PASS ─── Claude Opus 4                    │
+│    Scores + curates + composes + personalises          │
+│    "Why this matters to you" boxes · ~$0.30-0.40      │
 │           ▼                                            │
 │  RENDER ──── React Email ──── HTML email               │
 │           ▼                                            │
 │  DELIVER ─── Resend ───────── Inbox                    │
+│                                                        │
+│  POST-SEND: Engagement → Sonnet taste profile update   │
 └──────────────────────────────────────────────────────┘</code></pre>
 
 <h3>Pipeline Schedule</h3>
@@ -140,19 +134,31 @@ blockquote{border-left:3px solid #58a6ff;padding:8px 16px;margin:16px 0;color:#8
 <li><strong>Delivery:</strong> 7:30am AEDT (or subscriber-local time in v2)</li>
 </ul>
 
-<h2>4. AI Model Strategy</h2>
-<p>Different tasks need different models. Using Sonnet for everything wastes money. Using Haiku for everything sacrifices editorial quality.</p>
+<h2>4. AI Model Strategy — Single-Pass Pipeline</h2>
+<p>After 3 weeks of production data, we learned that splitting into separate scoring → dedup → summarisation → curation → composition steps was over-engineering. <strong>One Opus call does it all.</strong></p>
+<p><strong>Why single-pass works:</strong> Opus is smart enough to hold ~80 posts + the user's taste profile in context and do scoring, curation, composition, and personalisation in a single pass. Splitting into steps adds cost and latency without improving quality.</p>
 
 <table>
-<tr><th>Task</th><th>Model</th><th>Cost/Digest</th></tr>
-<tr><td>Content scoring (50-100 items)</td><td>Gemini 2.0 Flash Lite</td><td>~$0.005</td></tr>
-<tr><td>Deduplication</td><td>text-embedding-3-small</td><td>~$0.001</td></tr>
-<tr><td>Summarization (top 20)</td><td>GPT-4o-mini</td><td>~$0.03</td></tr>
-<tr><td>Editorial curation</td><td>Claude 4 Sonnet</td><td>~$0.05</td></tr>
-<tr><td>Digest composition</td><td>Claude 4 Sonnet</td><td>~$0.10</td></tr>
-<tr><td>Subject line</td><td>GPT-4o-mini</td><td>~$0.001</td></tr>
+<tr><th>Step</th><th>Method</th><th>Cost/Digest</th></tr>
+<tr><td>Fetch content</td><td>Code (no AI)</td><td>$0 (API costs separate)</td></tr>
+<tr><td>Score + curate + compose + personalise</td><td>Claude Opus 4 — single pass</td><td>~$0.30-0.40</td></tr>
+<tr><td>Taste profile update</td><td>Claude Sonnet 4 — post-engagement</td><td>~$0.05</td></tr>
 </table>
-<p><strong>Total LLM cost per digest: ~$0.19</strong></p>
+
+<h3>Real Production COGS (3 weeks of data)</h3>
+<table>
+<tr><th>Component</th><th>Cost/Digest</th></tr>
+<tr><td>Opus single pass</td><td>$0.30-0.40</td></tr>
+<tr><td>X API</td><td>$0.05-0.08</td></tr>
+<tr><td>Web searches</td><td>~$0.02</td></tr>
+<tr><td>Email delivery</td><td>~$0.004</td></tr>
+<tr><td><strong>Total per digest</strong></td><td><strong>~$0.40</strong></td></tr>
+<tr><td><strong>Monthly per user</strong></td><td><strong>~$12</strong></td></tr>
+</table>
+
+<h3>Fixed Infrastructure (~$140/mo)</h3>
+<p>Vercel $20 + Supabase $25 + Resend $20 + X API ~$75 + misc ~$5</p>
+<p><strong>Total LLM cost per digest: ~$0.35-0.45</strong></p>
 
 <h2 id="x-data-strategy">5. X Data Strategy</h2>
 
@@ -255,7 +261,7 @@ CREATE TABLE content_items (
 <tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr>
 <tr><td>Email lands in spam</td><td>Medium</td><td>Proper DKIM/SPF/DMARC + warm-up.</td></tr>
 <tr><td>AI curation quality inconsistent</td><td>Medium</td><td>Human review loop for first 2 weeks.</td></tr>
-<tr><td>Costs spiral at scale</td><td>Low</td><td>Unit economics solid ($0.13-0.30/digest vs $12/mo revenue).</td></tr>
+<tr><td>Costs spiral at scale</td><td>Low</td><td>Unit economics validated: ~$0.40/digest vs $19/mo revenue = 63% margin.</td></tr>
 <tr><td>X API pricing changes</td><td>Low</td><td>Pay-as-you-go means we only pay for what we use. Easy to adjust volume.</td></tr>
 <tr><td>Content approach challenged by X</td><td>Low</td><td>Editorial summaries with links is standard newsletter practice (TLDR, Morning Brew).</td></tr>
 </table>

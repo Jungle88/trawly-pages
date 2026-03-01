@@ -55,7 +55,7 @@ blockquote{border-left:3px solid #58a6ff;padding:8px 16px;margin:16px 0;color:#8
 <li><strong>AI quality threshold crossed</strong> — Claude/GPT can write genuinely good editorial copy</li>
 <li><strong>Newsletter fatigue</strong> — people want FEWER, BETTER newsletters</li>
 <li><strong>X is getting noisier</strong> — demand for curation rising</li>
-<li><strong>Cost structure inverted</strong> — AI curation costs $0.13/digest vs $5-10/hr for human editors</li>
+<li><strong>Cost structure inverted</strong> — AI curation costs $0.40/digest vs $5-10/hr for human editors</li>
 </ol>
 
 <h3>Target Audience</h3>
@@ -68,41 +68,40 @@ blockquote{border-left:3px solid #58a6ff;padding:8px 16px;margin:16px 0;color:#8
 
 <h2>3. COGS Breakdown</h2>
 
-<h3>Per-Digest Costs (Fixed Daily — Same for 20 or 20,000 subs)</h3>
+<h3>Per-Digest Costs (Real Production Data — 3 weeks)</h3>
 <table>
-<tr><th>Component</th><th>Cost/Day</th><th>Notes</th></tr>
-<tr><td>X Data (TwitterAPI.io)</td><td>$0.30</td><td>~2000 tweets @ $0.15/1K</td></tr>
-<tr><td>Reddit / HN / RSS / News</td><td>$0.00</td><td>Free APIs</td></tr>
-<tr><td>Scoring LLM (Haiku)</td><td>$0.02</td><td>Score 100 items</td></tr>
-<tr><td>Editorial LLM (Sonnet)</td><td>$0.11</td><td>Select + compose</td></tr>
-<tr><td>Embeddings</td><td>$0.001</td><td>Dedup</td></tr>
-<tr><td><strong>Total fixed daily</strong></td><td><strong>$0.43</strong></td><td></td></tr>
+<tr><th>Component</th><th>Cost/Digest</th><th>Notes</th></tr>
+<tr><td>Opus single pass</td><td>$0.30-0.40</td><td>Scores + curates + composes + personalises in one call</td></tr>
+<tr><td>X API (official)</td><td>$0.05-0.08</td><td>Pay-as-you-go, ~2K-3K tweets/day</td></tr>
+<tr><td>Web searches</td><td>~$0.02</td><td>Google News, supplementary</td></tr>
+<tr><td>Email delivery</td><td>~$0.004</td><td>Resend</td></tr>
+<tr><td><strong>Total per digest</strong></td><td><strong>~$0.40</strong></td><td></td></tr>
+<tr><td><strong>Monthly per user</strong></td><td><strong>~$12</strong></td><td>30 digests × $0.40</td></tr>
 </table>
 
-<h3>Per-Subscriber Costs (Marginal)</h3>
+<h3>Taste Profile Update (Post-Engagement)</h3>
 <table>
 <tr><th>Component</th><th>Cost/Sub/Month</th></tr>
-<tr><td>Email send (Resend)</td><td>$0.012</td></tr>
-<tr><td>Personalization (future)</td><td>$0.15</td></tr>
-<tr><td>Reply processing (future)</td><td>$0.06</td></tr>
-<tr><td><strong>Total marginal</strong></td><td><strong>$0.22</strong></td></tr>
+<tr><td>Sonnet taste profile update</td><td>~$1.50</td></tr>
+<tr><td>Email send (Resend)</td><td>$0.12</td></tr>
+<tr><td><strong>Total marginal add-on</strong></td><td><strong>~$1.62</strong></td></tr>
 </table>
 
 <h3>Total COGS by Scale</h3>
 <table>
-<tr><th>Subscribers</th><th>Total/Month</th><th>COGS/Sub/Month</th></tr>
-<tr><td>20</td><td>$17</td><td>$0.87</td></tr>
-<tr><td>100</td><td>$35</td><td>$0.35</td></tr>
-<tr><td>500</td><td>$124</td><td>$0.25</td></tr>
-<tr><td>1,000</td><td>$235</td><td>$0.24</td></tr>
-<tr><td>5,000</td><td>$1,128</td><td>$0.23</td></tr>
-<tr><td>10,000</td><td>$2,250</td><td>$0.23</td></tr>
+<tr><th>Subscribers</th><th>Variable/Month</th><th>Fixed Infra</th><th>Total/Month</th><th>COGS/Sub/Month</th></tr>
+<tr><td>20</td><td>$240</td><td>$140</td><td>$380</td><td>$19.00</td></tr>
+<tr><td>100</td><td>$1,200</td><td>$140</td><td>$1,340</td><td>$13.40</td></tr>
+<tr><td>500</td><td>$6,000</td><td>$150</td><td>$6,150</td><td>$12.30</td></tr>
+<tr><td>1,000</td><td>$6,150*</td><td>$175</td><td>$6,325</td><td>$6.33*</td></tr>
+<tr><td>10,000</td><td>$30,000*</td><td>$300</td><td>$30,300</td><td>$3.03*</td></tr>
 </table>
+<p style="font-size:0.85em;color:#8b949e">* At 1,000+ users, cohort optimisation kicks in — users with similar topics share one Opus call, dramatically reducing per-user cost.</p>
 
-<h3>Infrastructure (Monthly Fixed)</h3>
+<h3>Infrastructure (Monthly Fixed ~$140)</h3>
 <div class="highlight">
-<p><strong>Total infra: ~$80/mo</strong> — Vercel Pro ($20) + Supabase Pro ($25) + Resend ($20) + TwitterAPI.io ($10-30) + Domain ($1)</p>
-<p>Well within $1K/mo budget. Scales to ~5000 subs before upgrades needed.</p>
+<p><strong>Total infra: ~$140/mo</strong> — Vercel Pro ($20) + Supabase Pro ($25) + Resend ($20) + X API (~$75) + Domain + misc (~$5)</p>
+<p>Variable cost dominated by Opus calls (~$0.35/digest). At scale, cohort optimisation and potential Haiku pre-filtering reduce this significantly.</p>
 </div>
 
 <h2>4. Revenue Model</h2>
@@ -111,29 +110,32 @@ blockquote{border-left:3px solid #58a6ff;padding:8px 16px;margin:16px 0;color:#8
 <table>
 <tr><th>Tier</th><th>Price</th><th>Includes</th></tr>
 <tr><td><strong>Free</strong></td><td>$0</td><td>3x/week digest, 5 items, email only</td></tr>
-<tr><td><strong>Pro</strong></td><td>$12/mo ($120/yr)</td><td>Daily digest, 10-15 items, all sources, reply-to-customize</td></tr>
+<tr><td><strong>Pro</strong></td><td>$19/mo ($190/yr)</td><td>Daily digest, 10-15 items, all sources, personalised "Why this matters" boxes</td></tr>
 <tr><td><strong>Power</strong></td><td>$29/mo ($290/yr)</td><td>Everything in Pro + team digests, deep dives, API</td></tr>
 </table>
 
 <h3>Revenue Projections</h3>
 <table>
-<tr><th>Month</th><th>Total Subs</th><th>Pro ($12)</th><th>Power ($29)</th><th>MRR</th><th>Gross Margin</th></tr>
-<tr><td>1</td><td>20</td><td>0</td><td>0</td><td>$0</td><td>—</td></tr>
-<tr><td>2</td><td>50</td><td>15</td><td>5</td><td>$325</td><td>62%</td></tr>
-<tr><td>3</td><td>150</td><td>45</td><td>15</td><td>$975</td><td>86%</td></tr>
-<tr><td>6</td><td>500</td><td>150</td><td>50</td><td>$3,250</td><td>93%</td></tr>
-<tr><td>12</td><td>5,000</td><td>1,500</td><td>500</td><td>$32,500</td><td>96%</td></tr>
+<tr><th>Month</th><th>Total Subs</th><th>Pro ($19)</th><th>Power ($29)</th><th>MRR</th><th>COGS</th><th>Gross Margin</th></tr>
+<tr><td>1</td><td>20</td><td>0</td><td>0</td><td>$0</td><td>$380</td><td>—</td></tr>
+<tr><td>2</td><td>50</td><td>15</td><td>5</td><td>$430</td><td>$740</td><td>—</td></tr>
+<tr><td>3</td><td>150</td><td>45</td><td>15</td><td>$1,290</td><td>$1,940</td><td>—</td></tr>
+<tr><td>6</td><td>500</td><td>150</td><td>50</td><td>$4,300</td><td>$6,150</td><td>—</td></tr>
+<tr><td>9</td><td>1,000</td><td>350</td><td>100</td><td>$9,550</td><td>$6,325*</td><td>34%</td></tr>
+<tr><td>12</td><td>5,000</td><td>1,500</td><td>500</td><td>$43,000</td><td>$18,150*</td><td>58%</td></tr>
 </table>
+<p style="font-size:0.85em;color:#8b949e">* Cohort optimisation at 1K+ users dramatically reduces per-user Opus costs. Margins improve rapidly with scale.</p>
 
 <div class="highlight">
-<p><strong>Path to $10K MRR:</strong> ~600 paid subscribers → Month 9-10</p>
-<p><strong>Path to $100K MRR:</strong> ~6,000 paid subscribers → Month 15-18</p>
+<p><strong>Path to $10K MRR:</strong> ~530 paid subscribers (mix of Pro + Power) → Month 9-10</p>
+<p><strong>Path to $100K MRR:</strong> ~5,500 paid subscribers → Month 15-18 (with cohort optimisation, COGS ~$3/user = 84% margin)</p>
 </div>
 
 <h2>5. Gross Margin Analysis</h2>
 <div class="highlight">
-<p><strong style="color:#3fb950">95%+ gross margin at 1K+ subscribers</strong> because the expensive part (AI curation) is a fixed daily cost shared across all subscribers. Each marginal subscriber costs almost nothing.</p>
-<p>Comparison: Morning Brew ~85%, The Information ~70%, <strong>Trawly 95%+</strong></p>
+<p><strong style="color:#3fb950">At $19/mo pricing:</strong> $19 - $12 COGS = <strong>$7 profit per user = 63% gross margin</strong> at 20 users.</p>
+<p>At scale (1,000+ users with cohort optimisation): $19 - $6.33 = <strong>$12.67 profit per user = 67% gross margin</strong>. At 10K users: ~$19 - $3.03 = <strong>84% gross margin</strong>.</p>
+<p>Comparison: Morning Brew ~85%, The Information ~70%, <strong>Trawly 63-84%</strong> (improving with scale)</p>
 </div>
 
 <h2>6. Growth Strategy</h2>
@@ -146,9 +148,9 @@ blockquote{border-left:3px solid #58a6ff;padding:8px 16px;margin:16px 0;color:#8
 
 <h3>Unit Economics</h3>
 <div class="highlight">
-<p><strong>Pro LTV:</strong> $12/mo × 25 months = $300</p>
+<p><strong>Pro LTV:</strong> $19/mo × 25 months = $475</p>
 <p><strong>Power LTV:</strong> $29/mo × 33 months = $957</p>
-<p><strong>Blended LTV:</strong> ~$420 · <strong>Target CAC:</strong> &lt;$20 · <strong>LTV:CAC:</strong> &gt;20:1</p>
+<p><strong>Blended LTV:</strong> ~$580 · <strong>Target CAC:</strong> &lt;$20 · <strong>LTV:CAC:</strong> &gt;25:1</p>
 </div>
 
 <h2>7. Competitive Landscape</h2>
@@ -170,16 +172,16 @@ blockquote{border-left:3px solid #58a6ff;padding:8px 16px;margin:16px 0;color:#8
 
 <h2>8. Investment Required</h2>
 <div class="highlight">
-<p><strong>Monthly burn: ~$115/mo</strong></p>
-<p><strong>Break-even: Month 2</strong> (with 15 Pro + 5 Power)</p>
+<p><strong>Monthly burn at 20 users: ~$380/mo</strong> (mostly Opus calls + fixed infra)</p>
+<p><strong>Break-even: ~20 Pro subscribers</strong> ($19 × 20 = $380 MRR)</p>
 <p><strong>David's time: 30 min/day</strong> ongoing · Chop handles all technical operations</p>
 </div>
 
 <h2>9. Why This Works</h2>
 <ol>
 <li><strong>Proven demand:</strong> David already loves receiving the daily digest — PMF validated on N=1</li>
-<li><strong>Near-zero marginal cost:</strong> $0.22/mo per sub vs $12-29/mo revenue — 50-100x markup</li>
-<li><strong>AI advantage:</strong> What took Morning Brew 20 editors, Trawly does for $0.13/day</li>
+<li><strong>Strong unit economics:</strong> ~$12/mo COGS per sub vs $19-29/mo revenue — 63-84% gross margin</li>
+<li><strong>AI advantage:</strong> What took Morning Brew 20 editors, Trawly does for $0.40/digest with one Opus call</li>
 <li><strong>Network effects compound:</strong> More users → better data → better curation → more users</li>
 <li><strong>Multiple expansion paths:</strong> Email → podcast → teams → API → data licensing</li>
 </ol>
