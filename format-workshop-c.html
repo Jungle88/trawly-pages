@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Format C — The Hybrid</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #EDE8E1; color: #1a1a2e; font-family: Georgia, 'Times New Roman', serif; line-height: 1.7; }
+  h1,h2,h3,h4,h5 { font-family: Georgia, serif; line-height: 1.35; }
+  .wrap { max-width: 640px; margin: 32px auto; padding: 0 16px; }
+  .email { background: #FFFCF8; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 35px rgba(0,0,0,0.09); }
+
+  /* Header */
+  .header { background: #1E293B; color: white; padding: 32px 36px 26px; }
+  .brand { font-family: system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; opacity: 0.35; margin-bottom: 16px; }
+  .greeting { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .meta-line { font-family: system-ui, sans-serif; font-size: 13px; opacity: 0.55; margin-top: 6px; }
+  .weather { font-family: system-ui, sans-serif; font-size: 13px; opacity: 0.45; margin-top: 8px; }
+
+  /* Story card */
+  .story { padding: 28px 36px; border-bottom: 1px solid #E8E0D8; }
+  .story:last-of-type { border-bottom: none; }
+  .cat { font-family: system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #B45309; margin-bottom: 10px; }
+  .story h2 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+  .story h2 a { color: #1a1a2e; text-decoration: none; }
+  .story h2 a:hover { color: #B45309; }
+  .story p { font-size: 15px; color: #374151; margin-bottom: 8px; }
+  .story .source { font-family: system-ui, sans-serif; font-size: 12px; color: #94a3b8; margin-top: 12px; }
+  .story .source a { color: #B45309; text-decoration: none; }
+
+  /* Personalised aside */
+  .aside { background: #FFF7ED; border-left: 3px solid #D97706; padding: 12px 16px; margin: 14px 0 8px; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.6; font-style: italic; }
+
+  /* Skip */
+  .story.skip { background: #F8FAFC; }
+  .story.skip .cat { color: #CBD5E1; }
+  .story.skip h2 { font-size: 16px; color: #94a3b8; }
+  .story.skip p { font-size: 14px; color: #94a3b8; }
+
+  /* Feedback */
+  .feedback { padding: 36px; text-align: center; background: #F5F0EB; }
+  .feedback p { font-size: 17px; color: #374151; margin-bottom: 18px; }
+  .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 12px 28px; border-radius: 8px; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+  .btn-primary { background: #B45309; color: white; }
+  .btn-primary:hover { background: #92400E; }
+  .btn-secondary { background: white; color: #64748b; border: 1px solid #CBD5E1; }
+  .btn-secondary:hover { border-color: #94a3b8; }
+
+  /* Footer */
+  .footer { padding: 24px 36px; text-align: center; font-family: system-ui, sans-serif; font-size: 12px; color: #94a3b8; line-height: 1.8; }
+  .footer .stats { font-size: 13px; color: #64748b; margin-bottom: 6px; }
+  .footer a { color: #B45309; text-decoration: none; }
+
+  @media (max-width: 640px) {
+    .wrap { margin: 16px auto; }
+    .header, .story, .feedback, .footer { padding-left: 24px; padding-right: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<div class="email">
+
+  <div class="header">
+    <div class="brand">Trawly</div>
+    <div class="greeting">Good morning, David.</div>
+    <div class="meta-line">6 stories from 31 sources · 4 min read</div>
+    <div class="weather">☀️ Sydney — 28°C, sunny all day</div>
+  </div>
+
+  <div class="story">
+    <div class="cat">🤖 AI</div>
+    <h2><a href="#">Anthropic Releases Claude's 'Extended Thinking' to All Users — Here's Why It Matters</a></h2>
+    <p>Extended thinking lets Claude reason through complex problems step-by-step before responding. It's like the difference between a snap answer and a considered one — and early users are reporting 40% better accuracy on coding and analysis tasks. This is one of those quiet upgrades that changes what's possible.</p>
+    <div class="aside">For Trawly: this could improve the Opus composition step. If extended thinking produces better editorial judgment, we might get even better personalisation at the same cost.</div>
+    <div class="source"><a href="#">Read on X → @alexalbert__</a> · 6h ago</div>
+  </div>
+
+  <div class="story">
+    <div class="cat">🏠 PropTech</div>
+    <h2><a href="#">Zillow's AI-Powered 'Dream Home' Feature Is Converting at 3x Their Standard Listings</a></h2>
+    <p>Zillow started generating property descriptions tailored to each viewer's search history. School-obsessed parents see catchment data first. Investors see projected ROI. Same property, completely different pitch — and it's converting at triple the rate of standard listings.</p>
+    <div class="aside">Enviz could do this with your 3D tours — imagine personalising the AR walkthrough based on what the buyer cares about. Worth a conversation with your product team.</div>
+    <div class="source"><a href="#">Read on X → @proptech_vc</a> · 12h ago</div>
+  </div>
+
+  <div class="story">
+    <div class="cat">₿ Crypto</div>
+    <h2><a href="#">Bitcoin Quietly Crossed $95K While Everyone Was Watching AI Stocks</a></h2>
+    <p>BTC hit a new all-time high with unusually low social media volume. No laser eyes, no memes — just institutional buyers steadily accumulating while retail attention was focused on AI. Analysts are calling it the healthiest rally in years: real demand without the FOMO circus.</p>
+    <div class="source"><a href="#">Read on X → @DocumentingBTC</a> · 4h ago</div>
+  </div>
+
+  <div class="story">
+    <div class="cat">🚀 Startups</div>
+    <h2><a href="#">The 'One-Person Startup' Era Is Real — 14 Solo Founders Hit $1M ARR in 2025</a></h2>
+    <p>A new analysis of indie hackers who crossed $1M ARR reveals a clear pattern: all 14 used AI coding tools extensively, shipped daily, and focused ruthlessly on distribution over product polish. The solo founder isn't a scrappy underdog anymore — they're a legitimate business model.</p>
+    <div class="aside">Sound familiar? You and Chop are literally this model. The key takeaway: distribution > polish. Ship Trawly to 20 friends before perfecting the format.</div>
+    <div class="source"><a href="#">Read on X → @levelsio</a> · 8h ago</div>
+  </div>
+
+  <div class="story">
+    <div class="cat">🔬 Deep Dive</div>
+    <h2><a href="#">Why 'Vibe Coding' Is Actually Just Good Management</a></h2>
+    <p>Karpathy's latest thread reframes the entire AI coding debate. His argument: prompting an AI coder is essentially the same skill as managing a junior developer. Clear scope, explicit constraints, one task at a time. The punchline? The best prompt engineers were already good managers — they just didn't know it yet.</p>
+    <div class="source"><a href="#">Read on X → @karpathy</a> · 14h ago</div>
+  </div>
+
+  <div class="story">
+    <div class="cat">👶 For the Family</div>
+    <h2><a href="#">Screen Time Research Gets a Major Update: Context Matters More Than Minutes</a></h2>
+    <p>A major new longitudinal study from Oxford just landed with a finding every parent needs to hear: what kids do on screens matters roughly 10x more than how long they're on them. Creative apps and co-viewing with parents showed genuinely positive outcomes. The only consistently negative pattern? Passive solo scrolling.</p>
+    <div class="aside">With your 5yo — the takeaway is do it together. 30 minutes of co-playing Minecraft > 15 minutes alone on YouTube.</div>
+    <div class="source"><a href="#">Read on X → @nature</a> · 18h ago</div>
+  </div>
+
+  <div class="story skip">
+    <div class="cat">⏭️ Skip This</div>
+    <h2>Elon's latest tweet drama</h2>
+    <p>Everyone's arguing about it. We read the whole saga. Save yourself 20 minutes: it doesn't matter. Move on.</p>
+  </div>
+
+  <div class="feedback">
+    <p>What landed today?</p>
+    <div class="btn-row">
+      <a href="#" class="btn btn-primary">🎯 Great issue</a>
+      <a href="#" class="btn btn-secondary">Too long</a>
+      <a href="#" class="btn btn-secondary">Too short</a>
+      <a href="#" class="btn btn-secondary">Reply with thoughts</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="stats">⏱ We trawled 47 sources so you didn't have to · ~25 minutes saved</div>
+    <p>Trawly — your internet, edited. <a href="#">Unsubscribe</a> · <a href="#">Preferences</a></p>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>

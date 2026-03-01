@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Format A — The Editor's Letter</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #F5F0EB; color: #1a1a2e; font-family: Georgia, 'Times New Roman', serif; line-height: 1.75; }
+  .wrap { max-width: 620px; margin: 32px auto; padding: 0 16px; }
+  .email { background: #FFFCF8; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+
+  /* Preheader */
+  .preheader { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; color: #94a3b8; padding: 16px 40px 0; letter-spacing: 0.3px; }
+
+  /* Header */
+  .header { padding: 32px 40px 24px; }
+  .brand { font-family: system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #94a3b8; margin-bottom: 20px; }
+  .greeting { font-size: 15px; color: #64748b; font-family: system-ui, sans-serif; margin-bottom: 6px; }
+  .intro { font-size: 18px; color: #1a1a2e; line-height: 1.6; }
+
+  /* Weather */
+  .weather { padding: 0 40px 8px; font-family: system-ui, sans-serif; font-size: 13px; color: #64748b; }
+
+  /* Stories */
+  .story { padding: 28px 40px; }
+  .story + .story { border-top: 1px solid #E8E0D8; }
+  .category { font-family: system-ui, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #94a3b8; margin-bottom: 10px; }
+  .story h2 { font-family: Georgia, serif; font-size: 20px; font-weight: 700; line-height: 1.35; margin-bottom: 12px; color: #1a1a2e; }
+  .story h2 a { color: inherit; text-decoration: none; }
+  .story h2 a:hover { color: #B45309; }
+  .story p { font-size: 15.5px; color: #374151; margin-bottom: 10px; }
+  .story .source { font-family: system-ui, sans-serif; font-size: 12px; color: #94a3b8; margin-top: 14px; }
+  .story .source a { color: #B45309; text-decoration: none; }
+
+  /* Skip this */
+  .skip { padding: 24px 40px; border-top: 1px solid #E8E0D8; }
+  .skip .category { color: #cbd5e1; }
+  .skip p { font-size: 14px; color: #94a3b8; font-style: italic; }
+
+  /* Footer */
+  .reply-section { padding: 36px 40px; text-align: center; border-top: 1px solid #E8E0D8; }
+  .reply-section p { font-size: 16px; color: #64748b; font-style: italic; }
+  .footer { padding: 24px 40px; text-align: center; font-family: system-ui, sans-serif; font-size: 12px; color: #94a3b8; line-height: 1.8; }
+  .footer .stats { font-size: 13px; color: #64748b; margin-bottom: 8px; }
+  .footer a { color: #B45309; text-decoration: none; }
+
+  @media (max-width: 640px) {
+    .wrap { margin: 16px auto; }
+    .header, .story, .skip, .reply-section, .footer { padding-left: 24px; padding-right: 24px; }
+    .weather { padding-left: 24px; padding-right: 24px; }
+    .preheader { padding-left: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<div class="email">
+
+  <div class="preheader">6 stories · 4 min read · one of them is about you</div>
+
+  <div class="header">
+    <div class="brand">Trawly</div>
+    <div class="greeting">Saturday 1 March, 2025</div>
+    <p class="intro">Good morning, David. The internet was noisy overnight, but there's a thread running through today's stories: the tools are getting smarter, and the people who know how to use them are pulling ahead. Here's what actually matters.</p>
+  </div>
+
+  <div class="weather">☀️ Sydney — 28°C, sunny. Perfect excuse to read this outside.</div>
+
+  <div class="story">
+    <div class="category">🤖 AI</div>
+    <h2><a href="#">Anthropic Releases Claude's 'Extended Thinking' to All Users — Here's Why It Matters</a></h2>
+    <p>Anthropic quietly rolled out one of its most significant upgrades this week. Extended thinking lets Claude reason through complex problems step-by-step before responding — essentially showing its working, like a maths student who finally learned that the answer alone doesn't get full marks. Early users are reporting 40% better accuracy on coding and analysis tasks.</p>
+    <p>For what you and Chop are building with Trawly, this is directly relevant. If extended thinking produces better editorial judgment, the Opus composition step could get meaningfully sharper — better personalisation at the same cost. Worth testing this week.</p>
+    <div class="source"><a href="#">Read on X → @alexalbert__</a> · 6h ago</div>
+  </div>
+
+  <div class="story">
+    <div class="category">🏠 PropTech</div>
+    <h2><a href="#">Zillow's AI-Powered 'Dream Home' Feature Is Converting at 3x Their Standard Listings</a></h2>
+    <p>Zillow has started generating property descriptions tailored to each viewer's search history. If you've been looking at family homes near schools, school info leads the listing. If you're an investor, you see ROI projections first. The result? 3x conversion over standard listings.</p>
+    <p>This one made me think of Enviz immediately. Imagine personalising a 3D tour or AR walkthrough based on what the buyer actually cares about. Same asset, different story for every viewer. It's the same principle behind Trawly, just applied to property. Might be worth raising with your product team.</p>
+    <div class="source"><a href="#">Read on X → @proptech_vc</a> · 12h ago</div>
+  </div>
+
+  <div class="story">
+    <div class="category">₿ Crypto</div>
+    <h2><a href="#">Bitcoin Quietly Crossed $95K While Everyone Was Watching AI Stocks</a></h2>
+    <p>Here's something interesting: Bitcoin hit a new all-time high with unusually low social media volume. No viral tweets, no laser eyes, no memes. Just institutional buyers steadily accumulating while retail attention was elsewhere. Analysts are calling it the healthiest rally in years — real demand without the FOMO circus.</p>
+    <div class="source"><a href="#">Read on X → @DocumentingBTC</a> · 4h ago</div>
+  </div>
+
+  <div class="story">
+    <div class="category">🚀 Startups</div>
+    <h2><a href="#">The 'One-Person Startup' Era Is Real — 14 Solo Founders Hit $1M ARR in 2025</a></h2>
+    <p>A new analysis just dropped: 14 solo founders crossed $1M ARR this year. The pattern across all of them — heavy use of AI coding tools, shipping daily, and a ruthless focus on distribution over product polish.</p>
+    <p>Sound familiar? You and Chop are literally this model. And the key takeaway from the data is clear: distribution beats polish. Ship Trawly to 20 friends before perfecting the format. The format workshop you're doing right now is great, but don't let it become a delay.</p>
+    <div class="source"><a href="#">Read on X → @levelsio</a> · 8h ago</div>
+  </div>
+
+  <div class="story">
+    <div class="category">🔬 Deep Dive</div>
+    <h2><a href="#">Why 'Vibe Coding' Is Actually Just Good Management</a></h2>
+    <p>Karpathy posted a thread that's been making the rounds. His argument: prompting an AI coder is essentially the same skill as managing a junior developer. Clear scope. Explicit constraints. One task at a time. The best prompt engineers, he says, were already good managers — they just didn't know it yet. It's a reframe worth sitting with, especially if you've ever wondered whether "vibe coding" is a real skill or just vibes.</p>
+    <div class="source"><a href="#">Read on X → @karpathy</a> · 14h ago</div>
+  </div>
+
+  <div class="story">
+    <div class="category">👶 For the Family</div>
+    <h2><a href="#">Screen Time Research Gets a Major Update: Context Matters More Than Minutes</a></h2>
+    <p>New longitudinal data from Oxford — and this one's actually useful, not just another scare piece. Their finding: what kids do on screens matters roughly 10x more than how long they're on them. Creative apps and co-viewing with parents showed genuinely positive outcomes. The only consistently negative pattern was passive solo scrolling.</p>
+    <p>With your 5-year-old, the practical takeaway is simple: do it together. 30 minutes of co-playing Minecraft beats 15 minutes alone on YouTube. Permission to relax a little on the timer.</p>
+    <div class="source"><a href="#">Read on X → @nature</a> · 18h ago</div>
+  </div>
+
+  <div class="skip">
+    <div class="category">⏭️ Skip This</div>
+    <p>Everyone's arguing about Elon's latest tweet. We read the whole saga. Save yourself 20 minutes: it doesn't matter. Move on.</p>
+  </div>
+
+  <div class="reply-section">
+    <p>Hit reply and tell me what landed today.</p>
+  </div>
+
+  <div class="footer">
+    <div class="stats">⏱ We read 47 sources so you didn't have to · You just saved ~25 minutes</div>
+    <p>Trawly — your internet, edited. <a href="#">Unsubscribe</a> · <a href="#">Preferences</a></p>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>

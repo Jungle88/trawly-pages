@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Format B — The Briefing</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #F1F5F9; color: #1a1a2e; font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; line-height: 1.6; }
+  .wrap { max-width: 660px; margin: 32px auto; padding: 0 16px; }
+  .email { background: #F8FAFC; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+
+  /* Header */
+  .header { background: #1E293B; color: white; padding: 28px 32px; }
+  .brand { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; opacity: 0.4; margin-bottom: 16px; }
+  .meta { font-size: 14px; opacity: 0.6; margin-bottom: 4px; }
+  .headline { font-size: 22px; font-weight: 800; }
+  .weather { font-size: 13px; opacity: 0.5; margin-top: 10px; }
+
+  /* Personalised picks */
+  .picks { background: #FFF7ED; border-left: 4px solid #D97706; padding: 20px 28px; margin: 0; }
+  .picks h3 { font-size: 14px; font-weight: 700; color: #92400E; margin-bottom: 10px; }
+  .picks ul { list-style: none; }
+  .picks li { font-size: 14px; color: #78350F; margin-bottom: 8px; padding-left: 20px; position: relative; }
+  .picks li::before { content: '📌'; position: absolute; left: 0; }
+
+  /* Grid */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px; }
+
+  /* Card */
+  .card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
+  .card.full { grid-column: 1 / -1; }
+  .pill { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; align-self: flex-start; }
+  .pill-ai { background: #EDE9FE; color: #7C3AED; }
+  .pill-proptech { background: #DBEAFE; color: #2563EB; }
+  .pill-crypto { background: #FEF3C7; color: #B45309; }
+  .pill-startups { background: #D1FAE5; color: #059669; }
+  .pill-deep { background: #FCE7F3; color: #DB2777; }
+  .pill-family { background: #E0E7FF; color: #4338CA; }
+  .pill-skip { background: #F1F5F9; color: #94A3B8; }
+
+  .card h3 { font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 8px; color: #1a1a2e; }
+  .card p { font-size: 13px; color: #64748b; flex: 1; margin-bottom: 10px; }
+  .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+  .card .source { font-size: 11px; color: #94a3b8; }
+  .card .source a { color: #2563EB; text-decoration: none; }
+  .card .vote { display: flex; gap: 8px; }
+  .card .vote a { font-size: 16px; text-decoration: none; opacity: 0.4; transition: opacity 0.2s; }
+  .card .vote a:hover { opacity: 1; }
+
+  /* Skip card */
+  .card.skip { background: #F8FAFC; border: 1px dashed #CBD5E1; }
+  .card.skip h3 { color: #94a3b8; font-size: 14px; }
+  .card.skip p { color: #CBD5E1; font-size: 12px; }
+
+  /* Footer */
+  .footer { padding: 20px 32px; text-align: center; font-size: 12px; color: #94a3b8; border-top: 1px solid #E2E8F0; }
+  .footer .stats { font-size: 13px; color: #64748b; margin-bottom: 6px; }
+  .footer a { color: #2563EB; text-decoration: none; }
+
+  @media (max-width: 580px) {
+    .grid { grid-template-columns: 1fr; padding: 12px; }
+    .wrap { margin: 16px auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<div class="email">
+
+  <div class="header">
+    <div class="brand">Trawly</div>
+    <div class="meta">Saturday 1 March, 2025</div>
+    <div class="headline">6 stories · 4 min read</div>
+    <div class="weather">☀️ Sydney 28°C, sunny</div>
+  </div>
+
+  <div class="picks">
+    <h3>📌 We flagged 2 stories specifically for you today</h3>
+    <ul>
+      <li><strong>Zillow's AI listings</strong> — Enviz could do this with your 3D tours. Personalise the AR walkthrough based on what the buyer cares about.</li>
+      <li><strong>Solo founders hitting $1M ARR</strong> — You and Chop are this model. Key takeaway: distribution > polish. Ship to 20 friends first.</li>
+    </ul>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <span class="pill pill-ai">🤖 AI</span>
+      <h3>Anthropic Releases Claude's 'Extended Thinking' to All Users</h3>
+      <p>Extended thinking lets Claude reason step-by-step before responding. Early users report 40% better accuracy on coding and analysis tasks.</p>
+      <div class="card-footer">
+        <span class="source"><a href="#">@alexalbert__</a> · 6h</span>
+        <span class="vote"><a href="#">👍</a><a href="#">👎</a></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="pill pill-proptech">🏠 PropTech</span>
+      <h3>Zillow's AI 'Dream Home' Feature Converting at 3x</h3>
+      <p>AI-generated property descriptions tailored to each viewer's search history. School-focused buyers see schools first. Investors see ROI.</p>
+      <div class="card-footer">
+        <span class="source"><a href="#">@proptech_vc</a> · 12h</span>
+        <span class="vote"><a href="#">👍</a><a href="#">👎</a></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="pill pill-crypto">₿ Crypto</span>
+      <h3>Bitcoin Quietly Crossed $95K While Everyone Watched AI Stocks</h3>
+      <p>BTC hit an ATH with unusually low social media volume. Institutional buyers accumulating without retail FOMO. Analysts call it the healthiest rally in years.</p>
+      <div class="card-footer">
+        <span class="source"><a href="#">@DocumentingBTC</a> · 4h</span>
+        <span class="vote"><a href="#">👍</a><a href="#">👎</a></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="pill pill-startups">🚀 Startups</span>
+      <h3>14 Solo Founders Hit $1M ARR in 2025</h3>
+      <p>Pattern: all used AI coding tools, shipped daily, focused on distribution over product polish. The one-person startup era is real.</p>
+      <div class="card-footer">
+        <span class="source"><a href="#">@levelsio</a> · 8h</span>
+        <span class="vote"><a href="#">👍</a><a href="#">👎</a></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="pill pill-deep">🔬 Deep Dive</span>
+      <h3>Why 'Vibe Coding' Is Actually Just Good Management</h3>
+      <p>Prompting an AI coder = managing a junior dev. Clear scope, explicit constraints, one task at a time. Best prompt engineers were already good managers.</p>
+      <div class="card-footer">
+        <span class="source"><a href="#">@karpathy</a> · 14h</span>
+        <span class="vote"><a href="#">👍</a><a href="#">👎</a></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="pill pill-family">👶 Family</span>
+      <h3>Screen Time: Context Matters More Than Minutes</h3>
+      <p>Oxford study: what kids do on screens matters 10x more than duration. Creative apps + co-viewing = positive. Passive scrolling = only negative.</p>
+      <div class="card-footer">
+        <span class="source"><a href="#">@nature</a> · 18h</span>
+        <span class="vote"><a href="#">👍</a><a href="#">👎</a></span>
+      </div>
+    </div>
+
+    <div class="card full skip">
+      <span class="pill pill-skip">⏭️ Skipped for you</span>
+      <h3>Elon's latest tweet drama</h3>
+      <p>We read the whole saga. Save yourself 20 minutes: it doesn't matter. Move on.</p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="stats">⏱ 47 sources scanned · ~25 min saved</div>
+    <p>Trawly — your internet, edited. <a href="#">Unsubscribe</a> · <a href="#">Preferences</a></p>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
