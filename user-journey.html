@@ -76,15 +76,15 @@ a:hover{text-decoration:underline}
 <h2>📊 Quick Summary</h2>
 <div class="summary-grid">
 <div class="summary-stat"><div class="num">10</div><div class="label">Services / APIs</div></div>
-<div class="summary-stat"><div class="num">~$45</div><div class="label">/mo at 20 users</div></div>
-<div class="summary-stat"><div class="num">~$230</div><div class="label">/mo at 1,000 users</div></div>
+<div class="summary-stat"><div class="num">~$95</div><div class="label">/mo at 20 users</div></div>
+<div class="summary-stat"><div class="num">~$330</div><div class="label">/mo at 1,000 users</div></div>
 </div>
 <div class="summary-services" style="margin-top:16px">
 <strong style="color:#c9d1d9">Services:</strong>
 <span>Vercel</span><span>Supabase</span><span>Resend</span><span>X API (official)</span><span>Reddit API</span><span>HN Firebase</span><span>Jina Reader</span><span>Gemini Flash</span><span>GPT-4o-mini</span><span>Claude Sonnet</span><span>OpenAI Embeddings</span><span>Inngest</span>
 </div>
 <p style="font-size:0.82em;color:#8b949e;margin-top:10px">
-💡 At 20 users: ~$0.19 LLM + ~$0.01 data + ~$0.004 email = <strong style="color:#3fb950">~$0.20 per digest</strong>. At $12/mo Pro pricing, you profit from subscriber #3.
+💡 At 20 users: ~$0.19 LLM + ~$0.05 X API + ~$0.01 other data + ~$0.004 email = <strong style="color:#3fb950">~$0.25 per digest</strong>. X API is pay-as-you-go (~$50-100/mo depending on query volume). At $12/mo Pro pricing, you profit from subscriber #10.
 </p>
 </div>
 
@@ -96,6 +96,7 @@ a:hover{text-decoration:underline}
 <a href="#pipeline">⚙️ Content Pipeline</a>
 <a href="#delivery">📬 Delivery</a>
 <a href="#feedback">🔁 Feedback Loop</a>
+<a href="#taste-profile">🧠 Taste Profile</a>
 <a href="#scaling">🏗️ How This Scales</a>
 <a href="#monitoring">📊 Behind the Scenes</a>
 </div>
@@ -849,6 +850,86 @@ Think of it like newspaper editions: the Melbourne edition and Sydney edition ar
 <div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
 <div class="alt-item"><span class="alt-name">Separate recommendation engine</span> — <span class="alt-note">More sophisticated; significant engineering investment, worth it at 10K+ users</span></div>
 <div class="alt-item"><span class="alt-name">No personalisation</span> — <span class="alt-note">Same digest for everyone; simpler but less sticky. Most newsletters do this.</span></div>
+</div>
+</div>
+</div>
+
+<!-- STEP: TASTE PROFILE DEEP DIVE -->
+<div class="card">
+<div class="card-header">
+<div class="step-num">16b</div>
+<div class="card-title" id="taste-profile">Your Taste Profile — What It Looks Like & How It Evolves</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>Nothing — this is invisible to you. You just notice your digest getting better over time. Eventually (v2) you'll be able to view and edit your profile in a dashboard: "Ah, I'm weighted 90% toward AI and only 30% toward crypto — that tracks."</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>Each subscriber has a <strong>taste profile</strong> stored as structured data in Supabase. It's created when they sign up and evolves every day. Here's what it looks like:</p>
+
+<pre style="background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:16px;font-size:0.82em;line-height:1.6;overflow-x:auto;color:#e6edf3;margin:12px 0">
+{
+  <span style="color:#7ee787">"topics"</span>: {
+    <span style="color:#79c0ff">"AI"</span>: 0.9,          <span style="color:#484f58">← loves AI content</span>
+    <span style="color:#79c0ff">"crypto"</span>: 0.6,      <span style="color:#484f58">← selected it but clicks less</span>
+    <span style="color:#79c0ff">"startups"</span>: 0.8     <span style="color:#484f58">← engages often</span>
+  },
+  <span style="color:#7ee787">"sources"</span>: {
+    <span style="color:#79c0ff">"x"</span>: 0.9,           <span style="color:#484f58">← clicks X content most</span>
+    <span style="color:#79c0ff">"reddit"</span>: 0.7,      <span style="color:#484f58">← solid engagement</span>
+    <span style="color:#79c0ff">"hn"</span>: 0.3,          <span style="color:#484f58">← rarely clicks through</span>
+    <span style="color:#79c0ff">"google_news"</span>: 0.5  <span style="color:#484f58">← neutral</span>
+  },
+  <span style="color:#7ee787">"content_style"</span>: {
+    <span style="color:#79c0ff">"quick_takes"</span>: 0.4, <span style="color:#484f58">← prefers depth over hot takes</span>
+    <span style="color:#79c0ff">"deep_dives"</span>: 0.8,  <span style="color:#484f58">← loves long reads</span>
+    <span style="color:#79c0ff">"threads"</span>: 0.6      <span style="color:#484f58">← moderate interest</span>
+  },
+  <span style="color:#7ee787">"authors_liked"</span>: ["@karpathy", "@levelsio"],
+  <span style="color:#7ee787">"authors_muted"</span>: ["@spambot123"]
+}
+</pre>
+
+<p>All values are <strong>0.0 to 1.0</strong>. At signup, topics the user picks start at 0.7, everything else at 0.5 (neutral). Then two types of signals move the weights:</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0">
+<div style="background:#0d2818;border:1px solid #238636;border-radius:8px;padding:14px">
+<strong style="color:#3fb950">🎯 Explicit Signals (fast, big moves)</strong>
+<ul style="margin:8px 0 0;padding-left:18px;font-size:0.88em;color:#c9d1d9">
+<li>"More like this" button → topic weight +0.15</li>
+<li>"Less like this" button → topic weight -0.15</li>
+<li>Mute an author → instant block</li>
+<li>Email reply "more crypto" → crypto weight +0.2</li>
+</ul>
+</div>
+<div style="background:#1a1a10;border:1px solid #3d3d00;border-radius:8px;padding:14px">
+<strong style="color:#d29922">📊 Implicit Signals (slow, gentle drift)</strong>
+<ul style="margin:8px 0 0;padding-left:18px;font-size:0.88em;color:#c9d1d9">
+<li>Clicked an item → topic weight +0.02</li>
+<li>Saved an item → topic weight +0.05</li>
+<li>Ignored a topic for 3 days → weight -0.01/day</li>
+<li>Clicked from Reddit → reddit source +0.02</li>
+<li>Never click HN links → hn source decays slowly</li>
+</ul>
+</div>
+</div>
+
+<p><strong>Why two speeds?</strong> If someone says "less crypto" we respect that immediately. But if they just didn't click one crypto article, that could be random — so we only nudge the weight slightly. This prevents the profile swinging wildly from one bad day.</p>
+
+<p><strong>The daily update loop:</strong> After each digest is sent and engagement is tracked (opens, clicks, saves), a background job runs that recalculates every subscriber's weights. It's like a thermostat — small constant adjustments, not big swings. Over 2-3 weeks, the profile converges on what you actually want.</p>
+
+<p><strong>Source allocation:</strong> When AI builds the source profile at signup, it looks at your topics and decides which sources to pull from. But as your weights shift, the source mix adapts too. If you never click Google News items, we stop wasting API calls fetching news for you.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Supabase (JSONB column)</span> Profile stored as JSON in the subscribers table — fast reads, easy updates<br>
+<span class="tech-badge">Vercel Cron</span> Nightly job recalculates weights after engagement data comes in<br>
+<span class="tech-badge">Resend webhooks</span> Open/click events feed back into the engagement tracker<br>
+<span class="cost-note">Cost: Negligible — just database writes and a lightweight cron job</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Collaborative filtering (v2)</span> — <span class="alt-note">"People like you also liked this." Needs 500+ users to work well. Uses pgvector embeddings to find similar taste profiles.</span></div>
+<div class="alt-item"><span class="alt-name">LLM-based profiling</span> — <span class="alt-note">Instead of numeric weights, store a natural language profile ("loves deep AI threads, hates crypto shilling"). More flexible but harder to query. Could work for editorial prompts.</span></div>
+<div class="alt-item"><span class="alt-name">No personalisation</span> — <span class="alt-note">Same digest for everyone. Simpler, but you lose the magic. Most newsletters do this — it's our competitive edge not to.</span></div>
 </div>
 </div>
 </div>
