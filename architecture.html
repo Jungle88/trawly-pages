@@ -71,13 +71,13 @@ blockquote{border-left:3px solid #58a6ff;padding:8px 16px;margin:16px 0;color:#8
 <h3>Content Pipeline (Multi-Source)</h3>
 <table>
 <tr><th>Source</th><th>Method</th><th>Cost</th><th>Rate Limits</th></tr>
-<tr><td>X/Twitter</td><td>TwitterAPI.io</td><td>$0.15/1K tweets</td><td>Pay-as-you-go</td></tr>
+<tr><td>X/Twitter</td><td>Official X API (pay-as-you-go)</td><td>~$50-100/mo</td><td>Credit-based, spending caps</td></tr>
 <tr><td>Reddit</td><td>Official API (free)</td><td>$0</td><td>100 req/min</td></tr>
 <tr><td>Hacker News</td><td>Firebase API</td><td>$0</td><td>Unlimited, real-time</td></tr>
 <tr><td>RSS/Blogs</td><td>Direct fetch</td><td>$0</td><td>Self-throttled</td></tr>
 <tr><td>YouTube</td><td>Transcript extraction</td><td>~$0</td><td>10K units/day free</td></tr>
 <tr><td>News sites</td><td>Jina Reader API</td><td>Free tier</td><td>20 req/min</td></tr>
-<tr><td>X tagging</td><td>Webhook listener</td><td>Included</td><td>—</td></tr>
+<tr><td>X tagging</td><td>Webhook listener</td><td>Included in X API</td><td>—</td></tr>
 </table>
 
 <h3>AI Models</h3>
@@ -155,17 +155,14 @@ blockquote{border-left:3px solid #58a6ff;padding:8px 16px;margin:16px 0;color:#8
 <p><strong>Total LLM cost per digest: ~$0.19</strong></p>
 
 <h2 id="x-data-strategy">5. X Data Strategy</h2>
-<p>Our $200/mo Basic X API tier is <strong>non-commercial</strong>. Using it for a paid product violates TOS. Pro tier is $5K/mo — not viable until 400+ paying subscribers.</p>
 
-<h3>Third-Party Data Providers</h3>
-<table>
-<tr><th>Provider</th><th>Cost</th><th>Method</th><th>Commercial?</th><th>Reliability</th></tr>
-<tr><td><strong>SocialData.tools</strong></td><td>$0.0018/tweet</td><td>API proxy</td><td>✅ Yes</td><td>High</td></tr>
-<tr><td><strong>Apify X Scraper</strong></td><td>$49/mo flat</td><td>Cloud scraping</td><td>✅ Yes</td><td>Medium</td></tr>
-<tr><td><strong>RapidAPI Twitter</strong></td><td>$0.001-0.005/tweet</td><td>Various proxies</td><td>✅ Yes</td><td>Varies</td></tr>
-<tr><td><strong>Bright Data</strong></td><td>~$500/mo</td><td>Residential proxy</td><td>✅ Yes</td><td>Very high</td></tr>
-</table>
-<p><strong>Recommendation:</strong> Start with <strong>SocialData.tools</strong> — cheapest per-tweet, commercial use allowed, decent reliability. Budget: ~$50-100/mo.</p>
+<h3>Approach: Official X API (Pay-As-You-Go)</h3>
+<p>We use X's official API with their pay-as-you-go pricing model (launched Feb 2026). Credit-based — buy credits, deducted per API request, with spending caps and auto-recharge. No fixed monthly subscription needed. Full commercial use rights through the official developer agreement.</p>
+<p><strong>Cost estimate:</strong> ~$50-100/mo for our daily research volume (~2,000-3,000 tweets scanned/day).</p>
+<p>We considered third-party providers (SocialData, Apify, RapidAPI proxies) but chose the official API for TOS compliance. Third-party providers operate in a grey area and could be shut down at any time.</p>
+
+<h3>Content Approach: Original Editorial</h3>
+<p>We do NOT reproduce full tweet text in emails. Instead, we write <strong>original AI summaries and editorial commentary</strong> about trending content, and always <strong>link back to the original post on X</strong> ("Read on X →"). On the web app, we use X's official embed widgets. Our value is curation + voice, not raw content redistribution — editorially identical to TLDR, Morning Brew, etc.</p>
 
 <h2>6. Email Delivery & Deliverability</h2>
 <h3>Why Not Gmail</h3>
@@ -256,10 +253,11 @@ CREATE TABLE content_items (
 <h2>9. Risk Register</h2>
 <table>
 <tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr>
-<tr><td>SocialData gets blocked by X</td><td>High</td><td>Apify as backup. Diversify to non-X sources.</td></tr>
 <tr><td>Email lands in spam</td><td>Medium</td><td>Proper DKIM/SPF/DMARC + warm-up.</td></tr>
 <tr><td>AI curation quality inconsistent</td><td>Medium</td><td>Human review loop for first 2 weeks.</td></tr>
 <tr><td>Costs spiral at scale</td><td>Low</td><td>Unit economics solid ($0.13-0.30/digest vs $12/mo revenue).</td></tr>
+<tr><td>X API pricing changes</td><td>Low</td><td>Pay-as-you-go means we only pay for what we use. Easy to adjust volume.</td></tr>
+<tr><td>Content approach challenged by X</td><td>Low</td><td>Editorial summaries with links is standard newsletter practice (TLDR, Morning Brew).</td></tr>
 </table>
 
 <div class="footer">⚡ Trawly Architecture V2 — March 2026</div>

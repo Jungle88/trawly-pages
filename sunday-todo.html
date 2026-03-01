@@ -155,15 +155,9 @@ hr{border:none;border-top:1px solid #21262d;margin:24px 0}
 <h2>⚖️ Decisions Needed <span class="tag yellow">David</span></h2>
 
 <div style="background:#161b22;border:1px solid #d29922;border-radius:8px;padding:16px 20px;margin:12px 0">
-<h3 style="color:#d29922;margin:0 0 8px">🐦 X/Twitter Data Source</h3>
-<p style="color:#c9d1d9;font-size:0.9em;margin:0 0 10px">Official X API is $5K/mo (Pro tier) for commercial use — not viable. We need a third-party provider:</p>
-<ul style="font-size:0.9em;margin-bottom:10px">
-<li><strong style="color:#3fb950">TwitterAPI.io — $0.15/1K tweets</strong> ← Recommended. Pay-as-you-go, commercial OK</li>
-<li>SocialData.tools — $0.0018/tweet, established</li>
-<li>Apify X Scraper — $49/mo flat</li>
-<li>RapidAPI Twitter — varies by provider</li>
-</ul>
-<a href="architecture.html#x-data-strategy" style="color:#58a6ff;font-size:0.85em">→ Full comparison in Architecture doc</a>
+<h3 style="color:#3fb950;margin:0 0 8px">🐦 X/Twitter Data Source — ✅ DECIDED</h3>
+<p style="color:#c9d1d9;font-size:0.9em;margin:0 0 10px"><strong style="color:#3fb950">Official X API (pay-as-you-go)</strong> — credit-based pricing, ~$50-100/mo for our volume. Chose this for TOS compliance over third-party providers (SocialData, Apify, etc.) which operate in a grey area. We write original AI summaries with "Read on X →" links — never redistribute raw tweet content.</p>
+<a href="architecture.html#x-data-strategy" style="color:#58a6ff;font-size:0.85em">→ Details in Architecture doc</a>
 </div>
 
 <div style="background:#161b22;border:1px solid #d29922;border-radius:8px;padding:16px 20px;margin:12px 0">

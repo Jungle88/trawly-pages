@@ -81,7 +81,7 @@ a:hover{text-decoration:underline}
 </div>
 <div class="summary-services" style="margin-top:16px">
 <strong style="color:#c9d1d9">Services:</strong>
-<span>Vercel</span><span>Supabase</span><span>Resend</span><span>TwitterAPI.io</span><span>Reddit API</span><span>HN Firebase</span><span>Jina Reader</span><span>Gemini Flash</span><span>GPT-4o-mini</span><span>Claude Sonnet</span><span>OpenAI Embeddings</span><span>Inngest</span>
+<span>Vercel</span><span>Supabase</span><span>Resend</span><span>X API (official)</span><span>Reddit API</span><span>HN Firebase</span><span>Jina Reader</span><span>Gemini Flash</span><span>GPT-4o-mini</span><span>Claude Sonnet</span><span>OpenAI Embeddings</span><span>Inngest</span>
 </div>
 <p style="font-size:0.82em;color:#8b949e;margin-top:10px">
 💡 At 20 users: ~$0.19 LLM + ~$0.01 data + ~$0.004 email = <strong style="color:#3fb950">~$0.20 per digest</strong>. At $12/mo Pro pricing, you profit from subscriber #3.
@@ -206,17 +206,15 @@ a:hover{text-decoration:underline}
 <p>Nothing — you're asleep! But this is where the value starts being created.</p>
 </div>
 <div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
-<p>At 6am AEDT, Trawly runs 10-15 search queries on X — things like <em>"AI agents" min_faves:50</em> or <em>"startup" min_faves:200"</em>. Each query returns 200-300 tweets from the past 24 hours. We can't use X's official API for commercial use (it's $5K/mo for the Pro tier!), so we use a third-party data provider that's commercially licensed. Total: ~2,000-3,000 tweets scanned per morning.</p>
+<p>At 6am AEDT, Trawly runs 10-15 search queries on X — things like <em>"AI agents" min_faves:50</em> or <em>"startup" min_faves:200"</em>. Each query returns 200-300 tweets from the past 24 hours. We use X's official API with their pay-as-you-go pricing (credit-based, no fixed subscription). We considered third-party providers but chose the official API to stay fully TOS-compliant. Total: ~2,000-3,000 tweets scanned per morning.</p>
 </div>
 <div class="card-section"><h4 class="tech">🔧 Tech used</h4>
-<p><span class="tech-badge">TwitterAPI.io</span> Third-party X data provider — $0.15 per 1,000 tweets, pay-as-you-go<br>
+<p><span class="tech-badge">Official X API (pay-as-you-go)</span> Credit-based pricing, spending caps, auto-recharge. Full commercial rights.<br>
 <span class="tech-badge">Inngest</span> Orchestrates the pipeline — triggers each step in order, handles retries<br>
-<span class="cost-note">Cost: ~$10-15/mo for daily scanning</span></p>
+<span class="cost-note">Cost: ~$50-100/mo for daily scanning (~2,000-3,000 tweets/day)</span></p>
 </div>
 <div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
-<div class="alt-item"><span class="alt-name">SocialData.tools</span> — <span class="alt-note">$0.0018/tweet, established service; slightly cheaper at volume</span></div>
-<div class="alt-item"><span class="alt-name">Apify X Scraper</span> — <span class="alt-note">$49/mo flat rate; good if volume is predictable, but depends on X's anti-bot measures</span></div>
-<div class="alt-item"><span class="alt-name">Official X API (Pro)</span> — <span class="alt-note">$5K/mo — gold standard but only viable at 400+ paying subscribers</span></div>
+<div class="alt-item"><span class="alt-name">Third-party providers (SocialData, Apify, etc.)</span> — <span class="alt-note">Considered but rejected — operate in a TOS grey area and could be shut down. Official API is safer.</span></div>
 </div>
 </div>
 </div>
@@ -359,7 +357,7 @@ a:hover{text-decoration:underline}
 <p>The email reads like a smart, slightly irreverent friend wrote it — not a robot. Each item has a one-liner commentary ("This thread is why I'm bullish on agents"), smooth transitions, and a punchy subject line.</p>
 </div>
 <div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
-<p>Claude Sonnet writes the entire email: the intro paragraph, commentary on each item, transitions between items, and the subject line. The prompt includes Trawly's "voice guide" — conversational, opinionated but fair, occasionally funny, never corporate. This is the most expensive AI call because the output is long and every word matters. <strong>The voice IS the product.</strong> If the writing is boring, nothing else matters.</p>
+<p>Claude Sonnet writes the entire email: the intro paragraph, original commentary on each item, transitions between items, and the subject line. The prompt includes Trawly's "voice guide" — conversational, opinionated but fair, occasionally funny, never corporate. Crucially, we write <strong>original AI summaries and editorial commentary</strong> — we never copy-paste tweet text into emails. Every X item links back to the original post ("Read on X →"). This keeps us fully TOS-compliant and frankly makes a better product — our value is curation + voice, not raw content redistribution. This is the most expensive AI call because the output is long and every word matters. <strong>The voice IS the product.</strong> If the writing is boring, nothing else matters.</p>
 </div>
 <div class="card-section"><h4 class="tech">🔧 Tech used</h4>
 <p><span class="tech-badge">Claude 4 Sonnet</span> Same model as curation — writing quality is paramount<br>
