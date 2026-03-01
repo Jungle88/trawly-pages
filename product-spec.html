@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly — Product Spec</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.7;padding:24px 16px 80px}
+.container{max-width:780px;margin:0 auto}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+h1{font-size:2em;margin-bottom:6px}
+h2{font-size:1.4em;color:#e6edf3;margin:48px 0 16px;padding-bottom:8px;border-bottom:1px solid #21262d}
+h3{font-size:1.1em;color:#c9d1d9;margin:24px 0 10px}
+h4{font-size:0.95em;color:#8b949e;margin:16px 0 8px;text-transform:uppercase;letter-spacing:0.5px}
+p{margin:0 0 14px;color:#c9d1d9;font-size:0.95em}
+ul,ol{margin:0 0 14px 20px;color:#c9d1d9;font-size:0.95em}
+li{margin-bottom:6px}
+.subtitle{color:#8b949e;font-size:1em;margin-bottom:32px}
+.nav{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:16px 20px;margin-bottom:32px}
+.nav h3{font-size:0.85em;color:#8b949e;text-transform:uppercase;letter-spacing:0.5px;margin:0 0 10px}
+.nav-links{display:flex;flex-wrap:wrap;gap:6px}
+.nav-links a{display:inline-block;padding:4px 12px;background:#21262d;border-radius:6px;font-size:0.8em;color:#58a6ff;transition:background 0.2s}
+.nav-links a:hover{background:#30363d;text-decoration:none}
+.card{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:20px;margin:14px 0}
+.card-accent{border-left:3px solid #58a6ff}
+.card-green{border-left:3px solid #3fb950}
+.card-yellow{border-left:3px solid #d29922}
+.card-purple{border-left:3px solid #bc8cff}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.75em;font-weight:600;margin-right:4px}
+.tag.blue{background:#58a6ff22;color:#58a6ff}
+.tag.green{background:#3fb95022;color:#3fb950}
+.tag.yellow{background:#d2992222;color:#d29922}
+.tag.purple{background:#bc8cff22;color:#bc8cff}
+.tag.red{background:#f8514922;color:#f85149}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.widget-tile{background:#0d1117;border:1px solid #21262d;border-radius:8px;padding:12px 14px;font-size:0.9em}
+.widget-tile .icon{font-size:1.4em;margin-bottom:4px}
+.widget-tile .label{color:#e6edf3;font-weight:600;font-size:0.85em}
+.widget-tile .desc{color:#8b949e;font-size:0.8em;margin-top:2px}
+.step{display:flex;gap:14px;margin:16px 0}
+.step-num{flex-shrink:0;width:32px;height:32px;background:#58a6ff;color:#0d1117;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85em}
+.step-content{flex:1}
+.callout{background:#58a6ff11;border:1px solid #58a6ff44;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:0.9em}
+.callout-warn{background:#d2992211;border-color:#d2992244}
+.digest-mock{background:#161b22;border:1px solid #21262d;border-radius:12px;overflow:hidden;margin:16px 0}
+.digest-header{background:linear-gradient(135deg,#161b22,#1a2332);padding:24px;text-align:center;border-bottom:1px solid #21262d}
+.digest-header h3{font-size:1.3em;color:#e6edf3;margin:0}
+.digest-header .date{color:#8b949e;font-size:0.85em;margin-top:4px}
+.digest-item{padding:16px 20px;border-bottom:1px solid #21262d}
+.digest-item:last-child{border-bottom:none}
+.digest-item .cat{font-size:0.7em;text-transform:uppercase;letter-spacing:1px;color:#58a6ff;font-weight:600;margin-bottom:4px}
+.digest-item h4{color:#e6edf3;font-size:0.95em;margin:0 0 6px;text-transform:none;letter-spacing:0}
+.digest-item p{font-size:0.85em;color:#8b949e;margin:0 0 6px}
+.digest-item .source{font-size:0.8em;color:#58a6ff}
+.digest-widget{padding:16px 20px;border-bottom:1px solid #21262d;background:#0d111766}
+.digest-widget .icon{font-size:1.2em;margin-bottom:4px}
+.digest-footer{padding:16px 20px;text-align:center;font-size:0.8em;color:#8b949e;border-top:1px solid #21262d}
+.flow-diagram{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:16px 0;font-size:0.85em}
+.flow-step{background:#21262d;padding:6px 12px;border-radius:6px;color:#e6edf3}
+.flow-arrow{color:#58a6ff;font-weight:bold}
+code{background:#21262d;padding:2px 6px;border-radius:4px;font-size:0.88em;color:#e6edf3}
+.back-link{display:inline-block;margin-bottom:16px;font-size:0.85em;color:#8b949e}
+.back-link:hover{color:#58a6ff}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="sunday-todo.html" class="back-link">← Back to Master Doc</a>
+
+<h1>📋 Product Spec</h1>
+<p class="subtitle">Trawly's core product format — digest structure, onboarding, viral loop, and everything in between.<br><span class="tag blue">Living Document</span> <span class="tag green">v1.0 — 1 Mar 2025</span></p>
+
+<div class="nav">
+<h3>Sections</h3>
+<div class="nav-links">
+<a href="#digest-structure">📦 Digest Structure</a>
+<a href="#onboarding">🚀 Onboarding</a>
+<a href="#tagging">🏷️ @heytrawly Tagging</a>
+<a href="#cogs">💰 COGS Transparency</a>
+<a href="#footer">📝 Email Footer</a>
+<a href="#preferences">⚙️ Preference Updates</a>
+<a href="#sample-digest">🎨 Sample Digest</a>
+</div>
+</div>
+
+<!-- ============================================ -->
+<h2 id="digest-structure">1. Digest Structure</h2>
+
+<p>Each daily digest has <strong style="color:#e6edf3">two types of content blocks</strong>: Topics and Widgets. Users configure their own mix during onboarding.</p>
+
+<div class="card card-accent">
+<h3>📰 Topics <span class="tag blue">6 slots</span></h3>
+<p>Daily news sections the user picks. Each topic gets <strong>1–2 curated items</strong> with:</p>
+<ul>
+<li>AI-generated summary + commentary (written in Trawly's voice)</li>
+<li>Source attribution</li>
+<li>"Read on X →" link (drives traffic to source, never reproduces full content)</li>
+</ul>
+<h4>Example Topics</h4>
+<div class="grid-3">
+<span class="widget-tile"><span class="label">🤖 AI/ML</span></span>
+<span class="widget-tile"><span class="label">₿ Crypto</span></span>
+<span class="widget-tile"><span class="label">🚀 Startups</span></span>
+<span class="widget-tile"><span class="label">🏠 PropTech</span></span>
+<span class="widget-tile"><span class="label">👶 Parenting</span></span>
+<span class="widget-tile"><span class="label">💪 Fitness</span></span>
+<span class="widget-tile"><span class="label">📣 Marketing</span></span>
+<span class="widget-tile"><span class="label">💵 Finance</span></span>
+<span class="widget-tile"><span class="label">⚽ MLS Football</span></span>
+<span class="widget-tile"><span class="label">🥊 UFC</span></span>
+<span class="widget-tile"><span class="label">🔬 Science</span></span>
+<span class="widget-tile"><span class="label">+ More...</span></span>
+</div>
+</div>
+
+<div class="card card-green">
+<h3>🧩 Widgets <span class="tag green">4 slots</span></h3>
+<p>Utility blocks that <strong>aren't news</strong>. User picks from a menu. Each widget has a distinct visual style in the digest.</p>
+<div class="grid-2">
+<div class="widget-tile"><div class="icon">🌤️</div><div class="label">Local Weather</div><div class="desc">Forecast for their location (needs location at signup)</div></div>
+<div class="widget-tile"><div class="icon">🔥</div><div class="label">Contrarian Corner</div><div class="desc">One take that challenges mainstream thinking</div></div>
+<div class="widget-tile"><div class="icon">💪</div><div class="label">Motivational Quote</div><div class="desc">Daily quote or motivational message</div></div>
+<div class="widget-tile"><div class="icon">🌍</div><div class="label">Good News</div><div class="desc">One positive story of the day</div></div>
+<div class="widget-tile"><div class="icon">🐰</div><div class="label">Rabbit Hole</div><div class="desc">One fascinating deep link to get lost in</div></div>
+<div class="widget-tile"><div class="icon">🧠</div><div class="label">Did You Know?</div><div class="desc">Random interesting fact</div></div>
+<div class="widget-tile"><div class="icon">📊</div><div class="label">Market Snapshot</div><div class="desc">Crypto/stocks — configurable tickers</div></div>
+<div class="widget-tile"><div class="icon">🎯</div><div class="label">Daily Challenge</div><div class="desc">A prompt or creative challenge</div></div>
+<div class="widget-tile"><div class="icon">⚡</div><div class="label">Tool of the Day</div><div class="desc">App/tool recommendation</div></div>
+<div class="widget-tile"><div class="icon">🎂</div><div class="label">Birthday Specials</div><div class="desc">Auto-triggered on subscriber's birthday (format TBD)</div></div>
+</div>
+</div>
+
+<div class="callout">
+💡 <strong>Key:</strong> Users pick <strong>6 topics + 4 widgets</strong> during onboarding. They can adjust anytime via reply, @heytrawly tagging, or dashboard.
+</div>
+
+<!-- ============================================ -->
+<h2 id="onboarding">2. Onboarding — Deep Profile</h2>
+
+<div class="callout">
+🎯 <strong>What makes Trawly different:</strong> We don't just ask "what topics?" — we ask <strong>"who ARE you?"</strong> The more they share, the more magical the product feels. But we never force it — they can skip and fill in later.
+</div>
+
+<p><strong style="color:#e6edf3">Key UX Principle:</strong> The onboarding should feel like a <em>conversation</em>, not a form.</p>
+
+<div class="card card-accent">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-content">
+<h3 style="margin-top:0">The Basics</h3>
+<ul>
+<li>Name, email, birthday</li>
+<li>Location (for weather widget + local news)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="card card-purple">
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-content">
+<h3 style="margin-top:0">About You <span class="tag purple">Conversational, not a form</span></h3>
+<ul>
+<li>"Tell us about yourself in a few sentences" (free text)</li>
+<li>"What do you do for work?"</li>
+<li>"Any side projects or passions?"</li>
+<li>"Who do you live with?" (family context — kids, partner, etc.)</li>
+</ul>
+<p style="margin-top:12px"><strong>The more they share, the better the digest.</strong> Make this clear but don't force it.</p>
+<div class="card" style="margin-top:12px;background:#0d1117;border-color:#bc8cff44">
+<p style="margin:0;font-size:0.88em"><strong style="color:#bc8cff">Example profile:</strong> "David is a startup CRO building Trawly with his AI assistant. He has two young boys (5 and 2). He's interested in AI, crypto, and PropTech."</p>
+<p style="margin:10px 0 0;font-size:0.85em;color:#8b949e">→ When we see a story about <em>AI tools for parents</em>, or <em>PropTech innovation</em>, or <em>newsletter growth hacks</em>, we <strong style="color:#3fb950">AMPLIFY</strong> it for David specifically.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card card-accent">
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-content">
+<h3 style="margin-top:0">Pick Your Topics <span class="tag blue">6 slots</span></h3>
+<p>Visual grid of topic tiles. "Pick 6 topics you want daily updates on." Can always change later.</p>
+</div>
+</div>
+</div>
+
+<div class="card card-green">
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-content">
+<h3 style="margin-top:0">Pick Your Widgets <span class="tag green">4 slots</span></h3>
+<p>Visual grid of widget cards with previews. "Pick 4 extras for your daily digest." Can always change later.</p>
+</div>
+</div>
+</div>
+
+<div class="card card-yellow">
+<div class="step">
+<div class="step-num">5</div>
+<div class="step-content">
+<h3 style="margin-top:0">Preview</h3>
+<p>"Here's what your first digest will look like" — show a mock digest based on their selections.</p>
+<div class="callout" style="margin-top:12px">
+<strong>Big callout to the user:</strong><br>
+"This is just to get you started. You can adjust everything — reply to any digest, tag <code>@heytrawly</code> on posts, or visit your dashboard."
+</div>
+</div>
+</div>
+</div>
+
+<!-- ============================================ -->
+<h2 id="tagging">3. @heytrawly Tagging <span class="tag green">Viral Loop</span></h2>
+
+<h3>How It Works</h3>
+
+<div class="step"><div class="step-num">1</div><div class="step-content"><p style="margin:0">User sees a great post on X, Reddit, or LinkedIn</p></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><p style="margin:0">They reply/comment <code>@heytrawly</code></p></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><p style="margin:0">Trawly's monitoring picks it up, matches username → subscriber account</p></div></div>
+
+<h4>Intent Parsing</h4>
+<div class="grid-2" style="margin-bottom:20px">
+<div class="card" style="margin:0">
+<p style="margin:0"><code>@heytrawly</code> <span class="tag blue">Include</span></p>
+<p style="margin:6px 0 0;font-size:0.85em;color:#8b949e">Include that post in tomorrow's digest</p>
+</div>
+<div class="card" style="margin:0">
+<p style="margin:0"><code>@heytrawly more like this</code> <span class="tag green">Amplify</span></p>
+<p style="margin:6px 0 0;font-size:0.85em;color:#8b949e">Include + adjust taste profile to weight that topic/author higher</p>
+</div>
+</div>
+<div class="card" style="max-width:49%">
+<p style="margin:0"><code>@heytrawly deep dive this tomorrow</code> <span class="tag purple">Deep Dive</span></p>
+<p style="margin:6px 0 0;font-size:0.85em;color:#8b949e">Include with expanded AI analysis + related content</p>
+</div>
+
+<h3>Why This Is Genius 🧠</h3>
+<div class="card card-green">
+<ul>
+<li><strong>Every tag is PUBLIC</strong> — their followers see them using Trawly</li>
+<li><strong>Natural behaviour</strong> — people already tag/save posts</li>
+<li><strong>Zero friction</strong> — no app to open, no bookmark to manage</li>
+<li><strong>Passive taste training</strong> — trains the profile without effort</li>
+<li><strong>Viral loop:</strong> see tag → "what's Trawly?" → sign up → start tagging → <em>their</em> followers see it</li>
+</ul>
+<div class="flow-diagram">
+<span class="flow-step">👀 See @heytrawly tag</span>
+<span class="flow-arrow">→</span>
+<span class="flow-step">"What's Trawly?"</span>
+<span class="flow-arrow">→</span>
+<span class="flow-step">Sign up</span>
+<span class="flow-arrow">→</span>
+<span class="flow-step">Start tagging</span>
+<span class="flow-arrow">→</span>
+<span class="flow-step">Their followers see it</span>
+<span class="flow-arrow">→</span>
+<span class="flow-step">🔄 Repeat</span>
+</div>
+</div>
+
+<h3>Technical Requirements</h3>
+<div class="card">
+<ul>
+<li>Monitor <code>@heytrawly</code> mentions on <strong>X</strong> (via API), <strong>Reddit</strong> (via API), <strong>LinkedIn</strong> (via API or webhook)</li>
+<li>Match social handle → subscriber email (linked during signup or settings)</li>
+<li>Queue tagged content for next digest</li>
+<li>Parse intent from message text: <code>include</code> / <code>more like this</code> / <code>deep dive</code></li>
+</ul>
+</div>
+
+<!-- ============================================ -->
+<h2 id="cogs">4. COGS Transparency <span class="tag yellow">Beta Only</span></h2>
+
+<p>During beta, each email includes cost data in the footer. This helps us understand unit economics and gives early users radical transparency.</p>
+
+<div class="card card-yellow">
+<h3>What We Track</h3>
+<ul>
+<li><strong>X API cost</strong> — fetching posts/mentions</li>
+<li><strong>LLM cost</strong> — scoring + curation + composition</li>
+<li><strong>Email delivery cost</strong> — SendGrid/Resend</li>
+<li><strong>Total per digest</strong></li>
+</ul>
+<h4>Storage</h4>
+<ul>
+<li>Supabase (structured) + cost tracking spreadsheet (append per send)</li>
+</ul>
+<h4>Display</h4>
+<p style="margin:0">Small text in email footer:<br><code>Cost of today's trawl: $0.23 | ☕ Less than a coffee to save you hours</code></p>
+</div>
+
+<!-- ============================================ -->
+<h2 id="footer">5. Email Footer</h2>
+
+<div class="card card-accent">
+<p style="font-size:1em;color:#e6edf3;margin-bottom:12px"><strong>Every digest ends with:</strong></p>
+<div style="background:#0d1117;border:1px solid #21262d;border-radius:8px;padding:16px;font-size:0.9em;color:#8b949e;text-align:center">
+"Today's trawl: <strong style="color:#e6edf3">247</strong> stories from <strong style="color:#e6edf3">38</strong> sources.<br>
+Estimated scroll time saved: <strong style="color:#3fb950">~12 hours</strong>.<br>
+Go do something good with it. ⚡"
+<hr style="border:none;border-top:1px solid #21262d;margin:12px 0">
+<span style="font-size:0.85em">Cost of today's trawl: $0.23 | ☕ Less than a coffee to save you hours</span>
+<hr style="border:none;border-top:1px solid #21262d;margin:12px 0">
+<span style="font-size:0.8em"><a href="#">Manage preferences</a> · <a href="#">Unsubscribe</a></span>
+</div>
+</div>
+
+<h3>Scroll Time Saved — How We Calculate It</h3>
+<div class="card">
+<ul>
+<li>Sum estimated read times of all source articles we scanned and filtered</li>
+<li>Example: 200 articles × 4 min avg = <strong>800 minutes</strong></li>
+<li>We deliver ~8 items × ~2 min each = <strong>16 minutes</strong></li>
+<li>Time saved = ~784 min → round down conservatively → show as <strong>"~12 hours"</strong></li>
+</ul>
+</div>
+
+<!-- ============================================ -->
+<h2 id="preferences">6. How Preferences Update</h2>
+
+<p>Users can adjust their digest in <strong>5 different ways</strong> — meeting them wherever they are:</p>
+
+<div class="card card-accent">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-content">
+<h3 style="margin-top:0">Reply to the Email</h3>
+<p style="margin:0">Just reply: "more crypto, less philosophy" — our AI parses it and adjusts.</p>
+</div>
+</div>
+</div>
+
+<div class="card card-green">
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-content">
+<h3 style="margin-top:0">Tag @heytrawly</h3>
+<p style="margin:0">On X, Reddit, or LinkedIn. Passive taste training from the content they save.</p>
+</div>
+</div>
+</div>
+
+<div class="card card-purple">
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-content">
+<h3 style="margin-top:0">Click Behaviour</h3>
+<p style="margin:0">We learn from what they open. More clicks on AI stories → more AI content.</p>
+</div>
+</div>
+</div>
+
+<div class="card card-yellow">
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-content">
+<h3 style="margin-top:0">Dashboard <span class="tag yellow">v2</span></h3>
+<p style="margin:0">Full control panel — add/remove topics, reorder widgets, view taste profile.</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="step">
+<div class="step-num">5</div>
+<div class="step-content">
+<h3 style="margin-top:0">In-Email Buttons <span class="tag yellow">v2</span></h3>
+<p style="margin:0">👍 / 👎 per item — one-click feedback directly in the email.</p>
+</div>
+</div>
+</div>
+
+<!-- ============================================ -->
+<h2 id="sample-digest">7. Sample Digest Layout</h2>
+
+<p>Here's what a daily digest looks like for David:</p>
+
+<div class="digest-mock">
+<div class="digest-header">
+<h3>Good morning, David ☀️</h3>
+<div class="date">Saturday, 1 March 2025</div>
+</div>
+
+<!-- Topics -->
+<div class="digest-item">
+<div class="cat">🤖 AI / ML</div>
+<h4>Anthropic Launches Claude's New "Tool Use" — Why It Matters for Builders</h4>
+<p>Claude can now call external APIs mid-conversation, making it a genuine agent. This is the biggest shift since function calling hit GPT-4. For founders building on LLMs, this changes the architecture conversation entirely.</p>
+<span class="source">Read on X → @alexalbert__ · 14h</span>
+</div>
+
+<div class="digest-item">
+<div class="cat">₿ Crypto</div>
+<h4>Bitcoin ETF Inflows Hit $2.4B This Week — Institutions Are Loading Up</h4>
+<p>BlackRock's IBIT alone pulled $800M. The pattern is clear: institutions are treating BTC as a macro hedge now, not a speculative bet. This is the "boring" phase that precedes the next leg up.</p>
+<span class="source">Read on X → @EricBalchunas · 8h</span>
+</div>
+
+<div class="digest-item">
+<div class="cat">🏠 PropTech</div>
+<h4>AI Property Valuations Are Getting Scary Accurate</h4>
+<p>New startup CoreLogic AI claims 97.2% accuracy on automated valuations using satellite imagery + transaction data. If this holds, it disrupts the $8B appraisal industry overnight.</p>
+<span class="source">Read on X → @proptech_vc · 12h</span>
+</div>
+
+<div class="digest-item">
+<div class="cat">🚀 Startups</div>
+<h4>The "Build in Public" Playbook Is Evolving — Here's What Works in 2025</h4>
+<p>Revenue screenshots are out. Process breakdowns are in. The founders getting traction on X are sharing the HOW, not the WHAT. Thread breaks down 5 new patterns working right now.</p>
+<span class="source">Read on X → @levelsio · 6h</span>
+</div>
+
+<div class="digest-item">
+<div class="cat">👶 Parenting</div>
+<h4>Study: Screen Time Rules Don't Work — Context Does</h4>
+<p>New paediatrics research shows it's not about minutes, it's about engagement type. Co-watching with your kid = net positive. Passive consumption = still bad. Nuance > blanket rules.</p>
+<span class="source">Read on Reddit → r/ScienceBasedParenting · 10h</span>
+</div>
+
+<div class="digest-item">
+<div class="cat">📣 Marketing</div>
+<h4>Newsletter Growth Hack: The "Tag to Save" Mechanic Nobody's Using</h4>
+<p>A thread about using social tagging as a growth loop for newsletters. Sound familiar? 😏 Validated that @heytrawly's model is on the right track.</p>
+<span class="source">Read on X → @nathanbarry · 18h</span>
+</div>
+
+<!-- Widgets -->
+<div class="digest-widget">
+<div class="icon">🌤️</div>
+<strong style="color:#e6edf3">Sydney Weather</strong>
+<p style="margin:4px 0 0;font-size:0.85em;color:#8b949e">☀️ 28°C, mostly sunny. UV: Very High (11). Light NE breeze. Perfect park day with the boys.</p>
+</div>
+
+<div class="digest-widget">
+<div class="icon">🔥</div>
+<strong style="color:#e6edf3">Contrarian Corner</strong>
+<p style="margin:4px 0 0;font-size:0.85em;color:#8b949e">"AI won't replace developers — it'll create 10x more of them." Hot take: the real disruption isn't fewer coders, it's that everyone becomes a coder. The supply side explodes, not contracts.</p>
+</div>
+
+<div class="digest-widget">
+<div class="icon">🐰</div>
+<strong style="color:#e6edf3">Rabbit Hole</strong>
+<p style="margin:4px 0 0;font-size:0.85em;color:#8b949e"><a href="#">The 1,000-year-old math problem that just got solved by a teenager →</a><br>A 17-year-old from rural India solved a number theory conjecture that stumped mathematicians since 1011 AD. 45 min read. Worth it.</p>
+</div>
+
+<div class="digest-widget">
+<div class="icon">💪</div>
+<strong style="color:#e6edf3">Daily Quote</strong>
+<p style="margin:4px 0 0;font-size:0.85em;color:#8b949e;font-style:italic">"The best time to plant a tree was 20 years ago. The second best time is now." — Chinese Proverb</p>
+</div>
+
+<!-- Tagged Content -->
+<div class="digest-item" style="background:#58a6ff08">
+<div class="cat" style="color:#3fb950">📌 From Your Tags</div>
+<h4>Thread: How I Built a $10K/mo Newsletter in 6 Months</h4>
+<p>You tagged this on X yesterday. Detailed breakdown of list building, monetisation timeline, and the tech stack behind it. Directly relevant to Trawly's GTM.</p>
+<span class="source">Tagged via X · @newsletterboy · You said: "deep dive this tomorrow"</span>
+</div>
+
+<!-- Footer -->
+<div class="digest-footer">
+Today's trawl: <strong>247</strong> stories from <strong>38</strong> sources. Estimated scroll time saved: <strong style="color:#3fb950">~12 hours</strong>.<br>
+Go do something good with it. ⚡
+<br><br>
+<span style="font-size:0.9em">Cost of today's trawl: $0.23 | ☕ Less than a coffee to save you hours</span>
+<br><br>
+<a href="#" style="font-size:0.85em">Manage preferences</a> · <a href="#" style="font-size:0.85em">Unsubscribe</a>
+</div>
+</div>
+
+<div style="text-align:center;margin:48px 0 0;padding:24px;border-top:1px solid #21262d">
+<p style="color:#8b949e;font-size:0.85em">
+<a href="sunday-todo.html">← Master Doc</a> · 
+<a href="user-journey.html">User Journey</a> · 
+<a href="architecture.html">Architecture</a> · 
+<a href="business-case.html">Business Case</a>
+</p>
+</div>
+
+</div>
+</body>
+</html>
