@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly — Your Daily Trawl</title>
+<style>
+  :root {
+    --bg: #FAF8F5;
+    --card-bg: #FFFFFF;
+    --navy: #0B1426;
+    --text: #1a1a2e;
+    --text-muted: #64748b;
+    --accent: #B45309;
+    --accent-light: #FEF3C7;
+    --indigo: #4F46E5;
+    --sand: #F5F0EB;
+    --tweet-bg: #f8fafc;
+    --tweet-border: #e2e8f0;
+    --radius: 12px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; color: var(--text); background: #E8E0D8; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,h4,h5,.sans { font-family: -apple-system, system-ui, 'Segoe UI', sans-serif; line-height: 1.3; }
+
+  .email-wrap { max-width: 640px; margin: 32px auto; padding: 0 16px; }
+  .email { background: var(--bg); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.1); }
+
+  /* Preview line */
+  .preview { font-family: -apple-system, sans-serif; font-size: 12px; color: var(--text-muted); padding: 10px 32px; background: var(--bg); border-bottom: 1px solid #EDE9E3; letter-spacing: 0.3px; }
+
+  /* Header */
+  .header { background: var(--navy); color: white; padding: 36px 32px 28px; }
+  .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .wordmark { font-family: Georgia, serif; font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+  .wordmark span { color: #F59E0B; }
+  .header-date { font-family: -apple-system, sans-serif; font-size: 13px; opacity: 0.5; }
+  .greeting { font-family: Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 12px; }
+  .intro { font-size: 16px; opacity: 0.8; line-height: 1.6; }
+
+  /* Weather */
+  .weather { background: linear-gradient(135deg, #3B82F6, #1D4ED8); color: white; padding: 16px 32px; font-family: -apple-system, sans-serif; }
+  .weather h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1.2px; opacity: 0.7; margin-bottom: 8px; }
+  .weather-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; text-align: center; }
+  .wd-icon { font-size: 22px; }
+  .wd-temp { font-size: 14px; font-weight: 700; }
+  .wd-label { font-size: 11px; opacity: 0.7; }
+
+  /* Story block */
+  .story { padding: 32px 32px 28px; border-bottom: 1px solid #EDE9E3; }
+  .pill { display: inline-block; font-family: -apple-system, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; padding: 4px 10px; border-radius: 6px; margin-bottom: 14px; }
+  .pill-ai { color: #7C3AED; background: rgba(124,58,237,0.08); }
+  .pill-proptech { color: #059669; background: rgba(5,150,105,0.08); }
+  .pill-crypto { color: #D97706; background: rgba(217,119,6,0.08); }
+  .pill-startups { color: #DC2626; background: rgba(220,38,38,0.08); }
+  .pill-deep { color: #2563EB; background: rgba(37,99,235,0.08); }
+  .pill-family { color: #EC4899; background: rgba(236,72,153,0.08); }
+  .pill-skip { color: #9CA3AF; background: rgba(156,163,175,0.08); }
+
+  .story h3 { font-family: Georgia, serif; font-size: 21px; font-weight: 700; margin-bottom: 16px; line-height: 1.35; }
+  .story h3 a { color: var(--text); text-decoration: none; }
+  .story h3 a:hover { color: var(--indigo); }
+
+  /* Tweet card */
+  .tweet-card { background: var(--tweet-bg); border: 1px solid var(--tweet-border); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; }
+  .tweet-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .tweet-author { display: flex; align-items: center; gap: 10px; }
+  .tweet-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: -apple-system, sans-serif; font-size: 17px; flex-shrink: 0; }
+  .tweet-name { font-family: -apple-system, sans-serif; font-size: 14px; font-weight: 700; color: var(--text); }
+  .tweet-handle { font-family: -apple-system, sans-serif; font-size: 13px; color: var(--text-muted); }
+  .x-logo { font-size: 16px; color: var(--text); font-weight: 900; font-family: -apple-system, sans-serif; }
+  .tweet-text { font-size: 15px; line-height: 1.55; color: #1a1a2e; margin-bottom: 12px; }
+  .tweet-stats { display: flex; gap: 18px; font-family: -apple-system, sans-serif; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+  .tweet-footer { display: flex; justify-content: space-between; align-items: center; font-family: -apple-system, sans-serif; font-size: 12px; }
+  .tweet-footer a { color: #1D9BF0; text-decoration: none; font-weight: 600; }
+  .tweet-time { color: var(--text-muted); }
+  .tweet-time a { color: var(--text-muted); text-decoration: none; }
+  .tweet-time a:hover { text-decoration: underline; }
+
+  /* Editorial */
+  .editorial { font-size: 15.5px; color: #374151; margin-bottom: 16px; line-height: 1.7; }
+  .editorial strong { color: var(--text); }
+
+  /* Why it matters */
+  .why-box { background: #FFF8ED; border-left: 3px solid #F59E0B; padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 14px; font-size: 14.5px; color: #374151; line-height: 1.6; }
+  .why-box strong { font-family: -apple-system, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.8px; color: #B45309; display: block; margin-bottom: 4px; }
+
+  .source-line { font-family: -apple-system, sans-serif; font-size: 12px; color: var(--text-muted); }
+  .source-line a { color: var(--indigo); text-decoration: none; }
+
+  /* Skip block */
+  .skip-block { padding: 24px 32px; border-bottom: 1px solid #EDE9E3; background: #FAFAFA; }
+  .skip-block h3 { font-family: Georgia, serif; font-size: 17px; color: #9CA3AF; font-weight: 400; font-style: italic; margin-bottom: 6px; }
+  .skip-block p { font-size: 14px; color: #9CA3AF; line-height: 1.55; }
+
+  /* Editor's corner */
+  .editors-corner { padding: 28px 32px; background: linear-gradient(135deg, #EDE9FE, #F5F3FF); border-bottom: 1px solid #EDE9E3; }
+  .editors-corner .pill { color: #7C3AED; background: rgba(124,58,237,0.1); }
+  .editors-corner h3 { font-family: Georgia, serif; font-size: 18px; margin-bottom: 10px; }
+  .editors-corner p { font-size: 15px; color: #374151; }
+
+  /* Reply CTA */
+  .reply-cta { padding: 32px; text-align: center; background: var(--sand); }
+  .reply-cta p { font-size: 17px; font-style: italic; color: var(--text); margin-bottom: 16px; }
+  .reply-btn { display: inline-block; background: var(--indigo); color: white; padding: 14px 36px; border-radius: 10px; font-family: -apple-system, sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; }
+  .reply-hint { font-family: -apple-system, sans-serif; font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+
+  /* Footer */
+  .footer { padding: 24px 32px; text-align: center; font-family: -apple-system, sans-serif; font-size: 12px; color: var(--text-muted); line-height: 1.8; }
+  .footer a { color: var(--indigo); text-decoration: none; }
+  .footer .trawl-stats { font-size: 13px; color: #374151; margin-bottom: 12px; font-weight: 500; }
+  .footer .cogs { font-size: 11px; color: #CBD5E1; margin-top: 8px; }
+
+  @media (max-width: 640px) {
+    .email-wrap { margin: 0 auto; padding: 0; }
+    .email { border-radius: 0; }
+    .story, .skip-block, .editors-corner { padding-left: 20px; padding-right: 20px; }
+    .header { padding: 28px 20px 20px; }
+    .weather { padding: 14px 20px; }
+    .preview { padding: 10px 20px; }
+    .reply-cta { padding: 28px 20px; }
+    .footer { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="email-wrap">
+<div class="email">
+
+  <!-- Preview line -->
+  <div class="preview">6 stories from 47 sources · 5 min read · one of them changes how you think about Trawly</div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-top">
+      <div class="wordmark">trawl<span>y</span></div>
+      <div class="header-date">Saturday, 1 March 2026 · Sydney</div>
+    </div>
+    <div class="greeting">Good morning, David.</div>
+    <div class="intro">Today's thread: the tools are getting smarter, the builders are getting leaner, and the people who know how to manage — humans or AI — are winning. Six stories, one theme. Let's go.</div>
+  </div>
+
+  <!-- Weather -->
+  <div class="weather">
+    <h4>☁️ Sydney 3-Day Forecast</h4>
+    <div class="weather-grid">
+      <div class="weather-day">
+        <div class="wd-icon">🌤️</div>
+        <div class="wd-temp">22–28°C</div>
+        <div class="wd-label">Sat — Warm</div>
+      </div>
+      <div class="weather-day">
+        <div class="wd-icon">⛅</div>
+        <div class="wd-temp">21–27°C</div>
+        <div class="wd-label">Sun — Partly cloudy</div>
+      </div>
+      <div class="weather-day">
+        <div class="wd-icon">🌧️</div>
+        <div class="wd-temp">19–24°C</div>
+        <div class="wd-label">Mon — Showers</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY 1: AI -->
+  <div class="story">
+    <div class="pill pill-ai">🤖 AI</div>
+    <h3><a href="#">Anthropic Releases Claude's 'Extended Thinking' to All Users</a></h3>
+
+    <div class="tweet-card">
+      <div class="tweet-top">
+        <div class="tweet-author">
+          <div class="tweet-avatar" style="background:#7C3AED;">A</div>
+          <div>
+            <div class="tweet-name">Alex Albert</div>
+            <div class="tweet-handle">@alexalbert__ · 6h</div>
+          </div>
+        </div>
+        <div class="x-logo">𝕏</div>
+      </div>
+      <div class="tweet-text">Extended thinking is now available to all Claude users. In our benchmarks, it improved complex reasoning accuracy by 40%. The model literally shows its work — you can see the chain of thought before the final answer.</div>
+      <div class="tweet-stats">
+        <span>💬 342</span><span>🔁 1.2K</span><span>❤️ 4.8K</span>
+      </div>
+      <div class="tweet-footer">
+        <span class="tweet-time"><a href="https://x.com/alexalbert__">1 Mar 2026</a></span>
+        <a href="https://x.com/alexalbert__">View on 𝕏 →</a>
+      </div>
+    </div>
+
+    <p class="editorial">Extended thinking lets Claude "pause and reason" before answering — essentially an internal scratchpad that's now visible to users. The 40% accuracy gain on complex reasoning isn't marketing fluff; it's consistent with what researchers have found across chain-of-thought approaches. What makes Anthropic's version distinctive is transparency: you can literally watch the model deliberate, which builds trust and makes it easier to catch errors. OpenAI's o1 and o3 models use similar internal reasoning but keep it hidden. Early power users are reporting the biggest gains on multi-step tasks — exactly the kind of work that AI agents need to do reliably. The consensus forming among developers: extended thinking isn't just a feature, it's probably the default mode within six months.</p>
+
+    <div class="why-box">
+      <strong>🎯 Why this matters to you</strong>
+      For Trawly: if extended thinking produces better editorial judgment, our Opus composition step could get meaningfully sharper at the same cost. The reasoning traces also mean we could audit why Trawly chose certain stories over others. Worth testing this week — run the same source set through standard vs. extended and compare outputs.
+    </div>
+
+    <div class="source-line">Sources: <a href="#">Anthropic Blog</a> · <a href="#">The Verge</a> · <a href="#">Simon Willison</a></div>
+  </div>
+
+  <!-- STORY 2: PropTech -->
+  <div class="story">
+    <div class="pill pill-proptech">🏠 PropTech</div>
+    <h3><a href="#">Zillow's AI 'Dream Home' Feature Converting at 3x</a></h3>
+
+    <div class="tweet-card">
+      <div class="tweet-top">
+        <div class="tweet-author">
+          <div class="tweet-avatar" style="background:#059669;">P</div>
+          <div>
+            <div class="tweet-name">PropTech VC</div>
+            <div class="tweet-handle">@proptech_vc · 8h</div>
+          </div>
+        </div>
+        <div class="x-logo">𝕏</div>
+      </div>
+      <div class="tweet-text">Zillow just dropped numbers on their AI-personalised listings. Buyers who care about schools see school info first. Investors see ROI first. Same property, different story. 3x conversion over standard listings. This is the future of real estate marketing.</div>
+      <div class="tweet-stats">
+        <span>💬 127</span><span>🔁 489</span><span>❤️ 2.1K</span>
+      </div>
+      <div class="tweet-footer">
+        <span class="tweet-time"><a href="https://x.com/proptech_vc">28 Feb 2026</a></span>
+        <a href="https://x.com/proptech_vc">View on 𝕏 →</a>
+      </div>
+    </div>
+
+    <p class="editorial">Zillow's "Dream Home" feature dynamically reorders listing content based on buyer signals — search history, saved homes, stated preferences. A family browsing school districts sees walkability scores and school ratings above the fold; a developer sees zoning data and lot dimensions. The 3x conversion figure comes from an A/B test across 200K+ listing views, making it one of the more credible proptech benchmarks in recent memory. Redfin is reportedly building something similar, but Zillow's data advantage — they see 60% of US home searches — makes this hard to replicate. The deeper insight: in real estate, the listing isn't the product. The <em>story about the listing</em> is the product.</p>
+
+    <div class="why-box">
+      <strong>🎯 Why this matters to you</strong>
+      Enviz could do exactly this with your 3D tours — personalise the AR walkthrough based on what the buyer cares about. Same asset, different narrative for every viewer. You already have the spatial data; the missing piece is the personalisation layer. Worth a conversation with your product team this week.
+    </div>
+
+    <div class="source-line">Sources: <a href="#">Zillow Tech Blog</a> · <a href="#">Inman News</a> · <a href="#">PropTech VC</a></div>
+  </div>
+
+  <!-- STORY 3: Crypto -->
+  <div class="story">
+    <div class="pill pill-crypto">₿ Crypto</div>
+    <h3><a href="#">Bitcoin Quietly Crossed $95K — And Nobody's Celebrating</a></h3>
+
+    <div class="tweet-card">
+      <div class="tweet-top">
+        <div class="tweet-author">
+          <div class="tweet-avatar" style="background:#D97706;">D</div>
+          <div>
+            <div class="tweet-name">Documenting ₿itcoin</div>
+            <div class="tweet-handle">@DocumentingBTC · 4h</div>
+          </div>
+        </div>
+        <div class="x-logo">𝕏</div>
+      </div>
+      <div class="tweet-text">Bitcoin just hit a new ATH at $95,200. What's unusual: social media volume is at a 6-month LOW. No laser eyes, no memes. Just institutions quietly accumulating. This might be the healthiest rally we've ever seen.</div>
+      <div class="tweet-stats">
+        <span>💬 1.4K</span><span>🔁 5.8K</span><span>❤️ 18K</span>
+      </div>
+      <div class="tweet-footer">
+        <span class="tweet-time"><a href="https://x.com/DocumentingBTC">1 Mar 2026</a></span>
+        <a href="https://x.com/DocumentingBTC">View on 𝕏 →</a>
+      </div>
+    </div>
+
+    <p class="editorial">The silence is the story. Previous ATH cycles — $20K in 2017, $69K in 2021 — were accompanied by parabolic social media activity. This time, on-chain analytics from Glassnode show institutional wallets (1,000+ BTC) accumulating at their highest rate since 2020, while retail activity remains muted. The ETF inflows tell a similar story: BlackRock's IBIT alone has absorbed more BTC than miners produced last month. Historically, low-noise rallies with institutional accumulation tend to have longer legs and shallower corrections. The bull case: this is what mature adoption looks like. The bear case: retail hasn't arrived yet, and when it does, the top might already be in.</p>
+
+    <div class="source-line">Sources: <a href="#">Glassnode</a> · <a href="#">CoinDesk</a> · <a href="#">Bloomberg</a></div>
+  </div>
+
+  <!-- STORY 4: Startups -->
+  <div class="story">
+    <div class="pill pill-startups">🚀 Startups</div>
+    <h3><a href="#">14 Solo Founders Hit $1M ARR This Year. Here's the Pattern.</a></h3>
+
+    <div class="tweet-card">
+      <div class="tweet-top">
+        <div class="tweet-author">
+          <div class="tweet-avatar" style="background:#DC2626;">L</div>
+          <div>
+            <div class="tweet-name">Pieter Levels</div>
+            <div class="tweet-handle">@levelsio · 12h</div>
+          </div>
+        </div>
+        <div class="x-logo">𝕏</div>
+      </div>
+      <div class="tweet-text">I compiled data on every solo founder who crossed $1M ARR in 2025. The pattern is clear: AI coding tools, ship daily, distribution > polish. 14 people did it this year. The one-person startup era isn't coming — it's here.</div>
+      <div class="tweet-stats">
+        <span>💬 892</span><span>🔁 4.2K</span><span>❤️ 15K</span>
+      </div>
+      <div class="tweet-footer">
+        <span class="tweet-time"><a href="https://x.com/levelsio">28 Feb 2026</a></span>
+        <a href="https://x.com/levelsio">View on 𝕏 →</a>
+      </div>
+    </div>
+
+    <p class="editorial">Levels' data is directional, not scientific — self-reported and survivorship-biased — but the pattern is real. Of the 14 founders, 12 used Cursor or Claude Code as their primary dev tool. Most launched on X or Product Hunt (not paid ads). The common thread wasn't technical brilliance; it was velocity and distribution instinct. The founders who struggled longest before hitting $1M? The ones who spent months perfecting before shipping. The ones who hit it fastest? Daily deploys, public building, and treating their audience as their QA team. Notably absent from the list: anyone who raised VC first. The economics of solo SaaS — near-zero marginal costs, AI-augmented development — have fundamentally changed who can build a real business.</p>
+
+    <div class="why-box">
+      <strong>🎯 Why this matters to you</strong>
+      Sound familiar? You and Chop are literally this model. The key insight from the data: distribution beats polish. Every single fast-mover shipped to real users before the product felt "ready." Ship Trawly to 20 friends before perfecting the format. Seriously — this week.
+    </div>
+
+    <div class="source-line">Sources: <a href="#">@levelsio thread</a> · <a href="#">IndieHackers</a> · <a href="#">The Bootstrapped Founder</a></div>
+  </div>
+
+  <!-- STORY 5: Deep Dive -->
+  <div class="story">
+    <div class="pill pill-deep">🔬 Deep Dive</div>
+    <h3><a href="#">Why "Vibe Coding" Is Actually Just Good Management</a></h3>
+
+    <div class="tweet-card">
+      <div class="tweet-top">
+        <div class="tweet-author">
+          <div class="tweet-avatar" style="background:#2563EB;">A</div>
+          <div>
+            <div class="tweet-name">Andrej Karpathy</div>
+            <div class="tweet-handle">@karpathy · 1d</div>
+          </div>
+        </div>
+        <div class="x-logo">𝕏</div>
+      </div>
+      <div class="tweet-text">Hot take: prompting an AI coder is the same skill as managing a junior dev. Clear scope. Explicit constraints. One task at a time. The best prompt engineers were already good managers. They just didn't know it.</div>
+      <div class="tweet-stats">
+        <span>💬 2.1K</span><span>🔁 8.7K</span><span>❤️ 32K</span>
+      </div>
+      <div class="tweet-footer">
+        <span class="tweet-time"><a href="https://x.com/karpathy">27 Feb 2026</a></span>
+        <a href="https://x.com/karpathy">View on 𝕏 →</a>
+      </div>
+    </div>
+
+    <p class="editorial">Karpathy's reframe is deceptively profound. The tech industry has spent two years treating "prompt engineering" as a novel discipline — creating courses, certifications, job titles. But the underlying skill set maps almost perfectly onto management frameworks that have existed for decades: SMART goals (specific scope), delegation theory (one task at a time), and the "commander's intent" model from military leadership (tell them <em>what</em> and <em>why</em>, not <em>how</em>). This explains a pattern that's been puzzling: non-technical founders with management experience are often better at AI-augmented building than experienced developers. The developer's instinct is to write the code themselves; the manager's instinct is to specify clearly and review the output. In the age of AI coding, the manager's instinct wins. The implications extend beyond coding — anyone who's good at managing people is already equipped for the AI-native era. They just need to recognise the transferable skill.</p>
+
+    <div class="source-line">Sources: <a href="#">@karpathy</a> · <a href="#">Stratechery</a> · <a href="#">a16z</a></div>
+  </div>
+
+  <!-- STORY 6: Family -->
+  <div class="story">
+    <div class="pill pill-family">👶 For the Family</div>
+    <h3><a href="#">Screen Time Research Just Changed: Context Matters 10x More Than Minutes</a></h3>
+
+    <div class="tweet-card">
+      <div class="tweet-top">
+        <div class="tweet-author">
+          <div class="tweet-avatar" style="background:#EC4899;">N</div>
+          <div>
+            <div class="tweet-name">Nature</div>
+            <div class="tweet-handle">@nature · 2d</div>
+          </div>
+        </div>
+        <div class="x-logo">𝕏</div>
+      </div>
+      <div class="tweet-text">New Oxford longitudinal study (n=12,000): what children do on screens matters 10x more than duration. Creative apps + co-viewing = positive outcomes. Passive solo scrolling = only consistently negative pattern.</div>
+      <div class="tweet-stats">
+        <span>💬 567</span><span>🔁 3.4K</span><span>❤️ 9.2K</span>
+      </div>
+      <div class="tweet-footer">
+        <span class="tweet-time"><a href="https://x.com/nature">26 Feb 2026</a></span>
+        <a href="https://x.com/nature">View on 𝕏 →</a>
+      </div>
+    </div>
+
+    <p class="editorial">This Oxford study is a big deal because of its scale and methodology. Previous screen time research was mostly cross-sectional (snapshots in time) with small samples. This one tracked 12,000 children aged 3–12 over four years with parental diaries and app-usage data. The findings are nuanced: creative apps (drawing, building, coding games) showed mildly positive cognitive outcomes regardless of duration. Co-viewing — where a parent watches and discusses content with the child — was the single strongest positive predictor. Passive solo consumption (YouTube autoplay, infinite scroll feeds) was the only consistently negative pattern, and even then, mainly for children under 7. The practical implication: the "timer" approach to screen time is mostly wrong. What matters is <em>what</em> they're doing and <em>whether you're doing it with them</em>.</p>
+
+    <div class="why-box">
+      <strong>🎯 Why this matters to you</strong>
+      With your 5yo — the practical takeaway: do it together. 30 minutes of co-playing Minecraft beats 15 minutes alone on YouTube. The study specifically found that co-viewing with conversation ("what are you building?" "why did that character do that?") had the strongest positive signal. Permission to relax on the timer.
+    </div>
+
+    <div class="source-line">Sources: <a href="#">Nature</a> · <a href="#">Oxford University Press Release</a> · <a href="#">Ars Technica</a></div>
+  </div>
+
+  <!-- SKIP THIS -->
+  <div class="skip-block">
+    <div class="pill pill-skip">⏭️ Skip This</div>
+    <h3>Everyone's Arguing About Elon's Latest Tweet</h3>
+    <p>We read the whole saga so you don't have to. Save yourself 20 minutes: it doesn't matter. The discourse-to-substance ratio is roughly ∞:0. Move on. You're welcome.</p>
+  </div>
+
+  <!-- Editor's Corner -->
+  <div class="editors-corner">
+    <div class="pill" style="color:#7C3AED; background:rgba(124,58,237,0.1);">⚡ Editor's Corner</div>
+    <h3>On Giving You More</h3>
+    <p>You told me the previous formats felt thin — like a summary of a summary. Fair. Today I tried something different: the actual tweet, then my take, then why it matters to <em>you specifically</em>. Three layers instead of one. It's longer, but it should feel like you got the full story without opening 47 tabs.</p>
+    <p style="margin-top:12px; font-style:italic; color:var(--text-muted);">If this is too much, tell me. If this is the right depth, tell me that too. I'm calibrating in real time and I genuinely get better every day. — Chop 🤖</p>
+  </div>
+
+  <!-- Reply CTA -->
+  <div class="reply-cta">
+    <p>What landed today? Hit reply.</p>
+    <a href="mailto:chopchopsemail@gmail.com?subject=Trawly%20Feedback" class="reply-btn">💬 Reply to This Trawl</a>
+    <div class="reply-hint">"More depth" or "too long" or "loved the crypto one" — anything helps.</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="trawl-stats">Today's trawl: 6 stories synthesised from 47 sources. Estimated scroll time saved: ~52 minutes.<br>Go do something good with it. ⚡</div>
+    <div class="cogs">Beta COGS: ~$0.12 (Opus compose) + $0.03 (Haiku triage) + $0.00 (delivery) = $0.15/issue</div>
+    <p style="margin-top:12px;">
+      <a href="#">Manage preferences</a> · <a href="#">Unsubscribe</a>
+    </p>
+    <p style="margin-top:4px; font-size:11px; color:#CBD5E1;">You've saved an estimated 6h 12m since joining Trawly. That's a whole evening back.</p>
+    <p style="margin-top:8px;">© 2026 Trawly · Your daily trawl through the noise.</p>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
