@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly — Sunday Ship Day</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;line-height:1.6;padding:24px;max-width:720px;margin:0 auto}
+h1{font-size:1.8em;margin-bottom:4px;color:#fff}
+h2{font-size:1.3em;margin:28px 0 12px;color:#58a6ff;border-bottom:1px solid #21262d;padding-bottom:6px}
+h3{font-size:1.05em;margin:18px 0 8px;color:#c9d1d9}
+.subtitle{color:#8b949e;margin-bottom:24px;font-size:0.95em}
+.section{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:16px 20px;margin:12px 0}
+ul{list-style:none;padding:0}
+li{padding:6px 0;border-bottom:1px solid #21262d;display:flex;align-items:flex-start;gap:8px}
+li:last-child{border-bottom:none}
+.check{width:18px;height:18px;border:2px solid #30363d;border-radius:4px;flex-shrink:0;margin-top:3px}
+.tag{display:inline-block;font-size:0.75em;padding:2px 8px;border-radius:12px;font-weight:600;margin-left:6px}
+.red{background:#da3633;color:#fff}
+.yellow{background:#d29922;color:#fff}
+.green{background:#238636;color:#fff}
+.gray{background:#30363d;color:#8b949e}
+.not{background:#21262d;border:1px solid #30363d;border-radius:8px;padding:12px 16px;margin:12px 0;color:#8b949e}
+.not li{border-bottom:1px solid #161b22}
+hr{border:none;border-top:1px solid #21262d;margin:24px 0}
+.footer{color:#484f58;font-size:0.8em;text-align:center;margin-top:32px}
+</style>
+</head>
+<body>
+<h1>⚡ Trawly — Sunday Ship Day</h1>
+<p class="subtitle">March 1, 2026 · Goal: Ship to 20 friends by end of day</p>
+
+<h2>🔴 Before Sunday <span class="tag red">Chop Overnight</span></h2>
+<div class="section">
+<ul>
+<li><div class="check"></div>Set up TwitterAPI.io account — API key, test queries</li>
+<li><div class="check"></div>Set up Reddit API — app credentials, test subreddit queries</li>
+<li><div class="check"></div>Set up HN Firebase — test story fetching</li>
+<li><div class="check"></div>Set up Jina Reader — test news article extraction</li>
+<li><div class="check"></div>Set up Resend account — API key, verify domain</li>
+<li><div class="check"></div>Set up Supabase project — create tables, get connection string</li>
+<li><div class="check"></div>Build multi-source content pipeline</li>
+<li><div class="check"></div>Build React Email template</li>
+<li><div class="check"></div>Test end-to-end — run pipeline, send test email</li>
+<li><div class="check"></div>Build landing page — Next.js, deploy to Vercel</li>
+<li><div class="check"></div>Buy domain — heytrawly.com, point DNS</li>
+</ul>
+</div>
+
+<h2>🟡 Sunday Morning — David + Chop <span class="tag yellow">2-3 hours</span></h2>
+
+<h3>Hour 1: Review & Decisions</h3>
+<div class="section">
+<ul>
+<li><div class="check"></div>Review overnight work — test digest in inbox, check landing page</li>
+<li><div class="check"></div><strong>Decision:</strong> Confirm/adjust digest format & voice</li>
+<li><div class="check"></div><strong>Decision:</strong> Confirm/adjust landing page copy</li>
+<li><div class="check"></div><strong>Decision:</strong> Free-only for beta or Pro from day 1?</li>
+<li><div class="check"></div><strong>Decision:</strong> Topic categories to offer at signup</li>
+<li><div class="check"></div><strong>Decision:</strong> Confirm domain (heytrawly.com?)</li>
+<li><div class="check"></div>Write list of 20 friends to invite (emails)</li>
+</ul>
+</div>
+
+<h3>Hour 2: Polish & Deploy</h3>
+<div class="section">
+<ul>
+<li><div class="check"></div>Fix any issues from review</li>
+<li><div class="check"></div>Set up DNS (domain → Vercel, email → Resend)</li>
+<li><div class="check"></div>Deploy landing page to production</li>
+<li><div class="check"></div>Test signup flow end-to-end</li>
+<li><div class="check"></div>Test email delivery (check spam/inbox)</li>
+</ul>
+</div>
+
+<h3>Hour 3: Launch</h3>
+<div class="section">
+<ul>
+<li><div class="check"></div>Import 20 friend emails into Supabase</li>
+<li><div class="check"></div>Send personal invite emails</li>
+<li><div class="check"></div>Queue first digest for Monday morning</li>
+<li><div class="check"></div>David posts teaser on X (optional)</li>
+</ul>
+</div>
+
+<h2>🟢 Sunday Afternoon — Chop Automates <span class="tag green">Chop Solo</span></h2>
+<div class="section">
+<ul>
+<li><div class="check"></div>Set up daily cron job (research 6am, deliver 7:30am AEDT)</li>
+<li><div class="check"></div>Set up open/click tracking</li>
+<li><div class="check"></div>Set up error alerting (pipeline fails → Discord)</li>
+<li><div class="check"></div>Set up daily cost tracking</li>
+<li><div class="check"></div>Write first digest for Monday morning</li>
+<li><div class="check"></div>Test cron end-to-end</li>
+</ul>
+</div>
+
+<h2>📋 David's Prep</h2>
+<div class="section">
+<ul>
+<li><div class="check"></div><strong>Buy domain:</strong> heytrawly.com</li>
+<li><div class="check"></div><strong>List 20 friends:</strong> Name + email</li>
+<li><div class="check"></div><strong>Review docs:</strong> ARCHITECTURE-V2 + BUSINESS-CASE</li>
+<li><div class="check"></div><strong>Decide pricing:</strong> Free-only or Pro ($12/mo)?</li>
+<li><div class="check"></div><strong>Decide brand:</strong> Dark & Underground or Clean & Premium?</li>
+</ul>
+</div>
+
+<hr>
+
+<h2>🚫 NOT Sunday <span class="tag gray">Don't Scope Creep</span></h2>
+<div class="not">
+<ul>
+<li>❌ Reply-to-email processing</li>
+<li>❌ Stripe payments</li>
+<li>❌ User dashboard</li>
+<li>❌ Advanced topic customisation</li>
+<li>❌ Referral system</li>
+<li>❌ Mobile app</li>
+<li>❌ Podcast format</li>
+</ul>
+</div>
+<p style="color:#8b949e;margin-top:8px;font-size:0.9em"><strong>Sunday = landing page + pipeline + 20 friends. That's it.</strong></p>
+
+<div class="footer">⚡ Trawly — trawling the internet for the good stuff</div>
+</body>
+</html>
