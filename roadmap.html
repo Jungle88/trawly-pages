@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly — Roadmap</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.7;padding:24px 16px 80px}
+.container{max-width:780px;margin:0 auto}
+a{color:#58a6ff;text-decoration:none}a:hover{text-decoration:underline}
+h1{font-size:2em;margin-bottom:6px}
+h2{font-size:1.4em;color:#e6edf3;margin:48px 0 16px;padding-bottom:8px;border-bottom:1px solid #21262d}
+h3{font-size:1.1em;color:#c9d1d9;margin:24px 0 10px}
+p{margin:0 0 14px;color:#c9d1d9;font-size:0.95em}
+ul{margin:0 0 14px 20px;color:#c9d1d9;font-size:0.95em}
+li{margin-bottom:6px}
+.subtitle{color:#8b949e;font-size:1em;margin-bottom:32px}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.75em;font-weight:600;margin-right:4px}
+.tag.green{background:#3fb95022;color:#3fb950}
+.tag.blue{background:#58a6ff22;color:#58a6ff}
+.tag.yellow{background:#d2992222;color:#d29922}
+.tag.purple{background:#bc8cff22;color:#bc8cff}
+.card{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:20px;margin:14px 0}
+.card-green{border-left:3px solid #3fb950}
+.card-accent{border-left:3px solid #58a6ff}
+.card-yellow{border-left:3px solid #d29922}
+.card-purple{border-left:3px solid #bc8cff}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.9em}
+th,td{padding:10px 14px;border:1px solid #21262d;text-align:left}
+th{background:#161b22;color:#e6edf3}
+td{color:#c9d1d9}
+.back-link{display:inline-block;margin-bottom:16px;font-size:0.85em;color:#8b949e}
+.back-link:hover{color:#58a6ff}
+.phase-label{display:inline-block;padding:4px 12px;border-radius:6px;font-size:0.85em;font-weight:700;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="sunday-todo.html" class="back-link">← Back to Master Doc</a>
+
+<h1>🗺️ Roadmap</h1>
+<p class="subtitle">From MVP to platform — phased approach with clear dependencies.<br><span class="tag blue">Reference</span> <span class="tag green">1 Mar 2026</span></p>
+
+<!-- PHASE 1 -->
+<h2><span class="phase-label" style="background:#3fb95033;color:#3fb950">Phase 1</span> MVP — Newsletter Only ⬅️ NOW</h2>
+<p><strong>Timeline:</strong> March 2026 &nbsp;|&nbsp; <strong>Goal:</strong> Ship to 20 friends, validate PMF</p>
+
+<div class="card card-green">
+<ul>
+<li>Daily email digest via Resend</li>
+<li>One-sentence onboarding → AI-generated first edition</li>
+<li>Flat editorial sequence with category pills</li>
+<li>Story synthesis (multiple sources → one narrative)</li>
+<li>Widgets included by default, phased out by behaviour</li>
+<li>@heytrawly tagging (X + Reddit)</li>
+<li>Click tracking via Resend → taste profile</li>
+<li>Haiku scoring → Sonnet curation → Opus composition (~$0.40/digest)</li>
+<li>Inline glossary (parenthetical definitions)</li>
+<li>"We Were Wrong" corrections</li>
+<li>"Skip This" honesty (max 1/week)</li>
+<li>Silent pause sequence (Day 14 → 21 → 45)</li>
+<li>Interest decay prompts (60-day threshold)</li>
+<li>First-week personalisation callout</li>
+<li>Time saved counter near unsubscribe</li>
+<li>Monthly wrap-up email (basic)</li>
+<li>Gifting for viral growth</li>
+<li>Landing page (heytrawly.com)</li>
+</ul>
+
+<h3>Success Metrics</h3>
+<ul style="margin:0">
+<li>Open rate &gt; 50%</li>
+<li>Click rate &gt; 15%</li>
+<li>Week 2 retention &gt; 80%</li>
+<li>Cost per digest ≤ $0.45</li>
+</ul>
+</div>
+
+<!-- PHASE 2 -->
+<h2><span class="phase-label" style="background:#58a6ff33;color:#58a6ff">Phase 2</span> Scale Optimisations</h2>
+<p><strong>Timeline:</strong> Month 2-3 post-launch &nbsp;|&nbsp; <strong>Goal:</strong> Reduce per-unit costs, handle more subscribers</p>
+
+<div class="card card-accent">
+<ul>
+<li>Pre-process + cache content at depth levels</li>
+<li>Cohort-based digests (group similar taste profiles)</li>
+<li>Multi-depth summaries (short/medium/deep per story)</li>
+<li>Pipeline performance monitoring + cost dashboards</li>
+<li>Automated quality scoring vs engagement data</li>
+</ul>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Dependencies:</strong> 50+ subscribers for meaningful cohorts, 4+ weeks of engagement data.</p>
+</div>
+
+<!-- PHASE 3 -->
+<h2><span class="phase-label" style="background:#d2992233;color:#d29922">Phase 3</span> Additional Surfaces</h2>
+<p><strong>Timeline:</strong> Month 3-6 post-launch &nbsp;|&nbsp; <strong>Goal:</strong> Beyond email</p>
+
+<div class="card card-yellow">
+<ul>
+<li>🎧 Audio Edition — TTS spoken digest</li>
+<li>🌐 Web reader — browse past digests, manage preferences</li>
+<li>🔔 Push notifications — breaking stories</li>
+<li>📚 Sunday Deep Trawl — weekly long-form</li>
+</ul>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Dependencies:</strong> Format workshop complete, stable engagement data, TTS provider.</p>
+</div>
+
+<!-- PHASE 4 -->
+<h2><span class="phase-label" style="background:#bc8cff33;color:#bc8cff">Phase 4</span> Social Features</h2>
+<p><strong>Timeline:</strong> Month 4-8 post-launch &nbsp;|&nbsp; <strong>Goal:</strong> Social experience</p>
+
+<div class="card card-purple">
+<ul>
+<li>🤝 Shared Editions — gift a digest to a friend</li>
+<li>🔮 Prediction Tracker — track predictions over time</li>
+<li>⏱️ Tempo Control — frequency + depth options</li>
+<li>🎭 Voice & Tone Personas</li>
+<li>🐰 Rabbit Hole Button — on-demand deep dives</li>
+<li>💬 Quote Cards — shareable visuals</li>
+</ul>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Dependencies:</strong> Proven engagement, format sprint complete, content history.</p>
+</div>
+
+<!-- PHASE 5 -->
+<h2><span class="phase-label" style="background:#21262d;color:#8b949e">Phase 5</span> Platform</h2>
+<p><strong>Timeline:</strong> Month 9+ post-launch &nbsp;|&nbsp; <strong>Goal:</strong> Trawly as infrastructure</p>
+
+<div class="card">
+<ul>
+<li>🎁 Year in Knowledge / Wrapped</li>
+<li>🔌 API — let others build on Trawly's curation engine</li>
+<li>👥 Trawly for Teams — shared company digests</li>
+<li>🏢 Enterprise — custom sources, compliance, SLAs</li>
+<li>🎂 Birthday Briefs</li>
+</ul>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Dependencies:</strong> Proven unit economics at scale, enterprise demand, 12 months of data for Wrapped.</p>
+</div>
+
+<!-- PARALLEL -->
+<h2>Parallel Workstreams</h2>
+<p>Not tied to phases — happen when ready:</p>
+
+<table>
+<tr><th>Workstream</th><th>When</th><th>Notes</th></tr>
+<tr><td>Branding workshop</td><td>Before public launch</td><td>Visual identity, logo, colour system</td></tr>
+<tr><td>Format sprint</td><td>After 2 weeks of beta feedback</td><td>Email layout, visual elements</td></tr>
+<tr><td>Pricing strategy</td><td>After 4 weeks of data</td><td>Free tier, Pro tier</td></tr>
+<tr><td>Founding 1,000 strategy</td><td>After branding workshop</td><td>Early adopter community</td></tr>
+</table>
+
+<!-- PRINCIPLES -->
+<h2>Principles</h2>
+<div class="card card-accent">
+<ol>
+<li><strong>Newsletter first.</strong> Don't build the second surface until the first one is great.</li>
+<li><strong>Data before features.</strong> Every new feature informed by real engagement data.</li>
+<li><strong>Ship small, learn fast.</strong> Clear success criteria before moving to next phase.</li>
+<li><strong>Cost discipline.</strong> Monitor unit economics weekly. COGS never above 50% of revenue.</li>
+<li><strong>Respect attention.</strong> Every feature saves time or delights — never adds friction.</li>
+</ol>
+</div>
+
+<div style="text-align:center;margin:48px 0 0;padding:24px;border-top:1px solid #21262d">
+<p style="color:#8b949e;font-size:0.85em">
+<a href="sunday-todo.html">← Master Doc</a> ·
+<a href="product-spec-v2.html">Product Spec V2</a> ·
+<a href="future-features.html">Future Features</a> ·
+<a href="architecture.html">Architecture</a>
+</p>
+</div>
+
+</div>
+</body>
+</html>

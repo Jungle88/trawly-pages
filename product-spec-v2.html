@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly — Product Spec V2</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.7;padding:24px 16px 80px}
+.container{max-width:780px;margin:0 auto}
+a{color:#58a6ff;text-decoration:none}a:hover{text-decoration:underline}
+h1{font-size:2em;margin-bottom:6px}
+h2{font-size:1.4em;color:#e6edf3;margin:48px 0 16px;padding-bottom:8px;border-bottom:1px solid #21262d}
+h3{font-size:1.1em;color:#c9d1d9;margin:24px 0 10px}
+p{margin:0 0 14px;color:#c9d1d9;font-size:0.95em}
+ul,ol{margin:0 0 14px 20px;color:#c9d1d9;font-size:0.95em}
+li{margin-bottom:6px}
+.subtitle{color:#8b949e;font-size:1em;margin-bottom:32px}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.75em;font-weight:600;margin-right:4px}
+.tag.blue{background:#58a6ff22;color:#58a6ff}
+.tag.green{background:#3fb95022;color:#3fb950}
+.tag.red{background:#f8514922;color:#f85149}
+.card{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:20px;margin:14px 0}
+.card-accent{border-left:3px solid #58a6ff}
+.card-green{border-left:3px solid #3fb950}
+.card-yellow{border-left:3px solid #d29922}
+.card-red{border-left:3px solid #f85149}
+.callout{background:#58a6ff11;border:1px solid #58a6ff44;border-radius:8px;padding:16px 20px;margin:16px 0;font-size:0.9em}
+.callout-warn{background:#d2992211;border-color:#d2992244}
+blockquote{border-left:3px solid #30363d;padding:8px 16px;margin:12px 0;color:#8b949e;font-style:italic}
+code{background:#21262d;padding:2px 6px;border-radius:4px;font-size:0.88em;color:#e6edf3}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.9em}
+th,td{padding:10px 14px;border:1px solid #21262d;text-align:left}
+th{background:#161b22;color:#e6edf3}
+td{color:#c9d1d9}
+.nav{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:16px 20px;margin-bottom:32px}
+.nav h3{font-size:0.85em;color:#8b949e;text-transform:uppercase;letter-spacing:0.5px;margin:0 0 10px}
+.nav-links{display:flex;flex-wrap:wrap;gap:6px}
+.nav-links a{display:inline-block;padding:4px 12px;background:#21262d;border-radius:6px;font-size:0.8em;color:#58a6ff;transition:background 0.2s}
+.nav-links a:hover{background:#30363d;text-decoration:none}
+.back-link{display:inline-block;margin-bottom:16px;font-size:0.85em;color:#8b949e}
+.back-link:hover{color:#58a6ff}
+.step{display:flex;gap:14px;margin:16px 0}
+.step-num{flex-shrink:0;width:32px;height:32px;background:#58a6ff;color:#0d1117;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85em}
+.step-content{flex:1}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="sunday-todo.html" class="back-link">← Back to Master Doc</a>
+
+<h1>📋 Product Spec V2</h1>
+<p class="subtitle">Canonical product specification — reflects all confirmed decisions.<br><span class="tag blue">Living Document</span> <span class="tag green">v2.0 — 1 Mar 2026</span></p>
+
+<div class="nav">
+<h3>Sections</h3>
+<div class="nav-links">
+<a href="#manifesto">📜 Manifesto</a>
+<a href="#digest">📰 Daily Digest</a>
+<a href="#onboarding">🚀 Onboarding</a>
+<a href="#subject-lines">✉️ Subject Lines</a>
+<a href="#tagging">🏷️ @heytrawly</a>
+<a href="#pipeline">🤖 AI Pipeline</a>
+<a href="#tracking">📊 Click Tracking</a>
+<a href="#corrections">✏️ Corrections</a>
+<a href="#skip">⏭️ Skip This</a>
+<a href="#pause">⏸️ Pause Sequence</a>
+<a href="#footer">📝 Footer</a>
+<a href="#monthly">📅 Monthly Wrap</a>
+<a href="#voice">🎤 Brand Voice</a>
+<a href="#not-mvp">🚫 Not MVP</a>
+</div>
+</div>
+
+<!-- MANIFESTO -->
+<h2 id="manifesto">The Manifesto</h2>
+
+<div class="card card-accent">
+<p>Trawly exists because the internet is drowning in noise and the best stuff is scattered across a dozen platforms. We trawl thousands of sources — X, Reddit, Hacker News, blogs, YouTube, news sites — so you don't have to. Every morning, you wake up to a beautifully crafted digest of what actually matters, written in a voice that feels like a smart friend catching you up over coffee.</p>
+</div>
+
+<p>We believe:</p>
+<ul>
+<li><strong>Your time is the most valuable thing you have.</strong> We save you hours every day.</li>
+<li><strong>Curation is an art.</strong> AI does the heavy lifting, but editorial taste drives everything.</li>
+<li><strong>Hyper-personalisation is the point.</strong> Not "top stories for tech people" — stories that matter to <em>you</em>.</li>
+<li><strong>Trust is earned through honesty.</strong> When we get it wrong, we say so.</li>
+</ul>
+
+<!-- DAILY DIGEST -->
+<h2 id="digest">1. The Daily Digest</h2>
+
+<h3>Flat Editorial Sequence</h3>
+<p>Each digest is a <strong>flat editorial sequence</strong> — not rigid topic-then-widget sections. Content flows naturally, like a well-edited magazine. <strong>Category pills</strong> (small inline labels like <code>AI/ML</code>, <code>Crypto</code>, <code>Parenting</code>) identify each item's domain, but the sequence is editorially curated for reading flow.</p>
+
+<div class="card card-accent">
+<h3>Story Synthesis</h3>
+<p>This is core to what makes Trawly different from link dumps. When a topic is trending across sources, we <strong>synthesise</strong> — pulling from X threads, Reddit discussions, news articles, and HN comments to create one narrative that's richer than any single source. Think AI-powered journalism, not aggregation.</p>
+</div>
+
+<h3>Widgets</h3>
+<p>Widgets (weather, contrarian corner, rabbit hole, etc.) are <strong>included by default</strong> — not user-selected. They're woven into the editorial sequence. If a subscriber consistently ignores a widget type, it gets <strong>phased out automatically</strong> based on behaviour data.</p>
+
+<h3>Personalisation</h3>
+<p>Throughout the digest, personalised callouts appear naturally: <em>"This one's relevant because you mentioned you're building a SaaS..."</em> Hyper-personalisation is the core product. <strong>"Your Kid Should Know"</strong> is an example of this, not a standalone feature.</p>
+
+<h3>Glossary Layer</h3>
+<p>Complex terms get <strong>inline parenthetical definitions</strong> on first use. No hover tooltips (email clients block JavaScript).</p>
+<blockquote>"The protocol uses ZK proofs (zero-knowledge proofs — a cryptographic method that lets you prove something is true without revealing the underlying data) to verify transactions..."</blockquote>
+
+<!-- ONBOARDING -->
+<h2 id="onboarding">2. Onboarding — Radical Simplicity</h2>
+
+<p>One sentence. That's all we need to get started.</p>
+
+<div class="card card-accent">
+<div class="step"><div class="step-num">1</div><div class="step-content">
+<h3 style="margin-top:0">Email + One Sentence</h3>
+<p>"Tell us what you're into in one sentence."</p>
+<blockquote>"I'm a startup founder interested in AI, crypto, and I have two young boys."</blockquote>
+</div></div>
+</div>
+
+<div class="card card-green">
+<div class="step"><div class="step-num">2</div><div class="step-content">
+<h3 style="margin-top:0">AI Generates First Edition</h3>
+<p>Based on that single sentence, Opus generates a personalised first digest immediately. The subscriber sees what Trawly looks like <em>for them</em> before their first real email.</p>
+</div></div>
+</div>
+
+<div class="card card-yellow">
+<div class="step"><div class="step-num">3</div><div class="step-content">
+<h3 style="margin-top:0">Optional "Tell Us More"</h3>
+<p>A gentle prompt: <em>"Want to make it even better? Tell us more about yourself."</em> Free text, not a form. Every detail improves the digest.</p>
+</div></div>
+</div>
+
+<h3>First-Week Personalisation Feedback</h3>
+<div class="callout">
+💡 During the first week, each digest includes a callout box: <em>"We're still learning your taste. Anything feel off? Too much crypto? Not enough parenting stuff? Just reply or tap below to adjust."</em> Easy opt-out per category (work / family / projects / industry).
+</div>
+
+<!-- SUBJECT LINES -->
+<h2 id="subject-lines">3. Subject Lines</h2>
+
+<p>Warm, natural, like a text from a friend. <strong>Never formulaic.</strong> Never clickbait.</p>
+
+<div class="card">
+<ul>
+<li>"That AI thing everyone's talking about? Here's what actually happened."</li>
+<li>"Big day in crypto + something your boys would love"</li>
+<li>"3 things worth knowing today (and one rabbit hole)"</li>
+<li>"Quiet day on the internet. Here's the best of it."</li>
+</ul>
+<p style="margin:0;font-size:0.85em;color:#8b949e">Written by Opus with access to the subscriber's full taste profile.</p>
+</div>
+
+<!-- TAGGING -->
+<h2 id="tagging">4. @heytrawly Tagging <span class="tag green">Viral Loop</span></h2>
+
+<p>Users tag <code>@heytrawly</code> on <strong>X</strong> and <strong>Reddit</strong> to save content for their next digest.</p>
+
+<div class="card">
+<ul>
+<li><code>@heytrawly</code> → Include in tomorrow's digest</li>
+<li><code>@heytrawly more like this</code> → Include + amplify topic in taste profile</li>
+<li><code>@heytrawly deep dive this tomorrow</code> → Include with expanded analysis</li>
+</ul>
+</div>
+
+<h3>Growth: Gifting > Referring</h3>
+<p>For viral growth, we lean into <strong>gifting</strong>, not referral codes. "Send this digest to a friend" feels natural and generous. Gift a curated edition, not a discount code.</p>
+
+<!-- AI PIPELINE -->
+<h2 id="pipeline">5. AI Pipeline</h2>
+
+<h3>All Anthropic via OpenRouter</h3>
+<table>
+<tr><th>Step</th><th>Model</th><th>Purpose</th><th>Cost</th></tr>
+<tr><td>Content scoring</td><td>Claude Haiku</td><td>Fast relevance/quality scoring</td><td>~$0.02</td></tr>
+<tr><td>Curation + taste</td><td>Claude Sonnet</td><td>Select items, update taste profile</td><td>~$0.05</td></tr>
+<tr><td>Composition</td><td>Claude Opus</td><td>Synthesis, editorial, personalisation, glossary, subject line</td><td>~$0.30-0.40</td></tr>
+<tr><td colspan="3"><strong>Total per digest</strong></td><td><strong>~$0.40</strong></td></tr>
+</table>
+
+<!-- CLICK TRACKING -->
+<h2 id="tracking">6. Click Tracking & Taste Profile</h2>
+
+<p><strong>All links tracked via Resend.</strong> Every click feeds the taste profile silently — no explicit rating friction.</p>
+
+<div class="card">
+<h3>Engagement Signals (ranked by strength)</h3>
+<ol>
+<li><strong>@heytrawly tag</strong> — strongest (deliberate action)</li>
+<li><strong>Reply to email</strong></li>
+<li><strong>Link click</strong> — tracked via Resend</li>
+<li><strong>Open</strong> — weakest (just saw the subject line)</li>
+</ol>
+<p style="margin:0;font-size:0.85em;color:#8b949e">🎯/🤷 feedback buttons to be redesigned in format workshop to match brand.</p>
+</div>
+
+<!-- CORRECTIONS -->
+<h2 id="corrections">7. "We Were Wrong" Corrections</h2>
+
+<p>When Trawly gets something wrong, we proactively correct it in the next digest:</p>
+
+<blockquote>"Yesterday we said [X]. Turns out that's not quite right. Here's what actually happened: [correction]. We'd rather tell you we were wrong than let bad info sit."</blockquote>
+
+<p>Most newsletters never correct themselves. We do it prominently and without shame. Builds trust.</p>
+
+<!-- SKIP THIS -->
+<h2 id="skip">8. "Skip This" Honesty</h2>
+
+<p>On quiet news days (max 1/week, genuine only):</p>
+
+<blockquote>"Quiet day on the internet. Rather than pad this with filler, here's a shorter catch today."</blockquote>
+
+<!-- PAUSE SEQUENCE -->
+<h2 id="pause">9. Pause Sequence</h2>
+
+<p><strong>Silent pause > guilt emails.</strong> We never send "we miss you" messages.</p>
+
+<table>
+<tr><th>Day</th><th>Action</th></tr>
+<tr><td>Day 14 (no opens)</td><td>Offer to reduce frequency: "Want us to switch to weekly?"</td></tr>
+<tr><td>Day 21 (still no opens)</td><td>Auto-pause. Stop sending. No guilt email.</td></tr>
+<tr><td>Day 45</td><td>One final check-in: "Want to restart, or should we let you go?"</td></tr>
+<tr><td>No response</td><td>Silent unsubscribe. Clean list.</td></tr>
+</table>
+
+<h3>Interest Decay Prompts</h3>
+<p>If a subscriber hasn't engaged with a specific category for 60+ days:</p>
+<blockquote>"We noticed you haven't been clicking on crypto stories lately. Want us to dial those back?"</blockquote>
+
+<!-- FOOTER -->
+<h2 id="footer">10. Email Footer</h2>
+
+<div class="card card-accent" style="text-align:center">
+<p style="color:#e6edf3">Today's trawl: <strong>247</strong> stories from <strong>38</strong> sources.<br>Estimated scroll time saved: <strong style="color:#3fb950">~12 hours</strong>.<br>Go do something good with it. ⚡</p>
+<hr style="border:none;border-top:1px solid #21262d;margin:12px 0">
+<p style="font-size:0.85em;color:#8b949e">[Manage preferences] · [Unsubscribe]<br>We've saved you ~47 hours this month. That's almost two full days. You're welcome 😏</p>
+</div>
+
+<p><strong>Time saved counter</strong> sits near the unsubscribe button — subtle retention at the moment they might consider leaving.</p>
+
+<!-- MONTHLY -->
+<h2 id="monthly">11. Monthly Wrap-Up</h2>
+
+<div class="card">
+<ul>
+<li><strong>What you read most:</strong> Top categories and sources</li>
+<li><strong>What you ignored:</strong> Categories being dialled back</li>
+<li><strong>Time saved this month:</strong> Total hours</li>
+<li><strong>Top sources:</strong> Publications/authors that appeared most</li>
+<li><strong>Value showcase:</strong> "We scanned 7,400 stories and picked 180 just for you"</li>
+<li><strong>Feedback moment:</strong> "Anything you want more of? Less of?"</li>
+</ul>
+<p style="margin:0;font-size:0.85em;color:#8b949e">Detailed design deferred to after format workshop.</p>
+</div>
+
+<!-- BRAND VOICE -->
+<h2 id="voice">12. Brand Voice</h2>
+
+<p>Trawly sounds like a smart friend who reads everything.</p>
+
+<div class="card">
+<ul>
+<li><strong>Warm but not saccharine</strong></li>
+<li><strong>Opinionated but fair</strong> — we have takes, but we show our work</li>
+<li><strong>Conversational</strong> — contractions, casual language, occasional humour</li>
+<li><strong>Honest</strong> — we say when something's boring, when we're not sure, when we were wrong</li>
+<li><strong>Respectful of time</strong> — we never waste a sentence</li>
+</ul>
+</div>
+
+<!-- NOT MVP -->
+<h2 id="not-mvp">13. What's NOT in MVP</h2>
+
+<p>See <a href="future-features.html">Future Features</a> and <a href="roadmap.html">Roadmap</a> for details on deferred items.</p>
+
+<div class="card">
+<p><strong>Deferred:</strong> Audio Edition, Sunday Deep Trawl, Shared Editions, Prediction Tracker, Tempo Control, Voice Personas, Rabbit Hole Button, Wrapped, Birthday Briefs, Quote Cards, Source Scouting Report, web reader, mobile app, API/enterprise.</p>
+</div>
+
+<div class="card card-red">
+<h3>Removed Permanently</h3>
+<ul>
+<li><strong>Scorecard</strong> ("top 12% of readers") — gamification doesn't fit</li>
+<li><strong>Versus Cards</strong> (polls/voting) — removed</li>
+<li><strong>Cultural Passport</strong> (reader identity profile) — removed</li>
+<li><strong>Mood Read</strong> (choose news tone) — removed</li>
+<li><strong>Empty Inbox Brag</strong> — we just do smaller catches on quiet days</li>
+</ul>
+</div>
+
+<div style="text-align:center;margin:48px 0 0;padding:24px;border-top:1px solid #21262d">
+<p style="color:#8b949e;font-size:0.85em">
+<a href="sunday-todo.html">← Master Doc</a> ·
+<a href="future-features.html">Future Features</a> ·
+<a href="roadmap.html">Roadmap</a> ·
+<a href="architecture.html">Architecture</a>
+</p>
+</div>
+
+</div>
+</body>
+</html>

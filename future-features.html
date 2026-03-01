@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly — Future Features</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.7;padding:24px 16px 80px}
+.container{max-width:780px;margin:0 auto}
+a{color:#58a6ff;text-decoration:none}a:hover{text-decoration:underline}
+h1{font-size:2em;margin-bottom:6px}
+h2{font-size:1.4em;color:#e6edf3;margin:48px 0 16px;padding-bottom:8px;border-bottom:1px solid #21262d}
+h3{font-size:1.1em;color:#c9d1d9;margin:24px 0 10px}
+p{margin:0 0 14px;color:#c9d1d9;font-size:0.95em}
+ul{margin:0 0 14px 20px;color:#c9d1d9;font-size:0.95em}
+li{margin-bottom:6px}
+.subtitle{color:#8b949e;font-size:1em;margin-bottom:32px}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.75em;font-weight:600;margin-right:4px}
+.tag.blue{background:#58a6ff22;color:#58a6ff}
+.tag.green{background:#3fb95022;color:#3fb950}
+.tag.yellow{background:#d2992222;color:#d29922}
+.tag.purple{background:#bc8cff22;color:#bc8cff}
+.tag.red{background:#f8514922;color:#f85149}
+.card{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:20px;margin:14px 0}
+.card-accent{border-left:3px solid #58a6ff}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.9em}
+th,td{padding:10px 14px;border:1px solid #21262d;text-align:left}
+th{background:#161b22;color:#e6edf3}
+td{color:#c9d1d9}
+.back-link{display:inline-block;margin-bottom:16px;font-size:0.85em;color:#8b949e}
+.back-link:hover{color:#58a6ff}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="sunday-todo.html" class="back-link">← Back to Master Doc</a>
+
+<h1>🔮 Future Features</h1>
+<p class="subtitle">Deferred from MVP. Each feature with target timing and description.<br><span class="tag blue">Reference</span> <span class="tag green">1 Mar 2026</span></p>
+
+<h2>🎧 Audio Edition <span class="tag blue">Month 2</span></h2>
+<div class="card card-accent">
+<p>A spoken version of the daily digest via high-quality TTS. Listen during commute, workout, or breakfast. Same editorial content, optimised for audio — shorter sentences, natural transitions, 8-12 minutes.</p>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Depends on:</strong> Format workshop, TTS provider selection, audio hosting.</p>
+</div>
+
+<h2>📚 Sunday Deep Trawl <span class="tag blue">Month 3</span></h2>
+<div class="card card-accent">
+<p>Weekly long-form edition: 15-20 minute read with extended analysis on 2-3 topics from the week. Multiple perspectives, "what to watch next." The magazine supplement to the daily newspaper.</p>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Depends on:</strong> Enough subscriber data to know which topics resonate. Format workshop.</p>
+</div>
+
+<h2>🤝 Shared Editions <span class="tag blue">Month 4</span></h2>
+<div class="card card-accent">
+<p>Gift a personalised digest to someone else. Not a referral link — an actual curated edition based on what the gifter knows about the recipient. Delivers immediate value, better viral than referral codes.</p>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Depends on:</strong> Gifting UX design, one-off digest generation pipeline.</p>
+</div>
+
+<h2>🔮 Prediction Tracker <span class="tag blue">Month 5</span></h2>
+<div class="card card-accent">
+<p>Surface predictions from curated content ("Analyst X says BTC will hit $200K by Q4") and track them over time. Monthly report on how predictions are holding up. Builds source reliability data and long-term retention.</p>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Depends on:</strong> Prediction extraction in pipeline, tracking database, follow-up composition logic.</p>
+</div>
+
+<h2>⏱️ Tempo Control <span class="tag blue">Month 6</span></h2>
+<div class="card card-accent">
+<p>Choose digest frequency: daily quick (5 min), daily deep (10 min), 3x/week, or weekly. Each tempo has its own editorial approach — weekly isn't just 7 dailies stitched together.</p>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Depends on:</strong> Multi-depth composition templates, scheduling logic, cohort-based pipeline.</p>
+</div>
+
+<h2>🎭 Voice & Tone Personas <span class="tag blue">Month 7</span></h2>
+<div class="card card-accent">
+<p>Choose how Trawly talks: The Analyst (data-driven), The Friend (casual, current default), The Professor (educational), The Contrarian (devil's advocate). Each changes the Opus prompt while keeping same curated content.</p>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Depends on:</strong> Persona prompt library, A/B testing framework.</p>
+</div>
+
+<h2>🐰 Rabbit Hole Button <span class="tag blue">Month 8</span></h2>
+<div class="card card-accent">
+<p>Click "Go deeper" on any digest item → Trawly generates a 10-15 minute deep-dive with additional sources, academic papers, historical context. Delivered as a follow-up email within the hour.</p>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Depends on:</strong> On-demand generation pipeline, additional source fetching, cost management.</p>
+</div>
+
+<h2>🎁 Year in Knowledge / Wrapped <span class="tag purple">End of Year 1</span></h2>
+<div class="card card-accent">
+<p>Annual summary: topics engaged with most, how interests evolved, total time saved, most-clicked sources, predictions that came true. Shareable "Your Year in Knowledge" card. Spotify Wrapped for intellectual curiosity.</p>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Depends on:</strong> 12 months of engagement data, shareable card generation.</p>
+</div>
+
+<h2>🎂 Birthday Briefs <span class="tag purple">Future</span></h2>
+<div class="card card-accent">
+<p>Pre-generate 365 birthday-themed digest templates, serve the relevant one on the subscriber's birthday with Opus personalisation layered on. A delightful surprise.</p>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Depends on:</strong> Birthday collection during onboarding, template library, scheduling.</p>
+</div>
+
+<h2>💬 Quote Cards <span class="tag yellow">After Format Sprint</span></h2>
+<div class="card card-accent">
+<p>Beautiful, shareable quote cards from the best lines in each digest. Share on social media with Trawly branding. Organic social growth.</p>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Depends on:</strong> Format sprint (visual identity), card generation pipeline.</p>
+</div>
+
+<h2>🔍 Source Scouting Report <span class="tag yellow">After Format Workshop</span></h2>
+<div class="card card-accent">
+<p>Periodic report on sources: which publications appear most, source reliability scores, new sources discovered, quality trends. Transparency about where info comes from.</p>
+<p style="font-size:0.85em;color:#8b949e;margin:0"><strong>Depends on:</strong> Source tracking database, reliability scoring model.</p>
+</div>
+
+<h2>📊 Monthly Wrap-Up (Detailed Design) <span class="tag yellow">After Format Workshop</span></h2>
+<div class="card card-accent">
+<p>The basic monthly wrap-up is in MVP, but the detailed design — visual layout, interactive elements, shareable components — is deferred until the format workshop establishes the visual language.</p>
+</div>
+
+<h2>Removed Features</h2>
+<table>
+<tr><th>Feature</th><th>Why Removed</th></tr>
+<tr><td>Scorecard ("top 12% of readers")</td><td>Gamification doesn't fit brand</td></tr>
+<tr><td>Versus Cards (polls)</td><td>Adds friction without clear value</td></tr>
+<tr><td>Cultural Passport</td><td>Over-engineered; taste profile does this implicitly</td></tr>
+<tr><td>Mood Read</td><td>Too complex; editorial voice should be consistent</td></tr>
+<tr><td>Empty Inbox Brag</td><td>We just do smaller catches on quiet days</td></tr>
+</table>
+
+<div style="text-align:center;margin:48px 0 0;padding:24px;border-top:1px solid #21262d">
+<p style="color:#8b949e;font-size:0.85em">
+<a href="sunday-todo.html">← Master Doc</a> ·
+<a href="product-spec-v2.html">Product Spec V2</a> ·
+<a href="roadmap.html">Roadmap</a> ·
+<a href="architecture.html">Architecture</a>
+</p>
+</div>
+
+</div>
+</body>
+</html>
