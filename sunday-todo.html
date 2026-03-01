@@ -107,6 +107,90 @@ hr{border:none;border-top:1px solid #21262d;margin:24px 0}
 </ul>
 </div>
 
+<h2>📚 Reference Docs</h2>
+<div class="section" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<a href="architecture.html" style="display:block;background:#161b22;border:1px solid #21262d;border-radius:8px;padding:14px 16px;color:#e6edf3;text-decoration:none;transition:border-color 0.2s">
+<div style="font-size:0.75em;color:#58a6ff;margin-bottom:4px">🏗️ ARCHITECTURE</div>
+<strong>Architecture V2</strong>
+<div style="font-size:0.8em;color:#8b949e;margin-top:4px">Tech stack, pipeline, data model, deployment</div>
+</a>
+<a href="business-case.html" style="display:block;background:#161b22;border:1px solid #21262d;border-radius:8px;padding:14px 16px;color:#e6edf3;text-decoration:none;transition:border-color 0.2s">
+<div style="font-size:0.75em;color:#58a6ff;margin-bottom:4px">💰 BUSINESS</div>
+<strong>Business Case & Unit Economics</strong>
+<div style="font-size:0.8em;color:#8b949e;margin-top:4px">COGS, pricing, revenue projections, growth</div>
+</a>
+<a href="brand-guide.html" style="display:block;background:#161b22;border:1px solid #21262d;border-radius:8px;padding:14px 16px;color:#e6edf3;text-decoration:none;transition:border-color 0.2s">
+<div style="font-size:0.75em;color:#58a6ff;margin-bottom:4px">🎨 BRAND</div>
+<strong>Brand Guide (4 Directions)</strong>
+<div style="font-size:0.8em;color:#8b949e;margin-top:4px">Clean, Playful, Editorial, Dark & Underground</div>
+</a>
+<a href="ux-research.html" style="display:block;background:#161b22;border:1px solid #21262d;border-radius:8px;padding:14px 16px;color:#e6edf3;text-decoration:none;transition:border-color 0.2s">
+<div style="font-size:0.75em;color:#58a6ff;margin-bottom:4px">🔬 UX</div>
+<strong>UX Research</strong>
+<div style="font-size:0.8em;color:#8b949e;margin-top:4px">Onboarding, retention, competitive analysis</div>
+</a>
+<a href="brand-pitch.html" style="display:block;background:#161b22;border:1px solid #21262d;border-radius:8px;padding:14px 16px;color:#e6edf3;text-decoration:none;transition:border-color 0.2s">
+<div style="font-size:0.75em;color:#8b949e;margin-bottom:4px">📄 PITCH</div>
+<strong>Brand Pitch V1</strong>
+</a>
+<a href="brand-pitch-v3.html" style="display:block;background:#161b22;border:1px solid #21262d;border-radius:8px;padding:14px 16px;color:#e6edf3;text-decoration:none;transition:border-color 0.2s">
+<div style="font-size:0.75em;color:#8b949e;margin-bottom:4px">📄 PITCH</div>
+<strong>Brand Pitch V3</strong>
+</a>
+<a href="brand-pitch-v4.html" style="display:block;background:#161b22;border:1px solid #21262d;border-radius:8px;padding:14px 16px;color:#e6edf3;text-decoration:none;transition:border-color 0.2s">
+<div style="font-size:0.75em;color:#3fb950;margin-bottom:4px">📄 PITCH — LATEST</div>
+<strong>Brand Pitch V4</strong>
+</a>
+<a href="app-prototype.html" style="display:block;background:#161b22;border:1px solid #21262d;border-radius:8px;padding:14px 16px;color:#e6edf3;text-decoration:none;transition:border-color 0.2s">
+<div style="font-size:0.75em;color:#8b949e;margin-bottom:4px">📱 PROTOTYPE</div>
+<strong>App Prototype</strong>
+</a>
+</div>
+
+<h2>⚖️ Decisions Needed <span class="tag yellow">David</span></h2>
+
+<div style="background:#161b22;border:1px solid #d29922;border-radius:8px;padding:16px 20px;margin:12px 0">
+<h3 style="color:#d29922;margin:0 0 8px">🐦 X/Twitter Data Source</h3>
+<p style="color:#c9d1d9;font-size:0.9em;margin:0 0 10px">Official X API is $5K/mo (Pro tier) for commercial use — not viable. We need a third-party provider:</p>
+<ul style="font-size:0.9em;margin-bottom:10px">
+<li><strong style="color:#3fb950">TwitterAPI.io — $0.15/1K tweets</strong> ← Recommended. Pay-as-you-go, commercial OK</li>
+<li>SocialData.tools — $0.0018/tweet, established</li>
+<li>Apify X Scraper — $49/mo flat</li>
+<li>RapidAPI Twitter — varies by provider</li>
+</ul>
+<a href="architecture.html#x-data-strategy" style="color:#58a6ff;font-size:0.85em">→ Full comparison in Architecture doc</a>
+</div>
+
+<div style="background:#161b22;border:1px solid #d29922;border-radius:8px;padding:16px 20px;margin:12px 0">
+<h3 style="color:#d29922;margin:0 0 8px">🎨 Brand Direction</h3>
+<p style="color:#c9d1d9;font-size:0.9em;margin:0 0 10px">4 options in brand guide: Clean & Premium, Bold & Playful, Editorial & Authoritative, Dark & Underground.</p>
+<p style="color:#3fb950;font-size:0.9em;margin:0 0 10px"><strong>Chop recommends:</strong> "Dark & Underground" aesthetic with Clean & Premium polish — Raycast meets curated feed.</p>
+<a href="brand-guide.html" style="color:#58a6ff;font-size:0.85em">→ See all 4 directions with samples</a>
+</div>
+
+<div style="background:#161b22;border:1px solid #d29922;border-radius:8px;padding:16px 20px;margin:12px 0">
+<h3 style="color:#d29922;margin:0 0 8px">💵 Pricing Strategy</h3>
+<p style="color:#c9d1d9;font-size:0.9em;margin:0 0 10px">Free-only for beta? Or introduce Pro ($12/mo) from Day 1?</p>
+<p style="color:#8b949e;font-size:0.85em;margin:0 0 10px">Break-even at just 10 paying subscribers. 15 Pro + 5 Power = $325 MRR (Month 2).</p>
+<a href="business-case.html" style="color:#58a6ff;font-size:0.85em">→ Full revenue projections & unit economics</a>
+</div>
+
+<div style="background:#161b22;border:1px solid #d29922;border-radius:8px;padding:16px 20px;margin:12px 0">
+<h3 style="color:#d29922;margin:0 0 8px">📧 Email Provider</h3>
+<p style="color:#c9d1d9;font-size:0.9em;margin:0 0 10px">Two strong options:</p>
+<ul style="font-size:0.9em;margin-bottom:10px">
+<li><strong>Resend</strong> — $20/mo, 50K emails, dev-friendly API, React Email integration</li>
+<li><strong>Loops.so</strong> — $49/mo, 5K contacts, built-in subscriber management + analytics</li>
+</ul>
+<a href="architecture.html" style="color:#58a6ff;font-size:0.85em">→ Details in Architecture doc</a>
+</div>
+
+<div style="background:#161b22;border:1px solid #d29922;border-radius:8px;padding:16px 20px;margin:12px 0">
+<h3 style="color:#d29922;margin:0 0 8px">🌐 Domain</h3>
+<p style="color:#c9d1d9;font-size:0.9em;margin:0 0 6px"><strong>heytrawly.com</strong> — confirm or suggest alternative.</p>
+<p style="color:#8b949e;font-size:0.85em;margin:0">Also considered: trawly.io, trawly.co, thetrawly.com</p>
+</div>
+
 <hr>
 
 <h2>🚫 NOT Sunday <span class="tag gray">Don't Scope Creep</span></h2>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly — Production Architecture</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#0d1117;color:#e6edf3;line-height:1.7;padding:32px 24px;max-width:780px;margin:0 auto}
+a{color:#58a6ff;text-decoration:none}a:hover{text-decoration:underline}
+h1{font-size:2em;color:#fff;margin-bottom:4px}
+h2{font-size:1.5em;color:#e6edf3;margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid #58a6ff}
+h3{font-size:1.15em;color:#c9d1d9;margin:24px 0 10px}
+h4{font-size:1em;color:#8b949e;margin:16px 0 8px}
+p,.subtitle{color:#c9d1d9;margin-bottom:14px}
+.subtitle{color:#8b949e;font-size:0.95em;margin-bottom:28px}
+strong{color:#e6edf3}
+em{color:#8b949e}
+hr{border:none;border-top:1px solid #21262d;margin:32px 0}
+ul,ol{padding-left:24px;margin-bottom:14px}
+li{margin-bottom:6px;color:#c9d1d9}
+table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:0.9em}
+th{background:#161b22;color:#58a6ff;text-align:left;padding:10px 12px;border:1px solid #21262d;font-weight:600}
+td{padding:10px 12px;border:1px solid #21262d;color:#c9d1d9}
+tr:nth-child(even) td{background:#161b22}
+tr:nth-child(odd) td{background:#0d1117}
+code{background:#161b22;color:#e6edf3;padding:2px 6px;border-radius:4px;font-size:0.9em;font-family:'SF Mono',SFMono-Regular,Consolas,monospace}
+pre{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:16px 20px;overflow-x:auto;margin:16px 0 24px;font-size:0.85em;line-height:1.5}
+pre code{background:none;padding:0}
+blockquote{border-left:3px solid #58a6ff;padding:8px 16px;margin:16px 0;color:#8b949e;background:#161b2280}
+.back{display:inline-block;margin-bottom:20px;color:#58a6ff;font-size:0.9em}
+.footer{color:#484f58;font-size:0.8em;text-align:center;margin-top:48px;padding-top:24px;border-top:1px solid #21262d}
+</style>
+</head>
+<body>
+<a href="sunday-todo.html" class="back">← Back to Sunday Plan</a>
+<h1>🏗️ Trawly — Production Architecture</h1>
+<p class="subtitle">Ship Date: Sunday, March 1, 2026 · Phase 1 Target: 20 friends beta → feedback · Scale Target: 10,000+ subscribers</p>
+
+<h2>1. What We're Building Sunday</h2>
+<p>A daily AI-curated email digest that trawls the ENTIRE internet — X, Reddit, Hacker News, blogs, YouTube, news sites — for the best content, packages it beautifully, and delivers it to subscribers. Full self-serve: signup → configure topics → receive daily digest. Plus X integration (@heytrawly tagging to save content).</p>
+
+<h3>Sunday Deliverables</h3>
+<ol>
+<li><strong>Landing page</strong> (heytrawly.com) — value prop + email signup</li>
+<li><strong>Content pipeline</strong> — automated X research → AI curation → HTML email</li>
+<li><strong>Email delivery</strong> — proper transactional email service (not Gmail)</li>
+<li><strong>20 beta invites</strong> — David's friends get Day 1 access</li>
+</ol>
+
+<h2>2. Tech Stack</h2>
+
+<h3>Frontend / Landing Page</h3>
+<table>
+<tr><th>Component</th><th>Choice</th><th>Why</th></tr>
+<tr><td>Framework</td><td>Next.js 14 (App Router)</td><td>David's comfort zone, Vercel deploy, React ecosystem</td></tr>
+<tr><td>Styling</td><td>Tailwind CSS</td><td>Fast iteration, responsive by default</td></tr>
+<tr><td>Hosting</td><td>Vercel</td><td>Zero-config, free tier covers us, edge functions</td></tr>
+<tr><td>Domain</td><td>heytrawly.com</td><td>TBC — David to confirm</td></tr>
+</table>
+
+<h3>Backend / API</h3>
+<table>
+<tr><th>Component</th><th>Choice</th><th>Why</th></tr>
+<tr><td>Runtime</td><td>Node.js (Vercel serverless)</td><td>No server to manage, scales automatically</td></tr>
+<tr><td>Database</td><td>Supabase (PostgreSQL)</td><td>Auth + DB + real-time, generous free tier, pgvector for future embeddings</td></tr>
+<tr><td>Cache</td><td>Upstash Redis (serverless)</td><td>Rate limiting, content cache, session data. Free tier: 10K commands/day</td></tr>
+<tr><td>Queue</td><td>Vercel Cron + Inngest</td><td>Scheduled jobs, event-driven workflows</td></tr>
+</table>
+
+<h3>Content Pipeline (Multi-Source)</h3>
+<table>
+<tr><th>Source</th><th>Method</th><th>Cost</th><th>Rate Limits</th></tr>
+<tr><td>X/Twitter</td><td>TwitterAPI.io</td><td>$0.15/1K tweets</td><td>Pay-as-you-go</td></tr>
+<tr><td>Reddit</td><td>Official API (free)</td><td>$0</td><td>100 req/min</td></tr>
+<tr><td>Hacker News</td><td>Firebase API</td><td>$0</td><td>Unlimited, real-time</td></tr>
+<tr><td>RSS/Blogs</td><td>Direct fetch</td><td>$0</td><td>Self-throttled</td></tr>
+<tr><td>YouTube</td><td>Transcript extraction</td><td>~$0</td><td>10K units/day free</td></tr>
+<tr><td>News sites</td><td>Jina Reader API</td><td>Free tier</td><td>20 req/min</td></tr>
+<tr><td>X tagging</td><td>Webhook listener</td><td>Included</td><td>—</td></tr>
+</table>
+
+<h3>AI Models</h3>
+<table>
+<tr><th>Component</th><th>Choice</th><th>Why</th></tr>
+<tr><td>Scoring LLM</td><td>Gemini 2.0 Flash Lite</td><td>Cheapest for bulk classification. $0.075/MTok in, $0.30/MTok out</td></tr>
+<tr><td>Summary LLM</td><td>GPT-4o-mini</td><td>Best value for summarization. $0.15/MTok in, $0.60/MTok out</td></tr>
+<tr><td>Editorial LLM</td><td>Claude 4 Sonnet</td><td>Final editorial pass — the voice IS the product</td></tr>
+<tr><td>Embeddings</td><td>text-embedding-3-small</td><td>$0.02/MTok — cheapest, good for dedup + similarity</td></tr>
+<tr><td>Fallback</td><td>GPT-4o-mini</td><td>If Claude is down or rate-limited</td></tr>
+</table>
+
+<h3>Email Delivery</h3>
+<table>
+<tr><th>Component</th><th>Choice</th><th>Why</th></tr>
+<tr><td>Service</td><td>Resend</td><td>Built for devs, React Email integration, $20/mo for 50K emails</td></tr>
+<tr><td>Template</td><td>React Email</td><td>JSX-based email templates, renders to cross-client HTML</td></tr>
+<tr><td>Alternative</td><td>Loops.so</td><td>Built-in subscriber management + analytics. $49/mo for 5K contacts</td></tr>
+</table>
+
+<h2>3. Architecture Diagram</h2>
+<pre><code>┌──────────────────────────────────────────────────────┐
+│                    VERCEL (Frontend)                   │
+│  Landing Page ── Signup ── Topic Config ── Dashboard  │
+└───────┼─────────────┼──────────────────────────────────┘
+        │             ▼
+        │     ┌────────────────────┐
+        │     │   SUPABASE         │
+        │     │  subscribers       │
+        │     │  digests           │
+        │     │  content_items     │
+        │     └────────────────────┘
+        │             │
+        ▼             ▼
+┌──────────────────────────────────────────────────────┐
+│         AI AGENT PIPELINE (Inngest + Sub-Agents)      │
+│                                                        │
+│  FETCH AGENTS (parallel)                               │
+│    Agent-X · Agent-Reddit · Agent-HN · Agent-RSS      │
+│    Agent-YT · Agent-News                               │
+│           ▼                                            │
+│  SCORE ───── Gemini Flash Lite ───── Quality score     │
+│           ▼                                            │
+│  DEDUP ───── Embeddings ───── Remove similar           │
+│           ▼                                            │
+│  SUMMARIZE ── GPT-4o-mini ── Summaries                 │
+│           ▼                                            │
+│  CURATE ──── Claude Sonnet ── Select best 8-12         │
+│           ▼                                            │
+│  COMPOSE ─── Claude Sonnet ── Write digest             │
+│           ▼                                            │
+│  RENDER ──── React Email ──── HTML email               │
+│           ▼                                            │
+│  DELIVER ─── Resend ───────── Inbox                    │
+└──────────────────────────────────────────────────────┘</code></pre>
+
+<h3>Pipeline Schedule</h3>
+<ul>
+<li><strong>Research window:</strong> 6am-7am AEDT (previous 24h content)</li>
+<li><strong>Delivery:</strong> 7:30am AEDT (or subscriber-local time in v2)</li>
+</ul>
+
+<h2>4. AI Model Strategy</h2>
+<p>Different tasks need different models. Using Sonnet for everything wastes money. Using Haiku for everything sacrifices editorial quality.</p>
+
+<table>
+<tr><th>Task</th><th>Model</th><th>Cost/Digest</th></tr>
+<tr><td>Content scoring (50-100 items)</td><td>Gemini 2.0 Flash Lite</td><td>~$0.005</td></tr>
+<tr><td>Deduplication</td><td>text-embedding-3-small</td><td>~$0.001</td></tr>
+<tr><td>Summarization (top 20)</td><td>GPT-4o-mini</td><td>~$0.03</td></tr>
+<tr><td>Editorial curation</td><td>Claude 4 Sonnet</td><td>~$0.05</td></tr>
+<tr><td>Digest composition</td><td>Claude 4 Sonnet</td><td>~$0.10</td></tr>
+<tr><td>Subject line</td><td>GPT-4o-mini</td><td>~$0.001</td></tr>
+</table>
+<p><strong>Total LLM cost per digest: ~$0.19</strong></p>
+
+<h2 id="x-data-strategy">5. X Data Strategy</h2>
+<p>Our $200/mo Basic X API tier is <strong>non-commercial</strong>. Using it for a paid product violates TOS. Pro tier is $5K/mo — not viable until 400+ paying subscribers.</p>
+
+<h3>Third-Party Data Providers</h3>
+<table>
+<tr><th>Provider</th><th>Cost</th><th>Method</th><th>Commercial?</th><th>Reliability</th></tr>
+<tr><td><strong>SocialData.tools</strong></td><td>$0.0018/tweet</td><td>API proxy</td><td>✅ Yes</td><td>High</td></tr>
+<tr><td><strong>Apify X Scraper</strong></td><td>$49/mo flat</td><td>Cloud scraping</td><td>✅ Yes</td><td>Medium</td></tr>
+<tr><td><strong>RapidAPI Twitter</strong></td><td>$0.001-0.005/tweet</td><td>Various proxies</td><td>✅ Yes</td><td>Varies</td></tr>
+<tr><td><strong>Bright Data</strong></td><td>~$500/mo</td><td>Residential proxy</td><td>✅ Yes</td><td>Very high</td></tr>
+</table>
+<p><strong>Recommendation:</strong> Start with <strong>SocialData.tools</strong> — cheapest per-tweet, commercial use allowed, decent reliability. Budget: ~$50-100/mo.</p>
+
+<h2>6. Email Delivery & Deliverability</h2>
+<h3>Why Not Gmail</h3>
+<ul>
+<li>No DKIM/SPF control → lands in spam</li>
+<li>No open/click tracking</li>
+<li>No unsubscribe management (CAN-SPAM)</li>
+<li>Doesn't scale past ~50 emails/day</li>
+</ul>
+<h3>Resend Setup</h3>
+<ol>
+<li>Custom domain: send@heytrawly.com</li>
+<li>DNS records: DKIM + SPF + DMARC auto-configured</li>
+<li>Warm-up plan: Start with 20 friends → ramp 10%/day</li>
+<li>Tracking: Opens, clicks, bounces via Resend dashboard</li>
+<li>Unsubscribe: One-click header (Gmail requirement)</li>
+</ol>
+<p><strong>Cost: $20/mo for 50K emails</strong></p>
+
+<h2>7. Data Model</h2>
+<pre><code>-- Core tables
+CREATE TABLE subscribers (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  email TEXT UNIQUE NOT NULL,
+  name TEXT,
+  status TEXT DEFAULT 'active',
+  topics JSONB DEFAULT '[]',
+  preferences JSONB DEFAULT '{}',
+  timezone TEXT DEFAULT 'America/New_York',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE digests (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  date DATE NOT NULL,
+  subject TEXT NOT NULL,
+  html_content TEXT NOT NULL,
+  total_cost DECIMAL(10,4),
+  sent_count INT DEFAULT 0,
+  open_count INT DEFAULT 0,
+  click_count INT DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE content_items (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  digest_id UUID REFERENCES digests(id),
+  source_type TEXT NOT NULL,
+  source_url TEXT NOT NULL,
+  content_text TEXT NOT NULL,
+  summary TEXT,
+  quality_score DECIMAL(3,2),
+  embedding VECTOR(1536),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);</code></pre>
+
+<h2>8. Phase Roadmap</h2>
+<h3>Phase 1: Ship Sunday — "20 Friends"</h3>
+<ul>
+<li>Landing page live on heytrawly.com</li>
+<li>Supabase schema deployed</li>
+<li>Content pipeline running</li>
+<li>20 beta invites sent</li>
+<li>First digest delivered Monday morning</li>
+</ul>
+<h3>Phase 2: Week 2-3 — "Polish & Learn"</h3>
+<ul>
+<li>Reply-to-email feedback processing</li>
+<li>Engagement tracking</li>
+<li>Add more sources (HN, Reddit, RSS)</li>
+<li>Referral system</li>
+</ul>
+<h3>Phase 3: Month 2 — "Open Up"</h3>
+<ul>
+<li>Public waitlist → launch</li>
+<li>Stripe payments (free + $12/mo Pro)</li>
+<li>Topic customization per subscriber</li>
+<li>Dashboard</li>
+</ul>
+<h3>Phase 4: Month 3+ — "Scale"</h3>
+<ul>
+<li>Team digests</li>
+<li>Interactive podcast format</li>
+<li>Mobile app / PWA</li>
+<li>Content intelligence API</li>
+</ul>
+
+<h2>9. Risk Register</h2>
+<table>
+<tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr>
+<tr><td>SocialData gets blocked by X</td><td>High</td><td>Apify as backup. Diversify to non-X sources.</td></tr>
+<tr><td>Email lands in spam</td><td>Medium</td><td>Proper DKIM/SPF/DMARC + warm-up.</td></tr>
+<tr><td>AI curation quality inconsistent</td><td>Medium</td><td>Human review loop for first 2 weeks.</td></tr>
+<tr><td>Costs spiral at scale</td><td>Low</td><td>Unit economics solid ($0.13-0.30/digest vs $12/mo revenue).</td></tr>
+</table>
+
+<div class="footer">⚡ Trawly Architecture V2 — March 2026</div>
+</body>
+</html>

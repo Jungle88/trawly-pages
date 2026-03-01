@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trawly — Brand Pitch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Deck colors */
+            --deck-bg: #0F0F0F;
+            --deck-card: #1A1A1A;
+            --deck-text: #FFFFFF;
+            --deck-muted: #888888;
+            --deck-border: #2A2A2A;
+            
+            /* Direction A - The Net */
+            --net-sand: #FAF7F2;
+            --net-cream: #F5F0E8;
+            --net-navy: #1B2838;
+            --net-teal: #0D7377;
+            --net-coral: #E8654A;
+            --net-muted: #6B7280;
+            
+            /* Direction B - The Current */
+            --current-white: #FFFFFF;
+            --current-light: #F8FAFC;
+            --current-indigo: #1E1B4B;
+            --current-blue: #3B82F6;
+            --current-amber: #F59E0B;
+            --current-muted: #64748B;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--deck-bg);
+            color: var(--deck-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(15,15,15,0.95), rgba(15,15,15,0));
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--deck-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--deck-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--deck-text);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 120px 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--deck-muted);
+            margin-bottom: 24px;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: var(--deck-border);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 11px;
+            margin-right: 12px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 600;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        h3 {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+        }
+
+        .lead {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--deck-muted);
+            max-width: 640px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            align-items: center;
+            background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .client-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--deck-card);
+            border: 1px solid var(--deck-border);
+            border-radius: 100px;
+            font-size: 13px;
+            color: var(--deck-muted);
+            margin-bottom: 48px;
+        }
+
+        .client-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #10B981;
+            border-radius: 50%;
+        }
+
+        /* Discovery Section */
+        .discovery {
+            background: var(--deck-card);
+        }
+
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            margin-top: 64px;
+        }
+
+        .discovery-card {
+            padding: 32px;
+            background: var(--deck-bg);
+            border-radius: 16px;
+            border: 1px solid var(--deck-border);
+        }
+
+        .discovery-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--deck-muted);
+            margin-bottom: 16px;
+        }
+
+        .discovery-card p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--deck-text);
+        }
+
+        /* Direction Cards */
+        .direction {
+            padding: 160px 48px;
+        }
+
+        .direction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 80px;
+        }
+
+        .direction-title {
+            max-width: 600px;
+        }
+
+        .direction-philosophy {
+            font-size: 24px;
+            line-height: 1.5;
+            color: var(--deck-muted);
+            max-width: 480px;
+            text-align: right;
+        }
+
+        .signature-element {
+            background: var(--deck-card);
+            border-radius: 24px;
+            padding: 64px;
+            margin-bottom: 64px;
+            text-align: center;
+        }
+
+        .signature-element h4 {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--deck-muted);
+            margin-bottom: 32px;
+        }
+
+        /* Color Palettes */
+        .palette {
+            display: flex;
+            gap: 24px;
+            margin: 64px 0;
+        }
+
+        .palette-swatch {
+            flex: 1;
+            aspect-ratio: 1;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            min-height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .palette-swatch::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+        }
+
+        .palette-swatch span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .palette-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .palette-hex {
+            font-size: 13px;
+            font-family: 'SF Mono', Monaco, monospace;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Typography Showcase */
+        .typography-showcase {
+            background: var(--deck-card);
+            border-radius: 24px;
+            padding: 64px;
+            margin: 64px 0;
+        }
+
+        .typography-showcase h4 {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--deck-muted);
+            margin-bottom: 48px;
+        }
+
+        .type-sample {
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid var(--deck-border);
+        }
+
+        .type-sample:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .type-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--deck-muted);
+            margin-bottom: 16px;
+        }
+
+        /* Email Mockup Container */
+        .email-mockup-container {
+            background: var(--deck-card);
+            border-radius: 24px;
+            padding: 64px;
+            margin: 64px 0;
+        }
+
+        .email-mockup-container h4 {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--deck-muted);
+            margin-bottom: 32px;
+        }
+
+        .email-frame {
+            background: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 25px 100px -20px rgba(0,0,0,0.5);
+            max-width: 620px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .email-chrome {
+            background: #F5F5F5;
+            padding: 12px 16px;
+            border-bottom: 1px solid #E5E5E5;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .email-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #E5E5E5;
+        }
+
+        .email-dot.red { background: #FF5F57; }
+        .email-dot.yellow { background: #FFBD2E; }
+        .email-dot.green { background: #28CA41; }
+
+        /* Landing Hero Container */
+        .landing-mockup-container {
+            background: var(--deck-card);
+            border-radius: 24px;
+            padding: 64px;
+            margin: 64px 0;
+        }
+
+        .landing-mockup-container h4 {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--deck-muted);
+            margin-bottom: 32px;
+        }
+
+        .landing-frame {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 100px -20px rgba(0,0,0,0.5);
+        }
+
+        /* Voice Examples */
+        .voice-examples {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 64px 0;
+        }
+
+        .voice-card {
+            background: var(--deck-card);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--deck-border);
+        }
+
+        .voice-card h5 {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--deck-muted);
+            margin-bottom: 16px;
+        }
+
+        .voice-card p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           DIRECTION A: THE NET - Styles
+           ============================================ */
+
+        /* Net Pattern SVG Background */
+        .net-pattern-demo {
+            width: 100%;
+            height: 300px;
+            background: var(--net-sand);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .net-pattern-demo svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Direction A Typography */
+        .net-type-headline {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 48px;
+            font-weight: 500;
+            color: var(--net-navy);
+            letter-spacing: -0.02em;
+        }
+
+        .net-type-subhead {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--net-navy);
+        }
+
+        .net-type-body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--net-muted);
+        }
+
+        /* Direction A Email */
+        .email-net {
+            background: var(--net-sand);
+            padding: 40px 40px 48px;
+        }
+
+        .email-net-header {
+            text-align: center;
+            padding-bottom: 32px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid rgba(27, 40, 56, 0.1);
+            position: relative;
+        }
+
+        .email-net-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--net-teal);
+        }
+
+        .email-net-logo {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--net-navy);
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .email-net-date {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: var(--net-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .email-net-intro {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--net-navy);
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .email-net-card {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 20px;
+            position: relative;
+            border: 1px solid rgba(27, 40, 56, 0.08);
+            box-shadow: 0 2px 8px rgba(27, 40, 56, 0.04);
+        }
+
+        /* Net pattern border effect */
+        .email-net-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                var(--net-teal) 0%, 
+                transparent 10%, 
+                transparent 20%, 
+                var(--net-teal) 20%, 
+                var(--net-teal) 30%, 
+                transparent 30%, 
+                transparent 40%, 
+                var(--net-teal) 40%, 
+                var(--net-teal) 50%, 
+                transparent 50%, 
+                transparent 60%, 
+                var(--net-teal) 60%, 
+                var(--net-teal) 70%, 
+                transparent 70%, 
+                transparent 80%, 
+                var(--net-teal) 80%, 
+                var(--net-teal) 90%, 
+                transparent 90%, 
+                transparent 100%
+            );
+            border-radius: 12px 12px 0 0;
+        }
+
+        .email-net-card-tag {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--net-coral);
+            margin-bottom: 12px;
+        }
+
+        .email-net-card-title {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--net-navy);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .email-net-card-excerpt {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--net-muted);
+            margin-bottom: 16px;
+        }
+
+        .email-net-card-source {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: var(--net-teal);
+            font-weight: 500;
+        }
+
+        .email-net-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(27, 40, 56, 0.1);
+        }
+
+        .email-net-footer p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: var(--net-muted);
+        }
+
+        /* Direction A Landing Hero */
+        .landing-net {
+            background: var(--net-sand);
+            padding: 80px 60px;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .landing-net-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            opacity: 0.15;
+        }
+
+        .landing-net-content {
+            position: relative;
+            z-index: 1;
+            max-width: 560px;
+        }
+
+        .landing-net-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 100px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--net-navy);
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .landing-net-badge::before {
+            content: '✦';
+            color: var(--net-coral);
+        }
+
+        .landing-net h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 56px;
+            font-weight: 500;
+            color: var(--net-navy);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .landing-net p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--net-muted);
+            margin-bottom: 40px;
+        }
+
+        .landing-net-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--net-navy);
+            color: white;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .landing-net-cta:hover {
+            background: var(--net-teal);
+        }
+
+        /* ============================================
+           DIRECTION B: THE CURRENT - Styles
+           ============================================ */
+
+        /* Wave Pattern Demo */
+        .wave-pattern-demo {
+            width: 100%;
+            height: 300px;
+            background: var(--current-white);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wave-pattern-demo svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Direction B Typography */
+        .current-type-headline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--current-indigo);
+            letter-spacing: -0.03em;
+        }
+
+        .current-type-subhead {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--current-indigo);
+        }
+
+        .current-type-body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--current-muted);
+        }
+
+        /* Direction B Email */
+        .email-current {
+            background: var(--current-white);
+            padding: 40px 40px 48px;
+        }
+
+        .email-current-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #E2E8F0;
+            position: relative;
+        }
+
+        /* Wave border effect */
+        .email-current-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0 5 Q 12.5 0, 25 5 T 50 5 T 75 5 T 100 5' fill='none' stroke='%233B82F6' stroke-width='2'/%3E%3C/svg%3E") repeat-x;
+            background-size: 100px 10px;
+        }
+
+        .email-current-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--current-indigo);
+            letter-spacing: -0.02em;
+        }
+
+        .email-current-date {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            color: var(--current-muted);
+        }
+
+        .email-current-hero {
+            background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .email-current-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'%3E%3Cpath d='M0 75 Q 50 25, 100 75 T 200 75' fill='none' stroke='%233B82F6' stroke-width='1' opacity='0.3'/%3E%3Cpath d='M0 95 Q 50 45, 100 95 T 200 95' fill='none' stroke='%233B82F6' stroke-width='1' opacity='0.2'/%3E%3Cpath d='M0 55 Q 50 5, 100 55 T 200 55' fill='none' stroke='%233B82F6' stroke-width='1' opacity='0.2'/%3E%3C/svg%3E") no-repeat right center;
+            background-size: cover;
+        }
+
+        .email-current-hero h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--current-indigo);
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .email-current-hero p {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 15px;
+            color: var(--current-muted);
+            position: relative;
+        }
+
+        .email-current-section {
+            margin-bottom: 28px;
+        }
+
+        .email-current-section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .email-current-section-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--current-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        .email-current-section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--current-indigo);
+        }
+
+        .email-current-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .email-current-item:last-child {
+            border-bottom: none;
+        }
+
+        .email-current-item-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--current-indigo);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .email-current-item-excerpt {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--current-muted);
+            margin-bottom: 12px;
+        }
+
+        .email-current-item-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .email-current-item-source {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--current-blue);
+        }
+
+        .email-current-item-tag {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            background: #FEF3C7;
+            color: #B45309;
+            border-radius: 100px;
+        }
+
+        .email-current-footer {
+            text-align: center;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .email-current-footer p {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            color: var(--current-muted);
+        }
+
+        /* Direction B Landing Hero */
+        .landing-current {
+            background: var(--current-white);
+            padding: 80px 60px;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .landing-current-waves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .landing-current-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .landing-current-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #EEF2FF;
+            border-radius: 100px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--current-blue);
+            margin-bottom: 32px;
+        }
+
+        .landing-current h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--current-indigo);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .landing-current h1 span {
+            background: linear-gradient(135deg, var(--current-blue) 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .landing-current p {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--current-muted);
+            margin-bottom: 40px;
+        }
+
+        .landing-current-form {
+            display: flex;
+            gap: 12px;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+
+        .landing-current-input {
+            flex: 1;
+            padding: 16px 20px;
+            border: 2px solid #E2E8F0;
+            border-radius: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .landing-current-input:focus {
+            border-color: var(--current-blue);
+        }
+
+        .landing-current-btn {
+            padding: 16px 28px;
+            background: var(--current-blue);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .landing-current-btn:hover {
+            background: #2563EB;
+        }
+
+        /* Logo Concepts */
+        .logo-concept {
+            background: var(--deck-card);
+            border-radius: 24px;
+            padding: 64px;
+            margin: 64px 0;
+            text-align: center;
+        }
+
+        .logo-concept h4 {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--deck-muted);
+            margin-bottom: 48px;
+        }
+
+        .logo-render-net {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 72px;
+            font-weight: 600;
+            color: var(--net-navy);
+            letter-spacing: -0.02em;
+            background: var(--net-sand);
+            padding: 48px 64px;
+            border-radius: 16px;
+            display: inline-block;
+            margin-bottom: 32px;
+        }
+
+        .logo-render-current {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--current-indigo);
+            letter-spacing: -0.03em;
+            background: var(--current-white);
+            padding: 48px 64px;
+            border-radius: 16px;
+            display: inline-block;
+            margin-bottom: 32px;
+        }
+
+        .logo-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--deck-muted);
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* Divider */
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: var(--deck-border);
+            margin: 80px 0;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            padding: 160px 48px;
+        }
+
+        .final-cta h2 {
+            margin-bottom: 48px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .cta-btn {
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .cta-btn-primary {
+            background: white;
+            color: var(--deck-bg);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid var(--deck-border);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-logo">Trawly Brand Pitch</div>
+        <div class="nav-links">
+            <a href="#discovery">Discovery</a>
+            <a href="#direction-a">The Net</a>
+            <a href="#direction-b">The Current</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="client-badge">Brand Identity Development</div>
+        <h1>Trawly<br><span>Brand Directions</span></h1>
+        <p class="lead">Two strategic visual directions for a daily digest that feels personal, premium, and instantly recognisable.</p>
+    </section>
+
+    <!-- Discovery -->
+    <section id="discovery" class="discovery">
+        <div class="section-label">
+            <span class="section-number">1</span>
+            Brand Discovery
+        </div>
+        <h2>What is Trawly?</h2>
+        <p class="lead">Not a newsletter. A personal editor that trawls the internet for you — casting nets into the digital ocean and pulling up treasures worth your time.</p>
+        
+        <div class="discovery-grid">
+            <div class="discovery-card">
+                <h4>The Insight</h4>
+                <p>The metaphor of "trawling" is rich — it's about methodical, purposeful collection. Like a fisherman who knows the waters, Trawly navigates the vast internet and returns with only what matters.</p>
+            </div>
+            <div class="discovery-card">
+                <h4>The Problem</h4>
+                <p>Every newsletter looks identical: light blue accents, generic sans-serif, disposable. How do you make a daily email feel like something worth opening — premium, not promotional?</p>
+            </div>
+            <div class="discovery-card">
+                <h4>The Opportunity</h4>
+                <p>Trawly can own a visual space nobody occupies. An instantly recognisable signature element — like Stripe's gradient mesh or Notion's black+white+emoji — that makes every touchpoint unmistakably Trawly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Direction A: The Net -->
+    <section id="direction-a" class="direction">
+        <div class="section-label">
+            <span class="section-number">2</span>
+            Direction A
+        </div>
+        
+        <div class="direction-header">
+            <div class="direction-title">
+                <h2>"The Net"</h2>
+                <p class="lead">Ownable. Editorial. Timeless.</p>
+            </div>
+            <p class="direction-philosophy">The signature element is a geometric net pattern — derived from fishing trawl nets, abstracted into a sophisticated visual motif. Every brand touchpoint carries this DNA.</p>
+        </div>
+
+        <!-- Signature Element -->
+        <div class="signature-element">
+            <h4>Signature Element — The Trawl Pattern</h4>
+            <div class="net-pattern-demo">
+                <svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <pattern id="netPattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                            <path d="M0 30 L30 0 L60 30 L30 60 Z" fill="none" stroke="#0D7377" stroke-width="1" opacity="0.3"/>
+                            <circle cx="0" cy="30" r="3" fill="#0D7377" opacity="0.4"/>
+                            <circle cx="30" cy="0" r="3" fill="#0D7377" opacity="0.4"/>
+                            <circle cx="60" cy="30" r="3" fill="#0D7377" opacity="0.4"/>
+                            <circle cx="30" cy="60" r="3" fill="#0D7377" opacity="0.4"/>
+                        </pattern>
+                        <linearGradient id="netFade" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FAF7F2;stop-opacity:0" />
+                            <stop offset="100%" style="stop-color:#FAF7F2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100%" height="100%" fill="#FAF7F2"/>
+                    <rect width="100%" height="100%" fill="url(#netPattern)"/>
+                    <rect width="100%" height="100%" fill="url(#netFade)"/>
+                    <text x="400" y="160" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#1B2838">The pattern that owns the space</text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Why -->
+        <div style="max-width: 720px; margin: 0 auto 64px; text-align: center;">
+            <h3>The "Why"</h3>
+            <p class="lead">The trawl net is the literal tool of the trade — casting wide, pulling in treasures. Abstracted into a geometric diamond mesh, it becomes a sophisticated pattern language that's instantly ownable. Unlike generic gradients or illustrations, this pattern has semantic meaning tied directly to the brand name. It appears in backgrounds, card borders, dividers, and subtle textures — always recognisable, never overwhelming.</p>
+        </div>
+
+        <!-- Color Palette -->
+        <h4 style="font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--deck-muted); margin-bottom: 24px;">Color Palette</h4>
+        <div class="palette">
+            <div class="palette-swatch" style="background: #FAF7F2; border: 1px solid #E5E0D5;">
+                <span class="palette-name" style="color: #1B2838;">Warm Sand</span>
+                <span class="palette-hex" style="color: #6B7280;">#FAF7F2</span>
+            </div>
+            <div class="palette-swatch" style="background: #1B2838;">
+                <span class="palette-name">Deep Navy</span>
+                <span class="palette-hex">#1B2838</span>
+            </div>
+            <div class="palette-swatch" style="background: #0D7377;">
+                <span class="palette-name">Ocean Teal</span>
+                <span class="palette-hex">#0D7377</span>
+            </div>
+            <div class="palette-swatch" style="background: #E8654A;">
+                <span class="palette-name">Coral</span>
+                <span class="palette-hex">#E8654A</span>
+            </div>
+        </div>
+
+        <!-- Typography -->
+        <div class="typography-showcase">
+            <h4>Typography</h4>
+            <div class="type-sample">
+                <div class="type-label">Headlines — Fraunces</div>
+                <div class="net-type-headline">Your morning briefing, curated.</div>
+            </div>
+            <div class="type-sample">
+                <div class="type-label">Subheadings — Fraunces Light</div>
+                <div class="net-type-subhead">The stories that matter, distilled with care.</div>
+            </div>
+            <div class="type-sample">
+                <div class="type-label">Body — DM Sans</div>
+                <div class="net-type-body">Trawly reads hundreds of sources so you don't have to. Each morning, your personal AI editor delivers a digest of the most relevant stories, insights, and opportunities — tailored to your interests and presented with the elegance of a curated publication.</div>
+            </div>
+        </div>
+
+        <!-- Logo Concept -->
+        <div class="logo-concept">
+            <h4>Logo Concept</h4>
+            <div class="logo-render-net">trawly</div>
+            <p class="logo-description">Lowercase Fraunces with custom ligature on the 'wl'. The soft serifs suggest craft and editorship, while the lowercase treatment feels personal and approachable. A small net icon can accompany it, but the wordmark stands alone beautifully.</p>
+        </div>
+
+        <!-- Email Mockup -->
+        <div class="email-mockup-container">
+            <h4>Daily Digest — Email Preview</h4>
+            <div class="email-frame">
+                <div class="email-chrome">
+                    <div class="email-dot red"></div>
+                    <div class="email-dot yellow"></div>
+                    <div class="email-dot green"></div>
+                </div>
+                <div class="email-net">
+                    <div class="email-net-header">
+                        <div class="email-net-logo">trawly</div>
+                        <div class="email-net-date">Monday, February 24</div>
+                    </div>
+                    
+                    <p class="email-net-intro">Good morning. Three stories worth your attention today — and one opportunity you might have missed.</p>
+                    
+                    <div class="email-net-card">
+                        <div class="email-net-card-tag">Must Read</div>
+                        <div class="email-net-card-title">Apple's Vision Pro Returns Hit 'Unusually High' Levels</div>
+                        <p class="email-net-card-excerpt">Internal data suggests return rates significantly exceed Apple's typical hardware, raising questions about the $3,500 device's market fit. Analysts point to weight and limited use cases.</p>
+                        <div class="email-net-card-source">The Information →</div>
+                    </div>
+                    
+                    <div class="email-net-card">
+                        <div class="email-net-card-tag">AI</div>
+                        <div class="email-net-card-title">Anthropic Raises $2B at $60B Valuation</div>
+                        <p class="email-net-card-excerpt">The Claude maker's latest round, led by Lightspeed, values the company at nearly twice its last round. CEO Dario Amodei hints at a consumer product launch.</p>
+                        <div class="email-net-card-source">Bloomberg →</div>
+                    </div>
+                    
+                    <div class="email-net-card">
+                        <div class="email-net-card-tag">Opportunity</div>
+                        <div class="email-net-card-title">This Quiet API Could Be Your Next Side Project</div>
+                        <p class="email-net-card-excerpt">A new FAA data feed is giving developers real-time access to drone flight paths. Three founders have already built MVPs around it this week.</p>
+                        <div class="email-net-card-source">Hacker News →</div>
+                    </div>
+                    
+                    <div class="email-net-footer">
+                        <p>Curated with care by your AI editor.<br>Unsubscribe • Manage preferences</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Landing Hero Mockup -->
+        <div class="landing-mockup-container">
+            <h4>Landing Page Hero</h4>
+            <div class="landing-frame">
+                <div class="landing-net">
+                    <svg class="landing-net-pattern" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <pattern id="landingNetPattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+                                <path d="M0 25 L25 0 L50 25 L25 50 Z" fill="none" stroke="#0D7377" stroke-width="1"/>
+                                <circle cx="0" cy="25" r="2" fill="#0D7377"/>
+                                <circle cx="25" cy="0" r="2" fill="#0D7377"/>
+                                <circle cx="50" cy="25" r="2" fill="#0D7377"/>
+                                <circle cx="25" cy="50" r="2" fill="#0D7377"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#landingNetPattern)"/>
+                    </svg>
+                    <div class="landing-net-content">
+                        <div class="landing-net-badge">Your personal AI editor</div>
+                        <h1>The internet, <br>distilled daily.</h1>
+                        <p>Trawly reads thousands of sources and delivers only what matters to you. A curated morning briefing — thoughtfully edited, beautifully presented.</p>
+                        <a href="#" class="landing-net-cta">Start your free trial →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Voice Examples -->
+        <h4 style="font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--deck-muted); margin-bottom: 24px; margin-top: 64px;">Brand Voice</h4>
+        <div class="voice-examples">
+            <div class="voice-card">
+                <h5>Subject Lines</h5>
+                <p>"Three stories worth your morning"<br>"The one link everyone's sharing"<br>"What you missed while building"</p>
+            </div>
+            <div class="voice-card">
+                <h5>CTAs</h5>
+                <p>"Read the full story →"<br>"See what else surfaced"<br>"Save for later"</p>
+            </div>
+            <div class="voice-card">
+                <h5>Section Headers</h5>
+                <p>"The Big Catch"<br>"Worth Your Attention"<br>"From the Depths"<br>"Quick Reads"</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Direction B: The Current -->
+    <section id="direction-b" class="direction">
+        <div class="section-label">
+            <span class="section-number">3</span>
+            Direction B
+        </div>
+        
+        <div class="direction-header">
+            <div class="direction-title">
+                <h2>"The Current"</h2>
+                <p class="lead">Modern. Energetic. Tech-forward.</p>
+            </div>
+            <p class="direction-philosophy">The signature element is flowing wave lines — representing the current of information, the constant flow of the internet that Trawly navigates and filters. Movement and momentum.</p>
+        </div>
+
+        <!-- Signature Element -->
+        <div class="signature-element">
+            <h4>Signature Element — The Flow Lines</h4>
+            <div class="wave-pattern-demo">
+                <svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:0.1" />
+                            <stop offset="50%" style="stop-color:#3B82F6;stop-opacity:0.4" />
+                            <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:0.1" />
+                        </linearGradient>
+                        <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:0.1" />
+                            <stop offset="50%" style="stop-color:#F59E0B;stop-opacity:0.3" />
+                            <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:0.1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100%" height="100%" fill="#FFFFFF"/>
+                    
+                    <!-- Multiple flowing wave lines -->
+                    <path d="M-50 200 Q 100 150, 200 200 T 400 200 T 600 200 T 800 200 T 1000 200" fill="none" stroke="url(#waveGrad1)" stroke-width="3">
+                        <animate attributeName="d" dur="4s" repeatCount="indefinite"
+                            values="M-50 200 Q 100 150, 200 200 T 400 200 T 600 200 T 800 200 T 1000 200;
+                                    M-50 200 Q 100 250, 200 200 T 400 200 T 600 200 T 800 200 T 1000 200;
+                                    M-50 200 Q 100 150, 200 200 T 400 200 T 600 200 T 800 200 T 1000 200"/>
+                    </path>
+                    <path d="M-50 170 Q 150 120, 250 170 T 450 170 T 650 170 T 850 170" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.3"/>
+                    <path d="M-50 230 Q 150 280, 250 230 T 450 230 T 650 230 T 850 230" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.2"/>
+                    <path d="M-50 140 Q 100 100, 200 140 T 400 140 T 600 140 T 800 140" fill="none" stroke="url(#waveGrad2)" stroke-width="2"/>
+                    <path d="M-50 260 Q 100 300, 200 260 T 400 260 T 600 260 T 800 260" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.25"/>
+                    
+                    <text x="400" y="160" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="600" fill="#1E1B4B">Information in motion</text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Why -->
+        <div style="max-width: 720px; margin: 0 auto 64px; text-align: center;">
+            <h3>The "Why"</h3>
+            <p class="lead">The internet is a constant current of information — overwhelming, relentless, endless. Trawly navigates these currents and extracts what's valuable. The flowing wave lines capture this sense of movement and momentum while feeling dynamic and modern. They work as subtle header decorations, section dividers, and animated accents — suggesting a product that's always working, always flowing, always current.</p>
+        </div>
+
+        <!-- Color Palette -->
+        <h4 style="font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--deck-muted); margin-bottom: 24px;">Color Palette</h4>
+        <div class="palette">
+            <div class="palette-swatch" style="background: #FFFFFF; border: 1px solid #E2E8F0;">
+                <span class="palette-name" style="color: #1E1B4B;">Pure White</span>
+                <span class="palette-hex" style="color: #64748B;">#FFFFFF</span>
+            </div>
+            <div class="palette-swatch" style="background: #1E1B4B;">
+                <span class="palette-name">Deep Indigo</span>
+                <span class="palette-hex">#1E1B4B</span>
+            </div>
+            <div class="palette-swatch" style="background: #3B82F6;">
+                <span class="palette-name">Electric Blue</span>
+                <span class="palette-hex">#3B82F6</span>
+            </div>
+            <div class="palette-swatch" style="background: #F59E0B;">
+                <span class="palette-name">Warm Amber</span>
+                <span class="palette-hex">#F59E0B</span>
+            </div>
+        </div>
+
+        <!-- Typography -->
+        <div class="typography-showcase">
+            <h4>Typography</h4>
+            <div class="type-sample">
+                <div class="type-label">Headlines — Space Grotesk</div>
+                <div class="current-type-headline">Your daily edge, delivered.</div>
+            </div>
+            <div class="type-sample">
+                <div class="type-label">Subheadings — Space Grotesk Medium</div>
+                <div class="current-type-subhead">Stay ahead of the conversation.</div>
+            </div>
+            <div class="type-sample">
+                <div class="type-label">Body — Plus Jakarta Sans</div>
+                <div class="current-type-body">Trawly is your AI-powered reading companion that surfaces the most relevant content from across the web. Every morning, get a personalized digest of news, insights, and opportunities — curated by an AI that learns your interests and never sleeps.</div>
+            </div>
+        </div>
+
+        <!-- Logo Concept -->
+        <div class="logo-concept">
+            <h4>Logo Concept</h4>
+            <div class="logo-render-current">Trawly</div>
+            <p class="logo-description">Space Grotesk in sentence case for a confident, tech-forward presence. The geometric letterforms feel precise and modern. The capital T establishes authority while lowercase keeps it approachable. A small wave accent can accompany the wordmark for additional brand recognition.</p>
+        </div>
+
+        <!-- Email Mockup -->
+        <div class="email-mockup-container">
+            <h4>Daily Digest — Email Preview</h4>
+            <div class="email-frame">
+                <div class="email-chrome">
+                    <div class="email-dot red"></div>
+                    <div class="email-dot yellow"></div>
+                    <div class="email-dot green"></div>
+                </div>
+                <div class="email-current">
+                    <div class="email-current-header">
+                        <div class="email-current-logo">Trawly</div>
+                        <div class="email-current-date">Mon, Feb 24 • 14 stories</div>
+                    </div>
+                    
+                    <div class="email-current-hero">
+                        <h2>Your Monday Briefing</h2>
+                        <p>Here's what you need to know to start your week.</p>
+                    </div>
+                    
+                    <div class="email-current-section">
+                        <div class="email-current-section-header">
+                            <div class="email-current-section-icon">⚡</div>
+                            <div class="email-current-section-title">Top Stories</div>
+                        </div>
+                        
+                        <div class="email-current-item">
+                            <div class="email-current-item-title">Apple's Vision Pro Returns Hit 'Unusually High' Levels</div>
+                            <p class="email-current-item-excerpt">Internal data suggests return rates are significantly higher than Apple's typical hardware products, raising questions about the device's long-term market fit.</p>
+                            <div class="email-current-item-meta">
+                                <span class="email-current-item-source">The Information</span>
+                                <span class="email-current-item-tag">Hardware</span>
+                            </div>
+                        </div>
+                        
+                        <div class="email-current-item">
+                            <div class="email-current-item-title">Anthropic Closes $2B Round at $60B Valuation</div>
+                            <p class="email-current-item-excerpt">The AI safety company behind Claude has nearly doubled its valuation since last year. A consumer product launch is expected this quarter.</p>
+                            <div class="email-current-item-meta">
+                                <span class="email-current-item-source">Bloomberg</span>
+                                <span class="email-current-item-tag">AI</span>
+                            </div>
+                        </div>
+                        
+                        <div class="email-current-item">
+                            <div class="email-current-item-title">New FAA Drone Data API Opens Up for Developers</div>
+                            <p class="email-current-item-excerpt">A quiet launch that could spawn dozens of startups. Real-time drone flight data is now publicly accessible.</p>
+                            <div class="email-current-item-meta">
+                                <span class="email-current-item-source">Hacker News</span>
+                                <span class="email-current-item-tag">Opportunity</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="email-current-footer">
+                        <p>Powered by AI. Curated for you.<br>Unsubscribe • Preferences</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Landing Hero Mockup -->
+        <div class="landing-mockup-container">
+            <h4>Landing Page Hero</h4>
+            <div class="landing-frame">
+                <div class="landing-current">
+                    <svg class="landing-current-waves" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+                        <path d="M0 400 Q 300 350, 600 400 T 1200 400 L 1200 500 L 0 500 Z" fill="#EEF2FF" opacity="0.5"/>
+                        <path d="M0 420 Q 300 370, 600 420 T 1200 420" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.2"/>
+                        <path d="M0 440 Q 300 490, 600 440 T 1200 440" fill="none" stroke="#3B82F6" stroke-width="1.5" opacity="0.15"/>
+                        <path d="M0 100 Q 200 60, 400 100 T 800 100 T 1200 100" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.1"/>
+                    </svg>
+                    <div class="landing-current-content">
+                        <div class="landing-current-badge">✨ AI-Powered Reading</div>
+                        <h1>Read smarter.<br><span>Not more.</span></h1>
+                        <p>Trawly scans the internet and delivers only what matters to you. A personalized daily digest powered by AI that learns your interests.</p>
+                        <div class="landing-current-form">
+                            <input type="email" class="landing-current-input" placeholder="Enter your email">
+                            <button class="landing-current-btn">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Voice Examples -->
+        <h4 style="font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--deck-muted); margin-bottom: 24px; margin-top: 64px;">Brand Voice</h4>
+        <div class="voice-examples">
+            <div class="voice-card">
+                <h5>Subject Lines</h5>
+                <p>"Your Monday edge ⚡"<br>"14 stories, 5 min read"<br>"What's moving this week"</p>
+            </div>
+            <div class="voice-card">
+                <h5>CTAs</h5>
+                <p>"Read more →"<br>"See all stories"<br>"Add to reading list"</p>
+            </div>
+            <div class="voice-card">
+                <h5>Section Headers</h5>
+                <p>"Top Stories"<br>"Trending Now"<br>"Don't Miss"<br>"Quick Hits"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="section-label">
+            <span class="section-number">4</span>
+            Next Steps
+        </div>
+        <h2>Which direction<br>feels like Trawly?</h2>
+        <p class="lead" style="margin-bottom: 48px;">Both directions are viable paths. The Net feels more editorial and timeless. The Current feels more tech-forward and energetic. The right choice depends on how you want Trawly to be perceived.</p>
+        <div style="display: flex; gap: 48px; justify-content: center;">
+            <div style="text-align: center;">
+                <div style="font-size: 64px; margin-bottom: 16px;">🎣</div>
+                <h4 style="margin-bottom: 8px;">The Net</h4>
+                <p style="color: var(--deck-muted); font-size: 14px;">Editorial. Curated. Magazine feel.</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 64px; margin-bottom: 16px;">🌊</div>
+                <h4 style="margin-bottom: 8px;">The Current</h4>
+                <p style="color: var(--deck-muted); font-size: 14px;">Modern. Dynamic. Tech-forward.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 48px; border-top: 1px solid var(--deck-border);">
+        <p style="color: var(--deck-muted); font-size: 13px;">Trawly Brand Pitch • February 2026</p>
+    </footer>
+</body>
+</html>

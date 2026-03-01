@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly — UX Research</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#0d1117;color:#e6edf3;line-height:1.7;padding:32px 24px;max-width:780px;margin:0 auto}
+a{color:#58a6ff;text-decoration:none}a:hover{text-decoration:underline}
+h1{font-size:2em;color:#fff;margin-bottom:4px}
+h2{font-size:1.5em;color:#e6edf3;margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid #58a6ff}
+h3{font-size:1.15em;color:#c9d1d9;margin:24px 0 10px}
+h4{font-size:1em;color:#8b949e;margin:16px 0 8px}
+p,.subtitle{color:#c9d1d9;margin-bottom:14px}
+.subtitle{color:#8b949e;font-size:0.95em;margin-bottom:28px}
+strong{color:#e6edf3}
+hr{border:none;border-top:1px solid #21262d;margin:32px 0}
+ul,ol{padding-left:24px;margin-bottom:14px}
+li{margin-bottom:6px;color:#c9d1d9}
+table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:0.9em}
+th{background:#161b22;color:#58a6ff;text-align:left;padding:10px 12px;border:1px solid #21262d;font-weight:600}
+td{padding:10px 12px;border:1px solid #21262d;color:#c9d1d9}
+tr:nth-child(even) td{background:#161b22}
+tr:nth-child(odd) td{background:#0d1117}
+code{background:#161b22;color:#e6edf3;padding:2px 6px;border-radius:4px;font-size:0.9em;font-family:'SF Mono',SFMono-Regular,Consolas,monospace}
+blockquote{border-left:3px solid #58a6ff;padding:8px 16px;margin:16px 0;color:#8b949e;background:#161b2280}
+.back{display:inline-block;margin-bottom:20px;color:#58a6ff;font-size:0.9em}
+.footer{color:#484f58;font-size:0.8em;text-align:center;margin-top:48px;padding-top:24px;border-top:1px solid #21262d}
+.insight{background:#161b22;border-left:3px solid #238636;border-radius:0 8px 8px 0;padding:14px 18px;margin:14px 0}
+.insight strong{color:#3fb950}
+.comp{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:16px 20px;margin:14px 0}
+.comp h4{margin-top:0;color:#58a6ff}
+</style>
+</head>
+<body>
+<a href="sunday-todo.html" class="back">← Back to Sunday Plan</a>
+<h1>🔬 Trawly — UX Research</h1>
+<p class="subtitle">Creating the Most Amazing Web App & Onboarding Experience · February 27, 2026</p>
+
+<h2>Executive Summary</h2>
+<div class="insight"><strong>Key Findings:</strong></div>
+<ol>
+<li><strong>Speed is the new luxury</strong> — Sub-100ms interactions create emotional "premium" feel (Linear, Superhuman)</li>
+<li><strong>Synthetic environments unlock better onboarding</strong> — Superhuman's switch increased activation by 17%</li>
+<li><strong>Progressive disclosure beats overload</strong> — Reforge cut onboarding from 12 to 2 steps → +20% active users</li>
+<li><strong>Shareability must be designed in</strong> — Spotify Wrapped: every slide is 9:16, optimized for Stories</li>
+<li><strong>Transparency builds trust in AI</strong> — "Because you read 3 articles about AI agents this week"</li>
+<li><strong>The Hook Model drives retention</strong> — Trigger → Action → Variable Reward → Investment</li>
+</ol>
+
+<h2>1. Competitive Analysis</h2>
+
+<div class="comp">
+<h4>Superhuman (Email)</h4>
+<ul>
+<li>Everything <100ms — creates addictive "fast" feeling</li>
+<li>Keyboard-first: "Don't touch your mouse" challenge</li>
+<li>Synthetic inbox onboarding → +17% activation</li>
+<li>Progressive UI: labels disappear after 7 days</li>
+</ul>
+<p><strong>Trawly takeaway:</strong> Practice digest during onboarding. Keyboard shortcuts from day one. UI adapts to expertise.</p>
+</div>
+
+<div class="comp">
+<h4>Readwise Reader</h4>
+<ul>
+<li>Unified reading: articles, newsletters, PDFs, YouTube, Twitter threads</li>
+<li>Highlighting is one tap — syncs to Obsidian/Notion</li>
+<li>Daily review via spaced repetition</li>
+</ul>
+<p><strong>Trawly takeaway:</strong> One-tap highlighting. "Recall" feature for past gems. Unified content types.</p>
+</div>
+
+<div class="comp">
+<h4>Linear (Issue Tracking — Gold Standard UX)</h4>
+<ul>
+<li>No loading spinners — real-time sync, <50ms response</li>
+<li>Cmd+K command palette does everything</li>
+<li>$400M valuation with only $35K lifetime marketing spend</li>
+</ul>
+<p><strong>Trawly takeaway:</strong> Cmd+K from start. Product quality IS the marketing. Be opinionated.</p>
+</div>
+
+<div class="comp">
+<h4>Spotify Wrapped</h4>
+<ul>
+<li>Designed for sharing: 9:16 format, one-tap share</li>
+<li>461% increase in tweets 2020-2021</li>
+<li>60M stories shared in 2021 — free marketing</li>
+</ul>
+<p><strong>Trawly takeaway:</strong> Build "Trawly Wrapped" weekly recaps. Shareable cards. Reading data as identity.</p>
+</div>
+
+<div class="comp">
+<h4>Artifact (Shut Down)</h4>
+<p><strong>Lesson:</strong> Passionate users isn't enough — need enough of them. Niche focus (tech founders) may be stronger than mass market. Content moderation for social features is expensive.</p>
+</div>
+
+<h2>2. Onboarding Blueprint</h2>
+
+<div class="insight">
+<strong>The "Aha Moment":</strong> "Wow, this found something I'd never have discovered myself, and it's exactly what I wanted to read." — Within the first 3 articles.
+</div>
+
+<h3>Recommended Flow</h3>
+<table>
+<tr><th>Step</th><th>Time</th><th>What</th></tr>
+<tr><td>1. Welcome</td><td>5 sec</td><td>"Your AI editor reads the internet so you don't have to" → single CTA</td></tr>
+<tr><td>2. Topics</td><td>20 sec</td><td>9-12 topic tiles, pre-select 3-4. "Skip" = "Surprise me"</td></tr>
+<tr><td>3. Preferences</td><td>15 sec</td><td>Quick takes ↔ Deep dives · Mainstream ↔ Indie · Technical ↔ Accessible</td></tr>
+<tr><td>4. Timing</td><td>10 sec</td><td>Morning / Lunch / Evening · Daily / 3x week / Weekly</td></tr>
+<tr><td>5. Sample Digest ⭐</td><td>—</td><td>THE AHA MOMENT — 5 real articles with "Why this is for you" labels</td></tr>
+<tr><td>6. Notifications</td><td>5 sec</td><td>Email opt-in (default on) + push opt-in</td></tr>
+</table>
+
+<h3>First 7 Days</h3>
+<ul>
+<li><strong>Day 1:</strong> First digest with "👋 Your first digest!" + tip: "Press 's' to save"</li>
+<li><strong>Day 2:</strong> Introduce "More/Less like this" feedback</li>
+<li><strong>Day 3:</strong> Celebrate saves: "You've saved 3 gems this week!"</li>
+<li><strong>Day 4:</strong> Keyboard shortcuts tooltip</li>
+<li><strong>Day 5:</strong> Weekly stats preview: "12 minutes across AI and Product"</li>
+<li><strong>Day 6:</strong> Prompt to share a gem</li>
+<li><strong>Day 7:</strong> "Your first week with Trawly 🎉" mini-recap</li>
+</ul>
+
+<h2>3. Reading Experience</h2>
+
+<h3>Optimal Parameters</h3>
+<ul>
+<li><strong>Line length:</strong> 50-75 characters (<code>max-width: 70ch</code>)</li>
+<li><strong>Line height:</strong> 1.5-1.6em</li>
+<li><strong>Font size:</strong> 18-20px desktop, 16-18px mobile</li>
+<li><strong>Paragraph spacing:</strong> 1.5-2em</li>
+</ul>
+
+<h3>Content Type Display</h3>
+<table>
+<tr><th>Content</th><th>Display</th></tr>
+<tr><td>Articles</td><td>Full reader mode + reading time</td></tr>
+<tr><td>X threads</td><td>Compiled flow with thread indicator</td></tr>
+<tr><td>YouTube</td><td>Thumbnail + AI transcript summary</td></tr>
+<tr><td>Podcasts</td><td>Episode card with key quotes</td></tr>
+<tr><td>Research papers</td><td>Simplified summary + "Read full"</td></tr>
+</table>
+
+<h3>Key Interactions</h3>
+<ul>
+<li><strong>Highlights:</strong> Select text → instant highlight (Yellow/Green/Purple)</li>
+<li><strong>Save:</strong> Single tap or <code>s</code> key → visual glow feedback</li>
+<li><strong>Reading time:</strong> Color-coded: 🟢 <3min · 🟡 3-8min · 🟠 8+min</li>
+<li><strong>Digest view:</strong> Fixed "today's picks" — no infinite scroll. Creates completion.</li>
+</ul>
+
+<h2>4. Personalisation Strategy</h2>
+
+<h3>Signal Types</h3>
+<table>
+<tr><th>Type</th><th>Signals</th></tr>
+<tr><td>Explicit</td><td>Topic selection, More/Less buttons, source preferences, direct feedback</td></tr>
+<tr><td>Implicit (more valuable)</td><td>Reading time (>2min = strong interest), scroll depth, saves, click-through, time-of-day patterns</td></tr>
+</table>
+
+<div class="insight">
+<strong>Transparency:</strong> Every card shows "Why this" — "Because you read 3 articles about AI agents" / "🔥 Trending — 47 saves today" / "From a source you love: @levelsio"
+</div>
+
+<h2>5. Retention Playbook</h2>
+
+<h3>The Hook Model</h3>
+<table>
+<tr><th>Phase</th><th>Implementation</th></tr>
+<tr><td>Trigger</td><td>Daily digest notification → habit of checking at coffee time</td></tr>
+<tr><td>Action</td><td>Open digest, scan headlines, tap to read</td></tr>
+<tr><td>Variable Reward</td><td>Discovering a gem (the "find" is unpredictable)</td></tr>
+<tr><td>Investment</td><td>Save, highlight, adjust preferences → increases future relevance</td></tr>
+</table>
+
+<h3>Shareability Moments</h3>
+<ol>
+<li><strong>First Digest Reveal</strong> — beautiful unfold animation + celebration</li>
+<li><strong>The Perfect Find</strong> — "You found this before 94% of readers 🎯"</li>
+<li><strong>Reading Streaks</strong> — "30 days of curious reading 🔥"</li>
+<li><strong>Weekly Recap Card</strong> — 9:16, one-tap share, every Sunday</li>
+<li><strong>Topic Mastery</strong> — "AI Deep Diver — 50 articles read"</li>
+<li><strong>Annual Wrapped</strong> — full year in review, multiple share cards</li>
+</ol>
+
+<h2>6. Keyboard Shortcuts</h2>
+<table>
+<tr><th>Key</th><th>Action</th></tr>
+<tr><td><code>j</code> / <code>k</code></td><td>Next / Previous item</td></tr>
+<tr><td><code>o</code> / <code>Enter</code></td><td>Open article</td></tr>
+<tr><td><code>s</code></td><td>Save to library</td></tr>
+<tr><td><code>Esc</code></td><td>Close / Go back</td></tr>
+<tr><td><code>m</code></td><td>More like this</td></tr>
+<tr><td><code>x</code></td><td>Less like this</td></tr>
+<tr><td><code>?</code></td><td>Show all shortcuts</td></tr>
+<tr><td><code>Cmd+K</code></td><td>Command palette</td></tr>
+</table>
+
+<h2>7. MVP Scope</h2>
+
+<h3>Launch (Must Have)</h3>
+<ul>
+<li>Beautiful responsive web app</li>
+<li>5-step onboarding with sample digest</li>
+<li>Daily digest (email + web)</li>
+<li>Topic personalization + Save/bookmark</li>
+<li>"More/Less like this" feedback</li>
+<li>AI summaries + "Why this" labels</li>
+<li>Basic keyboard shortcuts</li>
+</ul>
+
+<h3>V1.1 (Month 2-3)</h3>
+<ul><li>PWA · Streaks · Weekly recaps · Highlights · Archive</li></ul>
+
+<h3>V1.2 (Month 4-5)</h3>
+<ul><li>Source preferences · Frequency customization · Reading analytics · Export to Notion/Obsidian</li></ul>
+
+<h3>V2.0 (Month 6+)</h3>
+<ul><li>"Trawly Wrapped" · Referral program · Team features · Browser extension</li></ul>
+
+<h2>8. Key Metrics</h2>
+<div class="insight">
+<strong>North Star:</strong> Weekly Reading Hours per User — measures engagement + value
+</div>
+<table>
+<tr><th>Category</th><th>Metric</th><th>Target</th></tr>
+<tr><td>Activation</td><td>Completing onboarding</td><td>&gt;80%</td></tr>
+<tr><td>Activation</td><td>Reading first digest</td><td>&gt;60%</td></tr>
+<tr><td>Engagement</td><td>Daily open rate</td><td>&gt;50%</td></tr>
+<tr><td>Retention</td><td>Day 7 retention</td><td>&gt;40%</td></tr>
+<tr><td>Retention</td><td>Day 30 retention</td><td>&gt;25%</td></tr>
+<tr><td>Growth</td><td>Weekly sharing rate</td><td>&gt;10%</td></tr>
+</table>
+
+<div class="footer">⚡ Trawly UX Research — February 2026 · Compiled by Chop</div>
+</body>
+</html>
