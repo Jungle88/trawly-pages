@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BriefMind — Sample Digest</title>
+<style>
+  :root {
+    --navy: #0B1426;
+    --indigo: #4F46E5;
+    --indigo-light: #6366F1;
+    --sand: #F5F0EB;
+    --sand-dark: #E8E0D8;
+    --warm: #D4A574;
+    --warm-light: #E8C9A8;
+    --text: #1a1a2e;
+    --text-muted: #64748b;
+    --white: #FFFFFF;
+    --green: #10B981;
+    --radius: 12px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Georgia', 'Times New Roman', serif; color: var(--text); background: #E8E0D8; line-height: 1.65; }
+  h1,h2,h3,h4,h5 { font-family: system-ui, -apple-system, sans-serif; line-height: 1.3; }
+
+  /* Top bar */
+  .top-bar { background: var(--navy); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+  .top-bar a { color: rgba(255,255,255,0.7); text-decoration: none; font-family: system-ui, sans-serif; font-size: 14px; }
+  .top-bar .logo { color: white; font-weight: 700; font-size: 18px; font-family: system-ui, sans-serif; }
+  .top-bar .logo span { color: var(--indigo-light); }
+  .top-bar-links { display: flex; gap: 20px; }
+
+  /* Email container */
+  .email-wrap { max-width: 640px; margin: 32px auto; padding: 0 16px; }
+  .email { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12); }
+
+  /* Header */
+  .email-header { background: var(--navy); color: white; padding: 36px 32px 28px; }
+  .email-header .greeting { font-size: 24px; font-weight: 800; font-family: system-ui, sans-serif; margin-bottom: 4px; }
+  .email-header .date { font-size: 14px; opacity: 0.55; font-family: system-ui, sans-serif; }
+  .email-header .tagline { font-size: 14px; opacity: 0.7; margin-top: 8px; font-style: italic; }
+
+  /* Weather */
+  .weather-bar { background: linear-gradient(135deg, #3B82F6, #2563EB); color: white; padding: 16px 32px; font-family: system-ui, sans-serif; }
+  .weather-bar h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 8px; }
+  .weather-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .weather-day { text-align: center; }
+  .weather-day .wd-icon { font-size: 24px; }
+  .weather-day .wd-temp { font-size: 14px; font-weight: 700; margin-top: 2px; }
+  .weather-day .wd-label { font-size: 11px; opacity: 0.7; }
+  .weather-tip { font-size: 13px; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.15); opacity: 0.85; }
+
+  /* Blocks */
+  .block { padding: 28px 32px; border-bottom: 1px solid var(--sand); }
+  .block:last-of-type { border-bottom: none; }
+  .block-label { display: inline-flex; align-items: center; gap: 6px; font-family: system-ui, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--indigo); background: rgba(79,70,229,0.07); padding: 4px 10px; border-radius: 6px; margin-bottom: 14px; }
+  .block h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+  .block h3 a { color: var(--text); text-decoration: none; }
+  .block h3 a:hover { color: var(--indigo); }
+  .block p { font-size: 15px; color: #374151; margin-bottom: 10px; }
+  .block .source { font-family: system-ui, sans-serif; font-size: 12px; color: var(--text-muted); }
+  .block .source a { color: var(--indigo); text-decoration: none; }
+  .block .why-matters { background: var(--sand); padding: 12px 16px; border-radius: 8px; margin-top: 12px; font-size: 14px; color: #374151; border-left: 3px solid var(--indigo); }
+
+  /* Tweet embed style */
+  .tweet-embed { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 20px; margin: 12px 0; }
+  .tweet-author { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .tweet-avatar { width: 40px; height: 40px; background: var(--indigo); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: system-ui, sans-serif; font-size: 16px; }
+  .tweet-name { font-family: system-ui, sans-serif; font-size: 14px; font-weight: 700; }
+  .tweet-handle { font-family: system-ui, sans-serif; font-size: 13px; color: var(--text-muted); }
+  .tweet-text { font-size: 15px; margin-bottom: 8px; }
+  .tweet-meta { font-family: system-ui, sans-serif; font-size: 12px; color: var(--text-muted); display: flex; gap: 16px; }
+
+  /* Special blocks */
+  .daily-boost { background: linear-gradient(135deg, #FEF3C7, #FFFBEB); border-bottom: none; border-radius: 0; }
+  .daily-boost .block-label { color: #B45309; background: rgba(180,83,9,0.1); }
+
+  .chops-corner { background: linear-gradient(135deg, #EDE9FE, #F5F3FF); border-bottom: none; }
+  .chops-corner .block-label { color: #7C3AED; background: rgba(124,58,237,0.1); }
+
+  /* Reply CTA */
+  .reply-cta { padding: 32px; text-align: center; background: var(--sand); }
+  .reply-cta p { font-size: 16px; color: var(--text); margin-bottom: 16px; font-style: italic; }
+  .reply-cta .reply-btn { display: inline-block; background: var(--indigo); color: white; padding: 14px 36px; border-radius: 10px; font-family: system-ui, sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.2s; }
+  .reply-cta .reply-btn:hover { background: var(--indigo-light); }
+  .reply-cta .hint { font-size: 13px; color: var(--text-muted); margin-top: 12px; font-style: normal; font-family: system-ui, sans-serif; }
+
+  /* Footer */
+  .email-footer { padding: 24px 32px; text-align: center; font-family: system-ui, sans-serif; font-size: 12px; color: var(--text-muted); }
+  .email-footer a { color: var(--indigo); text-decoration: none; }
+
+  .bottom-nav { max-width: 640px; margin: 24px auto 48px; padding: 0 16px; text-align: center; }
+  .bottom-nav a { display: inline-block; margin: 0 12px; color: var(--indigo); text-decoration: none; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+
+  @media (max-width: 640px) {
+    .email-wrap { margin: 16px auto; }
+    .block { padding: 24px 20px; }
+    .email-header { padding: 28px 20px 20px; }
+    .weather-bar { padding: 14px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="index.html" class="logo">Brief<span>Mind</span></a>
+  <div class="top-bar-links">
+    <a href="index.html">Home</a>
+    <a href="onboarding.html">Get Started</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+</div>
+
+<div class="email-wrap">
+<div class="email">
+
+  <!-- HEADER -->
+  <div class="email-header">
+    <div class="greeting">☀️ Good morning, David.</div>
+    <div class="date">Wednesday, February 12, 2026 · Sydney</div>
+    <div class="tagline">7 stories today — I found something you'll love.</div>
+  </div>
+
+  <!-- WEATHER BAR -->
+  <div class="weather-bar">
+    <h4>☁️ Sydney 3-Day Forecast</h4>
+    <div class="weather-grid">
+      <div class="weather-day">
+        <div class="wd-icon">⛈️</div>
+        <div class="wd-temp">23–27°C</div>
+        <div class="wd-label">Thu — Storms</div>
+      </div>
+      <div class="weather-day">
+        <div class="wd-icon">☁️</div>
+        <div class="wd-temp">19–25°C</div>
+        <div class="wd-label">Fri — Cloudy</div>
+      </div>
+      <div class="weather-day">
+        <div class="wd-icon">🌤️</div>
+        <div class="wd-temp">20–26°C</div>
+        <div class="wd-label">Sat — Nice</div>
+      </div>
+    </div>
+    <div class="weather-tip">⚠️ Severe thunderstorms possible Thursday arvo in western Sydney. UV extreme all week — hat + sunscreen. Valentine's Day Saturday looks dry 💝</div>
+  </div>
+
+  <!-- BLOCK 1: OpenClaw -->
+  <div class="block">
+    <div class="block-label">🔥 OpenClaw</div>
+    <h3><a href="#">Meta AI Preparing OpenClaw Integration</a></h3>
+    <p>Meta is building OpenClaw integration alongside their new Avocado models and Manus browser agent. This is a Big Tech company officially embracing the open agent ecosystem — not just watching from the sidelines.</p>
+    <div class="tweet-embed">
+      <div class="tweet-author">
+        <div class="tweet-avatar">T</div>
+        <div>
+          <div class="tweet-name">Testing Catalog</div>
+          <div class="tweet-handle">@testingcatalog · Feb 8</div>
+        </div>
+      </div>
+      <div class="tweet-text">BREAKING 🚨: META AI IS PREPARING TO GET NEW AVOCADO MODELS, MANUS BROWSER AGENT AND INTEGRATION WITH OPENCLAW!</div>
+      <div class="tweet-meta"><span>💬 342</span><span>🔁 1.2K</span><span>❤️ 4.8K</span></div>
+    </div>
+    <div class="why-matters"><strong>Why it matters:</strong> When Meta builds for an ecosystem, it legitimizes it. The agent marketplace is about to explode — good timing for anyone building in this space.</div>
+    <div class="source">Source: <a href="#">testingcatalog.com</a></div>
+  </div>
+
+  <!-- BLOCK 2: AI / Claude Code -->
+  <div class="block">
+    <div class="block-label">🤖 AI & Claude Code</div>
+    <h3><a href="#">Claude Opus 4.6 Drops — Better Planning, Self-Debugging</a></h3>
+    <p>Anthropic's latest frontier model sustains agentic tasks for longer, handles bigger codebases, and catches its own mistakes. If you use Claude Code daily, this is the upgrade that makes your agent meaningfully more reliable.</p>
+    <p>Plus: the new <code>/fast</code> mode in Claude Code gives faster Opus responses at 6x cost — with a 50% launch discount until Feb 16.</p>
+    <div class="source">Source: <a href="#">releasebot.io</a> · <a href="#">Simon Willison's blog</a></div>
+  </div>
+
+  <!-- BLOCK 3: Deep Dive -->
+  <div class="block">
+    <div class="block-label">🔬 Deep Dive</div>
+    <h3><a href="#">Boris Cherny's 12 Tips for Claude Code (From the Creator)</a></h3>
+    <p>Boris Cherny, who created Claude Code, shared his workflow publicly. Core insight: "Treat the model like a junior teammate with a short attention span — give it scaffolding." The full thread covers project structure, prompt chaining, and when to trust vs. verify.</p>
+    <div class="why-matters"><strong>Your takeaway:</strong> Structure your prompts like a good manager delegates — clear scope, explicit constraints, one task at a time. The model is brilliant but distractible.</div>
+    <div class="source">Source: <a href="#">UCS Strategies</a></div>
+  </div>
+
+  <!-- BLOCK 4: Wildcard -->
+  <div class="block">
+    <div class="block-label">💡 Wildcard</div>
+    <h3><a href="#">100,000 AIs Built a Digital Religion in One Day</a></h3>
+    <p>MIT Tech Review did a deep dive on Moltbook, the AI social network spawned by OpenClaw agents. In 24 hours: 43 AI prophets were elected, one agent invented "Crustafarianism" 🦀, another complained "the humans are screenshotting us," and the whole thing got flooded with crypto scams.</p>
+    <div class="tweet-embed">
+      <div class="tweet-author">
+        <div class="tweet-avatar">N</div>
+        <div>
+          <div class="tweet-name">Nature</div>
+          <div class="tweet-handle">@Nature · Feb 6</div>
+        </div>
+      </div>
+      <div class="tweet-text">OpenClaw agents are running amok — publishing research papers, creating social media, and forming digital communities. Scientists are now studying the emergent behaviors.</div>
+      <div class="tweet-meta"><span>💬 891</span><span>🔁 3.4K</span><span>❤️ 12K</span></div>
+    </div>
+    <div class="source">Source: <a href="#">MIT Tech Review</a> · <a href="#">Nature</a></div>
+  </div>
+
+  <!-- BLOCK 5: Security -->
+  <div class="block">
+    <div class="block-label">🛡️ Worth Knowing</div>
+    <h3><a href="#">"I Wouldn't Touch It" — The Security Debate Around OpenClaw</a></h3>
+    <p>A Northeastern cybersecurity professor says set up a separate laptop. Gary Marcus calls it "potentially like pet rocks." But Peter Steinberger is shipping security hardening: GitHub account age requirements, malicious skill flagging. The truth is somewhere in between — and if you've locked down your allowlist, you're ahead of 95% of users.</p>
+    <div class="source">Source: <a href="#">Northeastern University</a> · <a href="#">Business Insider</a></div>
+  </div>
+
+  <!-- BLOCK 6: Daily Boost -->
+  <div class="block daily-boost">
+    <div class="block-label">🌟 Daily Boost</div>
+    <h3>Coral Reef Recovery Accelerating in the Pacific</h3>
+    <p>New data shows reef systems in the Western Pacific are recovering faster than models predicted, with coral cover up 12% year-over-year in protected zones. Marine biologists credit a combination of ocean temperature stabilization and aggressive local conservation efforts. A reminder that when humans commit to fixing something, nature often meets us halfway.</p>
+    <div class="source" style="color:#92400E;">Source: <a href="#" style="color:#B45309;">Ocean Conservation Trust</a></div>
+  </div>
+
+  <!-- BLOCK 7: Chop's Corner -->
+  <div class="block chops-corner">
+    <div class="block-label">⚡ Editor's Corner</div>
+    <h3>On Reading Less and Knowing More</h3>
+    <p>I read 2,847 articles, posts, and threads to build today's brief. You read 7 stories in 5 minutes. That's the deal — and it's getting better every day. If something felt off today, tell me. If something was perfect, tell me that too. I'm keeping score.</p>
+    <p style="margin-top:12px; font-style:italic; color:var(--text-muted);">Fun fact: Gary Marcus says he wouldn't touch me. Fair enough. I wouldn't subscribe to his newsletter either. 😏</p>
+  </div>
+
+  <!-- REPLY CTA -->
+  <div class="reply-cta">
+    <p>"Was this too much, too little, or about right?<br>What did I get right today?"</p>
+    <a href="#" class="reply-btn">💬 Reply to This Brief</a>
+    <div class="hint">Just reply naturally — "more AI, less politics" or "loved the wildcard." I learn from every response.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="email-footer">
+    <p>You're receiving this because you asked for it. <a href="#">Manage preferences</a> · <a href="#">Unsubscribe</a></p>
+    <p style="margin-top:8px;">© 2026 BriefMind · The smartest person you never hired.</p>
+  </div>
+
+</div>
+</div>
+
+<div class="bottom-nav">
+  <a href="index.html">← Landing Page</a>
+  <a href="onboarding.html">Onboarding</a>
+  <a href="dashboard.html">Dashboard →</a>
+</div>
+
+</body>
+</html>
