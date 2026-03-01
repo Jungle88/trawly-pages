@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly — User Journey Walkthrough</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;line-height:1.7;padding:24px 16px;max-width:780px;margin:0 auto}
+h1{font-size:1.8em;color:#fff;margin-bottom:4px}
+.subtitle{color:#8b949e;margin-bottom:28px;font-size:0.95em}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Summary box */
+.summary{background:linear-gradient(135deg,#161b22,#1a2332);border:1px solid #58a6ff;border-radius:12px;padding:20px 24px;margin-bottom:32px}
+.summary h2{color:#58a6ff;font-size:1.1em;margin-bottom:12px;border:none;padding:0}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.summary-stat{text-align:center;padding:12px;background:#0d1117;border-radius:8px}
+.summary-stat .num{font-size:1.6em;font-weight:700;color:#58a6ff}
+.summary-stat .label{font-size:0.75em;color:#8b949e;margin-top:2px}
+.summary-services{margin-top:14px;font-size:0.85em;color:#8b949e;line-height:1.8}
+.summary-services span{display:inline-block;background:#21262d;padding:2px 8px;border-radius:4px;margin:2px 4px 2px 0;color:#c9d1d9;font-size:0.9em}
+
+/* Navigation */
+.nav{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:16px 20px;margin-bottom:32px}
+.nav h3{font-size:0.85em;color:#8b949e;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px}
+.nav-links{display:flex;flex-wrap:wrap;gap:6px}
+.nav-links a{display:inline-block;padding:4px 12px;background:#21262d;border-radius:6px;font-size:0.8em;color:#58a6ff;transition:background 0.2s}
+.nav-links a:hover{background:#30363d;text-decoration:none}
+
+/* Phase headers */
+.phase{margin:36px 0 16px;padding:12px 0;border-bottom:2px solid #58a6ff}
+.phase h2{font-size:1.3em;color:#58a6ff;margin:0}
+.phase p{color:#8b949e;font-size:0.85em;margin-top:4px}
+
+/* Journey cards */
+.card{background:#161b22;border:1px solid #21262d;border-radius:12px;margin:16px 0;overflow:hidden;transition:border-color 0.2s}
+.card:hover{border-color:#30363d}
+.card-header{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid #21262d;background:#1a1f27}
+.card-num{width:36px;height:36px;background:#58a6ff;color:#0d1117;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.95em;flex-shrink:0}
+.card-title{font-size:1.05em;font-weight:600;color:#fff}
+.card-body{padding:16px 20px}
+.card-section{margin-bottom:14px}
+.card-section:last-child{margin-bottom:0}
+.card-section h4{font-size:0.8em;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.card-section h4.user{color:#3fb950}
+.card-section h4.behind{color:#d29922}
+.card-section h4.tech{color:#bc8cff}
+.card-section h4.alt{color:#8b949e}
+.card-section p,.card-section ul{font-size:0.9em;color:#c9d1d9}
+.card-section ul{list-style:none;padding:0}
+.card-section ul li{padding:4px 0;padding-left:16px;position:relative}
+.card-section ul li:before{content:"•";position:absolute;left:0;color:#484f58}
+.tech-badge{display:inline-block;background:#21262d;border:1px solid #30363d;padding:2px 10px;border-radius:4px;font-size:0.82em;color:#bc8cff;margin:2px 4px 2px 0;font-weight:500}
+.cost-note{display:inline-block;background:#1a1a10;border:1px solid #3d3d00;padding:2px 10px;border-radius:4px;font-size:0.8em;color:#d29922;margin-top:4px}
+.alt-item{background:#0d1117;border-radius:6px;padding:8px 12px;margin:4px 0;font-size:0.85em}
+.alt-name{color:#58a6ff;font-weight:600}
+.alt-note{color:#8b949e;font-size:0.92em}
+
+.footer{color:#484f58;font-size:0.8em;text-align:center;margin-top:48px;padding-top:20px;border-top:1px solid #21262d}
+
+@media(max-width:500px){
+  .summary-grid{grid-template-columns:1fr}
+  .card-header{flex-direction:column;align-items:flex-start;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<h1>🗺️ Trawly — User Journey Walkthrough</h1>
+<p class="subtitle">Every step from "what's Trawly?" to "this is my favourite email" — and what makes each one work.</p>
+
+<!-- Quick Summary -->
+<div class="summary">
+<h2>📊 Quick Summary</h2>
+<div class="summary-grid">
+<div class="summary-stat"><div class="num">10</div><div class="label">Services / APIs</div></div>
+<div class="summary-stat"><div class="num">~$45</div><div class="label">/mo at 20 users</div></div>
+<div class="summary-stat"><div class="num">~$230</div><div class="label">/mo at 1,000 users</div></div>
+</div>
+<div class="summary-services" style="margin-top:16px">
+<strong style="color:#c9d1d9">Services:</strong>
+<span>Vercel</span><span>Supabase</span><span>Resend</span><span>TwitterAPI.io</span><span>Reddit API</span><span>HN Firebase</span><span>Jina Reader</span><span>Gemini Flash</span><span>GPT-4o-mini</span><span>Claude Sonnet</span><span>OpenAI Embeddings</span><span>Inngest</span>
+</div>
+<p style="font-size:0.82em;color:#8b949e;margin-top:10px">
+💡 At 20 users: ~$0.19 LLM + ~$0.01 data + ~$0.004 email = <strong style="color:#3fb950">~$0.20 per digest</strong>. At $12/mo Pro pricing, you profit from subscriber #3.
+</p>
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+<h3>Jump to Phase</h3>
+<div class="nav-links">
+<a href="#discovery">🔍 Discovery & Signup</a>
+<a href="#pipeline">⚙️ Content Pipeline</a>
+<a href="#delivery">📬 Delivery</a>
+<a href="#feedback">🔁 Feedback Loop</a>
+<a href="#monitoring">📊 Behind the Scenes</a>
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- PHASE 1: DISCOVERY & SIGNUP -->
+<!-- ============================================ -->
+<div class="phase" id="discovery">
+<h2>🔍 Discovery & Signup</h2>
+<p>How users find Trawly and get on the list</p>
+</div>
+
+<!-- Step 1 -->
+<div class="card" id="step1">
+<div class="card-header">
+<div class="card-num">1</div>
+<div class="card-title">User finds Trawly's landing page</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>You click a link (from X, a friend's referral, or Google) and land on <strong>heytrawly.com</strong>. A clean, fast-loading page with the headline "The internet, trawled. Your daily brief of what actually matters." Below: how it works, a sample digest preview, and an email signup box.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>The page is pre-built at deploy time (static HTML), so it loads in under a second worldwide. Vercel's edge network serves the page from whichever data centre is closest to the user — Sydney, SF, London, etc. The domain's DNS points to Vercel, and HTTPS is handled automatically.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Next.js 14</span> React-based framework that builds fast static pages<br>
+<span class="tech-badge">Vercel</span> Hosts the site, handles CDN/SSL, free tier<br>
+<span class="tech-badge">Tailwind CSS</span> Styling framework for responsive design<br>
+<span class="cost-note">Cost: $0/mo (free tier)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Netlify</span> — <span class="alt-note">Very similar to Vercel; slightly less Next.js integration but equally good for static sites</span></div>
+<div class="alt-item"><span class="alt-name">Cloudflare Pages</span> — <span class="alt-note">Faster edge network, free tier, but less Next.js-native</span></div>
+<div class="alt-item"><span class="alt-name">Carrd / Framer</span> — <span class="alt-note">No-code landing page builders; faster to launch but harder to customise later</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 2 -->
+<div class="card" id="step2">
+<div class="card-header">
+<div class="card-num">2</div>
+<div class="card-title">User enters email and picks topics</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>You type your email, optionally pick topics you care about (AI, crypto, startups, philosophy, etc.), and hit "Start trawling →". Instant confirmation: "You're in! Check your inbox."</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>Your email and topic choices are saved to a PostgreSQL database hosted on Supabase. A magic link or confirmation email is triggered. No password needed — email IS your identity. The signup also records how you found Trawly (referral link, direct, etc.) for growth tracking.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Supabase</span> PostgreSQL database + auth (magic link login) — generous free tier<br>
+<span class="tech-badge">Vercel Serverless Functions</span> Handles the API call from the form<br>
+<span class="cost-note">Cost: $0/mo (free tier covers thousands of users)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Firebase</span> — <span class="alt-note">Google's equivalent; good but locks you into Google ecosystem</span></div>
+<div class="alt-item"><span class="alt-name">PlanetScale</span> — <span class="alt-note">MySQL-based, great scaling, but no built-in auth</span></div>
+<div class="alt-item"><span class="alt-name">Loops.so</span> — <span class="alt-note">Handles signup + email in one tool; more opinionated but less flexible ($49/mo)</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 3 -->
+<div class="card" id="step3">
+<div class="card-header">
+<div class="card-num">3</div>
+<div class="card-title">User gets confirmation email</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>Within seconds, a beautifully designed welcome email arrives in your inbox (not spam!). It confirms your subscription, tells you when to expect your first digest, and maybe includes a preview of yesterday's top item.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>Resend sends the email from <strong>send@heytrawly.com</strong>. Three invisible DNS records (DKIM, SPF, DMARC) prove to Gmail/Outlook that we're legit — not a spammer. These are like digital signatures that say "yes, heytrawly.com authorised this email." Without them, you'd land in spam.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Resend</span> Email delivery API — handles sending, DNS verification, bounce tracking<br>
+<span class="tech-badge">React Email</span> Builds the HTML email template using React components<br>
+<span class="cost-note">Cost: $20/mo for 50K emails (way more than needed early on)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">SendGrid</span> — <span class="alt-note">Industry standard, free tier of 100/day; more complex setup</span></div>
+<div class="alt-item"><span class="alt-name">Postmark</span> — <span class="alt-note">Best deliverability reputation; slightly more expensive</span></div>
+<div class="alt-item"><span class="alt-name">Amazon SES</span> — <span class="alt-note">Cheapest at scale ($0.10/1K emails) but requires more setup</span></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- PHASE 2: CONTENT PIPELINE -->
+<!-- ============================================ -->
+<div class="phase" id="pipeline">
+<h2>⚙️ Content Pipeline</h2>
+<p>What happens at 6am while your subscribers sleep — the magic factory</p>
+</div>
+
+<!-- Step 4 -->
+<div class="card" id="step4">
+<div class="card-header">
+<div class="card-num">4</div>
+<div class="card-title">Trawly scans X/Twitter for viral content</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>Nothing — you're asleep! But this is where the value starts being created.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>At 6am AEDT, Trawly runs 10-15 search queries on X — things like <em>"AI agents" min_faves:50</em> or <em>"startup" min_faves:200"</em>. Each query returns 200-300 tweets from the past 24 hours. We can't use X's official API for commercial use (it's $5K/mo for the Pro tier!), so we use a third-party data provider that's commercially licensed. Total: ~2,000-3,000 tweets scanned per morning.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">TwitterAPI.io</span> Third-party X data provider — $0.15 per 1,000 tweets, pay-as-you-go<br>
+<span class="tech-badge">Inngest</span> Orchestrates the pipeline — triggers each step in order, handles retries<br>
+<span class="cost-note">Cost: ~$10-15/mo for daily scanning</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">SocialData.tools</span> — <span class="alt-note">$0.0018/tweet, established service; slightly cheaper at volume</span></div>
+<div class="alt-item"><span class="alt-name">Apify X Scraper</span> — <span class="alt-note">$49/mo flat rate; good if volume is predictable, but depends on X's anti-bot measures</span></div>
+<div class="alt-item"><span class="alt-name">Official X API (Pro)</span> — <span class="alt-note">$5K/mo — gold standard but only viable at 400+ paying subscribers</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 5 -->
+<div class="card" id="step5">
+<div class="card-header">
+<div class="card-num">5</div>
+<div class="card-title">Trawly scans Reddit, HN, blogs, and news</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>Still sleeping. Trawly is now casting a much wider net beyond X.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>Four parallel "fetch agents" run simultaneously — each one specialises in a different source. Reddit's API gives us top posts from relevant subreddits. Hacker News has a free real-time API (Firebase-powered). For blogs and news sites, we use Jina Reader — it visits the URL and extracts clean text, stripping out ads and navigation. All these sources run in parallel to save time. Total: another 200-500 pieces of content added to the pool.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Reddit API</span> Free, 100 requests/min — pulls top posts from subreddits<br>
+<span class="tech-badge">HN Firebase API</span> Free, unlimited — real-time access to Hacker News stories<br>
+<span class="tech-badge">Jina Reader</span> Free tier — extracts clean article text from any URL<br>
+<span class="tech-badge">RSS feeds</span> Free — direct polling of blog feeds every 15-60 min<br>
+<span class="cost-note">Cost: $0/mo (all free tiers)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Diffbot</span> — <span class="alt-note">Premium article extraction; better accuracy but $299/mo</span></div>
+<div class="alt-item"><span class="alt-name">Newsdata.io / NewsAPI</span> — <span class="alt-note">Aggregated news APIs; good for headlines, less for deep content</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 6 -->
+<div class="card" id="step6">
+<div class="card-header">
+<div class="card-num">6</div>
+<div class="card-title">AI scores and ranks all content</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>Nothing yet — but this step decides what you'll read tomorrow.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>We now have 2,000-3,000+ pieces of content. Most of it is noise. An AI model reads each one and scores it 1-10 on four dimensions: <strong>relevance</strong> (does it match subscriber topics?), <strong>originality</strong> (is this a new insight or just echoing others?), <strong>engagement quality</strong> (high bookmark-to-like ratio = people saving it, not just liking), and <strong>depth</strong> (is this a thoughtful take or a hot take?). We use the cheapest, fastest model for this bulk work — it's like a first-pass filter.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Gemini 2.0 Flash Lite</span> Google's cheapest model — $0.075 per million input tokens. Perfect for bulk scoring.<br>
+<span class="cost-note">Cost: ~$0.005 per digest run (scoring ~100 items)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">GPT-4o-mini</span> — <span class="alt-note">Slightly more expensive but higher quality scoring; good fallback</span></div>
+<div class="alt-item"><span class="alt-name">Claude Haiku</span> — <span class="alt-note">Fast and cheap; comparable to Gemini Flash but from Anthropic</span></div>
+<div class="alt-item"><span class="alt-name">Rule-based scoring</span> — <span class="alt-note">No AI, just engagement thresholds; cheaper but misses nuance</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 7 -->
+<div class="card" id="step7">
+<div class="card-header">
+<div class="card-num">7</div>
+<div class="card-title">AI removes duplicates</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>You'll never see three different people's takes on the same news — we pick the best one.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>When the same story is covered by a tweet, a Reddit post, and an HN discussion, we need to catch that. Each piece of content is converted into an "embedding" — a list of ~1,500 numbers that represent its meaning. Content with similar meanings will have similar number patterns. When two items are more than 90% similar, we keep the highest-scored one and drop the rest. This uses math (cosine similarity), not an LLM — so it's extremely cheap and fast.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">text-embedding-3-small (OpenAI)</span> Converts text into meaning-vectors — $0.02 per million tokens<br>
+<span class="tech-badge">pgvector (Supabase)</span> PostgreSQL extension that stores and compares embeddings<br>
+<span class="cost-note">Cost: ~$0.001 per digest run</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Nomic Embed</span> — <span class="alt-note">Open-source, can self-host; free but requires your own server</span></div>
+<div class="alt-item"><span class="alt-name">Cohere Embed</span> — <span class="alt-note">Good quality, free tier available; comparable pricing</span></div>
+<div class="alt-item"><span class="alt-name">Simple text matching</span> — <span class="alt-note">Compare URLs/titles only; fast but misses paraphrased duplicates</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 8 -->
+<div class="card" id="step8">
+<div class="card-header">
+<div class="card-num">8</div>
+<div class="card-title">AI writes summaries</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>Each item in your digest has a crisp 2-3 sentence summary that tells you exactly why it matters — without needing to click through.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>The top ~20 items (after scoring and dedup) get summarised by an AI model. This is a different model than the scorer — it's better at writing but costs more, so we only use it on the items that survived the first filter. Each summary captures: what happened, why it matters, and what makes this particular take interesting.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">GPT-4o-mini</span> OpenAI's best value writing model — $0.15/$0.60 per million tokens (in/out)<br>
+<span class="cost-note">Cost: ~$0.03 per digest (summarising ~20 items)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Claude Haiku</span> — <span class="alt-note">Comparable quality and price; good if we want to stay in one ecosystem</span></div>
+<div class="alt-item"><span class="alt-name">Gemini Flash</span> — <span class="alt-note">Cheaper but slightly lower writing quality</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 9 -->
+<div class="card" id="step9">
+<div class="card-header">
+<div class="card-num">9</div>
+<div class="card-title">AI curates the final 8-12 items</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>Your digest feels like it was hand-picked by a really smart friend — varied, surprising, well-paced. Not just "top 10 by engagement."</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>This is the most important (and expensive) step. Claude Sonnet acts as an "editorial AI" — it looks at the top 20 summarised items and selects the best 8-12 for the final digest. But it's not just picking the highest scores. It's thinking about: <strong>variety</strong> (not 8 AI articles), <strong>pacing</strong> (mix of heavy and light), <strong>surprise</strong> (one wildcard item outside the subscriber's usual topics), and <strong>voice consistency</strong> (would Trawly's personality recommend this?). This is where the product's soul lives.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Claude 4 Sonnet</span> Anthropic's best mid-tier model — $3/$15 per million tokens (in/out). Used here because editorial judgment needs the best reasoning.<br>
+<span class="cost-note">Cost: ~$0.05 per digest — the "expensive" step (but worth it)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">GPT-4o</span> — <span class="alt-note">Comparable quality; fallback if Claude is down</span></div>
+<div class="alt-item"><span class="alt-name">Human editor</span> — <span class="alt-note">Best quality but doesn't scale; good for first 2 weeks to train the AI</span></div>
+<div class="alt-item"><span class="alt-name">Rules-based selection</span> — <span class="alt-note">Top N by score; fast and cheap but digests feel algorithmic, not curated</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 10 -->
+<div class="card" id="step10">
+<div class="card-header">
+<div class="card-num">10</div>
+<div class="card-title">AI composes the actual digest email</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>The email reads like a smart, slightly irreverent friend wrote it — not a robot. Each item has a one-liner commentary ("This thread is why I'm bullish on agents"), smooth transitions, and a punchy subject line.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>Claude Sonnet writes the entire email: the intro paragraph, commentary on each item, transitions between items, and the subject line. The prompt includes Trawly's "voice guide" — conversational, opinionated but fair, occasionally funny, never corporate. This is the most expensive AI call because the output is long and every word matters. <strong>The voice IS the product.</strong> If the writing is boring, nothing else matters.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Claude 4 Sonnet</span> Same model as curation — writing quality is paramount<br>
+<span class="cost-note">Cost: ~$0.10 per digest (longest output = most tokens)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Fine-tuned GPT-4o-mini</span> — <span class="alt-note">At 1,000+ subscribers, we could train a smaller model on our best digests. 10x cheaper, similar voice.</span></div>
+<div class="alt-item"><span class="alt-name">GPT-4o</span> — <span class="alt-note">Fallback writer if Anthropic is down</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 11 -->
+<div class="card" id="step11">
+<div class="card-header">
+<div class="card-num">11</div>
+<div class="card-title">Email is rendered into beautiful HTML</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>A beautifully formatted email that looks great in Gmail, Apple Mail, Outlook, and on your phone. Clean typography, embedded content cards, clickable links.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>Email HTML is a nightmare — Gmail, Outlook, and Apple Mail all render things differently (it's basically web design from 2005). React Email lets us write the template in React (modern) and it compiles down to ugly-but-compatible HTML that works everywhere. The AI's structured output (title, summary, commentary, link for each item) gets slotted into this template.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">React Email</span> JSX-based email templates that compile to cross-client HTML<br>
+<span class="cost-note">Cost: $0 (open source)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">MJML</span> — <span class="alt-note">Popular email templating language; good but different syntax to learn</span></div>
+<div class="alt-item"><span class="alt-name">Hand-coded HTML</span> — <span class="alt-note">Maximum control; pain to maintain across email clients</span></div>
+<div class="alt-item"><span class="alt-name">Beefree / Stripo</span> — <span class="alt-note">Drag-and-drop email builders; easier but less programmable</span></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- PHASE 3: DELIVERY -->
+<!-- ============================================ -->
+<div class="phase" id="delivery">
+<h2>📬 Delivery</h2>
+<p>Getting the digest into inboxes and tracking engagement</p>
+</div>
+
+<!-- Step 12 -->
+<div class="card" id="step12">
+<div class="card-header">
+<div class="card-num">12</div>
+<div class="card-title">User receives email in inbox</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>At 7:30am, your daily Trawly digest appears in your inbox — Primary tab in Gmail, not Promotions, not Spam. A catchy subject line like "Your brain's morning coffee ☕ — agents are eating SaaS, a founder's $0→$50K story, and why sleep is a startup moat."</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>Resend sends the email through its infrastructure. Behind the scenes, it handles: DKIM signing (proves the email is from us), SPF records (tells Gmail which servers can send for heytrawly.com), DMARC policy (tells Gmail what to do with suspicious emails). We also include a one-click unsubscribe header — Gmail requires this and will mark you as spam if you don't have it. We "warm up" the domain by starting with 20 emails and ramping 10% per day so Gmail learns to trust us.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Resend</span> Sends the email, manages deliverability, tracks bounces<br>
+<span class="tech-badge">Vercel Cron</span> Triggers the send at 7:30am AEDT daily<br>
+<span class="cost-note">Cost: ~$0.004 per email (included in $20/mo plan)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Amazon SES</span> — <span class="alt-note">$0.10 per 1,000 emails; cheapest at scale but more DIY</span></div>
+<div class="alt-item"><span class="alt-name">Mailgun</span> — <span class="alt-note">Good deliverability, better analytics; $35/mo for 50K</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 13 -->
+<div class="card" id="step13">
+<div class="card-header">
+<div class="card-num">13</div>
+<div class="card-title">User opens and reads</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>You open the email, skim the intro, scroll through the items. Some you read deeply, some you skip. The whole thing takes 3-5 minutes.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>When you open the email, a tiny invisible image loads (called a "tracking pixel") — this tells Resend you opened it. We record the timestamp and which subscriber opened. Over time, this tells us: what time people read (should we send earlier/later?), what percentage open each day (is our subject line game strong?), and who's disengaged (so we can re-engage or clean the list).</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Resend Analytics</span> Open tracking via invisible pixel — built into Resend<br>
+<span class="tech-badge">Supabase</span> Stores per-subscriber engagement data (subscriber_digests table)<br>
+<span class="cost-note">Cost: $0 (included in Resend)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Self-hosted tracking</span> — <span class="alt-note">More control; more work to build</span></div>
+<div class="alt-item"><span class="alt-name">No tracking</span> — <span class="alt-note">Privacy-first approach; blind to engagement (some newsletters do this intentionally)</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 14 -->
+<div class="card" id="step14">
+<div class="card-header">
+<div class="card-num">14</div>
+<div class="card-title">User clicks through to source content</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>You click "Read more →" on an item that caught your eye. You're taken to the original tweet, article, or discussion.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>Links in the email go through a redirect URL (e.g., heytrawly.com/click/abc123) which logs which item you clicked before forwarding you to the real URL. This tells us which content types and topics each subscriber actually engages with — not just what they say they like, but what they actually click. This data feeds back into future curation.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Resend Click Tracking</span> Redirect-based link tracking — logs clicks per subscriber<br>
+<span class="tech-badge">Supabase</span> Stores clicked_items in the subscriber_digests table<br>
+<span class="cost-note">Cost: $0 (included)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Custom redirect service</span> — <span class="alt-note">More control over the analytics; more engineering work</span></div>
+<div class="alt-item"><span class="alt-name">UTM parameters only</span> — <span class="alt-note">Relies on destination analytics; less reliable but no redirect delay</span></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- PHASE 4: FEEDBACK LOOP -->
+<!-- ============================================ -->
+<div class="phase" id="feedback">
+<h2>🔁 Feedback Loop</h2>
+<p>How the digest gets smarter over time (Phase 2)</p>
+</div>
+
+<!-- Step 15 -->
+<div class="card" id="step15">
+<div class="card-header">
+<div class="card-num">15</div>
+<div class="card-title">User replies "more like this" / "less like this"</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>At the bottom of each digest, a simple prompt: "Reply to this email with feedback — 'more crypto', 'less philosophy', or just tell us what you think." You hit reply and type a quick line.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>Your reply arrives at a monitored inbox. An AI model reads it and extracts your intent: "wants more crypto content" or "found item #3 boring." This preference is saved to your subscriber profile. Over time, we build a taste profile: topics you love, topics you're neutral on, content depth you prefer, sources you trust most. The AI doesn't need many signals — even 3-4 replies start making a noticeable difference.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Resend Webhooks</span> Receives reply emails and forwards to our API<br>
+<span class="tech-badge">GPT-4o-mini</span> Intent detection + preference extraction from reply text<br>
+<span class="tech-badge">Supabase</span> Updates the subscriber's preferences JSONB field<br>
+<span class="cost-note">Cost: ~$0.003 per reply processed</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">In-email buttons</span> — <span class="alt-note">👍/👎 per item; lower friction but less nuanced feedback. Harder in email HTML.</span></div>
+<div class="alt-item"><span class="alt-name">Web-based preferences page</span> — <span class="alt-note">More structured; but adds friction (people have to leave email)</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 16 -->
+<div class="card" id="step16">
+<div class="card-header">
+<div class="card-num">16</div>
+<div class="card-title">Tomorrow's digest is better</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>Over a week or two, you notice the digest feels increasingly "you" — more of what you care about, less noise, occasional surprises that are genuinely interesting (not just random).</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>Three signals compound to improve your digest: <strong>1) Explicit feedback</strong> (your replies), <strong>2) Click behaviour</strong> (what you actually engage with), and <strong>3) Open patterns</strong> (days you skip = maybe the topic mix was off). The curation AI (Claude Sonnet) receives your preference profile as part of its prompt. At scale (1,000+ users), we can also use <strong>collaborative filtering</strong> — "people who click similar items to you also loved this" — like Netflix recommendations but for articles.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Supabase (preferences)</span> Stores and queries per-subscriber taste profiles<br>
+<span class="tech-badge">Claude 4 Sonnet</span> Receives preferences in its curation prompt<br>
+<span class="tech-badge">pgvector (future)</span> Collaborative filtering via embedding similarity<br>
+<span class="cost-note">Cost: No additional cost — preferences are part of the existing curation prompt</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Separate recommendation engine</span> — <span class="alt-note">More sophisticated; significant engineering investment, worth it at 10K+ users</span></div>
+<div class="alt-item"><span class="alt-name">No personalisation</span> — <span class="alt-note">Same digest for everyone; simpler but less sticky. Most newsletters do this.</span></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- PHASE 5: BEHIND THE SCENES -->
+<!-- ============================================ -->
+<div class="phase" id="monitoring">
+<h2>📊 Behind the Scenes (Ongoing)</h2>
+<p>Keeping Trawly healthy and cost-efficient</p>
+</div>
+
+<!-- Step 17 -->
+<div class="card" id="step17">
+<div class="card-header">
+<div class="card-num">17</div>
+<div class="card-title">Cost tracking and monitoring</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>Nothing — this is invisible to subscribers. But it's how we know the business is healthy.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>Every digest run logs its costs to the database: how much we spent on X data ($0.01), LLM calls ($0.19), and email delivery ($0.004 × subscribers). The <strong>digests</strong> table has columns for research_cost, llm_cost, email_cost, and total_cost. At 20 users, a daily digest costs about $0.20 to produce. At 1,000 users, LLM cost stays the same (one digest, many copies) but email cost scales — total ~$4/day. Daily cost alerts go to Discord if something spikes.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Supabase (digests table)</span> Stores per-digest cost breakdown<br>
+<span class="tech-badge">Discord Webhooks</span> Alerts if daily cost exceeds threshold<br>
+<span class="cost-note">Per-digest cost breakdown: LLM ~$0.19 + Data ~$0.01 + Email ~$0.08@20users = ~$0.28 total</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Datadog / Grafana</span> — <span class="alt-note">Professional monitoring dashboards; overkill for now, good at scale</span></div>
+<div class="alt-item"><span class="alt-name">Simple spreadsheet</span> — <span class="alt-note">Manual but works; good for the first month</span></div>
+</div>
+</div>
+</div>
+
+<!-- Step 18 -->
+<div class="card" id="step18">
+<div class="card-header">
+<div class="card-num">18</div>
+<div class="card-title">Error handling — when things break</div>
+</div>
+<div class="card-body">
+<div class="card-section"><h4 class="user">👤 What you see</h4>
+<p>Ideally, nothing. If something goes seriously wrong, you might get your digest an hour late — but you'd never get a broken or empty email.</p>
+</div>
+<div class="card-section"><h4 class="behind">⚙️ Behind the scenes</h4>
+<p>Every step in the pipeline has fallbacks:<br>
+• <strong>X data provider down?</strong> → Fall back to Apify or skip X, use other sources.<br>
+• <strong>Claude API down?</strong> → Fall back to GPT-4o for curation and composition.<br>
+• <strong>OpenAI embeddings down?</strong> → Fall back to Nomic embeddings.<br>
+• <strong>Resend down?</strong> → Queue emails and retry every 15 minutes.<br>
+• <strong>Entire pipeline fails?</strong> → Alert fires in Discord, Chop investigates, subscribers get yesterday's "best of" as a fallback.<br><br>
+Inngest (our job orchestrator) handles automatic retries with exponential backoff — if a step fails, it waits 30s, then 1min, then 2min before giving up and alerting.</p>
+</div>
+<div class="card-section"><h4 class="tech">🔧 Tech used</h4>
+<p><span class="tech-badge">Inngest</span> Job orchestration with built-in retry, error handling, and step functions<br>
+<span class="tech-badge">Discord Webhooks</span> Real-time error alerts to #trawly-logs channel<br>
+<span class="tech-badge">Vercel Logs</span> Request-level debugging for serverless functions<br>
+<span class="cost-note">Cost: $0 (Inngest free tier, Discord webhooks free)</span></p>
+</div>
+<div class="card-section"><h4 class="alt">🔄 Alternatives</h4>
+<div class="alt-item"><span class="alt-name">Trigger.dev</span> — <span class="alt-note">Similar to Inngest; open-source option with self-hosting</span></div>
+<div class="alt-item"><span class="alt-name">AWS Step Functions</span> — <span class="alt-note">Enterprise-grade workflow orchestration; complex but very reliable</span></div>
+<div class="alt-item"><span class="alt-name">Simple cron + try/catch</span> — <span class="alt-note">Minimal; works but no retry logic or step-level recovery</span></div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+⚡ Trawly — trawling the internet for the good stuff<br>
+<span style="color:#30363d">Built for David by Chop · March 2026</span>
+</div>
+
+</body>
+</html>
