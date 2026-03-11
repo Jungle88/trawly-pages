@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 3 – REMOVE THIS (Trawly Onboarding)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #FAF8F5; font-family: system-ui, -apple-system, sans-serif; color: #1a1a2e; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+header { background: #0B1426; padding: 16px 24px; }
+.logo { color: #fff; font-weight: 800; font-size: 20px; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+.logo span { color: #1d9bf0; }
+
+.progress-bar { background: #0B1426; padding: 10px 24px 14px; display: flex; justify-content: center; gap: 10px; align-items: center; }
+.progress-dot { width: 8px; height: 8px; border-radius: 50%; background: #2d3f5c; }
+.progress-dot.done { background: #3b82f6; }
+.progress-dot.active { background: #1d9bf0; width: 24px; border-radius: 4px; }
+
+main { max-width: 640px; margin: 0 auto; padding: 0 16px 80px; animation: fadeIn 0.25s ease; }
+
+/* ── REMOVE THIS BANNER ── */
+.remove-banner {
+  background: #DC2626;
+  color: #fff;
+  text-align: center;
+  padding: 14px 20px;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin: 0 -16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.remove-explanation {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #7F1D1D;
+  line-height: 1.6;
+  margin: 16px 0 24px;
+}
+.remove-explanation strong { display: block; font-size: 15px; margin-bottom: 6px; }
+
+.screen-header { padding: 36px 0 24px; border-bottom: 1px solid #e8e4de; margin-bottom: 28px; }
+.screen-header h1 { font-size: 28px; font-weight: 800; color: #0B1426; line-height: 1.25; margin-bottom: 8px; opacity: 0.4; }
+.screen-header p { font-size: 16px; color: #536471; line-height: 1.6; opacity: 0.4; }
+
+.controls-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 8px 0 24px; opacity: 0.4; }
+@media (max-width: 480px) { .controls-grid { grid-template-columns: 1fr; } }
+
+.control-card { background: #FFFDF9; border: 1px solid #e8e4de; border-radius: 16px; padding: 24px 20px; }
+.control-icon { font-size: 28px; margin-bottom: 12px; }
+.control-title { font-size: 16px; font-weight: 800; color: #0B1426; margin-bottom: 8px; }
+.control-desc { font-size: 13.5px; color: #536471; line-height: 1.55; }
+
+.callout-blue { display: flex; margin: 10px 0 24px; border-radius: 0 8px 8px 0; overflow: hidden; opacity: 0.4; }
+.callout-blue .bar { width: 3px; flex-shrink: 0; background: #1d9bf0; }
+.callout-blue .body { background: #f0f7ff; padding: 12px 14px; font-size: 13.5px; color: #374151; line-height: 1.55; flex: 1; }
+
+.btn-primary {
+  display: block; width: 100%;
+  background: #0B1426; color: #fff;
+  font-size: 16px; font-weight: 700;
+  padding: 16px 24px; border: none;
+  border-radius: 12px; cursor: not-allowed;
+  text-align: center; margin-top: 16px;
+  letter-spacing: -0.2px; font-family: inherit;
+  opacity: 0.25;
+}
+
+/* Strikethrough overlay */
+.screen-content { position: relative; }
+.strike-overlay {
+  position: absolute;
+  top: 0; left: -16px; right: -16px; bottom: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(220,38,38,0.04),
+    rgba(220,38,38,0.04) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+footer { background: #0B1426; padding: 24px; text-align: center; }
+footer p { font-size: 14px; color: #6B7280; }
+footer span { color: #1d9bf0; }
+
+.mockup-badge { background: #DC2626; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 6px; letter-spacing: 0.5px; }
+.mockup-label { background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; padding: 10px 16px; margin-bottom: 4px; font-size: 13px; color: #991B1B; }
+</style>
+</head>
+<body>
+
+<header>
+  <div style="max-width:640px;margin:0 auto">
+    <div class="logo">🐟 traw<span>ly</span></div>
+  </div>
+</header>
+
+<div class="progress-bar">
+  <div class="progress-dot done"></div>
+  <div class="progress-dot done"></div>
+  <div class="progress-dot active"></div>
+  <div class="progress-dot"></div>
+</div>
+
+<div class="remove-banner">
+  🚫 REMOVE THIS SCREEN
+</div>
+
+<main>
+  <div class="mockup-label" style="margin-top:16px">
+    <div class="mockup-badge">REMOVE — Stage 3</div><br>
+    <strong>This screen interrupts the conversion flow.</strong> The user has just seen their personalised callouts — they're warm and ready to subscribe. Dropping them into a "how it works" screen kills momentum. Move this content to the welcome email instead.
+  </div>
+
+  <div class="remove-explanation">
+    <strong>❌ Why this should go</strong>
+    The user just experienced the value. They saw their callouts personalise in real time. This screen asks them to pause and read a tutorial right before the subscribe button — it's friction at exactly the wrong moment. Move "Reply to improve it" and "Tag to save" into the Day 1 welcome email, where they're actually useful.
+  </div>
+
+  <!-- Original stage 3 content, dimmed -->
+  <div class="screen-content">
+    <div class="strike-overlay"></div>
+
+    <div class="screen-header">
+      <h1>Two ways to make it better, every day.</h1>
+      <p>No dashboard to manage. No settings to tweak. Just talk to it.</p>
+    </div>
+
+    <div class="controls-grid">
+      <div class="control-card">
+        <div class="control-icon">↩️</div>
+        <div class="control-title">Reply to improve it</div>
+        <div class="control-desc">
+          Reply to any digest: <em>"less crypto"</em>, <em>"more cooking"</em>, <em>"I just got promoted."</em> I'll update your digest immediately.
+        </div>
+      </div>
+      <div class="control-card">
+        <div class="control-icon">🏷️</div>
+        <div class="control-title">Tag to save</div>
+        <div class="control-desc">
+          See something on X you love? Tag <strong>@heytrawly</strong>. I'll include it tomorrow and learn your taste.
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <div class="bar"></div>
+      <div class="body">
+        <strong style="color:#1d9bf0">Why it matters:</strong> Most newsletters go stale because they never learn. Trawly improves every single day — just by having your morning read.
+      </div>
+    </div>
+
+    <button class="btn-primary" disabled>See your taste profile →</button>
+  </div>
+</main>
+
+<footer>
+  <p>🐟 traw<span>ly</span> · Built by David &amp; Chop ⚡</p>
+</footer>
+
+</body>
+</html>

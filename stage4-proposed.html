@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 4 – Proposed Subscribe (Trawly Onboarding)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #FAF8F5; font-family: system-ui, -apple-system, sans-serif; color: #1a1a2e; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes successIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes slideDown { from { opacity: 0; max-height: 0; } to { opacity: 1; max-height: 200px; } }
+
+header { background: #0B1426; padding: 16px 24px; }
+.logo { color: #fff; font-weight: 800; font-size: 20px; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+.logo span { color: #1d9bf0; }
+
+.progress-bar { background: #0B1426; padding: 10px 24px 14px; display: flex; justify-content: center; gap: 10px; align-items: center; }
+.progress-dot { width: 8px; height: 8px; border-radius: 50%; background: #2d3f5c; }
+.progress-dot.done { background: #3b82f6; }
+.progress-dot.active { background: #1d9bf0; width: 24px; border-radius: 4px; }
+
+main { max-width: 640px; margin: 0 auto; padding: 0 16px 80px; animation: fadeIn 0.25s ease; }
+
+.screen-header { padding: 36px 0 24px; border-bottom: 1px solid #e8e4de; margin-bottom: 28px; }
+.screen-header h1 { font-size: 28px; font-weight: 800; color: #0B1426; line-height: 1.25; margin-bottom: 8px; }
+.screen-header p { font-size: 16px; color: #536471; line-height: 1.6; }
+
+/* ── Taste Profile Card ── */
+.taste-profile-card {
+  background: #FFFDF9;
+  border: 1px solid #e8e4de;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.taste-profile-header {
+  background: #0B1426;
+  padding: 16px 24px;
+}
+.taste-profile-header h3 { font-size: 14px; font-weight: 700; color: #fff; margin: 0; }
+.taste-profile-header p { font-size: 12px; color: #8899a6; margin-top: 2px; }
+
+.taste-section {
+  padding: 16px 24px;
+  border-bottom: 1px solid #f0ede8;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.taste-section:last-child { border-bottom: none; }
+.taste-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.taste-content { flex: 1; min-width: 0; }
+.taste-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #aab8c2; margin-bottom: 4px; }
+.taste-value { font-size: 14px; color: #374151; line-height: 1.55; }
+.taste-value.empty { color: #aab8c2; font-style: italic; }
+
+/* Edit button + inline edit field */
+.edit-btn {
+  background: none;
+  border: 1px solid #e1e8ed;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8899a6;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+.edit-btn:hover { border-color: #1d9bf0; color: #1d9bf0; }
+
+.inline-edit-wrap {
+  display: none;
+  animation: slideDown 0.2s ease;
+  margin-top: 8px;
+}
+.inline-edit-wrap.open { display: block; }
+.inline-edit-input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 2px solid #1d9bf0;
+  border-radius: 8px;
+  background: #fff;
+  color: #1a1a2e;
+  outline: none;
+  line-height: 1.5;
+}
+.inline-edit-actions { display: flex; gap: 8px; margin-top: 8px; }
+.btn-save-edit {
+  background: #1d9bf0; color: #fff;
+  border: none; border-radius: 6px;
+  padding: 6px 14px; font-size: 13px;
+  font-weight: 700; cursor: pointer;
+  font-family: inherit;
+}
+.btn-save-edit:hover { background: #1a8cd8; }
+.btn-cancel-edit {
+  background: none; color: #8899a6;
+  border: 1px solid #e1e8ed;
+  border-radius: 6px; padding: 6px 14px;
+  font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+}
+.btn-cancel-edit:hover { color: #DC2626; border-color: #DC2626; }
+
+/* ── Email form ── */
+.email-form-wrap { margin-top: 24px; }
+.email-row { display: flex; gap: 8px; margin-bottom: 10px; }
+
+.email-input {
+  flex: 1; padding: 14px 16px;
+  border-radius: 12px; border: 2px solid #e1e8ed;
+  font-size: 15px; outline: none;
+  color: #1a1a2e; background: #FFFDF9;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+.email-input:focus { border-color: #1d9bf0; }
+.email-input::placeholder { color: #aab8c2; }
+
+.btn-cta {
+  background: #1d9bf0; color: #fff;
+  border: none; border-radius: 12px;
+  padding: 14px 22px; font-size: 15px;
+  font-weight: 700; cursor: pointer;
+  white-space: nowrap; font-family: inherit;
+  transition: background 0.15s;
+}
+.btn-cta:hover { background: #1a8cd8; }
+
+.fine-print { text-align: center; font-size: 12px; color: #aab8c2; margin-top: 10px; }
+
+/* ── Success state ── */
+.success-box {
+  background: #FFFDF9;
+  border: 2px solid #059669;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  margin-top: 20px;
+  animation: successIn 0.4s ease;
+}
+.success-emoji { font-size: 48px; margin-bottom: 16px; }
+.success-title { font-size: 24px; font-weight: 800; color: #0B1426; margin-bottom: 8px; }
+.success-subtitle { font-size: 16px; color: #6B7280; line-height: 1.5; margin-bottom: 16px; }
+.success-detail { font-size: 14px; color: #536471; line-height: 1.6; }
+.success-detail strong { color: #0B1426; }
+
+.first-digest-preview {
+  background: #F0FDF4;
+  border: 1px solid #86EFAC;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #166534;
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+.bottom-spacer { height: 40px; }
+
+footer { background: #0B1426; padding: 24px; text-align: center; }
+footer p { font-size: 14px; color: #6B7280; }
+footer span { color: #1d9bf0; }
+
+.mockup-badge { background: #059669; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 6px; letter-spacing: 0.5px; }
+.mockup-label { background: #F0FDF4; border: 1px solid #86EFAC; border-radius: 8px; padding: 10px 16px; margin-bottom: 20px; font-size: 13px; color: #166534; }
+.change-pill { display: inline-block; background: #FEF3C7; border: 1px solid #F59E0B; color: #92400E; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div style="max-width:640px;margin:0 auto">
+    <div class="logo">🐟 traw<span>ly</span></div>
+  </div>
+</header>
+
+<div class="progress-bar">
+  <div class="progress-dot done"></div>
+  <div class="progress-dot done"></div>
+  <div class="progress-dot done"></div>
+  <div class="progress-dot active"></div>
+</div>
+
+<main>
+  <div class="mockup-label">
+    <div class="mockup-badge">PROPOSED — Stage 4</div><br>
+    Subscribe screen with 3 fixes: CTA button copy updated, edit buttons are functional (click one!), delivery time updated, and success state shown below.
+  </div>
+
+  <div class="screen-header">
+    <h1>This is what Trawly knows about you.</h1>
+    <p>Always visible. Always editable. No black box.</p>
+  </div>
+
+  <div class="taste-profile-card">
+    <div class="taste-profile-header">
+      <h3>🐟 Your Taste Profile</h3>
+      <p>Built from your onboarding · Updated just now</p>
+    </div>
+
+    <!-- Row 1: About you -->
+    <div class="taste-section">
+      <div class="taste-icon">📍</div>
+      <div class="taste-content">
+        <div class="taste-label">About you</div>
+        <div class="taste-value" id="val-about">Co-founder at a proptech startup in Sydney</div>
+        <div class="inline-edit-wrap" id="edit-about">
+          <input class="inline-edit-input" id="input-about" value="Co-founder at a proptech startup in Sydney">
+          <div class="inline-edit-actions">
+            <button class="btn-save-edit" onclick="saveEdit('about')">Save</button>
+            <button class="btn-cancel-edit" onclick="cancelEdit('about')">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <button class="edit-btn" onclick="openEdit('about')">Edit</button>
+    </div>
+
+    <!-- Row 2: Work & Projects -->
+    <div class="taste-section">
+      <div class="taste-icon">💼</div>
+      <div class="taste-content">
+        <div class="taste-label">Work &amp; Projects</div>
+        <div class="taste-value" id="val-work">Co-founder · Working on: closing 3 enterprise deals before runway ends</div>
+        <div class="inline-edit-wrap" id="edit-work">
+          <input class="inline-edit-input" id="input-work" value="Co-founder · Working on: closing 3 enterprise deals before runway ends">
+          <div class="inline-edit-actions">
+            <button class="btn-save-edit" onclick="saveEdit('work')">Save</button>
+            <button class="btn-cancel-edit" onclick="cancelEdit('work')">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <button class="edit-btn" onclick="openEdit('work')">Edit</button>
+    </div>
+
+    <!-- Row 3: Family -->
+    <div class="taste-section">
+      <div class="taste-icon">👨‍👧</div>
+      <div class="taste-content">
+        <div class="taste-label">Family</div>
+        <div class="taste-value" id="val-family">Two boys aged 5 and 2</div>
+        <div class="inline-edit-wrap" id="edit-family">
+          <input class="inline-edit-input" id="input-family" value="Two boys aged 5 and 2">
+          <div class="inline-edit-actions">
+            <button class="btn-save-edit" onclick="saveEdit('family')">Save</button>
+            <button class="btn-cancel-edit" onclick="cancelEdit('family')">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <button class="edit-btn" onclick="openEdit('family')">Edit</button>
+    </div>
+
+    <!-- Row 4: Want more of -->
+    <div class="taste-section">
+      <div class="taste-icon">🎯</div>
+      <div class="taste-content">
+        <div class="taste-label">What you want more of</div>
+        <div class="taste-value" id="val-more">AI tools, Startups, Property, Parenting, MMA</div>
+        <div class="inline-edit-wrap" id="edit-more">
+          <input class="inline-edit-input" id="input-more" value="AI tools, Startups, Property, Parenting, MMA">
+          <div class="inline-edit-actions">
+            <button class="btn-save-edit" onclick="saveEdit('more')">Save</button>
+            <button class="btn-cancel-edit" onclick="cancelEdit('more')">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <button class="edit-btn" onclick="openEdit('more')">Edit</button>
+    </div>
+
+    <!-- Row 5: Want less of -->
+    <div class="taste-section">
+      <div class="taste-icon">🔕</div>
+      <div class="taste-content">
+        <div class="taste-label">What you want less of</div>
+        <div class="taste-value" id="val-less">Crypto hype, VC drama</div>
+        <div class="inline-edit-wrap" id="edit-less">
+          <input class="inline-edit-input" id="input-less" value="Crypto hype, VC drama">
+          <div class="inline-edit-actions">
+            <button class="btn-save-edit" onclick="saveEdit('less')">Save</button>
+            <button class="btn-cancel-edit" onclick="cancelEdit('less')">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <button class="edit-btn" onclick="openEdit('less')">Edit</button>
+    </div>
+
+    <!-- Row 6: How updated -->
+    <div class="taste-section">
+      <div class="taste-icon">📈</div>
+      <div class="taste-content">
+        <div class="taste-label">How it's been updated</div>
+        <div class="taste-value">Just now — from your onboarding</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email form -->
+  <div class="email-form-wrap" id="emailForm">
+    <div class="email-row">
+      <input type="email" class="email-input" id="emailInput" placeholder="your@email.com">
+      <button class="btn-cta" onclick="handleSubscribe()">
+        Get my Trawly → <span class="change-pill">updated</span>
+      </button>
+    </div>
+    <p class="fine-print">Free during beta · No spam · Unsubscribe anytime</p>
+  </div>
+
+  <!-- Success state (shown below form after "subscribing") -->
+  <div class="success-box" id="successBox" style="display:none">
+    <div class="success-emoji">🎉</div>
+    <div class="success-title">You're in.</div>
+    <div class="success-subtitle">Your personalised digest arrives <strong>tomorrow morning around 6:30am</strong> ☀️ <span class="change-pill">updated</span></div>
+    <div class="success-detail">
+      We'll trawl the internet tonight. Tomorrow morning you'll wake up to a digest that already knows you — your work, your family, what you're trying to figure out right now.
+    </div>
+    <div class="first-digest-preview">
+      📬 <strong>What to expect:</strong> 5–8 stories curated for you. Each one with a "why this matters to you" callout written for <em>your</em> situation — not a generic reader.
+    </div>
+  </div>
+
+  <div class="bottom-spacer"></div>
+</main>
+
+<footer>
+  <p>🐟 traw<span>ly</span> · Built by David &amp; Chop ⚡</p>
+</footer>
+
+<script>
+function openEdit(key) {
+  const wrap = document.getElementById('edit-' + key);
+  const input = document.getElementById('input-' + key);
+  const val = document.getElementById('val-' + key);
+  wrap.classList.add('open');
+  val.style.display = 'none';
+  input.focus();
+  input.select();
+}
+
+function cancelEdit(key) {
+  const wrap = document.getElementById('edit-' + key);
+  const val = document.getElementById('val-' + key);
+  const input = document.getElementById('input-' + key);
+  wrap.classList.remove('open');
+  val.style.display = '';
+  // Reset to original value
+  input.value = val.textContent;
+}
+
+function saveEdit(key) {
+  const wrap = document.getElementById('edit-' + key);
+  const val = document.getElementById('val-' + key);
+  const input = document.getElementById('input-' + key);
+  const newVal = input.value.trim();
+  if (newVal) {
+    val.textContent = newVal;
+    val.classList.remove('empty');
+  }
+  wrap.classList.remove('open');
+  val.style.display = '';
+}
+
+function handleSubscribe() {
+  const email = document.getElementById('emailInput').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('emailInput').style.borderColor = '#DC2626';
+    document.getElementById('emailInput').focus();
+    return;
+  }
+  document.getElementById('emailForm').style.display = 'none';
+  document.getElementById('successBox').style.display = 'block';
+  document.getElementById('successBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+</body>
+</html>

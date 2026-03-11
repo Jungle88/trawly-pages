@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 2 – Current (Trawly Onboarding)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #FAF8F5; font-family: system-ui, -apple-system, sans-serif; color: #1a1a2e; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+header { background: #0B1426; padding: 16px 24px; }
+.logo { color: #fff; font-weight: 800; font-size: 20px; letter-spacing: -0.5px; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.logo span { color: #1d9bf0; }
+
+.progress-bar { background: #0B1426; padding: 10px 24px 14px; display: flex; justify-content: center; gap: 10px; align-items: center; }
+.progress-dot { width: 8px; height: 8px; border-radius: 50%; background: #2d3f5c; transition: all 0.3s ease; }
+.progress-dot.done { background: #3b82f6; }
+.progress-dot.active { background: #1d9bf0; width: 24px; border-radius: 4px; }
+
+main { max-width: 640px; margin: 0 auto; padding: 0 16px 80px; animation: fadeIn 0.25s ease; }
+
+.screen-header { padding: 36px 0 24px; border-bottom: 1px solid #e8e4de; margin-bottom: 28px; }
+.screen-header h1 { font-size: 28px; font-weight: 800; color: #0B1426; line-height: 1.25; margin-bottom: 8px; }
+.screen-header p { font-size: 16px; color: #536471; line-height: 1.6; }
+
+.tip-box { background: #f5f2ed; border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; }
+.tip-box p { font-size: 13px; color: #536471; line-height: 1.7; }
+.tip-box strong { font-weight: 700; color: #374151; display: block; margin-bottom: 8px; }
+.tip-box .dot { color: #1d9bf0; }
+
+.textarea-label { display: block; font-size: 14px; font-weight: 700; color: #374151; margin-bottom: 8px; }
+
+textarea {
+  width: 100%;
+  font-size: 17px;
+  font-family: inherit;
+  padding: 16px;
+  border: 2px solid #e1e8ed;
+  border-radius: 12px;
+  background: #FFFDF9;
+  color: #1a1a2e;
+  outline: none;
+  resize: none;
+  line-height: 1.6;
+}
+textarea::placeholder { color: #aab8c2; }
+
+.story-card { background: #FFFDF9; border-radius: 16px; padding: 24px; margin-bottom: 16px; border: 1px solid #e8e4de; }
+.story-tag { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #1d9bf0; margin-bottom: 10px; }
+.story-headline { font-size: 18px; font-weight: 800; color: #0B1426; margin-bottom: 8px; line-height: 1.3; }
+.story-summary { font-size: 14px; color: #374151; margin-bottom: 12px; line-height: 1.6; }
+
+.callout-amber { display: flex; margin: 10px 0; border-radius: 0 8px 8px 0; overflow: hidden; }
+.callout-amber .bar { width: 3px; flex-shrink: 0; background: #F59E0B; }
+.callout-amber .body { background: #FFF8ED; padding: 12px 14px; font-size: 13.5px; color: #374151; line-height: 1.55; flex: 1; }
+.callout-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: #B45309; display: flex; align-items: center; margin-bottom: 4px; }
+.callout-text-grey { color: #aab8c2; }
+
+.stage2-hint { font-size: 13px; color: #8899a6; text-align: center; margin: 4px 0 24px; line-height: 1.6; }
+
+.btn-primary {
+  display: block; width: 100%;
+  background: #0B1426; color: #fff;
+  font-size: 16px; font-weight: 700;
+  padding: 16px 24px; border: none;
+  border-radius: 12px; cursor: pointer;
+  text-align: center; margin-top: 16px;
+  letter-spacing: -0.2px; font-family: inherit;
+}
+.btn-primary:hover { background: #162036; }
+
+footer { background: #0B1426; padding: 24px; text-align: center; }
+footer p { font-size: 14px; color: #6B7280; }
+footer span { color: #1d9bf0; }
+
+.mockup-badge { background: #1d9bf0; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 6px; letter-spacing: 0.5px; }
+.mockup-label { background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 8px; padding: 10px 16px; margin-bottom: 20px; font-size: 13px; color: #0369a1; }
+</style>
+</head>
+<body>
+
+<header>
+  <div style="max-width:640px;margin:0 auto">
+    <div class="logo">🐟 traw<span>ly</span></div>
+  </div>
+</header>
+
+<div class="progress-bar">
+  <div class="progress-dot done"></div>
+  <div class="progress-dot active"></div>
+  <div class="progress-dot"></div>
+  <div class="progress-dot"></div>
+</div>
+
+<main>
+  <div class="mockup-label">
+    <div class="mockup-badge">CURRENT — Stage 2</div><br>
+    This is Stage 2 as it exists today. Textarea with hint, no LLM prompt integration. Amber callouts show generic greyed-out text.
+  </div>
+
+  <div class="screen-header">
+    <h1>Watch Trawly learn who you are.</h1>
+    <p>The stories stay the same. Your callouts transform as you describe yourself.</p>
+  </div>
+
+  <div style="margin-bottom:24px">
+    <div class="tip-box">
+      <p>
+        <strong>💡 The more specific, the better your digest.</strong>
+        Things worth mentioning:<br>
+        <span class="dot">•</span> Your city and what industry you're in<br>
+        <span class="dot">•</span> What you're actively building or working on right now<br>
+        <span class="dot">•</span> Family situation — kids, partner, life stage<br>
+        <span class="dot">•</span> What you want MORE of in your digest<br>
+        <span class="dot">•</span> What you want LESS of
+      </p>
+    </div>
+    <label class="textarea-label">Tell Trawly more about you</label>
+    <textarea rows="5" placeholder="e.g. I'm co-founder at a proptech startup in Sydney with a short runway — trying to close enterprise deals. Two boys aged 5 and 2. Love MMA. Want more on AI tools for small teams, less crypto hype and VC drama..."></textarea>
+  </div>
+
+  <!-- Story 1 -->
+  <div class="story-card">
+    <div class="story-tag">AI &amp; TECH</div>
+    <div class="story-headline">OpenAI's new model cuts small-team coding time by 40%</div>
+    <div class="story-summary">A new release from OpenAI is showing measurable productivity gains for teams under 10, particularly for non-engineers building internal tools.</div>
+    <div class="callout-amber">
+      <div class="bar"></div>
+      <div class="body">
+        <div class="callout-label">🎯 Why this matters to you</div>
+        <span class="callout-text-grey">Add more about yourself above and we'll personalise this for you.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 2 -->
+  <div class="story-card">
+    <div class="story-tag">PROPERTY</div>
+    <div class="story-headline">Sydney's rental squeeze is driving first-home buyers back to the market</div>
+    <div class="story-summary">Rental vacancy rates in Sydney hit a 15-year low, pushing renters to reconsider ownership despite higher interest rates. New data shows inquiries up 28% YoY.</div>
+    <div class="callout-amber">
+      <div class="bar"></div>
+      <div class="body">
+        <div class="callout-label">🎯 Why this matters to you</div>
+        <span class="callout-text-grey">Add more about yourself above and we'll personalise this for you.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 3 -->
+  <div class="story-card">
+    <div class="story-tag">HEALTH &amp; PARENTING</div>
+    <div class="story-headline">New research links mouth-breathing in kids to long-term sleep issues</div>
+    <div class="story-summary">A Stanford study finds that children who primarily mouth-breathe during sleep show structural facial changes and elevated cortisol. ENT referrals up 60% globally.</div>
+    <div class="callout-amber">
+      <div class="bar"></div>
+      <div class="body">
+        <div class="callout-label">🎯 Why this matters to you</div>
+        <span class="callout-text-grey">Add more about yourself above and we'll personalise this for you.</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="stage2-hint">Every detail you share shows up in every story. Your city. Your job. Your kids. Your projects.</p>
+
+  <button class="btn-primary">Set up my Trawly →</button>
+</main>
+
+<footer>
+  <p>🐟 traw<span>ly</span> · Built by David &amp; Chop ⚡</p>
+</footer>
+
+</body>
+</html>
