@@ -3,272 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trawly Research Test — A vs B vs C</title>
+<title>Trawly — Research A/B/C Comparison (Proper Test, 14 Mar 2026)</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #0a0f1a; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; min-height: 100vh; }
-  .header { background: #0d1420; border-bottom: 1px solid #1e293b; padding: 20px 32px; display: flex; align-items: center; gap: 12px; }
-  .logo { font-size: 20px; font-weight: 700; color: #2dd4bf; letter-spacing: -0.5px; }
-  .subtitle { color: #64748b; font-size: 13px; margin-left: auto; }
-  .container { max-width: 900px; margin: 48px auto; padding: 0 24px; }
-  h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
-  h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #f1f5f9; }
-  .desc { color: #94a3b8; margin-bottom: 40px; font-size: 15px; line-height: 1.6; }
-  .section { margin-bottom: 48px; }
-  .section-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #2dd4bf; margin-bottom: 16px; }
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .card { background: #0d1420; border: 1px solid #1e293b; border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.1s; display: block; }
-  .card:hover { border-color: #2dd4bf; transform: translateY(-2px); }
-  .card-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-  .card-label.a { color: #f59e0b; }
-  .card-label.b { color: #3b82f6; }
-  .card-label.c { color: #2dd4bf; }
-  .card-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-  .card-desc { font-size: 12px; color: #64748b; line-height: 1.5; }
-  .legend { background: #0d1420; border: 1px solid #1e293b; border-radius: 12px; padding: 24px; margin-bottom: 40px; }
-  .legend-title { font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .legend-item { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
-  .legend-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; white-space: nowrap; margin-top: 2px; }
-  .badge-a { background: #78350f; color: #fbbf24; }
-  .badge-b { background: #1e3a5f; color: #60a5fa; }
-  .badge-c { background: #134e4a; color: #2dd4bf; }
-  .legend-text { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0ede8; color: #1a1a1a; padding: 32px 16px; }
+  .container { max-width: 800px; margin: 0 auto; }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .subtitle { color: #666; font-size: 15px; margin-bottom: 32px; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-left: 8px; }
+  .badge-live { background: #d1fae5; color: #065f46; }
+  .badge-proper { background: #dbeafe; color: #1e40af; }
+  
+  .section { margin-bottom: 40px; }
+  .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #888; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #e0dbd4; }
+  
+  .subscriber { margin-bottom: 32px; }
+  .subscriber-name { font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #444; }
+  
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 8px; }
+  
+  .card { background: #fff; border-radius: 12px; padding: 16px; text-decoration: none; color: inherit; display: block; border: 2px solid transparent; transition: all 0.15s; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .card-a { border-color: #6366f1; }
+  .card-b { border-color: #f59e0b; }
+  .card-c { border-color: #10b981; }
+  
+  .method-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .method-a { color: #6366f1; }
+  .method-b { color: #f59e0b; }
+  .method-c { color: #10b981; }
+  
+  .card-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .card-desc { font-size: 12px; color: #888; line-height: 1.4; }
+  .card-size { font-size: 11px; color: #aaa; margin-top: 8px; }
+  
+  .legend { display: flex; gap: 24px; margin-bottom: 24px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #666; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+  .dot-a { background: #6366f1; }
+  .dot-b { background: #f59e0b; }
+  .dot-c { background: #10b981; }
 
-  /* COGS table */
-  .cogs-wrap { background: #0d1420; border: 1px solid #1e293b; border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
-  .cogs-wrap table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .cogs-wrap th { background: #0a0f1a; padding: 12px 16px; text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: #64748b; border-bottom: 1px solid #1e293b; }
-  .cogs-wrap th.a { color: #f59e0b; }
-  .cogs-wrap th.b { color: #3b82f6; }
-  .cogs-wrap th.c { color: #2dd4bf; }
-  .cogs-wrap td { padding: 11px 16px; border-bottom: 1px solid #0f172a; color: #cbd5e1; }
-  .cogs-wrap tr:last-child td { border-bottom: none; }
-  .cogs-wrap td.label { color: #94a3b8; font-size: 12px; }
-  .cogs-wrap td.total { font-weight: 700; color: #f1f5f9; }
-  .cogs-wrap td.winner { color: #2dd4bf; font-weight: 700; }
-  .cogs-wrap td.note { color: #64748b; font-size: 11px; font-style: italic; }
-  .cogs-wrap tr.divider td { background: #0a0f1a; color: #475569; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 16px; }
-  .scale-box { background: #0d1420; border: 1px solid #1e293b; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
-  .scale-box h3 { font-size: 14px; font-weight: 600; margin-bottom: 16px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
-  .scale-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #0f172a; font-size: 13px; }
-  .scale-row:last-child { border-bottom: none; }
-  .scale-label { color: #94a3b8; }
-  .scale-vals { display: flex; gap: 32px; }
-  .scale-val { text-align: right; }
-  .scale-val .method { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
-  .scale-val .method.a { color: #f59e0b; }
-  .scale-val .method.b { color: #3b82f6; }
-  .scale-val .method.c { color: #2dd4bf; }
-  .scale-val .amount { font-weight: 600; color: #f1f5f9; }
-  .assumption { background: #0a0f1a; border: 1px solid #1e293b; border-radius: 8px; padding: 16px; margin-top: 16px; font-size: 12px; color: #64748b; line-height: 1.7; }
-  .assumption strong { color: #94a3b8; }
-  .highlight-box { background: #0d2b28; border: 1px solid #134e4a; border-radius: 8px; padding: 16px; margin-top: 16px; font-size: 13px; color: #5eead4; line-height: 1.6; }
+  .methodology-table { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 32px; }
+  .methodology-table table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .methodology-table th { text-align: left; padding: 8px 12px; font-weight: 700; border-bottom: 2px solid #f0ede8; }
+  .methodology-table td { padding: 8px 12px; border-bottom: 1px solid #f5f3f0; vertical-align: top; }
+  .methodology-table tr:last-child td { border-bottom: none; }
+  .th-a { color: #6366f1; }
+  .th-b { color: #f59e0b; }
+  .th-c { color: #10b981; }
+
+  .note { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #92400e; margin-bottom: 24px; }
+  .note strong { font-weight: 700; }
 </style>
 </head>
 <body>
-<div class="header">
-  <div class="logo">🐟 Trawly</div>
-  <div class="subtitle">Research methodology test — 14 Mar 2026</div>
-</div>
 <div class="container">
-  <h1>Research A vs B vs C</h1>
-  <p class="desc">Three different research approaches tested on the same day. Compare content quality, story selection, and cost.</p>
+  <h1>Trawly Research A/B/C <span class="badge badge-proper">Proper Test</span></h1>
+  <p class="subtitle">Saturday 14 March 2026 — Full runs, identical compile step, Opus model, DIGEST-SPEC compliant. ~7 min each.</p>
+
+  <div class="note">
+    <strong>What changed vs earlier tests:</strong> All 6 digests now use the full production compile stack (DIGEST-SPEC + format-v4-LOCKED.html). Only the research methodology (Step 1) differs. Earlier tests had contaminated compile instructions — those results are superseded by these.
+  </div>
+
+  <div class="methodology-table">
+    <table>
+      <tr>
+        <th class="th-a">🟣 Research A — Current Production</th>
+        <th class="th-b">🟡 Research B — Wide Net + Thresholds</th>
+        <th class="th-c">🟢 Research C — Wide Net + Editorial</th>
+      </tr>
+      <tr>
+        <td>5 targeted queries per user<br>500+ likes OR 100+ bookmarks required<br>HN + Reddit + 3 Brave searches</td>
+        <td>15 queries per user<br>Time-weighted thresholds (20→150 bookmarks by age)<br>Fallback to editorial if &lt;8 pass<br>HN + Reddit + Brave</td>
+        <td>30 queries per user (topic-first, no accounts)<br>NO engagement thresholds<br>Editorial judgment only: "would a smart person want this?"<br>HN + Reddit + Brave + GitHub Trending</td>
+      </tr>
+      <tr>
+        <td><strong>Risk:</strong> Misses early/niche content. X returns low-engagement posts → HN/Reddit carry most weight.</td>
+        <td><strong>Risk:</strong> Thresholds too aggressive for 0-24h posts. May filter legitimate pre-viral content.</td>
+        <td><strong>Risk:</strong> Wider net = more noise for editor to filter. Relies on AI editorial quality.</td>
+      </tr>
+    </table>
+  </div>
 
   <div class="legend">
-    <div class="legend-title">What's different</div>
-    <div class="legend-item">
-      <span class="legend-badge badge-a">A</span>
-      <span class="legend-text"><strong>Current method</strong> — 5 X queries, known-account signals, 1 post = 1 story, 500+ likes minimum bar. This is what runs every morning today.</span>
-    </div>
-    <div class="legend-item">
-      <span class="legend-badge badge-b">B</span>
-      <span class="legend-text"><strong>Wide net + thresholds</strong> — 30+ topic queries, no account bias, time-weighted engagement thresholds (50–400 bookmarks by post age), Opus constructs stories editorially.</span>
-    </div>
-    <div class="legend-item">
-      <span class="legend-badge badge-c">C</span>
-      <span class="legend-text"><strong>Wide net + editorial judgment</strong> — Same as B but NO engagement thresholds. Opus decides purely on content quality. Surfaces valuable zero-engagement posts before they go viral.</span>
-    </div>
+    <div class="legend-item"><div class="legend-dot dot-a"></div> Research A (current)</div>
+    <div class="legend-item"><div class="legend-dot dot-b"></div> Research B (thresholds)</div>
+    <div class="legend-item"><div class="legend-dot dot-c"></div> Research C (editorial)</div>
   </div>
 
   <div class="section">
-    <div class="section-title">David's Digest</div>
-    <div class="cards">
-      <a href="david-A.html" class="card">
-        <div class="card-label a">Research A</div>
-        <div class="card-title">Current Method</div>
-        <div class="card-desc">5 queries · HN heavy · 1 post per story · engagement-gated</div>
+    <div class="section-title">David's Digests</div>
+    <div class="grid">
+      <a href="proper-test-david-A-2026-03-14.html" class="card card-a">
+        <div class="method-label method-a">🟣 Research A</div>
+        <div class="card-title">David — Current Production</div>
+        <div class="card-desc">5 queries · 500+ likes/100+ bookmarks bar · HN + Reddit dominant</div>
+        <div class="card-size">45KB · 15 stories</div>
       </a>
-      <a href="david-B.html" class="card">
-        <div class="card-label b">Research B</div>
-        <div class="card-title">Wide Net + Thresholds</div>
-        <div class="card-desc">35 queries · topic-first · time-weighted engagement bar · clusters</div>
+      <a href="proper-test-david-B-2026-03-14.html" class="card card-b">
+        <div class="method-label method-b">🟡 Research B</div>
+        <div class="card-title">David — Time-Weighted</div>
+        <div class="card-desc">15 queries · aggressive time-weighted thresholds · editorial fallback</div>
+        <div class="card-size">45KB · 15 stories</div>
       </a>
-      <a href="david-C.html" class="card">
-        <div class="card-label c">Research C</div>
-        <div class="card-title">Editorial Judgment</div>
-        <div class="card-desc">30+ queries · no thresholds · Opus decides · surfaces early signal</div>
+      <a href="proper-test-david-C-2026-03-14.html" class="card card-c">
+        <div class="method-label method-c">🟢 Research C</div>
+        <div class="card-title">David — Editorial Only</div>
+        <div class="card-desc">30 queries · no thresholds · pure editorial judgment</div>
+        <div class="card-size">35KB · 15 stories</div>
       </a>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">Buket's Digest</div>
-    <div class="cards">
-      <a href="buket-A.html" class="card">
-        <div class="card-label a">Research A</div>
-        <div class="card-title">Current Method</div>
-        <div class="card-desc">5 queries · authority-weighted · 1 post per story</div>
+    <div class="section-title">Buket's Digests</div>
+    <div class="grid">
+      <a href="proper-test-buket-A-2026-03-14.html" class="card card-a">
+        <div class="method-label method-a">🟣 Research A</div>
+        <div class="card-title">Buket — Current Production</div>
+        <div class="card-desc">5 queries · authority/medical bar · Reddit + PubMed Brave</div>
+        <div class="card-size">53KB · 15 stories</div>
       </a>
-      <a href="buket-B.html" class="card">
-        <div class="card-label b">Research B</div>
-        <div class="card-title">Wide Net + Thresholds</div>
-        <div class="card-desc">13 queries · topic-first · engagement thresholds · clusters</div>
+      <a href="proper-test-buket-B-2026-03-14.html" class="card card-b">
+        <div class="method-label method-b">🟡 Research B</div>
+        <div class="card-title">Buket — Time-Weighted</div>
+        <div class="card-desc">15 queries · thresholds with medical source exception · fallback editorial</div>
+        <div class="card-size">49KB · 15 stories</div>
       </a>
-      <a href="buket-C.html" class="card">
-        <div class="card-label c">Research C</div>
-        <div class="card-title">Editorial Judgment</div>
-        <div class="card-desc">12 queries · no thresholds · Reddit-rich · Opus curates</div>
+      <a href="proper-test-buket-C-2026-03-14.html" class="card card-c">
+        <div class="method-label method-c">🟢 Research C</div>
+        <div class="card-title">Buket — Editorial Only</div>
+        <div class="card-desc">30 queries · no thresholds · specialist depth enforced</div>
+        <div class="card-size">51KB · 15 stories</div>
       </a>
     </div>
   </div>
 
-  <!-- COGS SECTION -->
-  <div class="section">
-    <h2>💰 Cost of Goods — Per Run</h2>
-    <p style="color:#64748b; font-size:13px; margin-bottom:24px;">Actual token usage from today's test runs. Anthropic Opus pricing: $15/M input · $75/M output · $1.50/M cache reads. X API: $0.005/read (pay-per-use). Brave: free tier included.</p>
-
-    <div class="section-title">David</div>
-    <div class="cogs-wrap" style="margin-bottom:24px;">
-      <table>
-        <thead>
-          <tr>
-            <th>Cost item</th>
-            <th class="a">Research A</th>
-            <th class="b">Research B ⚠️</th>
-            <th class="c">Research C</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="label">X API reads</td><td>~100</td><td>~350</td><td>~160</td></tr>
-          <tr><td class="label">X API cost</td><td>$0.50</td><td>$1.75</td><td>$0.80</td></tr>
-          <tr><td class="label">Opus output tokens</td><td>17,400</td><td>6,700</td><td>11,600</td></tr>
-          <tr><td class="label">Cached context tokens</td><td>89,300</td><td>38,200</td><td>63,700</td></tr>
-          <tr><td class="label">Anthropic — output</td><td>$1.31</td><td>$0.50</td><td>$0.87</td></tr>
-          <tr><td class="label">Anthropic — cache reads</td><td>$0.13</td><td>$0.06</td><td>$0.10</td></tr>
-          <tr><td class="label">Brave searches</td><td>$0.00</td><td>$0.00</td><td>$0.00</td></tr>
-          <tr>
-            <td class="label total">Total per run</td>
-            <td class="total">$1.94</td>
-            <td class="total note">~$2.31 *</td>
-            <td class="total winner">$1.77</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="color:#64748b; font-size:11px; margin-bottom:32px;">⚠️ Research B session was restarted mid-run — token counts understate true cost. Estimated true B cost: ~$2.50/run.</p>
-
-    <div class="section-title">Buket</div>
-    <div class="cogs-wrap" style="margin-bottom:8px;">
-      <table>
-        <thead>
-          <tr>
-            <th>Cost item</th>
-            <th class="a">Research A</th>
-            <th class="b">Research B</th>
-            <th class="c">Research C</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="label">X API reads</td><td>~100</td><td>~130</td><td>~120</td></tr>
-          <tr><td class="label">X API cost</td><td>$0.50</td><td>$0.65</td><td>$0.60</td></tr>
-          <tr><td class="label">Opus output tokens</td><td>15,000</td><td>13,800</td><td>16,700</td></tr>
-          <tr><td class="label">Cached context tokens</td><td>80,700</td><td>81,200</td><td>92,900</td></tr>
-          <tr><td class="label">Anthropic — output</td><td>$1.13</td><td>$1.04</td><td>$1.25</td></tr>
-          <tr><td class="label">Anthropic — cache reads</td><td>$0.12</td><td>$0.12</td><td>$0.14</td></tr>
-          <tr><td class="label">Brave searches</td><td>$0.00</td><td>$0.00</td><td>$0.00</td></tr>
-          <tr>
-            <td class="label total">Total per run</td>
-            <td class="total">$1.75</td>
-            <td class="total winner">$1.81</td>
-            <td class="total">$1.99</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="color:#64748b; font-size:11px; margin-bottom:32px;">Note: X API is less useful for Buket's topics (perimenopause, Montessori). Reddit + Brave carry most of her research weight. X reads could be reduced significantly for her profile.</p>
+  <div class="methodology-table" style="margin-top: 8px;">
+    <p style="font-size: 13px; color: #888; font-weight: 600; margin-bottom: 12px;">WHAT TO LOOK FOR</p>
+    <table>
+      <tr>
+        <td style="width: 30%; font-weight: 600;">Story quality</td>
+        <td>Are the 15 stories actually worth reading? Surprising? Actionable? Or generic filler?</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600;">X content ratio</td>
+        <td>How much comes from X vs HN/Reddit? C should have more X content due to no threshold filter.</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600;">Pre-viral gems</td>
+        <td>Does C surface anything A/B missed that turned out to be interesting? That's the key C advantage.</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600;">Noise level</td>
+        <td>Does C include anything that clearly shouldn't be there? That's its main risk.</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600;">Personalisation</td>
+        <td>Does the content feel tailored to you/Buket, or generic? Check the amber callout boxes.</td>
+      </tr>
+    </table>
   </div>
 
-  <!-- SCALE SECTION -->
-  <div class="section">
-    <h2>📈 What Happens at Scale</h2>
-    <p style="color:#64748b; font-size:13px; margin-bottom:24px;">The game-changer at 100+ users: X API deduplication. The same tweet fetched for multiple users in the same 24h UTC window = charged once. A shared trawl pool means research cost is flat regardless of user count.</p>
-
-    <div class="scale-box">
-      <h3>Daily cost — current architecture (per-user research)</h3>
-      <div class="scale-row">
-        <span class="scale-label">2 users (today)</span>
-        <div class="scale-vals">
-          <div class="scale-val"><div class="method a">A</div><div class="amount">$3.69</div></div>
-          <div class="scale-val"><div class="method b">B</div><div class="amount">~$5.00</div></div>
-          <div class="scale-val"><div class="method c">C</div><div class="amount">$3.76</div></div>
-        </div>
-      </div>
-      <div class="scale-row">
-        <span class="scale-label">100 users</span>
-        <div class="scale-vals">
-          <div class="scale-val"><div class="method a">A</div><div class="amount">$184</div></div>
-          <div class="scale-val"><div class="method b">B</div><div class="amount">$250</div></div>
-          <div class="scale-val"><div class="method c">C</div><div class="amount">$177</div></div>
-        </div>
-      </div>
-      <div class="scale-row">
-        <span class="scale-label">1,000 users</span>
-        <div class="scale-vals">
-          <div class="scale-val"><div class="method a">A</div><div class="amount">$1,840</div></div>
-          <div class="scale-val"><div class="method b">B</div><div class="amount">$2,500</div></div>
-          <div class="scale-val"><div class="method c">C</div><div class="amount">$1,770</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="scale-box">
-      <h3>Daily cost — platform architecture (shared trawl pool)</h3>
-      <p style="color:#64748b; font-size:12px; margin-bottom:16px;">Research runs once per topic cluster. Per-user step = compile only (~$0.35 Anthropic, no X API reads). X API cost shared across all users.</p>
-      <div class="scale-row">
-        <span class="scale-label">Shared trawl (one-time/day)</span>
-        <div class="scale-vals">
-          <div class="scale-val"><div class="method a">A</div><div class="amount">$0.50</div></div>
-          <div class="scale-val"><div class="method b">B</div><div class="amount">$1.75</div></div>
-          <div class="scale-val"><div class="method c">C</div><div class="amount">$0.80</div></div>
-        </div>
-      </div>
-      <div class="scale-row">
-        <span class="scale-label">100 users (compile only)</span>
-        <div class="scale-vals">
-          <div class="scale-val"><div class="method a">A</div><div class="amount">$35.50</div></div>
-          <div class="scale-val"><div class="method b">B</div><div class="amount">$36.75</div></div>
-          <div class="scale-val"><div class="method c">C</div><div class="amount">$35.80</div></div>
-        </div>
-      </div>
-      <div class="scale-row">
-        <span class="scale-label">1,000 users (compile only)</span>
-        <div class="scale-vals">
-          <div class="scale-val"><div class="method a">A</div><div class="amount">$350.50</div></div>
-          <div class="scale-val"><div class="method b">B</div><div class="amount">$351.75</div></div>
-          <div class="scale-val"><div class="method c">C</div><div class="amount">$350.80</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="highlight-box">
-      💡 <strong>Key insight:</strong> At scale, the difference between A/B/C becomes negligible — they converge to ~$0.35/user/day (compile cost). The X API and research cost becomes a flat overhead shared across all users. The only cost that scales linearly is the per-user compile step. Choose the methodology that produces the best quality, not the cheapest one — the cost difference at scale is pennies per user.
-    </div>
-
-    <div class="assumption">
-      <strong>Assumptions:</strong> Anthropic Opus $15/M input · $75/M output · $1.50/M cache reads. X API $0.005/read (pay-per-use). Brave free tier. Per-user compile step estimated at $0.35 (shorter session, reads from cached story pool, no API calls). Shared trawl assumes one research pass per topic cluster per day.
-    </div>
-  </div>
-
+  <p style="font-size: 12px; color: #aaa; text-align: center; margin-top: 32px;">Generated by Chop ⚡ · Trawly Research Test · 14 Mar 2026</p>
 </div>
 </body>
 </html>
