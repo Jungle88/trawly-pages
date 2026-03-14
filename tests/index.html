@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly Research Test — A vs B vs C</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0f1a; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; min-height: 100vh; }
+  .header { background: #0d1420; border-bottom: 1px solid #1e293b; padding: 20px 32px; display: flex; align-items: center; gap: 12px; }
+  .logo { font-size: 20px; font-weight: 700; color: #2dd4bf; letter-spacing: -0.5px; }
+  .subtitle { color: #64748b; font-size: 13px; margin-left: auto; }
+  .container { max-width: 800px; margin: 48px auto; padding: 0 24px; }
+  h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+  .desc { color: #94a3b8; margin-bottom: 40px; font-size: 15px; line-height: 1.6; }
+  .section { margin-bottom: 40px; }
+  .section-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #2dd4bf; margin-bottom: 16px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .card { background: #0d1420; border: 1px solid #1e293b; border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.1s; display: block; }
+  .card:hover { border-color: #2dd4bf; transform: translateY(-2px); }
+  .card-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .card-label.a { color: #f59e0b; }
+  .card-label.b { color: #3b82f6; }
+  .card-label.c { color: #2dd4bf; }
+  .card-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .card-desc { font-size: 12px; color: #64748b; line-height: 1.5; }
+  .legend { background: #0d1420; border: 1px solid #1e293b; border-radius: 12px; padding: 24px; margin-bottom: 40px; }
+  .legend-title { font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .legend-item { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+  .legend-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; white-space: nowrap; margin-top: 2px; }
+  .badge-a { background: #78350f; color: #fbbf24; }
+  .badge-b { background: #1e3a5f; color: #60a5fa; }
+  .badge-c { background: #134e4a; color: #2dd4bf; }
+  .legend-text { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo">🐟 Trawly</div>
+  <div class="subtitle">Research methodology test — 14 Mar 2026</div>
+</div>
+<div class="container">
+  <h1>Research A vs B vs C</h1>
+  <p class="desc">Three different research approaches tested on the same day. Compare the content quality, story selection, and overall feel.</p>
+
+  <div class="legend">
+    <div class="legend-title">What's different</div>
+    <div class="legend-item">
+      <span class="legend-badge badge-a">A</span>
+      <span class="legend-text"><strong>Current method</strong> — 5 X queries, account-specific signals, 1 post = 1 story, 500+ likes minimum bar. This is what runs every morning today.</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-badge badge-b">B</span>
+      <span class="legend-text"><strong>Wide net + thresholds</strong> — 30+ topic queries, no account bias, time-weighted engagement thresholds (50–400 bookmarks depending on age), Opus constructs stories editorially.</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-badge badge-c">C</span>
+      <span class="legend-text"><strong>Wide net + editorial judgment</strong> — Same as B but NO engagement thresholds. Opus decides purely on content quality. Can surface zero-engagement posts that are genuinely valuable.</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">David's Digest</div>
+    <div class="cards">
+      <a href="david-A.html" class="card">
+        <div class="card-label a">Research A</div>
+        <div class="card-title">Current Method</div>
+        <div class="card-desc">5 queries · HN heavy · 1 post per story · engagement-gated</div>
+      </a>
+      <a href="david-B.html" class="card">
+        <div class="card-label b">Research B</div>
+        <div class="card-title">Wide Net + Thresholds</div>
+        <div class="card-desc">30+ queries · topic-first · time-weighted engagement bar</div>
+      </a>
+      <a href="david-C.html" class="card">
+        <div class="card-label c">Research C</div>
+        <div class="card-title">Editorial Judgment</div>
+        <div class="card-desc">30+ queries · no thresholds · Opus decides · early signal</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Buket's Digest</div>
+    <div class="cards">
+      <a href="buket-A.html" class="card">
+        <div class="card-label a">Research A</div>
+        <div class="card-title">Current Method</div>
+        <div class="card-desc">5 queries · authority-weighted · 1 post per story</div>
+      </a>
+      <a href="buket-B.html" class="card">
+        <div class="card-label b">Research B</div>
+        <div class="card-title">Wide Net + Thresholds</div>
+        <div class="card-desc">13+ queries · topic-first · engagement thresholds applied</div>
+      </a>
+      <a href="buket-C.html" class="card">
+        <div class="card-label c">Research C</div>
+        <div class="card-title">Editorial Judgment</div>
+        <div class="card-desc">12+ queries · no thresholds · Reddit-rich · Opus curates</div>
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

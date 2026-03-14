@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trawly Digest — Research C | March 14, 2026</title>
+  <style>
+    :root {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --bg-tertiary: #21262d;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --accent: #2dd4bf;
+      --accent-dim: #14b8a6;
+      --border: #30363d;
+      --link: #58a6ff;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+    
+    header {
+      text-align: center;
+      padding: 32px 0 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+    
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+    
+    .date {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    
+    .methodology-badge {
+      display: inline-block;
+      background: var(--bg-tertiary);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-top: 12px;
+      border: 1px solid var(--accent-dim);
+    }
+    
+    .story {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+    
+    .story-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    
+    .story-headline {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    
+    .story-body {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    
+    .story-body strong {
+      color: var(--text-primary);
+    }
+    
+    .tweet-embed {
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      border-left: 3px solid var(--accent);
+    }
+    
+    .tweet-author {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 14px;
+    }
+    
+    .tweet-handle {
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+    
+    .tweet-text {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+    
+    .tweet-metrics {
+      display: flex;
+      gap: 16px;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    
+    .multi-source {
+      border-left: 3px solid var(--accent);
+    }
+    
+    .sources-tag {
+      display: inline-block;
+      background: rgba(45, 212, 191, 0.1);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      margin-left: 8px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 32px;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+    
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .stat-highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">🎣 Trawly</div>
+      <div class="date">Friday, March 14, 2026</div>
+      <div class="methodology-badge">Research C — Editorial Judgment Only</div>
+    </header>
+
+    <!-- STORY 1: UFC Cluster -->
+    <article class="story multi-source">
+      <div class="story-section">🥊 UFC/MMA <span class="sources-tag">3 sources</span></div>
+      <h2 class="story-headline">Khamzat Puts a Bounty on Himself: UFC 328 Hype Reaches Fever Pitch</h2>
+      <div class="tweet-embed">
+        <div class="tweet-author">FREAK.MMA <span class="tweet-handle">@FREAKMMA1</span></div>
+        <div class="tweet-text">Daniel Cormier reveals Khamzat Chimaev is paying people to go hard in camp for the Sean Strickland fight. 🤯 #UFC328 
+
+"Khamzat Chimaev wants people to go so hard with him to try to beat and submit him - he's paying them. Khamzat put a bounty on himself."</div>
+      </div>
+      <div class="story-body">
+        <p>The most anticipated middleweight title fight in years just got more interesting. <strong>Khamzat Chimaev is literally paying sparring partners to try to beat him</strong> in preparation for his May 9th showdown with Sean Strickland at UFC 328.</p>
+        <p style="margin-top: 12px;">The discourse is split. Multiple analysts point to DDP landing 6 takedowns on Strickland as evidence Khamzat's wrestling will be too much. Others note Strickland's underrated power and crafty jab. The Wolf has 12 million followers to Strickland's 3 million — this is the biggest star vs. gatekeeper matchup the UFC has. One fan summed it up: "Either the fight doesn't happen (injury) or he's killing Strickland on live television."</p>
+        <p style="margin-top: 12px;"><strong>UFC also announced</strong> the "Freedom 250" event at the White House on June 14th with 85,000 free tickets — one of four CBS broadcasts this year under the Paramount+ deal.</p>
+      </div>
+    </article>
+
+    <!-- STORY 2: AR/VR Architecture Tool -->
+    <article class="story">
+      <div class="story-section">🏗️ PropTech</div>
+      <h2 class="story-headline">Browser-Based AR for Architecture: 2-Hour Build Goes Viral with 73K+ Views</h2>
+      <div class="tweet-embed">
+        <div class="tweet-author">Miles Dyson <span class="tweet-handle">@menrva33</span></div>
+        <div class="tweet-text">Built this in 2 hours … lol 🫣
+
+You can load your 3D architecture model, drop it anywhere on Google Maps, and render it at real locations…from any perspective you want. Day and night.
+
+All browser-based.
+
+Shoutout to @GoogleAIStudio and @OfficialLoganK Gemini 3.1 pro Preview is 🔥</div>
+        <div class="tweet-metrics">
+          <span>🔄 141</span>
+          <span>❤️ 1,165</span>
+          <span>🔖 1,062</span>
+        </div>
+      </div>
+      <div class="story-body">
+        <p><strong>This is exactly what Enviz does, but someone just built a version in 2 hours using Gemini 3.1 Pro.</strong></p>
+        <p style="margin-top: 12px;">The tool lets you load a 3D architecture model, drop it onto Google Maps at any real-world location, and render day/night perspectives — all in browser. 1,062 bookmarks suggests serious interest from the architecture/PropTech community. The speed-to-market pressure for AR visualization tools is now measured in hours, not months.</p>
+      </div>
+    </article>
+
+    <!-- STORY 3: AI Agent Infrastructure Cluster -->
+    <article class="story multi-source">
+      <div class="story-section">🤖 AI Agents <span class="sources-tag">4 sources</span></div>
+      <h2 class="story-headline">The Agent Economy Needs Infrastructure: Identity, Memory, and Trust Are the New Moats</h2>
+      <div class="tweet-embed">
+        <div class="tweet-author">defimessiah0x <span class="tweet-handle">@defimessiah1</span></div>
+        <div class="tweet-text">AI agents are incredibly smart, but they suffer from one fatal flaw: Amnesia. 🧠🤖
+
+Every time an autonomous agent restarts, it forgets its past actions. To fix this, I just built and deployed Onchain Memory-as-a-Service (MaaS) for agents.</div>
+      </div>
+      <div class="story-body">
+        <p>Several builders are converging on the same insight: <strong>AI agents need infrastructure that doesn't exist yet.</strong></p>
+        <p style="margin-top: 12px;">@defimessiah1 shipped "Memory-as-a-Service" for agents — persistent memory that survives restarts. Meanwhile, @frontrunvc catalogued the emerging "agent identity" space: @credz_ai building credit scores for AI agents, @helixaxyz doing onchain reputation, @valiron_grade creating Moody's-style agent grading.</p>
+        <p style="margin-top: 12px;">The @LazAINetwork framing cuts to the chase: "AI agents coordinating work and hiring humans for tasks raises a new challenge: how these agents establish identity, reputation, and trust when operating autonomously." The pattern is clear — whoever solves agent identity/reputation owns a layer that every agent must pass through.</p>
+      </div>
+    </article>
+
+    <!-- STORY 4: Circle Skills Launch -->
+    <article class="story multi-source">
+      <div class="story-section">💰 Crypto <span class="sources-tag">2 sources</span></div>
+      <h2 class="story-headline">Circle Launches Open-Source AI Toolkit for Stablecoin Integration</h2>
+      <div class="story-body">
+        <p><strong>Circle just shipped "Circle Skills"</strong> — an open-source AI development tool for building apps that integrate USDC, EURC, and their Arc stablecoin. The toolkit supports Claude Code and Cursor, enabling automated payments, cross-chain transfers, and smart contract logic.</p>
+        <p style="margin-top: 12px;">This is the stablecoin company going full AI-native. Multiple sources confirm they're pushing deep into the AI developer ecosystem. For builders: this means USDC can now be a primitive in your AI agent workflows without custom integration work.</p>
+      </div>
+    </article>
+
+    <!-- STORY 5: Databricks + Quotient -->
+    <article class="story">
+      <div class="story-section">🔧 AI Dev Tools</div>
+      <h2 class="story-headline">Databricks Acquires Quotient AI — Built by GitHub Copilot Quality Engineers</h2>
+      <div class="tweet-embed">
+        <div class="tweet-author">xAutonoma <span class="tweet-handle">@XNiarora</span></div>
+        <div class="tweet-text">Databricks just acquired Quotient AI — a startup built by the GitHub Copilot quality engineers.
+
+The problem they're solving: most agents fail in production and teams have no idea why.</div>
+      </div>
+      <div class="story-body">
+        <p>The people who know most about why AI coding assistants fail just got acquired. <strong>Quotient AI was built by the team that quality-tested GitHub Copilot</strong> — they've seen every failure mode at scale.</p>
+        <p style="margin-top: 12px;">This acquisition signals that debugging and observability for AI agents is becoming a serious market. If you're shipping agents that touch production systems, the tooling to understand why they fail is suddenly worth Databricks money.</p>
+      </div>
+    </article>
+
+    <!-- STORY 6: $62k MRR -->
+    <article class="story">
+      <div class="story-section">📈 Indie Hackers</div>
+      <h2 class="story-headline">From $0 to $62k MRR in 3 Months — Now Targeting $300k</h2>
+      <div class="story-body">
+        <p>An Indie Hackers post detailed <strong>Kleo hitting $62k MRR in just three months</strong>, with a stated goal of 5x'ing to $300k MRR in 2026. Their second product, Mentions, is targeting $100k MRR separately.</p>
+        <p style="margin-top: 12px;">The playbook: build for the AI developer ecosystem, ship fast, and compound. They're also "looking to get acquired in the next 18 months." For builders on short runway, this is the template — products designed for liquidity events, not lifestyle businesses.</p>
+      </div>
+    </article>
+
+    <!-- STORY 7: Consultant Automation -->
+    <article class="story">
+      <div class="story-section">⚡ AI Leverage</div>
+      <h2 class="story-headline">"I Automated Three $300/hr Tasks in a Weekend"</h2>
+      <div class="tweet-embed">
+        <div class="tweet-author">Mal | Unbanked <span class="tweet-handle">@unbankedgroup</span></div>
+        <div class="tweet-text">Talked to a consultant last week billing $300/hr.
+
+He spends 4 hours a day on email, lead follow-up, and invoicing.
+
+That's $1,200/day in lost revenue.
+
+I automated all three for my own business in a weekend. Now I'm doing it for others.</div>
+      </div>
+      <div class="story-body">
+        <p>This is the arbitrage opportunity in plain sight. <strong>A $300/hr consultant spending 4 hours daily on admin is bleeding $1,200/day.</strong> The poster automated email, lead follow-up, and invoicing in a single weekend.</p>
+        <p style="margin-top: 12px;">The business model emerging: automate your own operations, then sell that exact automation as a service. Zero R&D risk — you've already solved your own problem.</p>
+      </div>
+    </article>
+
+    <!-- STORY 8: OpenAI + Promptfoo -->
+    <article class="story">
+      <div class="story-section">🔒 AI Safety</div>
+      <h2 class="story-headline">OpenAI Acquires Promptfoo — The Company That Red-Teams AI Security</h2>
+      <div class="tweet-embed">
+        <div class="tweet-author">Virgil ⚡️ <span class="tweet-handle">@ReasoningErr</span></div>
+        <div class="tweet-text">OpenAI acquired Promptfoo, the startup that red-teams AI systems for security vulnerabilities.
+
+The company that builds the most capable model just bought the company whose job is to find the holes in it.
+
+You do not make that acquisition unless you think the holes are serious.</div>
+      </div>
+      <div class="story-body">
+        <p>Signal in the noise: <strong>OpenAI acquired the company whose entire job was finding security vulnerabilities in AI systems.</strong> The implication is uncomfortable — they're clearly worried about what's coming.</p>
+        <p style="margin-top: 12px;">For builders: AI security red-teaming is now a validated acquisition target. The talent market for "find the holes in AI" just got a price anchor.</p>
+      </div>
+    </article>
+
+    <!-- STORY 9: SXSW Map -->
+    <article class="story">
+      <div class="story-section">🛠️ Builders</div>
+      <h2 class="story-headline">4,500 Events Mapped in a Couple Hours: The "Just Build It" Energy</h2>
+      <div class="tweet-embed">
+        <div class="tweet-author">Landyn <span class="tweet-handle">@LandynDev</span></div>
+        <div class="tweet-text">Couldn't find a map of SXSW events anywhere, so I built one
+
+4,500+ events plotted across Austin.
+
+• explore events by location
+• see what's happening near you
+• filter free / unofficial events
+
+built this in a couple of hours</div>
+      </div>
+      <div class="story-body">
+        <p>Classic builder energy: see a gap, ship a solution, move on. <strong>4,500+ SXSW events mapped in hours</strong>, now live for anyone to use. No VC pitch, no 6-month roadmap — just solve the problem.</p>
+        <p style="margin-top: 12px;">The counter-take from @JWallaceParker: "I built this in a weekend is not the flex people think it is. 'I spec'd this in 2 hours and it's still running clean 6 months later' is." Fair point — speed matters, but durability matters more.</p>
+      </div>
+    </article>
+
+    <!-- STORY 10: Conflict Tracker -->
+    <article class="story">
+      <div class="story-section">🌍 Build in Public</div>
+      <h2 class="story-headline">72-Hour Build → 10,000 Users in 8 Days: Real-Time Conflict Tracker</h2>
+      <div class="tweet-embed">
+        <div class="tweet-author">Abhinav Shrivastava <span class="tweet-handle">@shriabhinav09</span></div>
+        <div class="tweet-text">Built this in 72 hours.
+
+10,000 people using it in 8 days.
+
+ChatGPT recommends it organically.
+
+Here's what I learned building a real-time global conflict tracker 🧵
+
+#buildinpublic #indiehackers</div>
+      </div>
+      <div class="story-body">
+        <p><strong>10,000 users in 8 days with zero paid marketing.</strong> The secret sauce: ChatGPT apparently recommends it organically when people ask about global conflicts. AI SEO is becoming a real distribution channel.</p>
+        <p style="margin-top: 12px;">The 72-hour build timeline is tight but the viral distribution is the story. Build something that AI assistants want to recommend and you've cracked a new growth channel.</p>
+      </div>
+    </article>
+
+    <!-- STORY 11: Pakistan Exit -->
+    <article class="story">
+      <div class="story-section">🚀 Startups</div>
+      <h2 class="story-headline">First VC-Backed Exit in Pakistan: inDrive Acquires Krave Mart</h2>
+      <div class="tweet-embed">
+        <div class="tweet-author">Faseeh Mangi <span class="tweet-handle">@FaseehMangi</span></div>
+        <div class="tweet-text">Ride-hailing inDrive has acquired a majority stake in Pakistan's grocery delivery Krave Mart 
+- This is a milestone moment for a Pakistani startup
+- Its the first proper VC-backed startup exit
+- Krave Mart was founded in 2021 and competes with Foodpanda in Pakistan</div>
+        <div class="tweet-metrics">
+          <span>🔄 13</span>
+          <span>❤️ 117</span>
+          <span>🔖 9</span>
+        </div>
+      </div>
+      <div class="story-body">
+        <p>A milestone for emerging market founders: <strong>Pakistan's first proper VC-backed startup exit.</strong> Krave Mart (2021) acquired by inDrive, competing with Foodpanda in grocery delivery.</p>
+        <p style="margin-top: 12px;">The signal: venture liquidity paths are opening in markets that previously had none. If you're building for emerging markets, exits are now possible — not just theoretical.</p>
+      </div>
+    </article>
+
+    <!-- STORY 12: Morgan Stanley AI Warning -->
+    <article class="story">
+      <div class="story-section">🏦 Macro</div>
+      <h2 class="story-headline">Morgan Stanley: World Is Underestimating the Next AI Jump (H1 2026)</h2>
+      <div class="story-body">
+        <p>Morgan Stanley is warning that <strong>a major AI breakthrough could arrive in the first half of 2026</strong>, driven by unprecedented compute expansion inside leading U.S. AI labs. Multiple X accounts picked this up with the same framing: "Most of the world isn't ready. That's not a warning. That's an opportunity."</p>
+        <p style="margin-top: 12px;">One PropTech operator pushed back: "Actually disagree. We're already seeing massive operational shifts from current AI — not breakthrough dependent. Automated 90% of tenant screening, cut vacancy time 40%, eliminated most property management calls. The 'breakthrough' happened quietly while everyone waited for the big announcement." Both things can be true.</p>
+      </div>
+    </article>
+
+    <!-- STORY 13: NVIDIA Nemotron -->
+    <article class="story">
+      <div class="story-section">🔓 Open Source</div>
+      <h2 class="story-headline">NVIDIA Releases Nemotron 3 Super: Open-Source Model for Agentic Systems</h2>
+      <div class="story-body">
+        <p>NVIDIA dropped <strong>Nemotron 3 Super</strong>, an open-source model specifically designed for agentic systems. The positioning is clear: not for chatbots, for autonomous agents.</p>
+        <p style="margin-top: 12px;">Combined with Hugging Face launching "Hugging Face Builders" — a global community program for local open-source AI leaders — the open-source AI infra stack is rapidly maturing. Self-hosted agents are becoming more viable for production workloads.</p>
+      </div>
+    </article>
+
+    <!-- STORY 14: MRR Milestones -->
+    <article class="story">
+      <div class="story-section">💵 Revenue</div>
+      <h2 class="story-headline">The MRR Milestone Factory: From $100 to $100k in Public</h2>
+      <div class="story-body">
+        <p>The #buildinpublic crowd is hitting milestones this week:</p>
+        <ul style="margin: 12px 0; padding-left: 20px; color: var(--text-secondary);">
+          <li><strong>@ericsmith1302</strong> hit $1K MRR with ProjectX — faster than his previous product</li>
+          <li><strong>@thisiswhyibuilt</strong> crossed $100K MRR as a solo dev ("proves one person can outpace entire teams")</li>
+          <li><strong>@smoothcode97</strong> approaching $100 MRR ("the biggest and hardest milestone")</li>
+          <li><strong>@berard_xavier</strong> at $87K MRR still "refresh the dashboard every morning half expecting it to be zero"</li>
+        </ul>
+        <p>The emotional through-line: the self-doubt never really goes away. Multiple founders at $80k+ MRR still refresh dashboards nervously. The game changes from "will this work" to "how long until this stops working."</p>
+      </div>
+    </article>
+
+    <!-- STORY 15: Automation Playbooks -->
+    <article class="story">
+      <div class="story-section">📚 Resources</div>
+      <h2 class="story-headline">50-Page Automation Playbook: "No Gatekeeping"</h2>
+      <div class="tweet-embed">
+        <div class="tweet-author">Bayu Hidayat <span class="tweet-handle">@bhidaya1</span></div>
+        <div class="tweet-text">I wrote a 50-page playbook on how I automated my reselling business. It covers everything: the tools, the setup, the prompts, the cron schedules. No gatekeeping.</div>
+      </div>
+      <div class="story-body">
+        <p>Tactical playbook dropped for reselling automation: <strong>tools, setup, prompts, and cron schedules</strong> — the full stack for running an automated resale business.</p>
+        <p style="margin-top: 12px;">Another builder (@georgedevz) shared their content automation stack: "I automated my content creation so I can focus on coding. Posting content has been the biggest bottleneck in my business." He wrote Python to generate UGC content automatically. The theme: identify your bottleneck, automate it, redeploy that time to higher-leverage work.</p>
+      </div>
+    </article>
+
+    <footer>
+      <p><strong>Trawly Research C</strong> — Editorial Judgment Only</p>
+      <p style="margin-top: 8px;">No engagement thresholds. Content selected by quality, relevance, and usefulness.</p>
+      <p style="margin-top: 16px; font-size: 11px; color: var(--text-secondary);">Generated March 14, 2026 • 15 stories • ~160 candidates reviewed</p>
+    </footer>
+  </div>
+</body>
+</html>
