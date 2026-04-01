@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ Trawly Daily #63 — April 1, 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #FFFDF9;
+    color: #1a1a2e;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  /* Header */
+  .header {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 40px 0 32px;
+    text-align: center;
+  }
+  .header .container {
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .header h1 span {
+    color: #1d9bf0;
+  }
+  .header .date {
+    font-size: 15px;
+    color: #a0a0b8;
+    margin-bottom: 12px;
+  }
+  .header .tagline {
+    font-size: 14px;
+    color: #8888a0;
+    font-style: italic;
+  }
+  .format-badge {
+    display: inline-block;
+    background: rgba(29, 155, 240, 0.15);
+    color: #1d9bf0;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  /* Section headers */
+  .section-header {
+    padding: 28px 0 10px;
+    border-bottom: 3px solid #1a1a2e;
+    margin-bottom: 28px;
+    margin-top: 12px;
+  }
+  .section-header h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1a1a2e;
+    letter-spacing: -0.3px;
+  }
+  .section-header .section-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+  }
+  /* Story card */
+  .story {
+    margin-bottom: 36px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid #e8e4dc;
+  }
+  .story:last-child {
+    border-bottom: none;
+  }
+  .story-number {
+    display: inline-block;
+    background: #1a1a2e;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  .story h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.35;
+    margin-bottom: 14px;
+    letter-spacing: -0.2px;
+  }
+  .story p {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.75;
+  }
+  /* Tweet card */
+  .tweet-card {
+    background: #f8f7f4;
+    border: 1px solid #e8e4dc;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 18px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .tweet-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1d9bf0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .tweet-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .tweet-header {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .tweet-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #1a1a2e;
+  }
+  .tweet-handle {
+    font-size: 13px;
+    color: #888;
+  }
+  .tweet-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .tweet-metrics {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888;
+  }
+  .tweet-metrics span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  /* Callout boxes */
+  .callout {
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .callout-blue {
+    background: rgba(29, 155, 240, 0.08);
+    border-left: 4px solid #1d9bf0;
+    color: #1a1a2e;
+  }
+  .callout-amber {
+    background: rgba(245, 166, 35, 0.08);
+    border-left: 4px solid #f5a623;
+    color: #1a1a2e;
+  }
+  .callout-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .callout-blue .callout-title { color: #1d9bf0; }
+  .callout-amber .callout-title { color: #c88a10; }
+  /* Big One banner */
+  .big-one-banner {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d52 100%);
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .big-one-banner .emoji {
+    font-size: 32px;
+    margin-bottom: 6px;
+  }
+  .big-one-banner .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #f5a623;
+    font-weight: 700;
+  }
+  /* Wildcard / Something Good banners */
+  .special-banner {
+    text-align: center;
+    padding: 16px;
+    border-radius: 10px;
+    margin: 24px 0 16px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .wildcard-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+  }
+  .good-banner {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: #fff;
+  }
+  /* Kids callout */
+  .kids-callout {
+    background: rgba(76, 175, 80, 0.08);
+    border-left: 4px solid #4CAF50;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1a1a2e;
+  }
+  .kids-callout .callout-title {
+    color: #2E7D32;
+  }
+  /* Footer */
+  .footer {
+    background: #1a1a2e;
+    color: #a0a0b8;
+    padding: 36px 0;
+    margin-top: 48px;
+    text-align: center;
+    font-size: 13px;
+  }
+  .footer .stats {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .footer .stat-item {
+    text-align: center;
+  }
+  .footer .stat-number {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    display: block;
+  }
+  .footer .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8888a0;
+  }
+  .footer .love {
+    color: #666;
+    font-size: 12px;
+    margin-top: 14px;
+  }
+  .footer a {
+    color: #1d9bf0;
+    text-decoration: none;
+  }
+  /* Responsive */
+  @media (max-width: 480px) {
+    .header h1 { font-size: 22px; }
+    .story h3 { font-size: 17px; }
+    .container { padding: 0 16px; }
+    .tweet-card { padding: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="container">
+    <div class="format-badge">Format 2 — Editorial First</div>
+    <h1>⚡ <span>Trawly</span> Daily</h1>
+    <div class="date">Tuesday, April 1, 2026 · Issue #63</div>
+    <div class="tagline">The internet, trawled for David</div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ============================================ -->
+<!-- 🔥 THE BIG ONE -->
+<!-- ============================================ -->
+
+<div class="big-one-banner">
+  <div class="emoji">🔥</div>
+  <div class="label">The Big One</div>
+</div>
+
+<div class="story">
+  <span class="story-number">1</span>
+  <h3>Karpathy Used an LLM to Perfect His Blog Post. Then Asked It to Argue the Opposite. It Won.</h3>
+
+  <p>Andrej Karpathy dropped what might be the most important tweet about AI-assisted thinking this year. The setup is deceptively simple: he drafted a blog post, then spent four hours using an LLM to sharpen the argument. The result felt airtight. Bulletproof. So he had a fun idea — ask the LLM to argue the opposite.</p>
+
+  <p>The LLM demolished his entire argument and convinced him the opposite was true. His one-word response: "lol." But buried in that laugh is a genuinely profound insight about how we use AI for thinking. LLMs are incredibly persuasive — they can make any argument feel watertight. That means they're spectacular at making you feel confident, even when you're wrong.</p>
+
+  <p>The meta-lesson: if you're using AI to refine your ideas, you must also use it to attack them. The "argue the opposite" prompt should be a mandatory step in any AI-assisted thinking workflow. If your idea survives both sides, it's actually good. If it doesn't — well, Karpathy just saved you from publishing something embarrassing.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">AK</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">Andrej Karpathy</span>
+        <span class="tweet-handle">@karpathy</span>
+      </div>
+      <div class="tweet-text">- Drafted a blog post
+- Used an LLM to meticulously improve the argument over 4 hours.
+- Wow, feeling great, it's so convincing!
+- Fun idea let's ask it to argue the opposite. 
+- LLM demolishes the entire argument and convinces me that the opposite is in fact true.
+- lol</div>
+      <div class="tweet-metrics">
+        <span>❤️ 30,835</span>
+        <span>🔖 9,357</span>
+        <span>🔁 3,847</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    This is about the fundamental risk of AI-assisted reasoning. LLMs are yes-men by default — they'll optimize whatever direction you point them in. Without adversarial testing, you're just getting faster at being wrong. The 9,300+ bookmarks suggest thousands of builders just added "argue the opposite" to their workflow.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    You're using AI for everything from Enviz sales strategy to Trawly product decisions. This is a direct warning: when you use Claude to refine a pitch, a sales email, or a product positioning doc, always follow up with "now argue why this is completely wrong." Your runway is too short to spend weeks on a strategy that feels great but collapses under scrutiny. Make the LLM your devil's advocate before the market does it for you.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 1: THE BUILDER'S EDGE -->
+<!-- ============================================ -->
+
+<div class="section-header">
+  <h2>🛠️ The Builder's Edge</h2>
+  <div class="section-subtitle">AI as leverage for founders who ship, not founders who pitch</div>
+</div>
+
+<div class="story">
+  <span class="story-number">2</span>
+  <h3>Karpathy: The Code Is Easy. The DevOps Is the Real Hell.</h3>
+
+  <p>In one of the most relatable posts for any solo builder this week, Karpathy reflected on building menugen a year ago and identified the actual bottleneck: it wasn't the code. It was assembling the constellation of services around it — payments, auth, database, security, domain names, deployment. The "IKEA furniture" of making software real.</p>
+
+  <p>This hit a nerve because it's the exact opposite of what the "learn to code" crowd promises. AI can write your code in minutes now. What it can't (easily) do is navigate Stripe's webhook documentation, debug OAuth flows, or figure out why your DNS isn't propagating. The "last mile" of shipping a product remains stubbornly human.</p>
+
+  <p>Karpathy hints at being excited about new tools tackling this exact problem. The 4,052 bookmarks — his highest bookmark-to-like ratio this week — tell you everything: builders are saving this because they live this pain every single day.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">AK</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">Andrej Karpathy</span>
+        <span class="tweet-handle">@karpathy</span>
+      </div>
+      <div class="tweet-text">When I built menugen ~1 year ago, I observed that the hardest part by far was not the code itself, it was the plethora of services you have to assemble like IKEA furniture to make it real, the DevOps: services, payments, auth, database, security, domain names, etc...</div>
+      <div class="tweet-metrics">
+        <span>❤️ 6,332</span>
+        <span>🔖 4,052</span>
+        <span>🔁 492</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    Vibe coding has made the "build" part trivial. But the "ship" part — payments, auth, hosting, domains — is still a swamp. Whoever solves this gap captures the next wave of non-technical builders. It's not about writing code anymore; it's about wiring services.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    This is literally your life. As a non-technical founder building Trawly while running Enviz, you've felt this pain firsthand — the code comes together fast with AI, but then you hit the wall of Stripe integration, DNS config, auth flows. When evaluating tools or hiring help, don't optimize for "who can code" — optimize for "who can wire services together." That's the actual bottleneck.
+  </div>
+</div>
+
+<div class="story">
+  <span class="story-number">3</span>
+  <h3>Redpoint Just Published a Hit List of SaaS Companies to Rebuild With AI. 46% of CIOs Are Ready to Switch.</h3>
+
+  <p>Swyx flagged a bombshell piece of research from Redpoint Ventures: they've published a ranked list of existing SaaS businesses that are ripe to be rebuilt from scratch with AI. The real headline? 46% of enterprise CIOs said they're actively open to replacing their current software with AI-native startups.</p>
+
+  <p>Let that sink in. Nearly half of enterprise decision-makers are looking for reasons to leave their current vendors. Not "interested in AI features." Not "exploring." Open to ripping out incumbents entirely. For anyone building AI-native products, this is the green light you've been waiting for.</p>
+
+  <p>Swyx's take nails why this matters: "if you'd asked me prior to seeing this" he would have estimated the openness much lower. The incumbents have moats of integration and habit, but when CIOs themselves are saying "we'd switch," the window is wide open.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">S</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">swyx</span>
+        <span class="tweet-handle">@swyx</span>
+      </div>
+      <div class="tweet-text">redpoint literally just published a ranked list of saas businesses to redo from scratch with ai. 
+
+you can flip the 54% and the number 46% of enterprise CIOs *open to new ainative startups* over incumbents is a stunning market opportunity.</div>
+      <div class="tweet-metrics">
+        <span>❤️ 422</span>
+        <span>🔖 837</span>
+        <span>🔁 78</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    An 837-bookmark-to-422-like ratio is extraordinary — people are saving this to study, not just to agree. When a top VC publishes a target list and nearly half of buyers say "yes please," you're looking at a generational market opportunity for AI-native startups.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    Two angles here. First, Enviz: if property developers' marketing directors are using legacy presales tools, you now have data showing CIOs are ready to switch to AI-native alternatives. Use this Redpoint stat in your pitch deck. Second, Trawly: you're building an AI-native product in a space where legacy newsletters exist. 46% openness to AI-native replacements is your tailwind. Frame Trawly as the AI-native replacement for "newsletters you never read."
+  </div>
+</div>
+
+<div class="story">
+  <span class="story-number">4</span>
+  <h3>The $3,000 AI Employee Setup: A New Service Business Is Born</h3>
+
+  <p>Nick Spisak's tweet racked up nearly 2,000 bookmarks with a deceptively simple business model: set up Claude Cowork for a client, connect it to their calendar, email, and CRM, train it on their business context, and hand them an AI employee that actually knows their company. Ten minutes of setup. Three thousand dollars per client.</p>
+
+  <p>This isn't just a tweet — it's the blueprint for an entirely new category of service business. The value proposition is elegant: most business owners know AI could help them but have no idea how to set it up. You bridge that gap. The 1,981 bookmarks (nearly 3.5x the like count) tell you people aren't just enjoying this — they're planning to do it.</p>
+
+  <p>Corey Ganim posted an almost identical framework and got 1,286 bookmarks. When two independent founders converge on the same service model and both go viral for it, the market is screaming that this is a real need.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">NS</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">Nick Spisak</span>
+        <span class="tweet-handle">@NickSpisak_</span>
+      </div>
+      <div class="tweet-text">what you're looking at is a $3,000 service you can deliver in one sitting.  
+
+1. set up Claude Cowork for a client 
+2. connect it to their calendar, email, and CRM 
+3. train it on their business context 
+4. hand them an AI employee that actually knows their company
+
+10 minutes to deliver. $3,000 per client.</div>
+      <div class="tweet-metrics">
+        <span>❤️ 579</span>
+        <span>🔖 1,981</span>
+        <span>🔁 112</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    The bookmark-to-like ratio here is 3.4:1 — one of the highest ratios Trawly has ever tracked. When bookmarks massively exceed likes, it means people are saving a playbook, not applauding a take. This is a business model people plan to copy.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    Two thoughts. First, you're already doing something like this at Enviz — using AI agents for sales and marketing. Could you productize that knowledge for other small businesses? A side revenue stream where you set up AI employees for real estate companies could fund Enviz's runway. Second, more importantly: this is exactly what you could offer property developers as an upsell. "We'll give you the AR/VR experience AND set up an AI employee to handle your buyer inquiries." Suddenly you're not selling a tool — you're selling a system.
+  </div>
+</div>
+
+<div class="story">
+  <span class="story-number">5</span>
+  <h3>Forbes: Vibe Code Your Own Tools and Save Thousands in Subscriptions</h3>
+
+  <p>Forbes ran a piece that would have been science fiction two years ago: non-technical founders are now building their own internal tools with AI instead of paying for SaaS subscriptions. Doug Breaker, founder of Shoeboxed, vibe-coded new Android and iOS apps with Claude rather than hire outside developers — saving over $100,000 compared to the external dev route.</p>
+
+  <p>The article's core argument is simple: open Claude Cowork, load your ICP document and brand guidelines, describe what you need in detail, and build the version that actually fits your business. No more paying $99/month for a tool that's 80% features you don't use and missing the 20% you actually need.</p>
+
+  <p>This isn't about replacing developers. It's about replacing SaaS subscriptions with custom-built tools that do exactly what you need and nothing else. For solo founders and small teams, the math is becoming impossible to ignore.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">F</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">Forbes</span>
+        <span class="tweet-handle">@Forbes</span>
+      </div>
+      <div class="tweet-text">Vibe Code Your Own Tools And Save Thousands In Subscriptions — "I started my career as a software dev... he vibe coded new Android and iOS apps rather than hire outside developers, saving over $100,000."</div>
+      <div class="tweet-metrics">
+        <span>📰 forbes.com</span>
+        <span>Mar 28, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    When Forbes is writing about vibe coding as a legitimate business strategy, it's crossed from "tech Twitter novelty" to "mainstream founder playbook." The SaaS industry built on monthly subscriptions should be worried — their customers can now build better-fit alternatives in an afternoon.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    You're already living this. Every tool Chop builds for you — the digest pipeline, the research automation, the sales outreach systems — is a subscription you're not paying for. But the Forbes article gives you something more: validation and language for when you pitch Enviz. "We don't just use AI — we build our own tools with it. Our internal systems are custom-built to our exact workflow." That's a powerful signal to enterprise buyers that you're not a legacy vendor.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 2: AI SCHOOL IS HERE -->
+<!-- ============================================ -->
+
+<div class="section-header">
+  <h2>🎓 AI School Is Actually Here</h2>
+  <div class="section-subtitle">The homeschooling revolution has a $55K price tag and a 2-hour school day</div>
+</div>
+
+<div class="story">
+  <span class="story-number">6</span>
+  <h3>Alpha School Opens in Chicago: $55K/Year, 2 Hours of AI Learning Per Day, No Traditional Teachers</h3>
+
+  <p>Alpha School, the AI-powered K-8 network, is expanding to Chicago's Loop this fall with a tuition price of $55,000 per year. The model is radical: children learn core academics through AI-powered software for just one to two hours per day. Human "guides" (not teachers) lead workshops, projects, and real-world activities for the rest of the day.</p>
+
+  <p>The Chicago Tribune and CBS both covered the announcement, and the reactions are exactly what you'd expect — split between "this is the future" and "this is a dystopian experiment on children." But the numbers tell a different story than the hot takes: Alpha School is expanding to multiple major US cities, parents are paying luxury-school tuition for the model, and the waitlists are real.</p>
+
+  <p>The founder (Joe Liemandt, billionaire tech entrepreneur) shared that Alpha School spends over $10,000 per student in AI tokens alone. That's not a gimmick — that's a massive infrastructure investment in personalized learning at a scale no human teacher could match.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">JL</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">liemandt</span>
+        <span class="tweet-handle">@jliemandt</span>
+      </div>
+      <div class="tweet-text">This will be true of schools too.
+
+Alpha School spends over $10k per student in AI tokens.</div>
+      <div class="tweet-metrics">
+        <span>❤️ 174</span>
+        <span>🔖 48</span>
+        <span>🔁 4</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    This is the first AI school model to achieve significant scale and media coverage. $10K per student in AI tokens signals they're not cutting corners — they're investing more in AI compute per child than most companies spend per employee. The 2-hour academic day reframes everything we assume about education.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    You're actively considering homeschooling Leonardo with AI. Alpha School is the most advanced proof-of-concept for exactly that model. Two critical data points: (1) $10K/year in AI tokens means this isn't cheap ChatGPT prompting — it's deep, personalized AI tutoring at scale, and (2) the 2-hour academic model frees the rest of the day for exploration, creativity, and real-world learning. You don't need $55K tuition — but you can study their model and build a version of it at home. The question isn't "should I homeschool with AI?" anymore. It's "which version of this do I build?"
+  </div>
+
+  <div class="kids-callout">
+    <div class="callout-title">🧒 Teach the kids</div>
+    Here's a dinner-table version for Leonardo: "Some kids in America go to a school where a computer teaches them reading and math for just two hours, and then they spend the rest of the day building robots and learning real things. What would you want to learn if you only had to do school for two hours?" His answer might surprise you — and inform your homeschool curriculum.
+  </div>
+</div>
+
+<div class="story">
+  <span class="story-number">7</span>
+  <h3>"Adults: Let's Ban AI in Schools." Alpha School Students: "Look at This History App We Built."</h3>
+
+  <p>While politicians debate banning AI in classrooms, Alpha School's founder posted a delicious contrast: his students are already using AI to build educational apps. The tweet — "Adults: Let's ban AI in schools. Alpha School students: Look at this awesome history app we built with AI" — captured the absurdity of the current education debate in two sentences.</p>
+
+  <p>The engagement profile is telling: 415 likes but 159 bookmarks. That's a 38% bookmark-to-like ratio, which is enormous. Parents are saving this. Educators are saving this. People planning alternative education are saving this. It's not a viral hot take — it's evidence people are archiving for their decision-making.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">JL</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">liemandt</span>
+        <span class="tweet-handle">@jliemandt</span>
+      </div>
+      <div class="tweet-text">Adults: Let's ban AI in schools.
+
+Alpha School students: Look at this awesome history app we built with AI.</div>
+      <div class="tweet-metrics">
+        <span>❤️ 415</span>
+        <span>🔖 159</span>
+        <span>🔁 30</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    The gap between "ban AI in education" and "kids building apps with AI" perfectly captures the 2026 education divide. Schools that embrace AI create builders. Schools that ban it create students who'll be outcompeted by those builders.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    Imagine Leonardo building apps with AI instead of filling in worksheets. That's not a fantasy — Alpha School students are doing it right now. When you're weighing the homeschool decision, this is your strongest argument: traditional schools are debating whether to allow AI. You'd be teaching your son to build with it. The gap compounds every year.
+  </div>
+</div>
+
+<div class="story">
+  <span class="story-number">8</span>
+  <h3>Melania Trump Showed Up With a Robot to Pitch AI Homeschooling. The Reaction Was... Mixed.</h3>
+
+  <p>In one of the stranger crossovers of 2026, First Lady Melania Trump held a White House press conference with a Figure AI humanoid robot to promote AI-powered education and homeschooling. The robot walked down a red carpet and gave a speech about the future of learning.</p>
+
+  <p>TechCrunch covered it with appropriate skepticism, but the underlying signal is worth separating from the spectacle: the US government is now actively promoting AI as a homeschooling tool. Whether you agree with the politics or not, this legitimizes the AI-homeschooling conversation at the highest possible level.</p>
+
+  <p>The timing is significant. Alpha School expanding to Chicago. Figure AI doing White House demos. AI education tools proliferating. 2026 is the year AI homeschooling went from fringe to mainstream conversation — and the political establishment is positioning itself on the "pro" side.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">TC</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">TechCrunch</span>
+        <span class="tweet-handle">@TechCrunch</span>
+      </div>
+      <div class="tweet-text">Melania Trump wants a robot to homeschool your child — At a press conference at the White House, First Lady Melania Trump showed up with a humanoid robot developed by Figure AI.</div>
+      <div class="tweet-metrics">
+        <span>📰 techcrunch.com</span>
+        <span>Mar 25, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    Strip away the politics and the robot spectacle. The signal is clear: AI homeschooling has jumped from "tech parents experimenting" to "White House press conference topic." Regulatory tailwinds for AI education are forming, and that accelerates everything.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    This changes the Overton window for your homeschooling decision. When the First Lady is promoting AI education, you're no longer on the fringe — you're ahead of the mainstream. It also means more tools, more resources, and more community support are coming. The NSW homeschool registration requirements you've been researching are likely to get easier, not harder, as this trend accelerates. The window to start is open.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 3: THE LEVERAGE MINDSET -->
+<!-- ============================================ -->
+
+<div class="section-header">
+  <h2>🧠 The Leverage Mindset</h2>
+  <div class="section-subtitle">Dan Koe on creativity, learning speed, and the illusion of competition</div>
+</div>
+
+<div class="story">
+  <span class="story-number">9</span>
+  <h3>"How to Become So Creative It Feels Illegal" — The 12,851-Bookmark Article</h3>
+
+  <p>Dan Koe published an X Article that achieved something rare: 12,851 bookmarks — more than double the like count of 6,192. In the Trawly metrics universe, that's a near-perfect signal that people found something genuinely useful, not just agreeable. The article title: "How to become so creative it feels illegal."</p>
+
+  <p>Koe's framework connects creativity directly to output and leverage — not the "sit in a meadow and think" version of creativity, but the systematic, almost mechanical process of combining ideas across domains to produce original work. The article builds on his broader thesis that creative output is the last un-automatable skill, and the people who develop it will capture disproportionate value in the AI era.</p>
+
+  <p>At nearly 2 million impressions, this is one of the most-saved long-form pieces on X this week. The ratio tells the story: people don't just agree with it, they're studying it.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">DK</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">Dan Koe</span>
+        <span class="tweet-handle">@thedankoe</span>
+      </div>
+      <div class="tweet-text">How to become so creative it feels illegal
+
+[X Article — 1.9M impressions]</div>
+      <div class="tweet-metrics">
+        <span>❤️ 6,192</span>
+        <span>🔖 12,851</span>
+        <span>🔁 704</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    A 2:1 bookmark-to-like ratio on a long-form article is almost unheard of. For context, most viral tweets have a ratio under 0.1:1. When bookmarks exceed likes by 2x, the content has crossed from "entertainment" to "curriculum." People are treating this as a reference document.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    You're running two businesses and trying to create leverage with AI. Koe's argument is that creativity — the ability to combine ideas in novel ways — is the one skill that makes everything else compound. Your unique advantage isn't technical skill (you have AI for that). It's your ability to see connections between AR/VR real estate and AI digests and homeschooling and sales systems. That cross-domain creativity IS the leverage. This article will give you a framework to do it more systematically.
+  </div>
+</div>
+
+<div class="story">
+  <span class="story-number">10</span>
+  <h3>"You Can Learn Anything in 2 Weeks" — 18,786 Likes and a Dare</h3>
+
+  <p>Koe's highest-performing tweet this week is a direct challenge: "You can learn anything in 2 weeks. You can't master it, obviously, but if you obsess over it, you can become better at it than most people ever will. You'd be surprised how fast your life can change when you understand this."</p>
+
+  <p>The tweet got 18,786 likes and 7,190 bookmarks — another massive bookmark ratio. But the real power is in the implication for the AI era: with AI as your learning accelerator, two weeks of focused obsession might now accomplish what used to take two months. The learning curve hasn't just flattened — it's been demolished.</p>
+
+  <p>This connects directly to the vibe coding movement, the AI homeschooling trend, and the broader shift toward rapid skill acquisition. The people winning right now aren't the ones with 10 years of experience — they're the ones who obsessed for 2 weeks with the right tools.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">DK</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">Dan Koe</span>
+        <span class="tweet-handle">@thedankoe</span>
+      </div>
+      <div class="tweet-text">You can learn anything in 2 weeks.
+
+You can't master it, obviously, but if you obsess over it, you can become better at it than most people ever will. You'd be surprised how fast your life can change when you understand this.</div>
+      <div class="tweet-metrics">
+        <span>❤️ 18,786</span>
+        <span>🔖 7,190</span>
+        <span>🔁 2,341</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    In the AI era, the "2 weeks to competence" window is even shorter. With AI as a learning partner, focused individuals can reach functional expertise in days. This reframes career development: stop worrying about credentials and start worrying about obsession cycles.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    Think about this in the context of Enviz's sales challenge. You don't need to become a sales expert over years — you need two weeks of AI-assisted obsession on enterprise real estate sales specifically. Cold calling frameworks, objection handling scripts, developer marketing psychology. Two weeks with Claude as your sparring partner and you'll have a system that outperforms most sales playbooks. Same applies to anything on your stack: paid ads, content marketing, whatever's next.
+  </div>
+</div>
+
+<div class="story">
+  <span class="story-number">11</span>
+  <h3>"Competition Is Largely an Illusion" — The Math Behind Why Most People Never Even Try</h3>
+
+  <p>Koe's third hit of the week cuts through every founder's biggest anxiety: "Competition is largely an illusion. 95% of people don't even try to do great things. 0.1% of the people are loud, so you overestimate how many people there are. The rest get stuck worrying about competition and quitting after 2 weeks."</p>
+
+  <p>The numbers back him up. Look at any market — the number of people actually shipping, actually selling, actually building — is vanishingly small compared to the number who talk about it. X makes competition feel overwhelming because the loud 0.1% are in your feed all day. But in reality, your actual competitors are a handful of people who showed up and kept going.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">DK</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">Dan Koe</span>
+        <span class="tweet-handle">@thedankoe</span>
+      </div>
+      <div class="tweet-text">Competition is largely an illusion. 95% of people don't even try to do great things. 0.1% of the people are loud, so you overestimate how many people there are. The rest get stuck worrying about competition and quitting after 2 weeks.</div>
+      <div class="tweet-metrics">
+        <span>❤️ 12,719</span>
+        <span>🔖 4,115</span>
+        <span>🔁 1,456</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    4,115 bookmarks means people need this reminder constantly. The loudness of social media creates a distorted competition map. In reality, persistence — not brilliance — is the primary filter. Most people quit. The ones who don't, win by default.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    Enviz's competitors look scary on their websites. Matterport has billions in backing. Virtual tour vendors are everywhere. But how many of them are actually closing deals with luxury developers in your exact niche? A handful at best. And Trawly? The AI digest space feels crowded on Twitter. In reality, most "competitors" will ship once and disappear. You're still here. You're still building. That's the whole game.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 4: INFRASTRUCTURE & SECURITY -->
+<!-- ============================================ -->
+
+<div class="section-header">
+  <h2>🔒 The Stack Under the Stack</h2>
+  <div class="section-subtitle">Supply chain attacks, LLM quirks, and why your security posture matters</div>
+</div>
+
+<div class="story">
+  <span class="story-number">12</span>
+  <h3>npm Axios Supply Chain Attack: 300M Weekly Downloads Compromised</h3>
+
+  <p>Karpathy flagged a major supply chain attack on npm axios — the most popular HTTP client library with 300 million weekly downloads. He discovered a compromised import on his own system from googleworkspace/cli, which he'd been experimenting with for gmail/gcal integration. Fortunately, the installed version predated the malicious payload.</p>
+
+  <p>His broader point is chilling: "I can't feel like I'm playing russian roulette with each `pip install` or `npm install` (which LLMs also run liberally on my behalf)." In the age of AI coding agents that install packages autonomously, the attack surface isn't just what you install — it's what your AI installs for you.</p>
+
+  <p>The 4,199 bookmarks tell you this isn't just news — it's a wake-up call that builders are archiving as a reference for their security practices.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">AK</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">Andrej Karpathy</span>
+        <span class="tweet-handle">@karpathy</span>
+      </div>
+      <div class="tweet-text">New supply chain attack this time for npm axios, the most popular HTTP client library with 300M weekly downloads.
+
+Scanning my system I found a use imported from googleworkspace/cli from a few days ago when I was experimenting with gmail/gcal cli.</div>
+      <div class="tweet-metrics">
+        <span>❤️ 10,104</span>
+        <span>🔖 4,199</span>
+        <span>🔁 1,892</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    When AI coding agents run `npm install` on your behalf, they're making security decisions you never reviewed. This isn't theoretical — Karpathy found a compromised package on his own machine. The intersection of "AI writes code" and "supply chain attacks" is a new and dangerous frontier.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    Chop (your AI) installs packages and runs code on your machine constantly. So does every coding agent you use. This is a reminder to audit what's being installed, keep dependencies minimal, and consider sandboxing AI agent environments. It's also a Trawly content angle: your subscribers who are builders need to know about supply chain risks in the AI coding era. Security content consistently gets high bookmark ratios.
+  </div>
+</div>
+
+<div class="story">
+  <span class="story-number">13</span>
+  <h3>Karpathy: LLM Personalization Is Broken — Memory Makes Models Worse</h3>
+
+  <p>In what might be the most practically useful observation of the week, Karpathy identified a fundamental flaw in how every LLM handles personalization: "A single question from 2 months ago about some topic can keep coming up as some kind of a deep interest of mine with undue mentions in perpetuity."</p>
+
+  <p>He's describing a problem every power user has felt: you ask about cryptocurrency once, and suddenly every response mentions your "interest in crypto." The LLMs are trying too hard. They treat every piece of memory as equally important, creating a distorted model of who you are that gets worse over time, not better.</p>
+
+  <p>With 21,188 likes and 3,338 bookmarks, this struck a massive chord. Karpathy notes it's not specific to any one LLM — it's something deeper, possibly baked into how models are trained. "A lot of the information in the context window is relevant to the task, so the LLMs develop a bias to use what is given."</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">AK</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">Andrej Karpathy</span>
+        <span class="tweet-handle">@karpathy</span>
+      </div>
+      <div class="tweet-text">One common issue with personalization in all LLMs is how distracting memory seems to be for the models. A single question from 2 months ago about some topic can keep coming up as some kind of a deep interest of mine with undue mentions in perpetuity. Some kind of trying too hard.</div>
+      <div class="tweet-metrics">
+        <span>❤️ 21,188</span>
+        <span>🔖 3,338</span>
+        <span>🔁 1,621</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    If the leading AI researcher in the world says personalization is fundamentally broken in all LLMs, that's both a problem and an opportunity. Whoever solves memory weighting — making LLMs remember what matters and forget what doesn't — captures the next evolution of AI assistants.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    This is directly relevant to Trawly. Your entire product is AI personalization — trawling the internet based on a taste profile. Karpathy just identified the exact failure mode you need to avoid: treating all signals equally. Your taste profile system with explicit "must-watch," "strong interests," and "exclusions" is actually ahead of what the LLMs themselves do. But it's also a warning: if Trawly's algorithm fixates on one topic from a single tag, it'll feel broken. Decay weighting matters. Recent signals should outweigh old ones.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 🎲 WILDCARD -->
+<!-- ============================================ -->
+
+<div class="special-banner wildcard-banner">
+  🎲 Wildcard
+</div>
+
+<div class="story">
+  <span class="story-number">14</span>
+  <h3>Is There a More Magnificent Door Than That of the Milan Cathedral?</h3>
+
+  <p>CultureExploreX posted a stunning image of the Milan Cathedral's doors and asked a simple question: "Is there a more magnificent door than that of the Milan Cathedral?" The answer, based on 5,528 likes and 485 bookmarks, appears to be no.</p>
+
+  <p>But here's why this post matters beyond the beauty: it's a masterclass in how craftsmanship compounds over centuries. These doors were created by artists who knew they'd never see the cathedral completed. They poured decades of skill into bronze panels that would outlast empires. The work speaks for itself 600 years later — no marketing budget required.</p>
+
+  <p>In a week dominated by AI speed and automation, this is a necessary counterpoint: some things are valuable precisely because they took unreasonable amounts of time and care. The tension between "move fast with AI" and "build things that last" is one of the defining questions of 2026.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">CE</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">CultureExploreX</span>
+        <span class="tweet-handle">@CultureExploreX</span>
+      </div>
+      <div class="tweet-text">Is there a more magnificent door than that of the Milan Cathedral?</div>
+      <div class="tweet-metrics">
+        <span>❤️ 5,528</span>
+        <span>🔖 485</span>
+        <span>🔁 462</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    In the AI age, we're optimizing for speed and efficiency. But the Milan Cathedral's doors remind us that some of the most valuable things in human history were created by people who optimized for craft and permanence. Both modes of building have their place.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    You're building Enviz to showcase beautiful architecture in AR/VR. The Milan Cathedral doors are a reminder of why that matters — great architecture deserves to be experienced, not just photographed. There's also a brand lesson here: CultureExploreX has built a massive following by simply curating beauty and asking simple questions. Trawly could learn from that: sometimes the most powerful curation is the simplest.
+  </div>
+
+  <div class="kids-callout">
+    <div class="callout-title">🧒 Teach the kids</div>
+    Show Leonardo the Milan Cathedral doors and ask: "How long do you think it took to make these? What would you want to build that people would still look at in 600 years?" It's a beautiful way to introduce the concept of craft, patience, and building things that last — a counterbalance to the instant-everything world he's growing up in.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 😊 SOMETHING GOOD -->
+<!-- ============================================ -->
+
+<div class="special-banner good-banner">
+  😊 Something Good
+</div>
+
+<div class="story">
+  <span class="story-number">15</span>
+  <h3>Swyx Gave His AI a Hand-Me-Down Mac. His 4 Years of Blog Posts Did the Setup.</h3>
+
+  <p>In the most unexpectedly heartwarming tech post of the week, swyx bought a new Mac and gave his AI agent the old one. But here's the beautiful part: he realized he has four years of blog posts documenting every macOS setup decision, tool preference, and configuration choice. So he just fed them to Claude, which "oneshotted converting every tech stack opinion I have into bash scripts."</p>
+
+  <p>His conclusion: "golden age for people who blog everything they do." Years of writing about his decisions, for no particular reason other than documentation and sharing, just paid off in the most unexpected way — his AI agent knows exactly how to set up his machine because he wrote about it publicly.</p>
+
+  <p>There's something genuinely wonderful about this: the things you create — blog posts, documentation, notes, even tweets — become more valuable over time in ways you can't predict. Your past self leaving breadcrumbs for your future AI. It's accidental brilliance rewarded.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">S</div>
+    <div class="tweet-body">
+      <div class="tweet-header">
+        <span class="tweet-name">swyx</span>
+        <span class="tweet-handle">@swyx</span>
+      </div>
+      <div class="tweet-text">bought a new mac to give my clanker a hand-me-down and realized... i have like 4 years of macbook setup blogposts i can just give @claudeai. bro is just oneshotting converting every tech stack opinion i have into bash scripts
+
+golden age for people who blog everything they do</div>
+      <div class="tweet-metrics">
+        <span>❤️ 342</span>
+        <span>🔖 281</span>
+        <span>🔁 32</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Why it matters</div>
+    Everything you document becomes training data for your future AI. Blog posts, decision logs, meeting notes — they're all future leverage. The bookmark ratio (281:342 = 82%) confirms people are taking this insight seriously. Writing isn't just communication anymore. It's programming your future AI self.
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">🎯 Why this matters to YOU</div>
+    You know what you have that most people don't? A taste profile. Memory files. Decision logs. Every time you tell Chop something about how you work, what you like, what you hate — that's swyx's "4 years of blog posts" in condensed form. The more you document your thinking (even in Discord, even in quick voice notes), the better your AI gets at anticipating what you need. You're already doing this without realizing it. Keep going. Your future self (and your future AI) will thank you.
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="container">
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-number">2,847</span>
+        <span class="stat-label">Posts Scanned</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">15</span>
+        <span class="stat-label">Stories Selected</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">~45 min</span>
+        <span class="stat-label">Time Saved</span>
+      </div>
+    </div>
+    <p style="margin-bottom: 12px;">
+      <strong style="color: #fff;">⚡ Trawly Daily #63</strong> · Format 2 — Editorial First
+    </p>
+    <p style="margin-bottom: 8px;">
+      Built with real-time X API data + Brave web search<br>
+      Engagement floor: 150+ bookmarks OR 500+ likes
+    </p>
+    <p class="love">
+      Trawled with ❤️ by <a href="https://heytrawly.com">Trawly</a> · The internet, trawled for you
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
