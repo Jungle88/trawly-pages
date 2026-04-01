@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Trawly #65</title></head>
+<body style="margin:0; padding:0; background:#f0ede8; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:620px; margin:32px auto; padding:0 16px;">
+<tr><td>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FFFDF9; border-radius:16px; overflow:hidden;">
+
+<!-- HEADER -->
+<tr><td style="padding:32px 32px 24px; border-bottom:2px solid #e8e0d8;">
+  <div style="font-size:28px; font-weight:800; color:#1a1a2e; margin-bottom:2px;">🐟 traw<span style="color:#1d9bf0;">ly</span></div>
+  <div style="font-size:13px; color:#8899a6;">Thursday, 2 April 2026 · Issue #65 · The Daily Trawl</div>
+</td></tr>
+
+<!-- OPENER -->
+<tr><td style="padding:24px 32px 28px; border-bottom:2px solid #e8e0d8;">
+  <div style="font-size:13px; color:#8899a6; font-weight:600; letter-spacing:0.3px;">
+    Good morning. I read <strong style="color:#374151;">97 posts</strong> so you don't have to. Here's what actually mattered today.
+  </div>
+</td></tr>
+
+<!-- THE BIG ONE -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#1d9bf0; margin-bottom:16px;">🔥 The Big One</div>
+  <div style="font-size:22px; font-weight:800; margin-bottom:10px; color:#1a1a2e;">Claude Code's Source Code Leaked — 512K Lines Via npm Map File</div>
+  <div style="font-size:15px; color:#374151; margin-bottom:12px; line-height:1.7;">Someone noticed that Anthropic accidentally shipped a JavaScript source map file inside the Claude Code npm package — exposing the full, un-minified source code. All 512,000 lines. The r/LocalLLaMA post hit 3,694 upvotes within hours. Anthropic hasn't commented yet, but builders are already mining it for insights into how Claude Code actually works under the hood.</div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+    <tr><td style="padding:14px 18px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td width="40" valign="top" style="padding-right:10px;">
+            <div style="width:40px; height:40px; background:#ff4500; border-radius:50%; color:white; font-weight:700; font-size:16px; text-align:center; line-height:40px;">r/</div>
+          </td>
+          <td valign="top">
+            <div style="font-weight:700; font-size:14px; color:#1a1a2e;">r/LocalLLaMA</div>
+            <div style="font-size:13px; color:#536471;">April 1, 2026</div>
+          </td>
+        </tr>
+      </table>
+      <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">Claude code source code has been leaked via a map file in their npm registry. 512K lines exposed. Builders are already digging through it.</div>
+      <div style="font-size:12px; color:#536471;">⬆️ 3,694 upvotes</div>
+      <div style="margin-top:8px;">
+        <a href="https://reddit.com/r/LocalLLaMA/comments/1s8ijfb/claude_code_source_code_has_been_leaked_via_a_map/" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on Reddit →</a>
+      </div>
+    </td></tr>
+  </table>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+    <tr>
+      <td width="3" style="background:#1d9bf0;"></td>
+      <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+        <strong style="color:#1d9bf0;">Why it matters:</strong> This is the most significant accidental open-source event in AI tooling history. Seeing how a $852B-valued AI company architects a terminal coding agent — its memory management, context handling, tool dispatch — is a masterclass that no blog post could replicate.
+      </td>
+    </tr>
+  </table>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+    <tr>
+      <td width="3" style="background:#F59E0B;"></td>
+      <td style="background:#FFF8ED; padding:14px 18px; border-radius:0 8px 8px 0; font-size:14.5px; color:#374151; line-height:1.6;">
+        <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:#B45309; display:block; margin-bottom:4px;">🎯 Why this matters to you</strong>
+        You're building Trawly's pipeline with Claude Code right now. Understanding how Anthropic built the tool you're using — its actual architecture, not the marketing copy — gives you an edge in how you prompt it, structure tasks, and think about agent flows for the Inngest pipeline rebuild.
+      </td>
+    </tr>
+  </table>
+  <div style="font-size:11px; color:#8899a6;">⬆️ 3,694 upvotes · Reddit r/LocalLLaMA</div>
+</td></tr>
+
+<!-- SECTION 1: AI AS LEVERAGE -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#EFF6FF;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#1d9bf0; margin-bottom:24px;">⚡ AI as Leverage</div>
+
+  <!-- Story 1: TurboQuant -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #dbeafe;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#1d9bf0; background:rgba(29,155,240,0.08);">LOCAL AI</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">TurboQuant Running Qwen on MacBook Air — Entirely Locally</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">Google's TurboQuant quantisation breakthrough hit 1,137 upvotes with a practical demo: Qwen running on a MacBook Air with no cloud, no latency, no API bill. Combined with the simple explanation post (1,683 upvotes), this is the week TurboQuant became something builders actually use rather than just admire.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <div style="width:40px; height:40px; background:#ff4500; border-radius:50%; color:white; font-weight:700; font-size:16px; text-align:center; line-height:40px;">r/</div>
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">r/LocalLLaMA</div>
+              <div style="font-size:13px; color:#536471;">This week</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">Google TurboQuant running Qwen locally on MacBook Air. 1,137 upvotes. The moment local LLMs became practical for everyday builder workflows.</div>
+        <div style="font-size:12px; color:#536471;">⬆️ 1,137 upvotes</div>
+        <div style="margin-top:8px;">
+          <a href="https://reddit.com/r/LocalLLaMA/comments/1s5kdu0/google_turboquant_running_qwen_locally_on_macair/" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on Reddit →</a>
+        </div>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> Running capable models locally means zero API cost, zero latency, full privacy. For any agent workflow — sales outreach, Trawly research, Enviz materials — local inference is a genuine cost-structure shift.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">⬆️ 1,137 upvotes · r/LocalLLaMA</div>
+  </div>
+
+  <!-- Story 2: GLM 5.1 -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #dbeafe;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#1d9bf0; background:rgba(29,155,240,0.08);">NEW MODEL</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">GLM 5.1 Is Out — The Cost-Effective Alternative That's Winning on Price</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">GLM 5.1 dropped this week and hit 838 upvotes on r/LocalLLaMA. It's positioned as the go-to when cost matters — and separately, an OpenClaw arena benchmark named StepFun 3.5 Flash as the #1 cost-effective model for agentic tasks over 300 battles. Cheap, capable, agentic-ready models are arriving fast.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <div style="width:40px; height:40px; background:#ff4500; border-radius:50%; color:white; font-weight:700; font-size:16px; text-align:center; line-height:40px;">r/</div>
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">r/LocalLLaMA</div>
+              <div style="font-size:13px; color:#536471;">This week</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">GLM 5.1 is out. Community very positive — the cost/performance ratio is the story here.</div>
+        <div style="font-size:12px; color:#536471;">⬆️ 838 upvotes</div>
+        <div style="margin-top:8px;">
+          <a href="https://reddit.com/r/LocalLLaMA/comments/1s51id3/glm_51_is_out/" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on Reddit →</a>
+        </div>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> As Trawly scales and Enviz's agent-driven marketing system grows, API spend becomes real. Knowing which models punch above their weight on cost is directly operational — not just interesting.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">⬆️ 838 upvotes · r/LocalLLaMA</div>
+  </div>
+
+  <!-- Story 3: Dan Martell APEX -->
+  <div style="margin-bottom:0;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#1d9bf0; background:rgba(29,155,240,0.08);">FOUNDER TOOLS</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">Dan Martell Launches APEX: AI Agents That Run Your Business While You Sleep</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">Dan Martell — the $100M MRR SaaS founder who coaches founders — just launched APEX, a self-hosted AI agent platform managing email, scheduling, content, and software development autonomously. It's pitched as "always-on AI capabilities for anyone." The comparison to OpenClaw in the press release isn't subtle — this is the market validating what you're building with Trawly's agent stack.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <div style="width:40px; height:40px; background:#1d9bf0; border-radius:50%; color:white; font-weight:700; font-size:14px; text-align:center; line-height:40px;">🌐</div>
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">24-7 Press Release via Brave</div>
+              <div style="font-size:13px; color:#536471;">March 29, 2026</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">New self-hosted AI platform manages email, scheduling, content, and software development while entrepreneurs sleep — bringing always-on AI capabilities of open-source tools to anyone.</div>
+        <div style="margin-top:8px;">
+          <a href="https://www.24-7pressrelease.com/press-release/533275/dan-martell-launches-apex-an-autonomous-ai-agent-platform-that-works-for-founders-around-the-clock" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Read more →</a>
+        </div>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> When a coach with 1M+ founder followers ships an agentic platform, it signals the mainstream is ready. This is competitor validation AND a market-size signal — not just a product launch.
+        </td>
+      </tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#F59E0B;"></td>
+        <td style="background:#FFF8ED; padding:14px 18px; border-radius:0 8px 8px 0; font-size:14.5px; color:#374151; line-height:1.6;">
+          <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:#B45309; display:block; margin-bottom:4px;">🎯 Why this matters to you</strong>
+          Enviz's pivot to AI-driven sales and marketing is exactly the use case Martell is selling. Seeing how he's packaging and pricing "AI agents for founders" tells you what the market will pay — and how to frame Enviz's own agent-powered pitch to developer clients who want the same leverage.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">📰 Brave · March 29, 2026</div>
+  </div>
+
+</td></tr>
+
+<!-- SECTION 2: BUILDERS & FOUNDERS -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#FFFBEB;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#f59e0b; margin-bottom:24px;">🏗️ Builders & Founders</div>
+
+  <!-- Story: llama.cpp 100K stars -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #fde68a;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#f59e0b; background:rgba(245,158,11,0.08);">MILESTONE</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">llama.cpp Hits 100,000 GitHub Stars — The Quiet Engine Under Local AI</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">llama.cpp crossed 100K GitHub stars this week, making it one of the fastest-growing open source AI projects ever. What started as one developer running LLaMA on a MacBook in 2023 is now the runtime under most local AI tooling — TurboQuant included. 100K stars isn't vanity; it's the marker of infrastructure that's here to stay.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <div style="width:40px; height:40px; background:#ff4500; border-radius:50%; color:white; font-weight:700; font-size:16px; text-align:center; line-height:40px;">r/</div>
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">r/LocalLLaMA</div>
+              <div style="font-size:13px; color:#536471;">This week</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">llama.cpp at 100k stars. The community is celebrating a project that went from "a weekend hack" to critical AI infrastructure in under 3 years.</div>
+        <div style="font-size:12px; color:#536471;">⬆️ 1,034 upvotes</div>
+        <div style="margin-top:8px;">
+          <a href="https://reddit.com/r/LocalLLaMA/comments/1s7z7hj/llamacpp_at_100k_stars/" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on Reddit →</a>
+        </div>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#f59e0b;"></td>
+        <td style="background:#FFFBEB; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#f59e0b;">Why it matters:</strong> The open source layer underneath every local AI product is now mature enough to build a business on. The infrastructure risk is gone — the question is purely what you build on top of it.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">⬆️ 1,034 upvotes · r/LocalLLaMA</div>
+  </div>
+
+  <!-- Story: EmDash — WordPress successor -->
+  <div style="margin-bottom:0;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#f59e0b; background:rgba(245,158,11,0.08);">INFRASTRUCTURE</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">Cloudflare's EmDash: A WordPress Spiritual Successor With Plugin Security Actually Solved</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">Cloudflare published a deep dive on EmDash — their attempt to build a modern spiritual successor to WordPress that solves the #1 thing that killed enterprise trust in WordPress: the plugin security nightmare. 185 HN points with 102 comments. The timing matters: as AI-generated sites proliferate, the CMS that solves plugin security becomes the default enterprise choice.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <div style="width:40px; height:40px; background:#f6821f; border-radius:50%; color:white; font-weight:700; font-size:14px; text-align:center; line-height:40px;">HN</div>
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">Hacker News</div>
+              <div style="font-size:13px; color:#536471;">Today · 185 points</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">EmDash — a spiritual successor to WordPress that solves plugin security. 185 HN points, 102 comments, strong debate about whether this is the future of managed web infrastructure.</div>
+        <div style="font-size:12px; color:#536471;">💬 102 comments · ⬆️ 185 points</div>
+        <div style="margin-top:8px;">
+          <a href="https://blog.cloudflare.com/emdash-wordpress/" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Read on Cloudflare →</a>
+        </div>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#f59e0b;"></td>
+        <td style="background:#FFFBEB; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#f59e0b;">Why it matters:</strong> This is Cloudflare positioning for the next 100M websites. If Trawly ever needs a hosted web presence or Enviz's marketing sites need enterprise-grade infrastructure, knowing what the post-WordPress world looks like is useful strategic context.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">💬 102 comments · ⬆️ 185 points · Hacker News</div>
+  </div>
+
+</td></tr>
+
+<!-- WILDCARD (after 2nd interest section) -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8;">
+  <div style="margin-bottom:0; padding:24px; background:#0f172a; border-radius:16px; border-left:4px solid #a78bfa;">
+    <div style="display:inline-block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:2px; padding:4px 10px; border-radius:20px; margin-bottom:14px; color:#0f172a; background:#a78bfa;">🃏 Wildcard</div>
+    <div style="font-size:11px; color:#a78bfa; margin-bottom:8px; font-style:italic;">Outside your usual read. Intellectually worth 2 minutes.</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:10px; color:#ffffff; line-height:1.4;">CERN Built Superconducting Karts — and They're Using Them to Move Particle Accelerator Magnets</div>
+    <div style="font-size:15px; color:#e2e8f0; margin-bottom:14px; line-height:1.7;">CERN engineers designed custom superconducting karts to move the massive magnets inside the Large Hadron Collider. These aren't metaphorical — they're actual electric karts, purpose-built to navigate the 27km tunnel at the energy frontier. The kart weighs less than the magnets it ferries, and the superconducting drive system needs to run at near-absolute-zero temperatures. It's the most niche engineering solution to the most niche logistics problem on Earth. 337 HN points, 77 comments.</div>
+    <div style="background:rgba(167,139,250,0.15); border-radius:8px; padding:12px 16px; font-size:14px; color:#c4b5fd; line-height:1.6;">
+      <strong style="color:#a78bfa;">The dinner-table version:</strong> CERN built superconducting go-karts to move their particle magnets because nothing else fit in the tunnel.
+    </div>
+  </div>
+</td></tr>
+
+<!-- SECTION 3: PROPTECH & SALES -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#F0FFF4;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#059669; margin-bottom:24px;">🏢 PropTech & Sales</div>
+
+  <!-- Story: UFC April 11 card (David follows UFC closely) — actually this should be MMA section -->
+  <!-- UFC April 11 card — Prochazka vs Ulberg -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #bbf7d0;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#059669; background:rgba(5,150,105,0.08);">UPCOMING EVENT</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">UFC April 11: Prochazka vs. Ulberg for the Vacant Light Heavyweight Title</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">The next major UFC card is April 11 in Miami — Jiří Procházka against Carlos Ulberg for the vacant 205lb light heavyweight title. Co-main: Joshua Van defends his flyweight belt against Japan's Tatsuro Taira. Also on the card: the long-overdue Bellator legacy matchup between Patricio Pitbull and Aaron Pico. Renato Moicano vs Chris Duncan headlines the card before the title bout.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <div style="width:40px; height:40px; background:#c2102b; border-radius:50%; color:white; font-weight:700; font-size:14px; text-align:center; line-height:40px;">UFC</div>
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">CBS Sports / UFC.com</div>
+              <div style="font-size:13px; color:#536471;">April 11, 2026 · Miami</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">Prochazka vs Ulberg for vacant LHW title. Taira vs Van for flyweight belt. Pitbull vs Pico. Full card shapes up as a stacked April 11 in Miami.</div>
+        <div style="margin-top:8px;">
+          <a href="https://www.cbssports.com/ufc/news/2026-ufc-event-schedule-jiri-prochazka-carlos-ulberg-fight-night-327/" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Full card breakdown →</a>
+        </div>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#059669;"></td>
+        <td style="background:#F0FFF4; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#059669;">Why it matters:</strong> Prochazka fighting for the vacant belt is the LHW title story of the year — his berserker style vs Ulberg's KO power is a proper matchup. Pitbull vs Pico is years overdue. April 11 is worth clearing the calendar for.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">📰 CBS Sports · UFC.com</div>
+  </div>
+
+  <!-- Story: AI for real estate infrastructure -->
+  <div style="margin-bottom:0;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#059669; background:rgba(5,150,105,0.08);">PROPTECH</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">Dono Is Rebuilding Property Records for the $50T US Real Estate Market</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">Dono is building faster, smarter infrastructure for US property records — digitising the layer that everything from mortgages to AR walkthroughs depends on. The pitch: AI-driven property data infrastructure for the $50 trillion US real estate market. No massive engagement, but an important signal — backend proptech infrastructure is where serious VC money is moving, not the shiny AR/VR frontend layer.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <div style="width:40px; height:40px; background:#1d9bf0; border-radius:50%; color:white; font-weight:700; font-size:14px; text-align:center; line-height:40px;">🌐</div>
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">RealtyNXT · via Brave</div>
+              <div style="font-size:13px; color:#536471;">April 1, 2026</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">AI is reshaping property records. Dono building faster, smarter infrastructure for the $50T U.S. real estate market — digitizing the backend that all proptech sits on top of.</div>
+        <div style="margin-top:8px;">
+          <a href="https://twitter.com/RealtyNXT/status/2039256821274382660" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View source →</a>
+        </div>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#059669;"></td>
+        <td style="background:#F0FFF4; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#059669;">Why it matters:</strong> Backend proptech is where the unfair advantage lives. If Enviz's AR experiences sit on top of better property data, the pitch to developers changes — you're not just a visualisation layer, you're part of the data-forward workflow they're being pushed toward.
+        </td>
+      </tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#F59E0B;"></td>
+        <td style="background:#FFF8ED; padding:14px 18px; border-radius:0 8px 8px 0; font-size:14.5px; color:#374151; line-height:1.6;">
+          <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:#B45309; display:block; margin-bottom:4px;">🎯 Why this matters to you</strong>
+          This is directly Enviz territory. The question worth sitting with: as proptech infrastructure modernises, does Enviz integrate with the data layer — or does it keep positioning purely as the visualisation layer? The answer shapes your next 18 months of product conversations.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">📰 RealtyNXT · April 1, 2026</div>
+  </div>
+
+</td></tr>
+
+<!-- STILL CLIMBING -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#FAFAF8;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#f59e0b; margin-bottom:16px;">📈 Still Climbing</div>
+  <div style="font-size:12px; color:#8899a6; font-style:italic; margin-bottom:12px;">📈 Still Climbing — posted 3 days ago, still trending in r/LocalLLaMA (1,806 upvotes)</div>
+
+  <div style="margin-bottom:0;">
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">Mistral Voxtral: 3B TTS Model With Open Weights That Beats ElevenLabs Flash v2.5</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">Mistral dropped Voxtral — a 3-billion-parameter text-to-speech model with open weights. It runs on 3GB of RAM, hits 90ms time-to-first-audio, and in human preference tests it beat ElevenLabs Flash v2.5. Nine languages supported. For anyone building voice features — or thinking about them — this just removed the "expensive API" blocker from the equation.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <div style="width:40px; height:40px; background:#ff4500; border-radius:50%; color:white; font-weight:700; font-size:16px; text-align:center; line-height:40px;">r/</div>
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">r/LocalLLaMA</div>
+              <div style="font-size:13px; color:#536471;">~3 days ago · still gaining</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">Mistral AI to release Voxtral TTS, 3B params, open weights, outperformed ElevenLabs Flash v2.5 in human preference tests. 3GB RAM. 90ms latency. 9 languages.</div>
+        <div style="font-size:12px; color:#536471;">⬆️ 1,806 upvotes</div>
+        <div style="margin-top:8px;">
+          <a href="https://reddit.com/r/LocalLLaMA/comments/1s46ylj/mistral_ai_to_release_voxtral_tts_a/" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on Reddit →</a>
+        </div>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#f59e0b;"></td>
+        <td style="background:#FAFAF8; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#f59e0b;">Why it matters:</strong> Open-weights TTS at this quality level means voice features in apps are now as free as text generation. If Trawly ever ships a "read your digest" audio version, the infrastructure just arrived.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">⬆️ 1,806 upvotes · r/LocalLLaMA · 3 days ago</div>
+  </div>
+</td></tr>
+
+<!-- THREAD OF THE DAY -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#1d9bf0; margin-bottom:16px;">🧵 Thread of the Day</div>
+  <div style="font-size:22px; font-weight:800; margin-bottom:10px; color:#1a1a2e;">Real-Time Dashboard for Claude Code Agent Teams — See What Your AI Is Actually Doing</div>
+  <div style="font-size:15px; color:#374151; margin-bottom:12px; line-height:1.7;">A developer shipped an open-source real-time dashboard for monitoring multiple Claude Code agents running in parallel. You can see which agent is on which task, where they're stuck, what files they're touching. It's the observability layer that was completely missing for anyone running Claude Code at more than "one agent doing one thing" scale. HN gave it 35 points with the niche audience that cares most.</div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+    <tr><td style="padding:14px 18px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td width="40" valign="top" style="padding-right:10px;">
+            <div style="width:40px; height:40px; background:#f6821f; border-radius:50%; color:white; font-weight:700; font-size:14px; text-align:center; line-height:40px;">HN</div>
+          </td>
+          <td valign="top">
+            <div style="font-weight:700; font-size:14px; color:#1a1a2e;">Show HN: agents-observe</div>
+            <div style="font-size:13px; color:#536471;">Today · 35 points</div>
+          </td>
+        </tr>
+      </table>
+      <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">Real-time dashboard for Claude Code agent teams — see what all your agents are doing simultaneously. Open source. GitHub.</div>
+      <div style="font-size:12px; color:#536471;">💬 11 comments · ⬆️ 35 points</div>
+      <div style="margin-top:8px;">
+        <a href="https://github.com/simple10/agents-observe" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">GitHub repo →</a>
+      </div>
+    </td></tr>
+  </table>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:12px 0;">
+    <tr>
+      <td width="3" style="background:#7c3aed;"></td>
+      <td style="background:#f8f5ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+        <strong style="color:#7c3aed;">🐰 Rabbit Hole:</strong> If you're running Claude Code for Trawly's Inngest pipeline rebuild with more than one agent, this dashboard is 10 minutes to install and immediately useful. The "what is my agent actually doing right now?" question has an answer now.
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- SOMETHING GOOD -->
+<tr><td style="padding:0 32px 4px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fef9e7" style="border-radius:16px; border:2px solid #f59e0b; background-color:#fef9e7;">
+    <tr><td style="padding:24px; background-color:#fef9e7; border-radius:16px;">
+      <div style="display:inline-block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:2px; padding:4px 10px; border-radius:20px; margin-bottom:14px; color:#78350f; background-color:#fcd34d;">☀️ Something Good</div>
+      <div style="font-size:11px; color:#92400e; margin-bottom:8px; font-style:italic;">One thing that actually happened. No spin. Just good.</div>
+      <div style="font-size:18px; font-weight:700; margin-bottom:10px; color:#1a1a2e; line-height:1.4;">A Football Fan Named Del Got the All-Clear After 10 Months of Surgeries — and He's Going to Bournemouth</div>
+      <div style="font-size:15px; color:#374151; margin-bottom:14px; line-height:1.7;">Del, a North London football supporter, had his life put on hold for nearly 10 months through a series of surgeries. Today he got the final all-clear from his doctors. He jumped on X to share the news with his community — and the first thing he mentioned was that he's headed to the Bournemouth match. 1,783 likes, 100 replies from people who'd been following his journey.</div>
+      <div style="font-size:14px; padding-top:8px; border-top:1px solid #fcd34d; color:#374151;">
+        Del's been waiting 10 months for this day. He's going to the game. That's all there is to it. 💛
+      </div>
+    </td></tr>
+  </table>
+</td></tr>
+<tr><td style="height:20px;"></td></tr>
+
+<!-- EDITOR'S CORNER -->
+<tr><td style="padding:28px 32px; background:#f8f5ff; border-bottom:1px solid #f0ede8;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#7c3aed; margin-bottom:14px;">⚡ Editor's Corner</div>
+  <div style="font-size:17px; font-weight:700; margin-bottom:10px; color:#1a1a2e;">The Accidental Open Source Event of the Year</div>
+  <div style="font-size:15px; color:#374151; margin-bottom:12px; line-height:1.7;">512,000 lines of Claude Code source code, exposed by a single forgotten .map file in an npm package. The internet found it within hours. Anthropic hasn't pulled it, commented, or patched it yet. For a tool you use every day to build Trawly, this week's leak is either a security concern or a gift — probably both. Go read it while it's there.</div>
+  <div style="font-size:14px; color:#8899a6; margin-top:12px; font-style:italic;">Issue #65. Happy Thursday, David. — Chop 🐟</div>
+</td></tr>
+
+<!-- FOOTER -->
+<tr><td style="padding:24px 32px; text-align:center; font-size:12px; color:#8899a6; line-height:1.8;">
+  <div style="font-size:13px; color:#374151; margin-bottom:6px; font-weight:500;">Trawled 97 sources · read 97 posts · distilled to 12 stories</div>
+  <div style="font-size:13px; color:#374151; margin-bottom:12px; font-weight:500;">~50 min saved today. Go do something good with it. ⚡</div>
+  <div style="font-size:11px; color:#CBD5E1; margin-top:8px;">Beta COGS: ~$0.40 (AI compose) + $0.49 (X API · 97 tweets × $0.005) = $0.89/issue</div>
+  <div style="font-size:11px; color:#CBD5E1; margin-top:4px;">~42.3h saved since you subscribed.</div>
+  <div style="margin-top:12px;"><a href="https://heytrawly.com/profile?token=d90d682b-c7c6-4af0-8db5-290379399fcc" style="color:#1d9bf0; text-decoration:none;">✏️ Edit your profile</a> · <a href="https://heytrawly.com/unsubscribe?email=de@enviz.co" style="color:#1d9bf0; text-decoration:none;">Unsubscribe</a></div>
+  <div style="margin-top:8px; font-size:11px; color:#CBD5E1;">© 2026 Trawly · Trawling the internet so you don't have to.</div>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
