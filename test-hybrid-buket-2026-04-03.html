@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trawly — Buket's Digest · Friday, April 3, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #FFFDF9;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #2d2d2d;
+      line-height: 1.75;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 48px 32px 40px;
+      text-align: center;
+    }
+    header .logo {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #1d9bf0;
+      margin-bottom: 12px;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+    header h1 {
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    header .meta {
+      font-size: 14px;
+      color: #a0b0c8;
+      font-family: 'Helvetica Neue', sans-serif;
+      letter-spacing: 0.5px;
+    }
+    header .badge {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 5px 14px;
+      background: rgba(29,155,240,0.2);
+      border: 1px solid rgba(29,155,240,0.5);
+      border-radius: 20px;
+      font-size: 12px;
+      color: #1d9bf0;
+      font-family: 'Helvetica Neue', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #1d9bf0;
+      margin: 56px 0 24px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #1d9bf0;
+    }
+
+    /* ── STORY CARD ── */
+    .story {
+      margin-bottom: 48px;
+    }
+    .story-number {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .story h2 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #1a1a2e;
+      margin-bottom: 18px;
+    }
+    .story p {
+      font-size: 16px;
+      margin-bottom: 14px;
+      color: #333;
+    }
+
+    /* ── SOURCE CARD ── */
+    .source-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: #f4f1eb;
+      border-radius: 8px;
+      margin: 18px 0;
+    }
+    .source-card .source-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .source-card .source-text {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      color: #555;
+    }
+    .source-card .source-text strong {
+      color: #1a1a2e;
+    }
+    .source-card a {
+      color: #1d9bf0;
+      text-decoration: none;
+    }
+    .source-card a:hover { text-decoration: underline; }
+
+    /* ── CALLOUTS ── */
+    .callout {
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 16px 0;
+    }
+    .callout-blue {
+      background: rgba(29,155,240,0.08);
+      border-left: 4px solid #1d9bf0;
+    }
+    .callout-amber {
+      background: rgba(245,158,11,0.08);
+      border-left: 4px solid #f59e0b;
+    }
+    .callout p {
+      font-size: 15px;
+      margin: 0;
+    }
+    .callout strong {
+      display: block;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: #888;
+    }
+    .callout-blue strong { color: #1d9bf0; }
+    .callout-amber strong { color: #f59e0b; }
+
+    /* ── BIG ONE ── */
+    .big-one-header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 40px 0 32px;
+      color: #fff;
+    }
+    .big-one-header .big-one-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #1d9bf0;
+      margin-bottom: 12px;
+    }
+    .big-one-header h2 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .big-one-header .velocity {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 12px;
+      color: #a0b0c8;
+    }
+    .big-one-header .velocity span {
+      color: #1d9bf0;
+      font-weight: 700;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #e8e4db;
+      margin: 40px 0;
+    }
+
+    /* ── SOMETHING GOOD ── */
+    .something-good {
+      background: linear-gradient(135deg, #fff8f0 0%, #fffdf9 100%);
+      border: 1px solid #f0e8d8;
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 32px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a1a2e;
+      color: #6b7c9a;
+      text-align: center;
+      padding: 32px 24px;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer a { color: #1d9bf0; text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      header { padding: 36px 20px 30px; }
+      header h1 { font-size: 26px; }
+      .container { padding: 0 16px 48px; }
+      .story h2 { font-size: 20px; }
+      .big-one-header { padding: 24px; }
+      .big-one-header h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">🐟 Trawly</div>
+  <h1>Buket's Friday Digest</h1>
+  <div class="meta">Friday, April 3, 2026 · Hybrid Format</div>
+  <div class="badge">⚡ Hybrid · 15 Stories · Web + X Signal</div>
+</header>
+
+<div class="container">
+
+  <!-- ═══════════════════════════════════════════
+       THE BIG ONE
+  ═══════════════════════════════════════════ -->
+
+  <div class="big-one-header">
+    <div class="big-one-label">🔥 The Big One — Highest velocity story this week</div>
+    <h2>Sinclair Lab Reverses Infertility in Post-Menopausal Mice — FDA Human Trial Clears for Spring 2026</h2>
+    <div class="velocity">X velocity score: <span>155.4</span> · 318 likes · 106 bookmarks in &lt;48h · @johncumbers</div>
+  </div>
+
+  <div class="story">
+    <p>
+      Harvard geneticist David Sinclair's lab has achieved what was long considered physiologically impossible: restoring fertility in female mice that had been infertile for six months — equivalent to a woman well past menopause. Using epigenetic reprogramming (partial OSK factors, avoiding the tumour-inducing OSKM combination that other labs had tried), the intervention reactivated hormonal cycles and egg production in 16-month-old mice. Published data from collaborating researchers (Gallardo et al., 2025, <em>Aging-US</em>) showed pregnancy rates climbing from 8.3% in untreated middle-aged animals to 25% following reprogramming gene therapy applied to hypothalamic neurons — a 3-fold improvement.
+    </p>
+    <p>
+      The underlying mechanism challenges a foundational assumption in reproductive medicine: that a female mammal is born with a fixed pool of oocytes that only depletes over time. Sinclair's lab has been investigating ovarian stem cells — oogonial stem cells capable of giving rise to new oocytes in culture and in vivo — as evidence that ovarian aging may not be irreversible. Their earlier work on NMN (nicotinamide mononucleotide) supplementation demonstrated improvements in egg quality and litter size in aged mice. This new reprogramming approach targets the neuroendocrine axis, essentially resetting the "age clock" in the brain centre that governs hormonal release.
+    </p>
+    <p>
+      The FDA has now cleared Life Biosciences (the Sinclair-affiliated company) to begin the first human epigenetic reprogramming trial, anticipated to start spring 2026. The human trial will not target fertility directly — it focuses on broader biological age reversal — but the fertility implications are significant enough that reproductive medicine specialists are watching closely. Sinclair himself told a Reddit AMA in February 2026 that this year "will be the year when age reversal in humans is either confirmed or disproven."
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">🔬</div>
+      <div class="source-text">
+        <strong>Sources:</strong> Gallardo et al. (2025), <em>Aging-US</em> · Life Biosciences FDA clearance, <em>nad.com</em>, Jan 2026 ·
+        <a href="https://sinclair.hms.harvard.edu/research" target="_blank">Sinclair Lab, Harvard</a> · @johncumbers on X, April 2026
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>The dogma that female fertility is finite and irreversible is being systematically dismantled. This research reframes menopause not as a fixed biological endpoint but as a potentially modifiable aging phenotype — with implications ranging from fertility extension to hormonal health preservation. The shift in how we conceptualise oocyte biology alone warrants attention across reproductive medicine.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>You're in the early stages of perimenopause — a window where the neuroendocrine axis that this research targets is beginning to shift. As a hospital scientist in genetics, you'll appreciate that the mechanism here (epigenetic reprogramming of hypothalamic neurons) isn't science fiction — it's a direct extension of the OSK work already in the literature. The FDA human trial timeline puts this 2–3 years from early clinical data. Whether or not you'd ever pursue such intervention, understanding where this field is heading changes the frame for every perimenopause decision you make now.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1: HORMONAL HEALTH
+  ═══════════════════════════════════════════ -->
+
+  <div class="section-label">💊 Section 1 — Hormonal Health & HRT</div>
+
+  <!-- Story 2 -->
+  <div class="story">
+    <div class="story-number">Story 02</div>
+    <h2>FDA Removes Black Box Warnings from HRT After 23 Years — What the Science Actually Said</h2>
+
+    <p>
+      In November 2025, the US FDA initiated one of the most consequential policy reversals in women's health in decades: the removal of broad "black box" warnings from menopausal hormone replacement therapy products. The announcement, made by HHS Secretary RFK Jr. and FDA Commissioner Marty Makary, acknowledged that the warnings — applied after a flawed 2002 Women's Health Initiative (WHI) study — were based on statistically non-significant risk findings in a population with a median age of 63, using an outdated conjugated equine estrogen formulation no longer in common clinical use.
+    </p>
+    <p>
+      The FDA's comprehensive review, preceded by an expert panel convened in July 2025 and a public comment period, found no credible evidence supporting warnings about cardiovascular disease, breast cancer, or "probable dementia" for the currently used bioidentical and synthetic hormone formulations. The updated labelling retains the endometrial cancer warning for estrogen-alone systemic products (as this is evidence-supported for unopposed estrogen), but removes the rest. Concurrently, the FDA approved a generic version of Premarin and a new drug — expanding treatment access.
+    </p>
+    <p>
+      Yale School of Medicine physicians contextualised this for practitioners: the literature consistently supports initiating HRT within 10 years of menopause onset, or before age 60, to maximise cardiovascular and neurological benefits and avoid the timing-sensitive risk window that gives a different risk profile to late initiators. The so-called "timing hypothesis" — that the WHI's poor results reflected late initiation in older women, not the drugs themselves — is now mainstream clinical consensus.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">🏛️</div>
+      <div class="source-text">
+        <strong>Sources:</strong> <a href="https://www.fda.gov/news-events/press-announcements/hhs-advances-womens-health-removes-misleading-fda-warnings-hormone-replacement-therapy" target="_blank">FDA Press Release, Nov 2025</a> ·
+        <a href="https://jamanetwork.com/journals/jama/fullarticle/2841321" target="_blank">JAMA Viewpoint, Jan 2026</a> · Yale School of Medicine
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>The black box removal is regulatory acknowledgment that 23 years of under-treatment happened — that women avoided or were denied HRT based on a misinterpretation of a fundamentally flawed trial. The clinical implications are immediate: GPs and specialists now face a population of women who were advised against HRT and who may be eligible candidates they weren't offered previously.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>You're approaching the window — early perimenopause — where the "timing hypothesis" says initiation offers the greatest long-term protection. This regulatory change means that when you sit down with a specialist (now or in the coming years), the conversation has a different evidential floor. It also means the GPs around you may be rapidly updating their prescribing comfort. The JAMA Viewpoint is worth reading in full — it's written for clinicians and goes into the specific formulations and delivery routes that the updated evidence supports.</p>
+    </div>
+  </div>
+
+  <!-- Story 3 -->
+  <div class="story">
+    <div class="story-number">Story 03</div>
+    <h2>BMJ Nationwide Cohort Study: HRT Not Associated with Increased Mortality — Some Users Lived Longer</h2>
+
+    <p>
+      Published in <em>The BMJ</em> on 18 February 2026, a nationwide registry-based cohort study from Denmark followed 876,805 women born between 1950 and 1977, tracking outcomes from age 45. Researchers assessed whether menopausal hormone therapy was associated with all-cause mortality. The conclusion: MHT was not associated with increased mortality risk. In some subgroups — particularly those initiating estrogen-progestogen therapy within the optimal window — users had a slightly lower all-cause mortality hazard ratio compared to never-users.
+    </p>
+    <p>
+      The study's strength lies in its use of complete national registry data, allowing for long follow-up and adjustment for socioeconomic confounders. Unlike the WHI, which randomised already-older women to a single formulation, this cohort reflects real-world prescribing patterns across a wide range of formulations, doses, and durations. It is among the largest and most methodologically robust observational studies on this question conducted with modern MHT preparations.
+    </p>
+    <p>
+      The study notes the importance of distinguishing formulation types: combined estrogen-progestogen preparations, estrogen-only (for hysterectomised women), and lower-dose local preparations. The mortality benefit signal was most consistent for combined preparations initiated perimenopausally, consistent with the timing hypothesis. Vaginal/topical estrogens showed no signal in any direction.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">📖</div>
+      <div class="source-text">
+        <strong>Source:</strong> Mikkelsen et al. (2026), <em>The BMJ</em> 392:e085998 ·
+        <a href="https://pubmed.ncbi.nlm.nih.gov/41708152/" target="_blank">PubMed</a> ·
+        <a href="https://www.medpagetoday.com/obgyn/hrt/119940" target="_blank">MedPage Today commentary</a>
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>The Danish cohort is the kind of study that shifts meta-analyses. It won't be the last word, but it substantially raises the evidentiary bar for any claim that MHT causes premature death. Combined with the FDA label change, the clinical ground has shifted materially in the last 12 months.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>As a scientist, you'll want to read the hazard ratios, not just the headlines. The PubMed abstract has the key numbers. The finding that some initiators had lower all-cause mortality — even slightly — is the figure that will drive your gynaecologist's updated thinking. Cross this with the timing hypothesis and you have the framework for a well-informed perimenopause consultation in the next 12–24 months.</p>
+    </div>
+  </div>
+
+  <!-- Story 4 -->
+  <div class="story">
+    <div class="story-number">Story 04</div>
+    <h2>When You Start Estrogen Matters More Than Whether You Start: The Perimenopausal Window</h2>
+
+    <p>
+      A large-scale analysis published by The Menopause Society (October 2025) specifically examined the question of <em>timing</em> of estrogen initiation relative to menopause — and found that initiation during perimenopause, rather than years post-menopause, is associated with substantially greater cardiovascular and cognitive protection. The study looked at longitudinal outcomes data stratified by time-since-menopause at first HRT prescription.
+    </p>
+    <p>
+      Women who began estrogen therapy within 2 years of menopause onset showed measurably lower rates of incident cardiovascular disease, improved bone density preservation, and lower rates of cognitive decline markers compared to later initiators — even when controlling for other health factors. This is consistent with the "healthy cell hypothesis" — that estrogen acts protectively on cells that are still estrogen-responsive, and that the window of peak responsiveness narrows after extended post-menopausal estrogen deprivation.
+    </p>
+    <p>
+      The findings reinforce a shift in clinical recommendation from "wait and see" to "discuss early." Many specialists are now framing perimenopause as the intervention window rather than a pre-clinical transition to be passively observed.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">🩺</div>
+      <div class="source-text">
+        <strong>Source:</strong> <a href="https://menopause.org/press-releases/when-women-initiate-estrogen-therapy-matters" target="_blank">The Menopause Society, Oct 2025</a> · Yale Medicine commentary
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>The framing shift from "menopause management" to "perimenopause as intervention window" is significant for clinical practice. It means conversations about HRT belong in the early 40s — not as something to consider later.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>You are the target population this paper was written about. "Early perimenopause" is your current status. This isn't speculative future reading — it's the research that defines your decision window. The cardiovascular and cognitive protection data, in particular, is the material that would shift a "I'll think about it later" to "I should have this conversation now."</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2: CANCER GENETICS & AI / CYTOGENETICS
+  ═══════════════════════════════════════════ -->
+
+  <div class="section-label">🧬 Section 2 — Cancer Genetics, AI & Cytogenetics</div>
+
+  <!-- Story 5 -->
+  <div class="story">
+    <div class="story-number">Story 05</div>
+    <h2>EMBL's MAGIC AI Can Spot Pre-Cancerous Chromosomal Abnormalities at Scale — Testing Boveri's 120-Year-Old Theory</h2>
+
+    <p>
+      Researchers at the Korbel Group, EMBL Heidelberg, have published in <em>Nature</em> (March 2026) the development of MAGIC — an AI-powered tool that automatically identifies and tags cells exhibiting chromosomal abnormalities, specifically micronuclei: small, DNA-containing structures that form when chromosomes are mis-segregated during cell division. These micronuclei are a well-established biomarker of chromosomal instability (CIN) and a known precursor to cancer progression, particularly in aggressive tumour types.
+    </p>
+    <p>
+      The innovation is one of scale and throughput. Traditionally, identifying cells with chromosomal defects required manual microscopy — a skilled, time-intensive process that could only screen a small fraction of the total cell population. MAGIC changes this by enabling automated screening of massive cell populations, capturing the rare early-event cells that would otherwise be missed entirely. This provides, for the first time, a reliable way to measure <em>rates</em> of chromosomal abnormality formation — not just their presence.
+    </p>
+    <p>
+      Senior scientist Jan Korbel described the tool's significance in terms of testing Theodor Boveri's hypothesis, first proposed in the early 20th century: that abnormal chromosomal content is causally linked to cancer development. "Chromosomal abnormalities are a main driver for particularly aggressive cancers, and they're highly linked to patient death, metastasis, recurrence, chemotherapy resistance, and fast tumour onset," Korbel said. "We wanted to understand what determines the likelihood that cells undergo such chromosomal alterations, and what's the rate at which such abnormalities arise when a still normal cell divides." MAGIC enables that quantitative question to be answered at scale for the first time.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">🔭</div>
+      <div class="source-text">
+        <strong>Source:</strong> Korbel Group, EMBL Heidelberg ·
+        <a href="https://www.sciencedaily.com/releases/2026/03/260309225152.htm" target="_blank">ScienceDaily, March 2026</a> · Published in <em>Nature</em>
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>Testing Boveri's theory at scale is not a footnote — it's a fundamental advance in cancer biology. If we can now reliably quantify the <em>rate</em> of chromosomal instability events in pre-malignant tissue, early cancer detection and risk stratification move from descriptive to predictive. The implications for clinical cytogenetics workflows are significant.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>You work with chromosomal abnormalities every day — this is essentially AI doing at population scale what your lab does manually in curated samples. MAGIC's approach to micronuclei detection is technically adjacent to FISH and metaphase analysis work in cytogenetics. The key question for clinical translation — which the <em>Nature</em> paper addresses — is whether automated micronuclei quantification can serve as a viable screening biomarker. Worth tracking the lab's follow-up for clinical implementation data.</p>
+    </div>
+  </div>
+
+  <!-- Story 6 -->
+  <div class="story">
+    <div class="story-number">Story 06</div>
+    <h2>Leica Biosystems Launches AI Karyotyping on CytoInsight GSL — 93.6% Reduction in Hands-On Time</h2>
+
+    <p>
+      Announced March 13, 2026, Leica Biosystems (a Danaher company) launched AI-Powered Karyotyping functionality on the CytoInsight GSL platform — an integrated digital pathology system for cytogenomics labs. The headline figure is striking: a 93.6% reduction in hands-on time from metaphase capture to final report, with greater than 99% accuracy in chromosome segmentation and classification.
+    </p>
+    <p>
+      The platform handles the full cytogenetics workflow within a single integrated system: scanning, capture, analysis, and reporting across both brightfield and FISH workflows. The AI karyotyping module supports the sample types that constitute the bulk of a diagnostic cytogenetics workload — peripheral blood, bone marrow, and amniotic fluid. By automating chromosome banding pattern recognition and classification, the system moves the cytogeneticist's role from primary analysis to QC review and sign-off on flagged cases.
+    </p>
+    <p>
+      The current release is designated "for research use only" and is not yet cleared for in vitro diagnostic use in Australia — a common regulatory pathway step before clinical deployment. The FDA/TGA IVD pathway is the next expected milestone. Lab vendors are forecasting widespread clinical deployment in cytogenomics labs within 18–24 months pending regulatory clearance.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">🏥</div>
+      <div class="source-text">
+        <strong>Source:</strong> <a href="https://www.leicabiosystems.com/us/news/leica-biosystems-elevates-cytogenetics-with-ai-powered-karyotyping-on-the-cytoinsight/" target="_blank">Leica Biosystems Press Release, March 13, 2026</a>
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>A 93.6% reduction in hands-on time for karyotyping is not incremental — it's transformative for lab throughput. If validated for IVD use, this changes the productivity economics of a cytogenetics department fundamentally. It also shifts the skill premium toward interpretation expertise over technical execution.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>This is your profession in 18–24 months. CytoInsight GSL is a platform already used in leading Australian hospital labs. The "RUO not IVD" status means it's likely being evaluated now in research settings close to clinical deployment. If your department isn't already in conversations with Leica about the CytoInsight ecosystem, this launch is the trigger. The practical upshot: fewer hours per case, higher case throughput, and a role that shifts toward complex variant interpretation and genomic counselling input.</p>
+    </div>
+  </div>
+
+  <!-- Story 7 -->
+  <div class="story">
+    <div class="story-number">Story 07</div>
+    <h2>AI in Cancer Genomics: XGBoost + Genetic Data Outperforms Clinical Variables Alone in Gastric Cancer Prognosis</h2>
+
+    <p>
+      A Special Issue of <em>Biomedicines</em> (PMC, 2026) compiling the latest in AI for cancer genomics highlighted several significant papers. Among them: Aznar-Gimeno et al.'s GastricAITool — a clinical decision support system for gastric cancer diagnosis and prognosis that integrates clinical, demographic, and genetic data (single nucleotide polymorphisms) using XGBoost and Random Survival Forest algorithms. Key finding: inclusion of SNP-level genetic information "significantly enhanced the system's discriminatory capacity" compared to clinical data alone.
+    </p>
+    <p>
+      In parallel, a Nature oncology paper (January 2026) applied ML to prostate cancer prognosis, combining NICE-recommended clinical features with genomic markers, demonstrating improved survival prediction. Across these studies, the consistent pattern is that AI performs better at prognosis when it integrates molecular genetic data rather than treating genomics as optional.
+    </p>
+    <p>
+      The broader Special Issue framing notes the challenge: AI models trained on genomic data require large, diverse, well-annotated datasets — which remain unevenly distributed across cancer types and populations. Gastric cancer has particularly strong Asian cohort data; cancers with underrepresented population genetics remain harder to model accurately.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">🧪</div>
+      <div class="source-text">
+        <strong>Source:</strong> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12938476/" target="_blank">PMC Special Issue, <em>Biomedicines</em> 2026</a> ·
+        <a href="https://www.nature.com/articles/s41698-026-01276-6_reference.pdf" target="_blank">Nature Oncology, Jan 2026</a>
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>The consistent signal across multiple cancer types is that genetic data isn't a nice-to-have for AI prognosis models — it's the differentiator. This has direct implications for how cancer genetics labs are positioned within multidisciplinary oncology teams: genomic data becomes the AI's input, not just the clinician's reference.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>You requested a deep dive on this in March. Here's the practical frame: AI prognosis models will increasingly draw on the chromosomal and SNP data that cytogenetics labs produce. Your lab's outputs are potential training inputs for the next generation of clinical AI. The skill worth developing alongside cytogenetics expertise is familiarity with how genetic features get encoded for ML — enough to inform lab data governance and contribute meaningfully to clinical AI collaboration.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3: EDUCATION CHOICES
+  ═══════════════════════════════════════════ -->
+
+  <div class="section-label">📚 Section 3 — Education: The Montessori Evidence Base</div>
+
+  <!-- Story 8 -->
+  <div class="story">
+    <div class="story-number">Story 08</div>
+    <h2>First National RCT of Public Montessori Preschool: Better Reading, Executive Function, and Theory of Mind by Kindergarten — at Lower Cost</h2>
+
+    <p>
+      A landmark study published in <em>PNAS</em> (February 2026), representing the most rigorous randomised evaluation of Montessori preschool to date, followed 588 children from age 3 through end of kindergarten across 24 public Montessori schools in the United States. Children were allocated via competitive lottery — a natural randomisation that provides stronger causal inference than prior observational studies. Half the treatment group still attended Montessori for kindergarten; the control group did not receive a lottery seat.
+    </p>
+    <p>
+      End-of-kindergarten results: Montessori children had significantly higher scores on reading, short-term memory, theory of mind (social understanding/perspective-taking), and executive function. No significant differences were detected at the end of PK3 or PK4 — the benefits emerged and consolidated by kindergarten, suggesting the cumulative effect of the method rather than isolated early gains. Intention-to-treat effect sizes exceeded 0.2 SD — considered large in field-based school research by established benchmarks (Kraft, 2020).
+    </p>
+    <p>
+      The cost finding is counterintuitive: public Montessori was $13,127 less per child than traditional programs over three years, largely because PK3-PK4 Montessori relies on higher child-to-teacher ratios. The research challenges the assumption that Montessori is a private-school luxury — and argues it should be considered by districts designing early childhood programs.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">📊</div>
+      <div class="source-text">
+        <strong>Source:</strong> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12582262/" target="_blank">PNAS/PMC, Feb 2026</a> · National Montessori RCT, 24 public schools, n=588
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>Prior Montessori research was limited by small samples, single schools, or non-randomised designs. This is the study that advocates needed: a national RCT with robust methodology showing genuine, meaningful outcomes advantages over traditional schooling on the cognitive and social dimensions that matter most in early childhood.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>You're actively weighing school choices for Leonardo right now. This is the most methodologically sound evidence available on the question you're asking. The executive function and theory of mind findings are particularly relevant — these are the capacities that predict long-term learning, self-regulation, and social development. The reading advantage by kindergarten is the figure a school registrar will never show you but a parent doing their homework should know.</p>
+    </div>
+  </div>
+
+  <!-- Story 9 -->
+  <div class="story">
+    <div class="story-number">Story 09</div>
+    <h2>Homeschooling in NSW: The Regulatory Reality for 2026 and What Curriculum Flexibility Actually Looks Like</h2>
+
+    <p>
+      Homeschooling in NSW underwent a regulatory authority shift in 2025: administration moved from NESA (NSW Education Standards Authority) to the NSW Department of Education, though applications still go through the Home Schooling Unit at homeschooling@nesa.nsw.edu.au and 02 9367 8149. Legal requirements: children aged 6–17 must be registered, and registration can begin from the year a child turns 5 (the year they'd be eligible for Kindergarten).
+    </p>
+    <p>
+      NSW registration does not mandate following the NSW curriculum verbatim — it requires demonstrating that the child's educational program addresses the key learning outcomes across curriculum areas appropriate to their stage. This creates significant flexibility for Montessori-style, Waldorf, project-based, or unschooling approaches, provided the registration documentation frames the program clearly. The registration review process typically involves submitted documentation and may include a home visit.
+    </p>
+    <p>
+      Sydney has an active homeschooling community with several secular groups, religious groups, and hybrid schooling co-ops. Umbrella schools (providing curriculum structure and external assessment while the child learns at home) are available, including Harbour City Homeschool and several others with Sydney-based cohorts. The community on r/Homeschooling Australia and Facebook's NSW Homeschooling group has deep practical knowledge of the registration process and curriculum planning.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">🏫</div>
+      <div class="source-text">
+        <strong>Sources:</strong> <a href="https://www.nsw.gov.au/education-and-training/home-schooling" target="_blank">NSW Government Home Schooling</a> ·
+        <a href="https://simplyhomeschool.com.au/support/registration-and-reporting/nsw/" target="_blank">Simply Homeschool NSW</a> ·
+        <a href="https://fearlesshomeschool.com/guide-homeschooling-australia/" target="_blank">Fearless Homeschool Australia Guide, 2025</a>
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>The regulatory shift to DoE changes who you call and where forms go — but it hasn't tightened requirements. NSW remains one of the more accommodating Australian states for pedagogically flexible homeschooling, which matters for families wanting to implement Montessori or Waldorf principles rather than simply replicating school at home.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>Leonardo is 5 — he's right at the registration eligibility threshold. You can register now and begin a Montessori home program while you explore your options. The key practical step is the registration documentation, which needs to articulate your pedagogical approach in terms the DoE reviewer can map to learning outcomes. This is achievable without much bureaucratic complexity — Simply Homeschool NSW has templates. The active Sydney homeschooling community is also worth connecting with before you decide; the socialisation question (usually the first objection) is best answered by parents who've done it.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4: KIDS HEALTH & GUT
+  ═══════════════════════════════════════════ -->
+
+  <div class="section-label">🌿 Section 4 — Children's Health: Gut, Microbiome & Avoiding Over-Medicalisation</div>
+
+  <!-- Story 10 -->
+  <div class="story">
+    <div class="story-number">Story 10</div>
+    <h2>Early-Life Gut Microbiome and Paediatric Disease: What the 2025 Frontiers Review Actually Found</h2>
+
+    <p>
+      A comprehensive review published in <em>Frontiers in Nutrition</em> (April 2025) synthesised evidence on the relationship between early-life gut microbiome composition and common paediatric diseases including asthma, atopic dermatitis, obesity, type 1 diabetes, and inflammatory bowel conditions. The review specifically addressed the downstream effects of microbiome disruption in infancy and early childhood.
+    </p>
+    <p>
+      Key findings: antibiotic exposure in early life is consistently associated with gut microbiome dysbiosis — characterised by loss of keystone taxa (particularly Bifidobacterium and Lactobacillus species), reduced diversity, shifts in metabolic capacity, and pathobiont blooms. These dysbiotic patterns are associated with increased risk of asthma (particularly in children who received antibiotics before age 2), obesity, and atopic disease. The mechanisms involve disrupted short-chain fatty acid (SCFA) production, altered mucosal immune development, and changes to the gut-brain axis during critical developmental windows.
+    </p>
+    <p>
+      Importantly, the review finds that microbiome recovery post-antibiotic is incomplete for many children — particularly after broad-spectrum agents. Bifidobacterium populations, which colonise rapidly in breastfed infants, may take months to recover after a single course of amoxicillin. Protective interventions with evidence include: continued breastfeeding where possible, dietary diversity (particularly prebiotic fibre from vegetables, legumes, and whole grains), fermented foods, and — with more nuanced evidence — targeted probiotic supplementation.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">🦠</div>
+      <div class="source-text">
+        <strong>Source:</strong> <a href="https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2025.1597206/full" target="_blank">Frontiers in Nutrition, April 2025</a> ·
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7928022/" target="_blank">PMC Systematic Review</a> · Institute for Functional Medicine
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>The "save the antibiotics for when they're really needed" principle now has mechanistic support beyond resistance concerns. The specific effects on immune development and asthma risk quantify the trade-off parents face in a way that changes the decision calculus for non-severe infections.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>With a 5yo and a 2yo, you're in the peak antibiotic decision years — ear infections, respiratory illnesses, tonsillitis. The evidence supports watchful waiting for viral and mild bacterial episodes where guidelines allow, and prioritising probiotic recolonisation (particularly Bifidobacterium and Lactobacillus rhamnosus strains) when antibiotic courses are unavoidable. Your 2yo's microbiome is still being established — the first 3 years are the critical window the research focuses on.</p>
+    </div>
+  </div>
+
+  <!-- Story 11 -->
+  <div class="story">
+    <div class="story-number">Story 11</div>
+    <h2>Stanford Children's: 5 Evidence-Based Ways to Build Gut Health in Kids — And What's Overhyped</h2>
+
+    <p>
+      Stanford Children's Health published a practical synthesis for parents and clinicians on building gut microbiome health in children. Ranked by strength of evidence: (1) Dietary diversity — particularly fibre-rich vegetables, legumes, and whole grains that feed Bifidobacterium and SCFA-producing species; (2) Fermented foods — kefir, yoghurt, kimchi, miso — with evidence for increasing microbial diversity even in children; (3) Time outdoors and in natural environments — environmental microbial exposure is a significant driver of microbiome diversity in children, particularly in the first 1000 days; (4) Probiotic supplementation — with caveats: strain specificity matters enormously, and most marketed products are not the strains that appear in clinical trial evidence; (5) Limiting ultra-processed foods — emulsifiers in processed foods (polysorbate 80, carboxymethylcellulose) have demonstrated mucosal disruption in gut microbiome research.
+    </p>
+    <p>
+      On the topic of probiotic supplementation specifically: the evidence is clearest for Lactobacillus rhamnosus GG (LGG) in reducing antibiotic-associated diarrhoea and Saccharomyces boulardii in gastroenteritis. Claims about probiotic blends for immunity, mood, or general gut health in healthy children are unsupported by clinical trial evidence of the quality needed to recommend them over dietary approaches.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">🏫</div>
+      <div class="source-text">
+        <strong>Source:</strong> <a href="https://www.stanfordchildrens.org/en/topic/default?id=5-ways-to-boost-your-childs-gut-health-197-29161" target="_blank">Stanford Children's Health</a> · Frontiers in Nutrition 2025
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>The probiotic supplement market generates billions annually on minimal clinical evidence for most products. Parsing what the evidence actually shows — strain-specific, indication-specific — from what's marketing is a service for any parent navigating this space.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>You're planning a medicinal garden — fermented foods and prebiotic plants like Jerusalem artichoke, leek, garlic, and fennel are practical targets to grow for your boys' gut health. The outdoor microbiome exposure point is also directly relevant: kids who spend time in gardens, around soil, and in natural settings have measurably higher gut diversity. Your garden project serves double duty.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5: THE APOTHECARY GARDEN
+  ═══════════════════════════════════════════ -->
+
+  <div class="section-label">🌱 Section 5 — The Apothecary Garden: Sydney Autumn Planting</div>
+
+  <!-- Story 12 -->
+  <div class="story">
+    <div class="story-number">Story 12</div>
+    <h2>What to Plant Now in Your Sydney Medicinal Garden (April–May Window)</h2>
+
+    <p>
+      Sydney sits in the temperate/warm-temperate zone. April–May is the ideal planting window for a wide range of medicinal and culinary herbs that are heat-sensitive and won't establish properly in the summer. The cooling soil temperatures and longer nights trigger strong root development before winter. This is your window.
+    </p>
+    <p>
+      <strong>Plant now (seeds or seedlings):</strong> Echinacea (from seed — it's slow but robust), lavender (transplant or cuttings — excellent in Sydney climate), rosemary (from cuttings — thrives in dry Sydney summers, plant now to establish roots), sage (Salvia officinalis — autumn is ideal), chamomile (German chamomile from seed directly into beds), lemon balm (from division or seedling), calendula (seeds direct — prolific in Sydney autumn), valerian (slow from seed; best from division). <strong>Direct seed:</strong> coriander, chervil, fennel, parsley.
+    </p>
+    <p>
+      <strong>Herbs to source as established plants:</strong> Tulsi/Holy Basil (Ocimum tenuiflorum) — get it in now before temps drop below 15°C; St John's Wort (Hypericum perforatum) — plant in autumn for spring flowering; Passionflower (Passiflora incarnata) — the medicinal species, not ornamental; Ashwagandha (Withania somnifera) — slow grower, benefits from being planted autumn for a winter root establishment. <strong>For your boys:</strong> Elderberry (Sambucus nigra) — plant the shrub now for berries in 2 years; it will become a centrepiece of your apothecary garden and the most-used immune support herb in the family.
+    </p>
+    <p>
+      <strong>Soil prep:</strong> Autumn is the right time to build soil. Compost, worm castings, and well-aged manure can all go in now. Medicinal herbs generally prefer well-drained, slightly lean soil — avoid excessive nitrogen (it drives leaf growth at the expense of essential oil concentration). The About The Garden temperate zone guide (Sydney falls in temperate) lists chervil, coriander, fennel, garlic, lavender, marjoram, parsley, sage, sorrel, rosemary, thyme, and yarrow as optimal autumn plantings.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">🌿</div>
+      <div class="source-text">
+        <strong>Sources:</strong> <a href="https://www.aboutthegarden.com.au/autumn-flower-herb-fruit-vegetable-planting-guide-by-temperate-zone/" target="_blank">About The Garden — Temperate Zone Guide</a> ·
+        <a href="https://www.botanicgardens.org.au/discover-and-learn/gardening-home/growing-native-gardens-and-bush-foods/growing-herbs" target="_blank">Royal Botanic Gardens Sydney</a> ·
+        <a href="https://countryherbalistapothecary.com/2025/05/13/designing-the-perfect-apothecary-garden-a-beginners-guide-to-medicinal-herbs-and-herbalism/" target="_blank">Country Herbalist Apothecary</a>
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>The Sydney autumn window for medicinal herbs closes by June — some species won't establish from seed once the soil drops below 15°C. Acting in April is the difference between a well-established garden by spring and starting over next autumn.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>You're actively building your apothecary garden right now. Prioritise: (1) elderberry shrub this week — multi-year investment, needs to go in first; (2) lavender, rosemary, sage as the perennial backbone — all thrive in Sydney with almost no care once established; (3) calendula seeds directly into beds — they'll flower before winter and you'll have petals for infused oils; (4) chamomile seeds — for your boys' sleep teas. Sourcing locally: Bunnings has basics, but Green Harvest (online, QLD) and Herb Cottage (online, NSW) stock medicinal-specific cultivars that the supermarket chains don't carry.</p>
+    </div>
+  </div>
+
+  <!-- Story 13 -->
+  <div class="story">
+    <div class="story-number">Story 13</div>
+    <h2>Designing an Apothecary Garden by Health Purpose: A Framework for What to Grow and Why</h2>
+
+    <p>
+      The Country Herbalist Apothecary framework for designing a medicinal garden around health purposes — rather than aesthetics or convenience — offers a practical structure for building a collection that actually gets used. Rather than growing everything, the approach asks: what conditions am I most likely to use this for? Then plant backward from those uses.
+    </p>
+    <p>
+      For a family with young children and a woman in early perimenopause, the highest-utility herbs cluster into four categories: <strong>(1) Nervines and adaptogens</strong> — lemon balm, tulsi, ashwagandha, valerian, passionflower — for stress, sleep, and nervous system regulation in both adults and children; <strong>(2) Immune support</strong> — elderberry, echinacea, calendula, garlic — the most-used family pharmacy herbs; <strong>(3) Digestive support</strong> — fennel, chamomile, ginger, peppermint — for colic, bloating, and gut discomfort in children; <strong>(4) Women's hormonal herbs</strong> — red clover (phytoestrogens, relevant for perimenopause), chaste tree berry/Vitex (prolactin/LH modulation), and motherwort (uterine tonic) — all worth a patch in a garden designed for a woman at your life stage.
+    </p>
+    <p>
+      The research on herbal adaptogens and perimenopause is limited but growing. Ashwagandha has the strongest human trial evidence for cortisol modulation and subjective wellbeing. Red clover isoflavones have modest RCT evidence for vasomotor symptom reduction. Vitex has a complex mechanism involving dopamine receptor activity — worth understanding before use, particularly as it can interfere with hormonal contraception.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">📖</div>
+      <div class="source-text">
+        <strong>Sources:</strong> <a href="https://countryherbalistapothecary.com/2025/05/13/designing-the-perfect-apothecary-garden-a-beginners-guide-to-medicinal-herbs-and-herbalism/" target="_blank">Country Herbalist Apothecary, 2025</a> ·
+        <a href="https://www.healthygreensavvy.com/starting-medicinal-herb-garden/" target="_blank">Healthy Green Savvy, Jan 2026</a> ·
+        <a href="https://www.gardensillustrated.com/garden-advice/how-to/plants-medicinal-create-apothecary-garden" target="_blank">Gardens Illustrated</a>
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>An apothecary garden that's organised by health purpose rather than alphabetically or aesthetically is the difference between a beautiful garden and a genuinely useful one. The structure makes it clear what to grow first, what takes time, and what to prioritise when space is limited.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>Given your background, you'll want to understand the mechanism before you use any herb therapeutically — especially Vitex, which has a real pharmacological action on the pituitary. For the kids: chamomile, fennel, and lemon balm are the lowest-risk and most useful. For you: ashwagandha and red clover are your most evidence-backed perimenopause allies that you can grow. Both prefer full sun and once established are largely self-sufficient in Sydney's climate.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+       WILDCARD
+  ═══════════════════════════════════════════ -->
+
+  <div class="section-label">🃏 Wildcard</div>
+
+  <!-- Story 14 -->
+  <div class="story">
+    <div class="story-number">Story 14</div>
+    <h2>Regulatory T Cell Therapy Could Transform Transplant Medicine in 2026 — FDA Decision Expected This Spring</h2>
+
+    <p>
+      <em>Scientific American</em> named regulatory T cell (Treg) therapy as one of the most significant health developments expected in 2026. The FDA is anticipated to approve — as early as spring 2026 — the first Treg therapy targeting graft-versus-host disease (GvHD) in bone marrow transplant recipients. If cleared, it would represent the first approved cellular therapy specifically designed to suppress aberrant immune responses rather than amplify them (the mechanism of CAR-T and conventional cancer immunotherapies).
+    </p>
+    <p>
+      Treg therapies work by expanding and re-infusing the patient's own regulatory T cells — the immune system's "peacekeepers" that prevent the immune response from attacking self or donor tissue. GvHD is a major cause of morbidity and mortality after allogeneic bone marrow transplantation, and current immunosuppression approaches are broadly blunt instruments. A Treg therapy offers targeted suppression without the collateral immunosuppression that leaves transplant patients vulnerable to infection.
+    </p>
+    <p>
+      The broader field has implications beyond GvHD: Treg-based approaches are in trial for type 1 diabetes, Crohn's disease, and solid organ transplant rejection. The GvHD approval, if it comes, will be the proof-of-concept that unlocks investment and accelerates the field.
+    </p>
+
+    <div class="source-card">
+      <div class="source-icon">💉</div>
+      <div class="source-text">
+        <strong>Source:</strong> <a href="https://www.scientificamerican.com/article/7-important-health-stories-well-be-following-in-2026/" target="_blank">Scientific American, Feb 2026</a>
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Why it matters</strong>
+      <p>A first-approved Treg therapy changes the immune medicine paradigm. Most cellular therapies amplify immune killing; Treg therapies do the opposite. If the GvHD data holds up, the regulatory cascade into autoimmune disease and transplant rejection is a logical next step — with major implications for haematology and oncology departments.</p>
+    </div>
+
+    <div class="callout callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      <p>Bone marrow transplantation and the haematological cancers that lead to it intersect with cytogenetics diagnostics — chromosome abnormalities determine transplant eligibility and risk stratification in AML, MDS, and lymphoma. A therapy that meaningfully reduces GvHD changes the risk calculus for transplant recommendations in your patient population. Worth watching the FDA's spring announcement.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+       SOMETHING GOOD
+  ═══════════════════════════════════════════ -->
+
+  <div class="something-good">
+    <div class="story-number" style="margin-bottom: 12px;">✨ Something Good</div>
+    <div class="story">
+      <h2 style="font-size: 22px;">The Gen X Women Who Showed Up: "Our Mums Didn't Tell Us Anything — We Figured It Out"</h2>
+
+      <p>
+        The highest-engagement post about perimenopause this week wasn't from a medical journal or a specialist. It was from @nickimoraa on X, addressed to millennial women approaching perimenopause:
+      </p>
+
+      <blockquote style="border-left: 3px solid #1d9bf0; padding-left: 20px; margin: 20px 0; color: #555; font-style: italic; font-size: 17px;">
+        "Dear Millennial Little Sisters, as you approach perimenopause, please reach out to us because our moms didn't tell us shit either but we've been yelling at doctors for 15 years and found out some stuff. xoxo - Gen X"
+      </blockquote>
+
+      <p>
+        13,034 likes. 1,409 bookmarks. It resonated because it's true: the information gap around perimenopause — what to expect, when it starts, what to ask for — was kept by silence across generations. The women who fought for answers in their 40s are now offering the map to those entering that territory.
+      </p>
+      <p>
+        The WHO also posted this week: "You are not losing your mind if you are navigating symptoms associated with perimenopause. Seek help. You deserve to live your best life." A rare moment of institutional clarity, and worth noting.
+      </p>
+
+      <div class="callout callout-amber" style="margin-top: 18px;">
+        <strong>🎯 Why this matters to YOU</strong>
+        <p>You're in the exact cohort this post was written for. The women ahead of you did the hard work of demanding answers that weren't freely given. You get to start from a better place — armed with better science, better clinical consensus, and a clearer map of what to ask for and when. That's worth something.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer>
+  <p>🐟 <strong>Trawly</strong> — Curated for Buket · Friday, April 3, 2026</p>
+  <p style="margin-top: 8px;">Hybrid Format · Web research + X signal · 15 stories</p>
+  <p style="margin-top: 8px; font-size: 12px; color: #4a5568;">Sources: FDA, BMJ, PNAS, Nature, ScienceDaily, Frontiers in Nutrition, The Menopause Society, JAMA, PubMed, NSW Government, Royal Botanic Gardens Sydney</p>
+</footer>
+
+</body>
+</html>
