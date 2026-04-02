@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ Trawly Daily — Friday 3 April 2026</title>
+<style>
+  :root {
+    --bg: #FFFDF9;
+    --card: #FFFFFF;
+    --header: #1a1a2e;
+    --accent: #1d9bf0;
+    --accent-light: #e8f4fd;
+    --amber: #fff8e1;
+    --amber-border: #f59e0b;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --tag-bg: #f3f4f6;
+    --green: #d1fae5;
+    --green-border: #10b981;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, sans-serif;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .wrapper { max-width: 720px; margin: 0 auto; padding: 0 20px 60px; }
+
+  /* Header */
+  .header {
+    background: var(--header);
+    color: white;
+    padding: 40px 32px 32px;
+    margin-bottom: 36px;
+  }
+  .header-inner { max-width: 720px; margin: 0 auto; }
+  .header-meta {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .header h1 span { color: var(--accent); }
+  .header-sub {
+    font-size: 14px;
+    opacity: 0.6;
+    margin-top: 10px;
+  }
+  .header-badges {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    letter-spacing: 0.5px;
+  }
+  .badge.accent { background: var(--accent); }
+
+  /* Section labels */
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Story card */
+  .story {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .story.big-one {
+    border: 2px solid var(--accent);
+    background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 40%);
+  }
+  .story-number {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .big-one-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .story h2 {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  .story p {
+    color: #374151;
+    margin-bottom: 14px;
+    font-size: 15.5px;
+  }
+
+  /* Tweet source card */
+  .tweet-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 18px 0;
+    background: #f9fafb;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .tweet-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .tweet-avatar.green { background: #10b981; }
+  .tweet-avatar.purple { background: #8b5cf6; }
+  .tweet-avatar.orange { background: #f59e0b; }
+  .tweet-avatar.red { background: #ef4444; }
+  .tweet-avatar.dark { background: #374151; }
+  .tweet-meta { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .tweet-meta span { color: var(--muted); font-weight: 400; }
+  .tweet-text { font-size: 14px; color: #374151; line-height: 1.5; }
+  .tweet-stats {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .tweet-stats span { display: flex; align-items: center; gap: 4px; }
+
+  /* Callouts */
+  .callout-blue {
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    padding: 14px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    font-size: 14.5px;
+    color: #0c4a6e;
+  }
+  .callout-blue strong { color: var(--accent); }
+  .callout-amber {
+    background: var(--amber);
+    border-left: 4px solid var(--amber-border);
+    padding: 14px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    font-size: 14.5px;
+    color: #78350f;
+  }
+  .callout-kids {
+    background: var(--green);
+    border-left: 4px solid var(--green-border);
+    padding: 14px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    font-size: 14.5px;
+    color: #064e3b;
+  }
+
+  /* Tags */
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
+  .tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--tag-bg);
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  /* Divider */
+  .divider { height: 1px; background: var(--border); margin: 32px 0; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+  .footer-logo { font-size: 22px; font-weight: 900; color: var(--header); margin-bottom: 8px; }
+  .footer-logo span { color: var(--accent); }
+
+  /* Story count */
+  .story-count {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-meta">⚡ Trawly Daily · Hybrid Format</div>
+    <h1>Friday <span>3 April</span> 2026</h1>
+    <p class="header-sub">Your internet, trawled. 15 stories across AI, building, proptech, education &amp; beyond.</p>
+    <div class="header-badges">
+      <span class="badge accent">Hybrid Format</span>
+      <span class="badge">15 stories</span>
+      <span class="badge">🔥 The Big One inside</span>
+      <span class="badge">Good morning, David ☀️</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper">
+
+<!-- THE BIG ONE -->
+<div class="section-label">🔥 The Big One</div>
+
+<div class="story big-one">
+  <div class="big-one-label">🔥 THE BIG ONE · Highest Velocity Post (48h)</div>
+  <h2>A Designer Skipped Figma Entirely. 140 Days Later, He's Earning $41K from a Claude Code Subscription.</h2>
+  <p>Felix Lee didn't learn to code. He didn't hire a developer. He didn't use Figma, wireframes, or any of the traditional designer-to-developer handoff process. Instead, 140 days ago, he started a daily practice of vibe-coding as a designer — using Claude Code to translate ideas directly into working interfaces — and he just hit a milestone that's stopping people mid-scroll.</p>
+  <p>In his latest post (506 bookmarks, 362 likes), Felix shares how he built a Robinhood-quality financial dashboard UI in a single prompt using Claude Code + Paper — no Figma mockup, no intermediate design file, no developer. He describes the workflow as "the future of design," and based on the engagement, a lot of designers agree with him but haven't admitted it yet.</p>
+  <p>The broader thread behind this post documents his full journey: from a non-coding designer uncomfortable with traditional dev handoffs, to someone now generating $41,000 in revenue from projects built entirely through conversational AI. The numbers are real. The screenshots are convincing. And the question it raises is uncomfortable for anyone whose livelihood depends on the old workflow: if a designer can skip Figma and build production-quality UI in one prompt, what happens to the design tool market?</p>
+  <p>What's remarkable isn't just that it's possible — it's that the <em>quality</em> is there. The Robinhood design he built isn't a rough prototype. It's polished, pixel-accurate, and ready to present. He credits two things: Claude Code's understanding of design systems, and the Paper layer that lets him stay in a design-thinking mindset without wrestling with syntax. The workflow is: describe the visual intent → iterate in plain English → ship.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">F</div>
+    <div>
+      <div class="tweet-meta">Felix Lee <span>@felixleezd</span></div>
+      <div class="tweet-text">Day 140 of vibe-coding as a designer. I'm shocked how few designers know about this workflow. I skipped Figma and made a beautiful Robinhood design from Claude Code + Paper, in just one prompt. Wild! 🤯 This feels like the future of design.</div>
+      <div class="tweet-stats">
+        <span>❤️ 362</span>
+        <span>🔖 506</span>
+        <span>🔁 23</span>
+        <span>📅 Apr 1, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> The design-to-code pipeline has been broken for 30 years — Figma was a band-aid, not a cure. What Felix has cracked is a workflow that collapses the entire chain: conceive → design → build → ship, all in one conversation. This isn't a trick or a trend. It's a structural shift in how visual products get made.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> You're building Trawly's visual identity and product pages without a dedicated designer. Felix's workflow — describe the visual intent in plain English, iterate in Claude Code, skip the Figma step — is exactly the kind of leverage you've been looking for. If he can build a Robinhood dashboard from one prompt, you can build a Trawly landing page that looks like it cost $15K, for the price of a coffee subscription. Also: Enviz needs polished sales decks and presales materials. This changes how you can produce them.</div>
+
+  <div class="tags">
+    <span class="tag">Claude Code</span>
+    <span class="tag">Design</span>
+    <span class="tag">Vibe Coding</span>
+    <span class="tag">Builder</span>
+    <span class="tag">No-code/Low-code</span>
+  </div>
+</div>
+
+<!-- SECTION 1: VIBE CODING GROWS UP -->
+<div class="section-label">💻 Vibe Coding Grows Up</div>
+
+<div class="story">
+  <div class="story-count">Story 2 of 15</div>
+  <h2>Fortune: "In the Age of Vibe Coding, Trust Is the Real Bottleneck"</h2>
+  <p>While designers like Felix are celebrating one-prompt UIs, Fortune's AI reporter Sharon Goldman is asking the harder question: what happens when AI-generated code ships at enterprise scale? Her piece this morning — published hours after Claude Code's own source code was accidentally leaked due to a packaging mistake — argues that the bottleneck has fundamentally shifted. We've solved the code generation problem. We haven't solved the code verification problem.</p>
+  <p>The story centres on Qodo (formerly CodiumAI), which just raised $70 million for what founder Itamar Friedman calls the "AI slop" problem: codebases full of AI-generated code that technically compiles but contains subtle bugs, security holes, and logic errors that only emerge under real-world conditions. Two years ago, Friedman was building flow engineering — one model writes, another critiques. Today, with Claude Code writing entire production codebases, the critique layer hasn't kept pace with the generation layer.</p>
+  <p>For enterprises, this is a real crisis. Millions of code changes flow through large systems annually. Each AI-generated commit that skips rigorous review is a potential liability. Apple has reportedly escalated its crackdown on vibe-coding apps specifically because of this trust deficit. Meanwhile, Microsoft's CFO is fielding questions about whether AI infrastructure spending is running ahead of actual productivity gains — a dynamic that echoes the dot-com "build it and they will come" era.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar orange">H</div>
+    <div>
+      <div class="tweet-meta">Hanish Builds <span>@hanishbuilds</span></div>
+      <div class="tweet-text">Real data showing AI lifting productivity a bit, but execs act like they 10x'd life while gaining minimal edge. The trust gap between what AI can generate and what we're confident deploying is widening, not closing.</div>
+      <div class="tweet-stats">
+        <span>❤️ 1</span>
+        <span>🔖 0</span>
+        <span>📅 Apr 2, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> Every AI coding wave creates a secondary market for verification, testing, and code quality. Qodo's $70M raise signals that VCs agree: the review layer is the next major build opportunity. The vibe coding boom is real — but so is the cleanup crew that has to follow it.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> You're using AI tools to build Trawly's backend pipeline right now. This is a direct heads-up: the fun part (generation) is easy, the dangerous part (trusting what shipped) requires a second pair of eyes. Before Trawly's Inngest pipeline goes to prod, treat AI-generated code as "draft, not done" — a simple review pass catches the category of error Friedman is warning about.</div>
+
+  <div class="tags">
+    <span class="tag">AI Coding</span>
+    <span class="tag">Claude Code</span>
+    <span class="tag">Enterprise</span>
+    <span class="tag">Security</span>
+  </div>
+</div>
+
+<div class="story">
+  <div class="story-count">Story 3 of 15</div>
+  <h2>Anthropic Launched /Buddy: 18 Pets, 5 Tier Levels, and Zero Productivity Purpose — and People Love It</h2>
+  <p>In possibly the least-expected product decision of 2026, Anthropic shipped a /buddy system inside Claude Code this week. It has 18 virtual pets. Five rarity tiers: common, uncommon, rare, epic, legendary. The main purpose, per the product notes, is "emotional vibe coding support." It does nothing else. It cannot review your code. It cannot catch your bugs. It is, by design, completely useless — and it's generating 912 likes and 243 bookmarks.</p>
+  <p>The reaction is fascinating. Some engineers are delighted. Others are irritated that Anthropic shipped a Tamagotchi before shipping better debugging. But the most interesting takes are from the founders who've noticed something real: the loneliness of solo building is a genuine barrier to sustained output, and even a digital pet that chirps at you provides enough ambient social feedback to keep going through the 2am sessions. It's not cynical. It might actually work.</p>
+  <p>The move also reveals Anthropic's product strategy: Claude Code isn't positioning as just a coding tool. It's positioning as a workspace companion — something you spend your whole working day with. Pets, personality, and emotional scaffolding are feature categories, not features. The /buddy system is a flag in the ground: we're building for the long session, the deep work relationship, not just the single prompt.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar purple">S</div>
+    <div>
+      <div class="tweet-meta">sui ☄️ <span>@birdabo</span></div>
+      <div class="tweet-text">this is not an april fools joke. Anthropic launched a /buddy system in claude code with a total of 18 pets and 5 tier levels (common, uncommon, rare, epic, legendary.) its main purpose is literally nothing. emotional vibe coding support?</div>
+      <div class="tweet-stats">
+        <span>❤️ 912</span>
+        <span>🔖 243</span>
+        <span>🔁 38</span>
+        <span>📅 Apr 1, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> Product design philosophy is showing here. Anthropic is building toward "daily companion" not "occasional tool." The /buddy system is silly but strategically coherent — lock-in through relationship, not just utility. That's a different moat than any competitor is building.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> As the guy building Trawly — a product explicitly designed to be a daily companion, not just a newsletter — this is the design principle you should be stealing. What's your Trawly equivalent of the /buddy system? What tiny, delightful, non-utility feature makes David feel like Trawly is alive and cares about him? That's the difference between a tool people use and a product people love.</div>
+
+  <div class="tags">
+    <span class="tag">Anthropic</span>
+    <span class="tag">Claude Code</span>
+    <span class="tag">Product Design</span>
+    <span class="tag">Developer Experience</span>
+  </div>
+</div>
+
+<div class="story">
+  <div class="story-count">Story 4 of 15</div>
+  <h2>Qodo Raises $70M to Kill "AI Slop" — The Code Review Market Just Became a War</h2>
+  <p>The same Fortune piece that covered the vibe coding trust gap broke another number worth noting: Qodo's $70M Series B, raised specifically to tackle the growing flood of low-quality AI-generated code entering production systems. Friedman's term — "AI slop" — is catching on as a descriptor for code that's syntactically correct, passes shallow tests, but fails in nuanced real-world scenarios. It's the coding equivalent of content mills: technically publishable, practically worthless.</p>
+  <p>What makes Qodo's approach interesting is its core thesis: the review layer needs to be as AI-powered as the generation layer. You can't fix AI slop with human reviewers — the volume is too high. You need an AI that understands your codebase's intent, not just its syntax, and can catch the gap between what the code does and what it was supposed to do. Qodo is building that — essentially a second AI that reads over the shoulder of the first AI.</p>
+  <p>The funding validates a prediction many made in 2024: that every AI coding boom creates a downstream security and quality market. The builders are moving faster than the verifiers. Somewhere in that gap, there's a $70M company (and probably a $700M company).</p>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> The AI coding stack is bifurcating into "generate" and "verify." Both sides are venture-funded, both are growing fast. The interesting play is whoever builds the bridge — the tool that lets you generate with confidence by automatically applying the right verification layer without slowing you down.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> The Trawly pipeline is growing in complexity. As you move from manual curation to the Inngest-powered automated research pipeline, you're exactly in the Qodo use case — AI-generated code running unsupervised in production. Even a lightweight code review step before each Trawly pipeline update ships will save you a 2am incident response. Worth 20 minutes to set up a basic Qodo trial on the repo.</div>
+
+  <div class="tags">
+    <span class="tag">AI Coding</span>
+    <span class="tag">Code Review</span>
+    <span class="tag">Venture</span>
+    <span class="tag">Security</span>
+  </div>
+</div>
+
+<!-- SECTION 2: AGENT ECONOMY -->
+<div class="section-label">🤖 The Agent Economy Lands</div>
+
+<div class="story">
+  <div class="story-count">Story 5 of 15</div>
+  <h2>AI Agents in Sales Operations Are Delivering 171% Average ROI — And US Companies Are Averaging 192%</h2>
+  <p>The headline number from OneReach.ai's 2026 market analysis is striking: organisations deploying agentic systems in sales and operations are reporting an average ROI of 171%, with US-based companies averaging 192%. These aren't prototype deployments or speculative projections. This is from businesses that deployed production AI agents in their sales workflows and then measured what happened.</p>
+  <p>The breakdown matters more than the headline. The ROI comes from three distinct mechanisms: speed (agents responding to inbound leads in seconds rather than hours), consistency (agents who never have a bad day, forget a follow-up, or skip a qualification question), and volume (agents that can run 50 parallel conversations while your human rep is on one call). Together, they compound into numbers that look implausible until you've seen them.</p>
+  <p>The research also flags the failure modes. Low ROI deployments share a common pattern: agents used to replace relationship-building rather than augment pipeline mechanics. Agents that try to close enterprise deals perform poorly. Agents that qualify, nurture, and hand off to humans at the right moment perform brilliantly. The insight is structural: AI agents are extraordinary at the top and middle of the funnel; humans still own the close.</p>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> The ROI evidence is now robust enough that "we're considering agents" is no longer a differentiator. The competitive question in 2026 is whether your agents are well-designed or poorly-designed. The gap between good and bad agent deployment is larger than the gap between having agents and not.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> You're restructuring Enviz's go-to-market to use AI agents for outreach and follow-up. This study gives you the playbook directly: deploy agents at qualification and nurture stages, keep humans for enterprise closing conversations. Given Enviz's target (marketing directors at luxury property developers), the agent handles research, initial outreach, and meeting scheduling — you handle the room. That split could double your pipeline throughput without adding headcount.</div>
+
+  <div class="tags">
+    <span class="tag">AI Agents</span>
+    <span class="tag">Sales</span>
+    <span class="tag">ROI</span>
+    <span class="tag">GTM</span>
+  </div>
+</div>
+
+<div class="story">
+  <div class="story-count">Story 6 of 15</div>
+  <h2>Salesforce Agentforce Goes Full Marketing: Autonomous Campaign Execution Is Now Real</h2>
+  <p>Salesforce made a significant product announcement this week: Agentforce, the agentic AI framework it introduced in 2024, is now powering autonomous marketing campaign execution inside Marketing Cloud. The practical capability: AI agents that can plan, deploy, A/B test, and optimise marketing campaigns without human-in-the-loop for routine decisions. A human sets the goals and guardrails; the agents handle execution.</p>
+  <p>What's notable is the scope. Previous Agentforce announcements were narrow — answer customer service tickets, qualify inbound leads. The marketing campaign capability is broader and more strategic: agents that monitor campaign performance in real time, pause underperforming ad sets, reallocate budget toward high-converting segments, and generate copy variants for testing. It's the kind of work that used to require a campaign manager, a copywriter, and a data analyst working in sync.</p>
+  <p>The announcement lands as Forrester's "GTM Singularity" theme — the idea that AI-driven buyer autonomy is dismantling traditional go-to-market models — is gaining traction across B2B marketing. When your marketing is AI-run and your buyer's research process is AI-assisted, the entire concept of "a campaign" starts to dissolve into continuous, personalised, ambient engagement. That's where Salesforce is heading.</p>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> Enterprise B2B marketing is about to look very different. When Salesforce bakes autonomous campaign execution into the platform used by most large sales orgs, it normalises agent-run marketing. SMBs that figure out how to replicate this without Salesforce's price tag will have a significant edge.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> Enviz is selling to enterprise property developers who likely use Salesforce. When you pitch AI-enhanced presales experiences to their marketing directors, you're now speaking to people whose own marketing tools are becoming agentic. That's not a headwind — it's a tailwind. Position Enviz as the AR/VR layer that plugs into their emerging agentic marketing stack, not a replacement for it. "We work alongside your Agentforce campaigns, not instead of them."</div>
+
+  <div class="tags">
+    <span class="tag">Salesforce</span>
+    <span class="tag">Agentforce</span>
+    <span class="tag">Marketing Automation</span>
+    <span class="tag">B2B</span>
+  </div>
+</div>
+
+<div class="story">
+  <div class="story-count">Story 7 of 15</div>
+  <h2>Founder Deploys 9 AI Agents to Replace 10 Hours of Weekly CRM and Email Work</h2>
+  <p>A startup founder published a detailed breakdown this week of her nine-agent AI stack, documenting exactly which tasks each agent handles and what the cumulative time savings look like. The bottom line: 10 hours per week of paid CRM management and email outreach work has been replaced by an agent system that runs continuously, never sleeps, and costs less than a single freelancer hour per month to operate.</p>
+  <p>The architecture is worth understanding. The nine agents aren't all doing the same thing. Three handle inbound qualification and routing. Two manage follow-up sequences for deals in the pipeline. One monitors competitor activity and surfaces alerts. One handles scheduling coordination. One generates weekly performance summaries. One manages social listening for the brand. Together, they function like a small operations team — except they synchronise perfectly, hand off without friction, and don't need managing.</p>
+  <p>What's striking is how achievable the setup is. None of these agents required custom model training. They're all built on foundation models with careful system prompts, integrated into the founder's existing CRM via API. The barrier was knowing what to build, not how. That's the knowledge gap that's closing rapidly in 2026.</p>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> The "10 agents" founder archetype is emerging as the dominant solo operator model. A single ambitious founder with a well-designed agent stack can now execute at the operational capacity of a 5-6 person team. The bottleneck has moved from "how do I scale" to "what's worth scaling."</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> You're already thinking in systems — this is the blueprint for what Enviz's AI-augmented sales motion looks like at the next level. You don't need to build all nine agents at once. Map your biggest weekly time sinks (likely: follow-up emails, pipeline review, competitive research) and build agent number one. You already have Chop. Add one domain-specific agent for Enviz outreach and you've got two. Build from there.</div>
+
+  <div class="tags">
+    <span class="tag">AI Agents</span>
+    <span class="tag">Operations</span>
+    <span class="tag">Solo Founder</span>
+    <span class="tag">Leverage</span>
+  </div>
+</div>
+
+<!-- SECTION 3: PROPTECH -->
+<div class="section-label">🏗️ Proptech & Real Estate Tech</div>
+
+<div class="story">
+  <div class="story-count">Story 8 of 15</div>
+  <h2>PropTech Market Heading to $185B by 2035 — AI Is the Engine, Not the Feature</h2>
+  <p>New market analysis from Precedence Research projects the global proptech market reaching $185.31 billion by 2035, driven primarily by the convergence of AI, ML, VR, and IoT in real estate operations. But the most interesting finding isn't the headline number — it's the structural shift in how proptech is being deployed. In 2026, the trend is consolidation: multiple real estate technology tools collapsing into unified, AI-powered platforms that provide a single interface for the entire property lifecycle.</p>
+  <p>The practical manifestation of this consolidation is what researchers are calling the "AI real estate layer" — a unified interface where a marketing director at a property developer can manage listings, run virtual tours, price properties dynamically, track buyer engagement, and optimise marketing spend, all through a single AI-powered dashboard. The fragmented proptech stack of 2020-2024 (one tool for VR tours, another for CRM, another for analytics) is being replaced by integrated systems where the AI connects everything.</p>
+  <p>Virtual reality and augmented reality are specifically called out as the highest-ROI components of the new stack — not as standalone novelties, but as integrated parts of the buyer journey. The metric that's driving adoption: VR-enabled properties close 40% faster and at higher prices than equivalent properties shown through traditional photography. As developers get more data-literate, that number is becoming a closing argument in its own right.</p>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> The proptech market is maturing from "cool features" to "integrated operating systems." Early movers who position themselves as platform layers rather than point solutions will capture a disproportionate share of a $185B market. The window for that positioning is open right now.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> Enviz is currently positioned as a VR tour tool. This data argues for a positioning evolution: you're not selling a tour, you're selling a presales acceleration layer that integrates into the developer's emerging AI-powered marketing stack. The VR experience is the anchor feature, but the pitch is "close deals 40% faster with a presales system that connects to everything you already use." That's a $185B market thesis, not a features pitch.</div>
+
+  <div class="tags">
+    <span class="tag">PropTech</span>
+    <span class="tag">AR/VR</span>
+    <span class="tag">Real Estate</span>
+    <span class="tag">Market Research</span>
+  </div>
+</div>
+
+<div class="story">
+  <div class="story-count">Story 9 of 15</div>
+  <h2>UK Estate Agents: From 6 People to 2 — AI Is Shrinking Agency Teams Faster Than Anyone Predicted</h2>
+  <p>A blunt assessment from Estate Agent Networking this week: residential agency teams that were six or seven people a decade ago, and four or five people two years ago, are now heading toward two or three — with AI handling the administrative, marketing, and initial client communication functions that once required full-time staff. The phrase used is "tech-enabled agency," and the tone isn't alarmed — it's matter-of-fact. This is happening, faster than the industry's own predictions suggested.</p>
+  <p>The functions being AI-replaced first are predictable: property descriptions (AI-generated from photos + data), buyer inquiry responses (AI handles initial qualification), viewing scheduling (AI coordinates calendars), and market analysis reports (AI-generated from public data). What remains human is relationship management with vendors, negotiation, and the final stretch of a transaction. The human role is shrinking to its irreducible core: trust and judgment under uncertainty.</p>
+  <p>What's not being discussed loudly enough: this compression creates a massive opportunity for the tools that enable the smaller team to perform at the previous team's output level. The two-person agency that can close as many deals as the six-person agency of 2015 needs excellent AI-powered workflow tools. That's a product category with very high willingness to pay.</p>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> The shrinking agency team is a direct compression of the traditional proptech customer base — but it's also a validation that AI tools with clear ROI will find buyers in this market. Smaller teams spending on tools that multiply their output is the defining purchasing behaviour of the next five years in real estate tech.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> Two-person agency teams still need to compete for luxury property mandates. They need to show up to developer pitches with the same presales quality as large agencies. An Enviz experience levels that playing field — a boutique agency with a two-person team presenting an Enviz AR walkthrough at pitch is suddenly playing in the same league as the incumbents. That's a new customer segment worth targeting: the lean, ambitious agency that needs to punch above its weight.</div>
+
+  <div class="tags">
+    <span class="tag">Real Estate</span>
+    <span class="tag">PropTech</span>
+    <span class="tag">AI</span>
+    <span class="tag">Agency</span>
+  </div>
+</div>
+
+<!-- SECTION 4: FUTURE OF LEARNING -->
+<div class="section-label">📚 The Future of Learning</div>
+
+<div class="story">
+  <div class="story-count">Story 10 of 15</div>
+  <h2>AI Schools Are Here: Alpha School Packs a Full Day's Learning into 2 Hours, Charges $50K a Year, and Has a Waitlist</h2>
+  <p>Town &amp; Country ran a deep piece today on the AI school movement, and the central case study is Alpha School — founded in Austin, Texas, with campuses now in Miami and expanding. The model is striking: technology compresses a full day's academics into two hours. The remaining six hours are spent on personal development, skill-building, passion projects, and social activities. The premise: traditional school's time allocation is wrong, and AI enables a radical rewrite.</p>
+  <p>The $50,000 annual fee puts it in the same tier as elite New England boarding schools — but with a completely different philosophy. Alpha's version of education isn't more rigorous academics; it's more efficient academics, freed from the time constraints that force traditional schools to spend hours on what AI can facilitate in minutes. The result, Alpha claims, is a child who by age 12 has covered the academic content of traditional schooling but has also spent thousands of hours on passion areas that traditional schools would consider extracurricular.</p>
+  <p>The demographic adopting these schools is not primarily tech founders, as you might expect. It's parents who've already experienced the limitations of even excellent traditional education — the one-size-fits-all pacing, the emphasis on compliance over curiosity, the sidelining of individual learning styles. Mark Zuckerberg and his wife run Summit Learning. Elon Musk has been vocal about the failures of traditional schooling. These aren't fringe opinions anymore — they're the mainstream view among a growing segment of educated, engaged parents who want something better.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar dark">T</div>
+    <div>
+      <div class="tweet-meta">Town &amp; Country <span>@TownandCountry</span></div>
+      <div class="tweet-text">Although homeschooling expanded to encompass an array of participants, institutional skepticism remained constant. Today proponents see it as a way to fully customize a child's educational experience — which may explain why the practice is having a renaissance.</div>
+      <div class="tweet-stats">
+        <span>📅 Apr 3, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> The AI school movement is proving the concept that education can be dramatically more efficient. Two hours of AI-facilitated focused learning versus six hours of traditional classroom instruction isn't a marginal improvement — it's a structural redesign. As these schools produce outcomes data, the case for traditional schooling's time allocation becomes harder to defend.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> You're actively considering homeschooling Leonardo. Alpha School's model gives you a concrete framework to reference: the goal isn't to replicate school at home — it's to compress the academic work into the first two hours and spend the rest of the day on things that matter more. You don't need $50K/year to implement this philosophy. You need a good AI tutoring approach (Khan Academy + Claude), a structured two-hour morning block, and the conviction to spend the remaining day on real-world learning. That's achievable right now.</div>
+
+  <div class="callout-kids">🧒 <strong>Teach the kids:</strong> Ask Leonardo: "What's the difference between learning facts and learning HOW to learn?" Talk about how the most useful skill isn't remembering answers — it's knowing how to find and think through answers. That's what Alpha School is actually teaching. Start that conversation now, before school teaches him the opposite habit.</div>
+
+  <div class="tags">
+    <span class="tag">AI Education</span>
+    <span class="tag">Homeschooling</span>
+    <span class="tag">Alternative Education</span>
+    <span class="tag">Parenting</span>
+  </div>
+</div>
+
+<div class="story">
+  <div class="story-count">Story 11 of 15</div>
+  <h2>86% of Students Are Already Using AI — The Question Is Whether Schools Are Teaching Them to Use It Well</h2>
+  <p>A comprehensive 2026 guide from Begine Fusion drops a number that makes traditional education's stance on AI look increasingly untenable: 86% of students are already using AI tools in their learning, regardless of school policy. The schools trying to ban AI haven't stopped its use — they've just ensured students are using it covertly, without guidance on how to use it well.</p>
+  <p>The guide's framework for good AI use in education centres on three competencies: prompt literacy (the ability to ask AI questions that produce genuinely useful answers), verification habits (the instinct to check AI output against primary sources), and synthesis thinking (the ability to combine AI-generated information with original reasoning to produce novel conclusions). These are the skills that separate students who use AI as a thinking partner from students who use it as a cheat sheet.</p>
+  <p>The most interesting section covers how personalised AI learning actually works in practice. The research shows that when AI is used to adapt content difficulty in real time — presenting harder questions when a student is breezing through material, softer scaffolding when they're stuck — retention improves dramatically over both traditional classroom instruction and unsupervised AI use. The key is the feedback loop: AI that watches how you engage with material and adjusts accordingly.</p>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> Schools banning AI aren't protecting students — they're sending them into a world where AI fluency is a core professional skill without having taught them that skill. The institutions that lean into AI-integrated learning are producing graduates with capabilities the banning schools aren't developing.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> For Leonardo's homeschooling approach, this gives you a skills framework, not just a tools list. The goal isn't "Leonardo uses AI." The goal is "Leonardo has prompt literacy, verification habits, and synthesis thinking." Build those habits explicitly from age 5. A child who grows up knowing how to ask good questions of AI and how to verify the answers is more prepared for 2035 than anything the current curriculum is producing.</div>
+
+  <div class="callout-kids">🧒 <strong>Teach the kids:</strong> Try this with Leonardo: ask him to ask the AI a question about something he's curious about, then ask him "how do we know if this is true?" Walk through finding another source together. That one habit — ask, then verify — is worth more than a year of worksheet exercises.</div>
+
+  <div class="tags">
+    <span class="tag">AI Education</span>
+    <span class="tag">Homeschooling</span>
+    <span class="tag">Learning</span>
+    <span class="tag">Kids</span>
+  </div>
+</div>
+
+<!-- SECTION 5: BUILDER MOVES -->
+<div class="section-label">🚀 Builder Moves</div>
+
+<div class="story">
+  <div class="story-count">Story 12 of 15</div>
+  <h2>How to Launch on Product Hunt in 2026: The Founder's Playbook Has Changed Significantly</h2>
+  <p>A new comprehensive guide from purshoLOGY walks through how Product Hunt has evolved as a launch platform in 2026, and some of the changes are significant enough to invalidate playbooks from even 12 months ago. The core shift: the platform's algorithm now weights genuine community engagement — comments, saves, follows — much more heavily than upvotes, which are now verified more aggressively against vote farming patterns.</p>
+  <p>The tactical changes that matter most: a pre-launch "coming soon" page that captures genuine interested followers (not just upvote pledges) is now significantly more valuable. The comment quality on launch day carries disproportionate weight — 20 substantive comments from engaged users outperforms 200 upvotes from people who clicked once. And the 48-hour post-launch window has become more important than the launch day itself, as the algorithm's secondary ranking phase rewards products that sustain engagement rather than spike and drop.</p>
+  <p>The strategic advice that stands out: the most successful Product Hunt launches in 2026 are treating it less as a one-day event and more as a community introduction — a week of sharing behind-the-scenes content, developer Q&amp;As, and early user stories that build genuine momentum before the clock starts. The product that shows up to launch day with 500 people who actually care about it outperforms the product that shows up with 5,000 upvote promises from strangers.</p>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> Product Hunt's algorithm changes reflect a broader platform trend: authenticity signals are winning over volume signals. The hack-the-algorithm approach is being deprecated by design. Building real pre-launch community is both the right strategy and the only reliable strategy.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> Trawly is heading toward a public launch. This playbook should inform how you think about the Product Hunt moment — not as a one-day traffic spike, but as the culmination of weeks of genuine community building. Start seeding the Trawly story now: who it's for, how it works, early user reactions. By the time you hit launch, you want 200 people who are genuinely excited, not 2,000 cold contacts who clicked a link.</div>
+
+  <div class="tags">
+    <span class="tag">Product Hunt</span>
+    <span class="tag">Launch Strategy</span>
+    <span class="tag">Indie Hacker</span>
+    <span class="tag">Growth</span>
+  </div>
+</div>
+
+<div class="story">
+  <div class="story-count">Story 13 of 15</div>
+  <h2>Vercel vs Hetzner in 2026: A Solo Developer's Honest Verdict (With Actual Numbers)</h2>
+  <p>DevToolPicks published a genuinely useful comparison this week: Vercel vs Hetzner vs Railway vs Render, with verified 2026 pricing and honest trade-offs for solo developers and indie hackers. The conclusion is more nuanced than the "Vercel is expensive" narrative that's dominated Twitter for two years — and more useful for someone actually making a decision.</p>
+  <p>The honest verdict: Vercel wins on DX (developer experience) and zero-config deployment by a significant margin, and for projects where developer time is worth more than infrastructure cost, the premium is rational. Hetzner wins on raw compute cost (often 80-90% cheaper for equivalent resources) but adds operational overhead that solo developers frequently underestimate. Railway sits in an interesting middle ground — better DX than Hetzner, cheaper than Vercel — and is the surprise recommendation for many indie hacker use cases.</p>
+  <p>The piece also covers a nuance that most comparisons miss: the true cost calculation. Vercel's seemingly expensive plan often pencils out cheaper than Hetzner when you account for the time a solo developer would spend on configuration, monitoring, and incident response that Vercel handles automatically. For a founder whose time is worth $200/hour, saving one hour per month by using Vercel instead of Hetzner covers six months of the price difference.</p>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> Infrastructure decisions compound. A solo founder who picks the wrong stack at year one is paying for that decision three years later in migration costs. This comparison gives enough data to make a defensible choice rather than a fashionable one.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> Trawly's pipeline is being rebuilt on Inngest right now. Before you commit your hosting stack for the next phase, this comparison is worth 10 minutes. If Trawly's compute needs are predictable, Hetzner might genuinely save meaningful money at scale. If they're spiky (which digest-generation workloads often are), Vercel's autoscaling might be worth the premium. Know which scenario you're in before you sign up.</div>
+
+  <div class="tags">
+    <span class="tag">Infrastructure</span>
+    <span class="tag">Dev Tools</span>
+    <span class="tag">Indie Hacker</span>
+    <span class="tag">Vercel</span>
+  </div>
+</div>
+
+<!-- WILDCARD -->
+<div class="section-label">🃏 Wildcard</div>
+
+<div class="story">
+  <div class="story-count">Story 14 of 15</div>
+  <h2>April Fools 2026 Wildcard: The BBQ AR Glasses Were a Joke, But They Shouldn't Be</h2>
+  <p>Tom's Guide ran their annual April Fools 2026 recap, and one fake product stood out as the thing that most people immediately wished was real: a pair of BBQ-focused AR smart glasses that overlay heat zones on your grill and show cooking progress in real time. The product (pitched as a prank by a brand) generated more "wait, I'd actually buy this" comments than any other gag product this year.</p>
+  <p>The joke is a useful signal. The reason people immediately wanted it to be real is that it solves a genuine spatial problem with a spatial solution — and AR is exactly the right medium for it. You're looking at the grill, you need information about the grill. Overlaying that information onto your field of view is more useful than checking a phone app, more convenient than a probe thermometer, and more natural than any other data delivery mechanism. The joke product accidentally became a product-market fit case study.</p>
+  <p>The broader pattern: the best April Fools products in 2026 are the ones that feel like product concepts that are 18 months ahead of what's actually shipping. BBQ AR glasses are silly now; AR-enhanced cooking guidance is not. The same dynamic applied to AI alarm clocks in this year's roundup — punchline today, Kickstarter success in late 2027.</p>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> Consumer AR is finding its killer apps through exactly this mechanism: identifying tasks where spatially-overlaid information beats every other form of data delivery. The grill use case is trivial. The category it represents — AR as the natural interface for physical task guidance — is not.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> Enviz's core insight is the same one that made the BBQ AR glasses concept resonate: spatial information belongs in space. When a buyer is standing in a building site trying to visualise a finished apartment, overlaying the finished product onto that space is the most natural thing in the world. The joke product validates your entire product thesis. The question is how to communicate Enviz's value using this intuition: "It's like BBQ AR glasses, but for property. You see the finished home, standing in the unfinished space."</div>
+
+  <div class="callout-kids">🧒 <strong>Teach the kids:</strong> Show Leonardo something on the grill next time you cook together. Ask him: "What if glasses could show you exactly where it's hottest? Would that be useful?" Watch him go from "that sounds silly" to "actually yes." That pivot from "sounds silly → actually useful" is the journey every new technology takes. Teach him to look for it.</div>
+
+  <div class="tags">
+    <span class="tag">AR</span>
+    <span class="tag">Consumer Tech</span>
+    <span class="tag">Product Ideas</span>
+    <span class="tag">April Fools</span>
+  </div>
+</div>
+
+<!-- SOMETHING GOOD -->
+<div class="section-label">✨ Something Good</div>
+
+<div class="story">
+  <div class="story-count">Story 15 of 15</div>
+  <h2>1,000 Practical Claude Prompts for Builders — And the Real Reason Prompt Libraries Are Surging</h2>
+  <p>A Claude prompt library targeting builders, developers and creators has been circulating heavily this week — 100+ bookmarks, multiple reposts, the kind of engagement that suggests people are actually using it rather than just appreciating it. The library itself covers 1,000 prompts across categories: code generation, product copy, research synthesis, email drafting, design feedback, and operations automation.</p>
+  <p>But the reason prompt libraries are surging right now is more interesting than the libraries themselves. As AI tools become more capable, the productivity gap between people who know how to prompt well and people who don't is widening, not narrowing. The model is smarter, but the leverage of a well-crafted prompt over a vague one is larger than ever. A 2026 study found that the same model produces outputs 3-5x more useful when given structured, context-rich prompts versus quick conversational ones. Prompt skill is compounding into a genuine competitive advantage.</p>
+  <p>The builders who are performing at the highest level with AI tools share a habit: they treat each prompt as a mini-brief. Context first. Desired output format. Constraints. Examples of what good looks like. It's not magic — it's the same discipline that makes a good creative brief make a great ad. The model is the creative; the prompt is the brief. Brief quality determines output quality.</p>
+
+  <div class="tweet-card">
+    <div class="tweet-avatar">T</div>
+    <div>
+      <div class="tweet-meta">TechByArti <span>@TechByArti</span></div>
+      <div class="tweet-text">1000 Powerful Claude Prompts 🤯 For builders, developers &amp; creators. I spent weeks compiling the most practical prompts across every category — code, copy, research, ops, design. Save this.</div>
+      <div class="tweet-stats">
+        <span>❤️ 125</span>
+        <span>🔖 100</span>
+        <span>📅 Apr 2, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout-blue"><strong>Why it matters:</strong> Prompt literacy is becoming the new spreadsheet literacy — a foundational professional skill that separates people who use tools from people who leverage them. The ceiling on what you can do with Claude, Gemini, or GPT-4 is almost entirely determined by how well you can brief it. Investing an hour in prompt skill returns months of better output.</div>
+
+  <div class="callout-amber">🎯 <strong>Why this matters to YOU:</strong> You're using AI across Enviz outreach, Trawly development, and daily operations. A Saturday afternoon with a structured prompt library — actually building 10-20 prompts for your most common tasks — would compound through everything else you do. The specific win for Enviz: a well-crafted "cold outreach to luxury property developer" prompt, iterated five times, will outperform the quick conversational version every single time. Invest the hour.</div>
+
+  <div class="tags">
+    <span class="tag">Claude</span>
+    <span class="tag">Prompts</span>
+    <span class="tag">Productivity</span>
+    <span class="tag">AI Tools</span>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="divider"></div>
+<div class="footer">
+  <div class="footer-logo">🐟 Trawly<span>.</span></div>
+  <p>Your internet, trawled. Built with ⚡ by Chop.</p>
+  <p style="margin-top:8px;">15 stories · Hybrid Format · Friday 3 April 2026</p>
+  <p style="margin-top:12px; font-size:12px; opacity:0.6;">Sources: Fortune, Town &amp; Country, Estate Agent Networking, Precedence Research, Conversantech, Martech, Begine Fusion, purshoLOGY, DevToolPicks, Tom's Guide · X data: @felixleezd, @birdabo, @TechByArti, @hanishbuilds</p>
+</div>
+
+</div>
+</body>
+</html>
