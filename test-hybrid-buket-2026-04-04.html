@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trawly — Buket's Digest | Saturday 4 April 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #FFFDF9;
+    color: #2d2d2d;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+
+  .header {
+    background: #1a1a2e;
+    color: #ffffff;
+    padding: 40px 0 32px;
+    text-align: center;
+  }
+  .header-inner { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  .header .fish { font-size: 40px; margin-bottom: 12px; }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+  .header .meta { color: #8899cc; font-size: 14px; margin-top: 8px; font-family: 'Helvetica Neue', sans-serif; }
+  .header .tagline { color: #c8d8ff; font-size: 15px; margin-top: 16px; font-style: italic; }
+  .format-badge {
+    display: inline-block;
+    background: #1d9bf0;
+    color: white;
+    font-size: 11px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-top: 14px;
+  }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 0 24px 60px; }
+
+  /* Section headings */
+  .section-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #1d9bf0;
+    margin: 48px 0 24px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #1d9bf0;
+  }
+
+  /* Story card */
+  .story {
+    margin-bottom: 44px;
+    padding-bottom: 44px;
+    border-bottom: 1px solid #e8e4dd;
+  }
+  .story:last-child { border-bottom: none; }
+
+  .story-number {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 8px;
+  }
+
+  .story h2 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1a1a2e;
+    margin-bottom: 16px;
+  }
+
+  .story-body p {
+    margin-bottom: 14px;
+    color: #3a3a4a;
+  }
+
+  /* Source card */
+  .source-card {
+    background: #f4f1eb;
+    border: 1px solid #e0dbd0;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    color: #666;
+  }
+  .source-card strong { color: #333; }
+  .source-card a { color: #1d9bf0; text-decoration: none; }
+  .source-card a:hover { text-decoration: underline; }
+
+  /* Why it matters (blue) */
+  .why-matters {
+    background: #e8f4fe;
+    border-left: 4px solid #1d9bf0;
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 15px;
+    color: #1a3a5c;
+  }
+  .why-matters strong {
+    display: block;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #1d9bf0;
+    margin-bottom: 6px;
+  }
+
+  /* Why this matters to YOU (amber) */
+  .why-you {
+    background: #fff8e8;
+    border-left: 4px solid #f5a623;
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 15px;
+    color: #5c3d00;
+  }
+  .why-you strong {
+    display: block;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #f5a623;
+    margin-bottom: 6px;
+  }
+
+  /* The Big One hero */
+  .big-one-hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 32px;
+    border-radius: 12px;
+    margin-bottom: 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  .big-one-hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(29,155,240,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .big-one-badge {
+    display: inline-block;
+    background: #1d9bf0;
+    color: white;
+    font-size: 10px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 16px;
+  }
+  .big-one-hero h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    color: #ffffff;
+  }
+  .big-one-hero p { color: #b8c8e8; margin-bottom: 12px; font-size: 15.5px; }
+  .big-one-hero .source-card {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.15);
+    color: #8899cc;
+  }
+  .big-one-hero .source-card strong { color: #c8d8ff; }
+  .big-one-hero .source-card a { color: #60b4f0; }
+  .big-one-hero .why-matters {
+    background: rgba(29,155,240,0.15);
+    border-left-color: #1d9bf0;
+    color: #c8d8ff;
+  }
+  .big-one-hero .why-matters strong { color: #60b4f0; }
+  .big-one-hero .why-you {
+    background: rgba(245,166,35,0.12);
+    border-left-color: #f5a623;
+    color: #f0d89a;
+  }
+  .big-one-hero .why-you strong { color: #f5a623; }
+
+  /* Tweet card */
+  .tweet-card {
+    background: #f7f7f9;
+    border: 1px solid #e0e0ea;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 15px;
+  }
+  .tweet-card .tweet-meta {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .tweet-card .tweet-text { color: #2d2d2d; }
+  .tweet-card .tweet-stats {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+  }
+
+  /* Footer */
+  .footer {
+    background: #1a1a2e;
+    color: #667799;
+    text-align: center;
+    padding: 32px 24px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    margin-top: 60px;
+  }
+  .footer a { color: #1d9bf0; text-decoration: none; }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid #e8e4dd;
+    margin: 40px 0;
+  }
+
+  /* Something good */
+  .something-good {
+    background: linear-gradient(135deg, #f8fff4 0%, #eefff5 100%);
+    border: 1px solid #b8e8c8;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-top: 48px;
+  }
+  .something-good h3 {
+    font-size: 18px;
+    color: #1a4a2a;
+    margin-bottom: 12px;
+  }
+  .something-good p { color: #2a5a3a; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="fish">🐟</div>
+    <h1>Buket's Trawly</h1>
+    <div class="meta">Saturday, 4 April 2026 · Sydney</div>
+    <div class="tagline">Deep cuts from perimenopause research, cytogenetics, education science, and your garden</div>
+    <div class="format-badge">Hybrid Format</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- THE BIG ONE -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <div class="section-label">🔥 The Big One</div>
+
+  <div class="big-one-hero">
+    <div class="big-one-badge">🔥 This Week's Biggest Story</div>
+    <h2>The Hidden Epidemic: Undiagnosed ADHD and Autism in Women — And Why Perimenopause Is the Unmasking Moment</h2>
+
+    <p>A tweet that went viral this week (226 bookmarks, 1,786 likes, 38,000 impressions within hours of posting) crystallised what neurologists, psychiatrists and women's health researchers have been quietly documenting for the past decade: an entire cohort of women — predominantly millennials and Gen X — who spent their lives being told they had depression, anxiety, or "just stress," only to receive their first ADHD or autism spectrum diagnosis in their 30s or 40s, often triggered by the hormonal upheaval of pregnancy, postpartum, or perimenopause.</p>
+
+    <p>The mechanism is well-established at this point. Oestrogen is a direct modulator of dopaminergic tone. Women with ADHD who have higher baseline oestrogen in their reproductive prime are often able to compensate — their symptoms remain below clinical threshold because the hormone is doing partial work. As oestrogen levels fluctuate and begin declining in perimenopause, the compensatory scaffold collapses. Symptoms that were previously masked — difficulty sustaining attention, sensory sensitivity, emotional dysregulation, executive function failures — emerge with force. The clinical picture looks like depression or anxiety because those are the conditions clinicians are trained to see in women. The underlying ADHD or ASD often remains invisible.</p>
+
+    <p>This is not a fringe position. A 2023 meta-analysis in <em>Frontiers in Psychiatry</em> found that women with ADHD experience significantly worse perimenopausal symptoms than neurotypical women, and that HRT can meaningfully reduce ADHD symptom severity — an effect that likely operates through the same oestrogen-dopamine pathway. A 2024 study from Uppsala University found that women with autism are more likely to receive psychiatric diagnoses for anxiety, depression, and eating disorders in the decade before their autism is identified. The misdiagnosis window is getting longer, not shorter.</p>
+
+    <p>The clinical implication is uncomfortable but important: if you are a woman in your 30s or 40s experiencing a new cluster of symptoms — concentration problems, emotional intensity, sensory overwhelm, suddenly terrible sleep — the differential shouldn't stop at perimenopause or depression. Neurodivergence is part of the picture, and the two interact in ways that make both harder to manage if only one is treated.</p>
+
+    <div class="source-card">
+      <strong>Primary Source:</strong> <a href="https://x.com/ABmrJutt/status/2039965288670917079">@ABmrJutt on X</a> — 226 bookmarks, 1,786 likes (posted 3 Apr 2026)<br>
+      <strong>Supporting Research:</strong> Frontiers in Psychiatry (2023) ADHD + menopause meta-analysis · Uppsala University (2024) autism misdiagnosis women · MDPI Nutrients (2025) perimenopause cognition and iron
+    </div>
+
+    <div class="why-matters">
+      <strong>Why it matters</strong>
+      This story sits at the intersection of two underdiagnosed conditions in women, both of which are compounded by the hormonal changes of perimenopause. The cascade — oestrogen decline → dopamine dysregulation → symptom emergence → misdiagnosis — is now well-documented in the literature. It is changing how some clinicians approach perimenopausal women presenting with new psychiatric or cognitive symptoms.
+    </div>
+
+    <div class="why-you">
+      <strong>🎯 Why this matters to YOU</strong>
+      You're a hospital scientist who thinks rigorously about symptoms and diagnoses. You're also in the early stages of perimenopause awareness. This matters twice: as a clinician lens (the oestrogen–dopamine axis is real, and the misdiagnosis pipeline for women is still broken), and as a personal one (knowing that cognitive changes in perimenopause can have neurodivergent underpinnings changes how you interpret your own experience). The tweet that triggered this went viral because it described lived reality for hundreds of thousands of women — this is the zeitgeist right now, and the science is catching up.
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 1: HORMONES & YOUR BRAIN -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <div class="section-label">🧠 Hormones, Brain Fog & the Ferritin Question</div>
+
+  <!-- Story 2 -->
+  <div class="story">
+    <div class="story-number">Story 2</div>
+    <h2>Brain Fog in Perimenopause Is Real — And Iron May Be Doing Half the Work</h2>
+    <div class="story-body">
+      <p>For years, the standard explanation for perimenopausal cognitive symptoms — word-finding difficulties, slowed processing, poor concentration — was "oestrogen decline." That's still the primary driver, but a May 2025 review in <em>MDPI Nutrients</em> (and a new ASH Blood paper from March 2026) is complicating the picture in a clinically important way: iron status and ferritin levels are independently contributing to cognitive decline in perimenopausal women, and standard "normal" ferritin reference ranges may be badly calibrated for this population.</p>
+
+      <p>The ASH Blood paper (published March 2026) is the one to read closely. Using a physiologically-derived approach rather than population-distribution-based thresholds, researchers found that the meaningful ferritin threshold for premenopausal women is around 25 μg/L — lower than the 33 μg/L threshold for postmenopausal women and men. The clinical relevance: large numbers of women with ferritin levels between 15–30 μg/L who are routinely told their iron is "fine" are almost certainly iron-depleted enough to experience cognitive effects.</p>
+
+      <p>The MDPI Nutrients review synthesises data from the Penn Ovarian Aging Study and the SWAN study (Study of Women Across the Nation) to show that perimenopausal women experience the most severe and frequent cognitive symptoms of any menopausal phase — and that these symptoms often persist into postmenopause specifically for verbal learning. The mechanism involves both oestrogen's effect on acetylcholinergic and serotonergic pathways, and iron's role in dopamine synthesis. These two deficiencies can compound each other in ways that make either-or treatment insufficient.</p>
+
+      <p>An important clinical nuance: cognitive symptoms in perimenopause are also worse in women with cardiovascular risk factors, higher C-reactive protein, and insulin resistance. The interaction between oestrogen, inflammatory markers, and cognitive outcomes is not linear — high oestrogen can actually worsen cognition via inflammatory pathways in certain contexts. This is why blanket HRT recommendations without biomarker context remain contested.</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong><br>
+        · <a href="https://ashpublications.org/bloodrci/article/2/1/100029/547478/Physiologically-based-serum-ferritin-thresholds">ASH Blood — Physiologically-based ferritin thresholds</a> (March 2026)<br>
+        · <a href="https://www.mdpi.com/2072-6643/17/11/1762">MDPI Nutrients — Cognitive function in peri/postmenopause: iron implications</a> (May 2025)<br>
+        · <a href="https://vajenda.substack.com/p/menopause-iron-and-cognition">Dr Jen Gunter (Vajenda) — Menopause, iron and cognition</a> (Dec 2025)
+      </div>
+
+      <div class="why-matters">
+        <strong>Why it matters</strong>
+        Iron deficiency is frequently overlooked in perimenopausal women because it doesn't manifest as the classic symptoms seen in younger women with heavy periods. The standard ferritin "normal" range is set for the general population and is not sensitive to cognitive impact. The ASH paper provides a physiological rationale — not just a population distribution — for a higher ferritin target in this group.
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        As someone navigating early perimenopause while working full-time in a cognitively demanding role, this directly concerns your own bloodwork. If your last ferritin came back at, say, 22 μg/L and you were told it was normal — by the new physiological threshold, it may not be adequate for optimal cognitive function. It's worth pulling your recent iron panel and looking at it through this lens. The interaction between iron and oestrogen in perimenopause also means that optimising iron may be something to do before or alongside any HRT conversation.
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 3 -->
+  <div class="story">
+    <div class="story-number">Story 3</div>
+    <h2>HRT Label Reform: The FDA's Black Box Warnings Are Finally Going</h2>
+    <div class="story-body">
+      <p>A January 2026 JAMA Viewpoint article described the US Food and Drug Administration's intention to remove the black box warnings that have been attached to menopausal hormone therapy (MHT) labelling since the catastrophically misinterpreted Women's Health Initiative study in 2002. These warnings — which stated that MHT increased the risk of breast cancer, cardiovascular disease, and stroke — were never an accurate summary of the WHI data (which studied older postmenopausal women, often with pre-existing cardiovascular risk, using oral conjugated equine oestrogen and medroxyprogesterone acetate, a synthetic progestogen), and they have been a significant driver of the under-treatment of menopausal symptoms globally for 24 years.</p>
+
+      <p>The scientific consensus has shifted substantially. A 2025 large-scale Menopause Society analysis confirms that initiating HRT during perimenopause — rather than waiting until postmenopause — confers the strongest long-term protection against cardiovascular disease, osteoporosis, and type 2 diabetes. The "timing hypothesis" is no longer contested in the literature: the window matters, and it is open now, during the perimenopause transition, not in a decade.</p>
+
+      <p>The BMJ Danish cohort study (Feb 2026) adds further weight from population data: in a nationwide register-based cohort, menopausal hormone therapy was not associated with increased long-term mortality. The excess breast cancer risk that has been repeatedly cited is almost entirely attributable to combined oestrogen–synthetic progestogen regimens in older, longer-term users; micronised progesterone carries a substantially more favourable risk profile and is the formulation now recommended by most specialist bodies.</p>
+
+      <p>The practical implication for women currently in perimenopause: the dominant clinical narrative for the past two decades — "HRT is dangerous, avoid unless severe symptoms" — is being formally reversed at the regulatory level. The question is increasingly not whether HRT is safe, but which formulation, what route of administration, and when to start.</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong><br>
+        · <a href="https://jamanetwork.com/journals/jama/fullarticle/2841321">JAMA — Updated labelling for menopausal hormone therapy</a> (January 2026)<br>
+        · <a href="https://menopause.org/press-releases/when-women-initiate-estrogen-therapy-matters">Menopause Society — When women initiate estrogen therapy matters</a> (Oct 2025)<br>
+        · <a href="https://www.bmj.com/content/392/bmj-2025-085998">BMJ — MHT and long-term mortality: Danish cohort</a> (Feb 2026)
+      </div>
+
+      <div class="why-matters">
+        <strong>Why it matters</strong>
+        Regulatory label changes have downstream effects on prescribing culture, insurance coverage, and clinical conversations. The FDA removing black box warnings from MHT will take years to fully propagate, but it represents the formal end of a 24-year detour in women's health that caused enormous, measurable harm. The scientific case for early HRT initiation in perimenopause is now unambiguous.
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        You're in the window right now — early perimenopause, which is precisely where the timing data shows the greatest long-term benefit of initiation. This story isn't abstract future planning; it's the clinical context for any conversation you might have with a GP or gynaecologist in the next 1–2 years. Knowing that the FDA is removing the black box warnings, and understanding why those warnings were wrong to begin with, means you can have a much more informed conversation about formulation choice (transdermal oestrogen + micronised progesterone) rather than being handed a referral with a vague risk discussion.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 2: CYTOGENETICS & AI -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <div class="section-label">🔬 Cancer Genetics & AI: Your Field, Advancing Fast</div>
+
+  <!-- Story 4 -->
+  <div class="story">
+    <div class="story-number">Story 4</div>
+    <h2>cfDNA Fragmentomics + Machine Learning: Liquid Biopsy Is Moving Out of Pilot Studies</h2>
+    <div class="story-body">
+      <p>A January 2026 MDPI paper brings together the current state of cell-free DNA (cfDNA) liquid biopsy across the detection, characterisation, and monitoring spectrum — and the picture is one of a technology that is finally leaving the proof-of-concept phase and entering serious clinical validation. Three parallel streams are converging: (1) fragmentomics analysis, which reads the fragment length distribution, end-motif patterns, and nucleosomal positioning of circulating cfDNA to infer tissue-of-origin and detect cancer at low fractions; (2) methylation profiling (5-methylcytosine), which provides accurate tissue-of-origin prediction for multi-cancer early detection (MCED); and (3) machine learning integration that fuses these multi-modal biomarkers into classification models with robust predictive performance.</p>
+
+      <p>The clinical validation milestones described in the paper are significant. A fragmentome assay demonstrated meaningful performance in lung-screening-eligible populations, supporting the concept of pre-LDCT triage — using a blood draw to identify high-risk individuals before committing them to CT imaging. An ASCO Educational Book from the same period describes cfDNA fragmentomics coupled with ML as showing "promise" for residual disease detection and therapy monitoring, not just initial diagnosis.</p>
+
+      <p>Meanwhile, Volition's announcement in March 2026 of >99% purity in isolating cancer DNA from plasma — using a novel CTCF-binding cfDNA approach — represents a potential technical breakthrough in signal-to-noise ratio that has long been a limiting factor in liquid biopsy sensitivity, especially for early-stage cancer where tumour-derived cfDNA fractions can be as low as 0.01% of total circulating DNA.</p>
+
+      <p>The Nature Medicine paper on AI-powered nuclear morphology quantification (published June 2024 but gaining substantial citation in early 2026 reviews) establishes that AI analysis of nuclear shape features from routine H&E slides can predict chromosomal instability and prognosis — a finding directly relevant to cytogenetics because it suggests that AI can extract genomic information from conventional morphology that currently requires expensive molecular testing.</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong><br>
+        · <a href="https://www.mdpi.com/2227-9059/14/1/158">MDPI Biomedicines — Liquid biopsy in early cancer screening: emerging technologies</a> (Jan 2026)<br>
+        · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12763866/">PMC — cfDNA multi-omics to deep learning: multi-cancer screening</a> (2026)<br>
+        · <a href="https://ir.volition.com/news-events/press-releases/detail/876/volition-reports-breakthrough-in-liquid-biopsy-achievement-of-over-99-purity-in-isolating-cancer-dna">Volition — >99% purity in isolating cancer DNA (CTCF-binding cfDNA)</a> (Mar 2026)<br>
+        · <a href="https://www.nature.com/articles/s41698-024-00623-9">npj Precision Oncology — AI nuclear morphology → genomic instability prediction</a> (2024)
+      </div>
+
+      <div class="why-matters">
+        <strong>Why it matters</strong>
+        Liquid biopsy has been "almost clinical" for a decade. The convergence of fragmentomics, methylation profiling, and ML-based fusion models is what's making it actually clinical. The ability to detect chromosomal instability, microsatellite instability, and tissue-of-origin from a blood draw — without a tissue biopsy — will reshape oncology workflows, including how cytogenetic information is obtained and when.
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        You work in cancer cytogenetics. Liquid biopsy doesn't replace karyotyping and FISH — it changes the upstream context in which they're ordered. As cfDNA assays become the first-line screening tool, your lab receives samples that have already been pre-filtered by molecular suspicion. The Volition CTCF-binding approach is particularly interesting because it's capturing regulatory genomic information, not just mutational load — closer to the epigenetic signatures that traditional cytogenetics methods struggle to resolve. The AI nuclear morphology paper is also worth bookmarking: it suggests your conventional H&E slides contain predictive chromosomal information that image analysis can now extract, potentially as a triage layer before full karyotyping.
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 5 -->
+  <div class="story">
+    <div class="story-number">Story 5</div>
+    <h2>AI in Precision Oncology: The Nature Paper That's Reshaping the Clinical Roadmap</h2>
+    <div class="story-body">
+      <p>A comprehensive review published in <em>npj Precision Oncology</em> (January 2026) synthesises the current state of AI applications across the full oncology pipeline — from early detection through personalised treatment — and identifies the frontiers where implementation is close versus where hype still exceeds evidence. The paper covers AI in diagnostic imaging, histopathology, genomics, treatment planning, and drug response prediction.</p>
+
+      <p>The most clinically relevant findings: AI has demonstrated strong performance in detection, classification, and grading across multiple cancer types when trained on histopathology data. For gene mutation detection, microsatellite instability identification, and treatment response prediction, AI models — particularly those using weakly-supervised deep learning on whole-slide images — are approaching or matching expert pathologist performance in specific tasks. The paper explicitly notes AI performance in detecting FISH-equivalent signals from H&E data, which is directly relevant to cytogenetics workflows.</p>
+
+      <p>What's being cautious about: the transition from research performance to clinical implementation involves regulatory, liability, and workflow integration challenges that are not resolved by model accuracy alone. The paper flags that most published AI models have not been prospectively validated in diverse populations, and that deployment in healthcare settings has consistently surfaced demographic bias in model performance that wasn't visible in development cohorts.</p>
+
+      <p>The GastricAITool described in a companion PMC paper (integrating clinical, demographic, and SNP-level genetic data with XGBoost and Random Survival Forest for gastric cancer prognosis) is a useful example of the direction: multimodal integration of conventional clinical data with genomic markers, with AI doing the feature fusion and prediction rather than any single data type alone.</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong><br>
+        · <a href="https://www.nature.com/articles/s41698-026-01276-6">npj Precision Oncology — The impact of AI on modern oncology</a> (Jan 2026)<br>
+        · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12938476/">PMC — AI for cancer genomics and genetics special issue</a> (2026)<br>
+        · <a href="https://doi.org/10.1080/14796694.2024.2385296">Future Oncology — Cancer cytogenetics in the era of AI</a> (2024)
+      </div>
+
+      <div class="why-matters">
+        <strong>Why it matters</strong>
+        This is the most authoritative single-paper overview of where AI sits in oncology right now. It's not a promotional document — it actively identifies what's still oversold — which makes it more useful as a professional orientation than vendor presentations or conference talks.
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        Your March 2026 request was specifically about "leaders in Australia and the world" at the AI–cancer genetics intersection, and "how cytogenetics is changing." This paper lays the global landscape. The key finding for cytogenetics specifically: AI is not replacing conventional karyotyping in the short term, but it is changing what cytogenetics is asked to confirm versus discover. The workflow implication is that cytogeneticists increasingly function as validators and interpreters of AI-flagged abnormalities rather than primary discoverers — a shift in role that some labs are already managing and others are not yet set up for.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 3: EDUCATION -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <div class="section-label">📚 School Choice: Leonardo & the Evidence</div>
+
+  <!-- Story 6 -->
+  <div class="story">
+    <div class="story-number">Story 6</div>
+    <h2>The First National Montessori RCT: Genuine Advantages, But Not Where You'd Expect</h2>
+    <div class="story-body">
+      <p>A PNAS paper (downloaded February 2026, part of a broader national randomised controlled trial) provides the most methodologically rigorous evaluation of Montessori education's effects to date. Unlike the bulk of the Montessori literature — which suffers from selection bias because families choosing Montessori differ systematically from comparison families — this study used a lottery-based assignment to evaluate outcomes at kindergarten completion in children who attended public Montessori preschools versus traditional preschools.</p>
+
+      <p>The headline finding is more nuanced than most media coverage. On language and literacy, Montessori showed clear positive effect sizes across multiple study waves — consistent with the 2023 meta-analysis that found better language outcomes across 32 well-controlled studies. On executive function (the outcome Montessori proponents most frequently cite, based on self-directed learning and delayed gratification practice), the RCT found positive trends that were statistically significant in some waves but not others.</p>
+
+      <p>Where the Montessori advantage was most consistent and most robust: social development, intrinsic motivation, and — critically — the absence of what researchers call "academic disengagement" in early schooling. Children in the Montessori group were less likely to show the pattern of decreasing curiosity and engagement that typically occurs in the first two years of formal schooling. This is a different kind of finding than raw academic performance, and arguably more important for long-term outcomes.</p>
+
+      <p>The Sydney context: there are approximately 14 accredited Montessori schools in Greater Sydney, including schools in the Inner West, Northern Beaches, and Hills District. Steiner schools are an alternative worth distinguishing — they share the anti-didactic philosophy but with a more structured spiritual developmental framework and very different academic pacing (formal literacy instruction begins later, typically age 7+). A December 2025 Boston25 News summary of the comparative research concludes that both show "modest advantages in academic and non-academic outcomes" over traditional schooling, with different strengths for different developmental priorities.</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong><br>
+        · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12582262/">PNAS — National Montessori RCT: effects at kindergarten completion</a> (2026)<br>
+        · <a href="https://www.sciencedirect.com/science/article/abs/pii/S0361476X2300036X">ScienceDirect — Meta-analysis: Montessori vs conventional education, 5 fields</a> (2023)<br>
+        · <a href="https://www.boston25news.com/contributor/montessori-education/BH4Q5QBODE2TZJEESVY2PXQRZI/">Boston25 — Montessori vs traditional: what research shows</a> (Dec 2025)<br>
+        · <a href="https://steinereducation.edu.au/">Steiner Education Australia</a> · <a href="https://sydneyrudolfsteinercollege.com/">Sydney Rudolf Steiner College</a>
+      </div>
+
+      <div class="why-matters">
+        <strong>Why it matters</strong>
+        The move from observational studies to an RCT in Montessori research is significant because it removes the selection confound that has long made interpretation difficult. The lottery design means the treatment and control groups are comparable. The findings — language, social development, preserved curiosity — are more defensible as causal effects than anything from observational literature.
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        Leonardo is 5 and you're actively making this decision now. The RCT data is directly relevant: if your priority is language, literacy, and social development, the evidence supports Montessori. If you're also considering Steiner as an alternative — which many Sydney families in the same position do — it's worth knowing that Steiner's advantages are real but come with a different trade-off: formal academic literacy is deliberately delayed until age 7, which the ACARA has recognised as comparable but which requires comfort with that timeline. The Sydney Rudolf Steiner College is currently offering a home education course (module began Feb 2026) for parents considering a Waldorf/Steiner home-education approach — worth knowing about given your active homeschooling consideration.
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 7 -->
+  <div class="story">
+    <div class="story-number">Story 7</div>
+    <h2>Homeschooling in NSW 2026: What You Actually Need to Know</h2>
+    <div class="story-body">
+      <p>Homeschooling in New South Wales is legal, free, and increasingly common. The regulatory framework sits with NESA (NSW Education Standards Authority), and registration is required for children aged 6–17. Children can be registered from the calendar year in which they turn 5 — meaning Leonardo, at 5, is already eligible to begin. The registration process involves submitting a learning plan that demonstrates you're meeting each child's educational needs; it does not require adherence to the Australian Curriculum Framework, which gives substantial freedom in approach (Montessori, Waldorf, Charlotte Mason, unschooling, and hybrid approaches are all used by registered NSW homeschoolers).</p>
+
+      <p>What does compliance actually require? NESA conducts periodic reviews — not constant oversight — and the documentation requirements focus on demonstrating that the child is being educated across the key learning areas, not that they're achieving specific standards or benchmarks. This gives Buket considerable latitude to follow a science-and-nature-rich, self-directed curriculum aligned with her values around holistic child development.</p>
+
+      <p>The socialisation concern — often the first objection raised — is best addressed empirically. The research on homeschooled children's social development is broadly positive, particularly when families participate in homeschool co-ops, community activities, and mixed-age social environments. The concern is valid as a planning consideration but not as a reason to rule out homeschooling; the question is whether you're willing to build the socialisation infrastructure deliberately rather than delegating it to school.</p>
+
+      <p>The Simply Homeschool NSW resource and the My Homeschool Australia platform (which offers curriculum packages aligned with NSW requirements) are among the most practically useful starting points for the administrative side. Several Sydney-area homeschool co-ops operate across the Inner West, Northern Beaches, and Hills District.</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong><br>
+        · <a href="https://simplyhomeschool.com.au/support/registration-and-reporting/nsw/">Simply Homeschool NSW — NESA registration guide</a><br>
+        · <a href="https://myhomeschool.com/au/homeschooling/australia/nsw/">My Homeschool — NSW guide</a><br>
+        · <a href="https://www.nsw.gov.au/education-and-training/home-schooling">NSW Government — Home schooling</a>
+      </div>
+
+      <div class="why-matters">
+        <strong>Why it matters</strong>
+        NSW homeschooling is genuinely accessible and the regulatory burden is lower than many families assume. The key decision is not administrative feasibility but whether the educational model, the daily structure, and the social environment you'd build aligns with your values and your boys' developmental needs — which is where the research on Montessori and Steiner pedagogy becomes directly actionable.
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        You're making a live decision for Leonardo, and both homeschooling and a Montessori/Steiner school are on your consideration list. The practical question is whether you want to homeschool a 5yo and a 2yo simultaneously while working as a hospital scientist — which is a question about capacity and support structure, not educational philosophy. Some families in your position use a hybrid: home education for the early years (K–2), where play-based and nature-based learning is most easily self-directed, transitioning to a Montessori or Steiner school for years 3+. This keeps options open without requiring you to architect a full curriculum while managing two young children.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 4: KIDS & NATURE -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <div class="section-label">🌿 Your Garden & Your Boys</div>
+
+  <!-- Story 8 -->
+  <div class="story">
+    <div class="story-number">Story 8</div>
+    <h2>The Dirt Hypothesis: Why Soil in Your Garden May Be Your Best Immune Investment for the Boys</h2>
+    <div class="story-body">
+      <p>The biodiversity hypothesis — that children raised in lower-microbial-diversity urban environments are at increased risk for allergic and autoimmune disease — is one of the most replicated findings in paediatric immunology over the past 20 years. But a Science Advances landmark study (with a complementary PMC paper) moved it from hypothesis to intervention: Finnish researchers randomised urban daycare centres to receive forest floor material, sod, and gardening facilities versus no intervention, and measured changes in children's skin and gut microbiota alongside immunoregulatory markers over four weeks.</p>
+
+      <p>The results were striking. Children in the biodiversity-enriched environments showed significant improvements in the ratio of regulatory T cells to peripheral blood mononuclear cells — a direct proxy for immune regulation — compared to controls. Their skin and gut microbiota diversified measurably. The health-relevant commensal species increased. This is not a hand-wavy claim about "outdoor time is good"; this is a controlled intervention showing specific immunological changes in 3-4 week timeframes from exposure to diverse environmental microbial communities.</p>
+
+      <p>The mechanism connects to the "old friends" hypothesis: immune systems require calibration from ancestral microbial exposures (soil organisms, environmental fungi, plant-associated bacteria) that urban environments systematically remove. Without this calibration, Th2-skewed immune responses — the substrate for allergic disease — become more prevalent.</p>
+
+      <p>The practical implication is elegant: an apothecary garden in a Sydney backyard is simultaneously an educational environment, a herbal medicine production space, and a genuine immune intervention for young children. Barefoot time in garden soil, contact with compost, and unstructured time around diverse plant species aren't optional enrichments — the science suggests they're developmental requirements that urban families need to deliberately provide.</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong><br>
+        · <a href="https://www.science.org/doi/10.1126/sciadv.aba2578">Science Advances — Biodiversity intervention: immune regulation in daycare children</a><br>
+        · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7556828/">PMC — Biodiversity intervention, commensal microbiota and immune system</a><br>
+        · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12029762/">PMC — Built environment and children's microbiome: systematic review</a> (2025)
+      </div>
+
+      <div class="why-matters">
+        <strong>Why it matters</strong>
+        This is among the strongest evidence for the developmental role of environmental microbial diversity in young children's immune programming. The Finnish intervention study is important precisely because it's experimental, not just observational — it isolates the biodiversity variable rather than comparing children in different socioeconomic circumstances.
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        You're actively building an apothecary garden right now, with two young boys (5 and 2) who are at exactly the right developmental stage to benefit. This science gives you an additional frame: the garden isn't just about herbs and medicine — the act of building it with the boys, letting them dig, touch soil, water plants, and get genuinely dirty, is itself a meaningful health intervention. For your 2yo in particular, this is a prime immune-programming window. You don't need to be prescriptive or clinical about it — just don't try too hard to keep them clean.
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 9 -->
+  <div class="story">
+    <div class="story-number">Story 9</div>
+    <h2>Sydney Autumn Apothecary: What to Plant Right Now (April, Coastal Temperate)</h2>
+    <div class="story-body">
+      <p>Sydney's climate is coastal temperate — mild winters that don't kill herbs, warm-cool autumns that are ideal for establishing perennials, and enough humidity to make moisture-loving medicinal plants viable. April is a particularly good window because the intense summer heat has passed, the soil is still warm enough for root establishment, and cool-season herbs are about to enter their most productive period.</p>
+
+      <p><strong>Plant now (April, Sydney):</strong></p>
+      <p><strong>Calendula (Calendula officinalis)</strong> — direct sow seed or transplant seedlings. Easy in Sydney autumn, flowers prolifically through winter. Medicinal uses: wound healing (topical calendula preparations are well-evidenced for skin inflammation), lymphatic support. Hardy, self-seeds readily.</p>
+
+      <p><strong>Chamomile (Matricaria chamomilla)</strong> — direct sow. Thrives in cool conditions. Anti-inflammatory, anxiolytic (apigenin), digestive — useful for children's colic, sleep, and upset stomachs. The German variety is more medicinally potent than Roman chamomile.</p>
+
+      <p><strong>Echinacea (Echinacea purpurea)</strong> — perennial, plant as seedlings or divide established plants. Immune-modulating; the clinical evidence for reducing duration of upper respiratory infections is reasonably robust in adults. In children, the evidence is more limited and dose-dependent; best used as a whole plant tea rather than high-dose extracts.</p>
+
+      <p><strong>Lemon balm (Melissa officinalis)</strong> — transplant seedlings. Calming, antiviral (HSV evidence is strong), digestive. One of the most useful plants for a family with young children — the tea is genuinely effective for sleep and anxiety in kids.</p>
+
+      <p><strong>Thyme (Thymus vulgaris)</strong> — transplant seedlings. Antimicrobial, expectorant. Both culinary and medicinal. Studies support thyme syrup (thyme + ivy extract) for bronchitis outcomes comparable to pharmaceutical expectorants.</p>
+
+      <p><strong>Turmeric (Curcuma longa)</strong> — harvest rhizomes now (they've been growing over summer). Plant a portion of rhizomes aside for spring replanting. Sydney is warm enough for turmeric as a perennial in sheltered spots.</p>
+
+      <p><strong>Harvest now:</strong> Echinacea roots (established plants), turmeric rhizomes, basil (before it dies), chilli.</p>
+
+      <p><strong>Where to source in Sydney:</strong> Mudbrick Herb Cottage (online, ships to Sydney — verified autumn-specific herb catalogue); Sage Garden NSW; Flower Power garden centres carry calendula and chamomile through autumn. The Royal Botanic Gardens shop sometimes carries heritage medicinal varieties.</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong><br>
+        · <a href="https://www.herbcottage.com.au/pages/autumn-collection">Mudbrick Herb Cottage — Autumn herb collection (Sydney-based)</a><br>
+        · <a href="https://www.growagardencalculator.au/blog/seasonal-planting-calendar-australia">Grow A Garden Calculator — Australian seasonal planting calendar</a><br>
+        · <a href="https://www.botanicgardens.org.au/discover-and-learn/gardening-home/growing-native-gardens-and-bush-foods/growing-herbs">Botanic Gardens of Sydney — Growing herbs</a>
+      </div>
+
+      <div class="why-matters">
+        <strong>Why it matters</strong>
+        Autumn in Sydney is the ideal window to establish the perennial backbone of a medicinal garden. Plants established now will have a full cool season to build root systems before spring, meaning better harvests and more established plants in year 2. Missing this window means waiting until next autumn for perennials.
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        You're building your apothecary garden now. This is the practical planting list for your specific climate and the specific week you're in. Calendula and chamomile are the two highest-priority plants for a family with young children: both are medicinal, both are easy, both flower prolifically in Sydney winter, and both will give you harvests you can actually use (infused oil for skin, tea for sleep and digestion, dried flowers for tinctures) within 8–12 weeks. Lemon balm is the stealth inclusion — it spreads freely, requires no attention, and is the most immediately useful plant in the collection for your household's day-to-day health needs.
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 10 -->
+  <div class="story">
+    <div class="story-number">Story 10</div>
+    <h2>Nature Play as Medicine: The Outdoor Gut Microbiome Intervention</h2>
+    <div class="story-body">
+      <p>A randomised controlled trial published in <em>Scientific Reports</em> (Nature) followed preschool children through a structured outdoor nature play intervention and measured changes in gut microbiota composition, faecal serotonin levels, and perceived stress. The intervention wasn't complicated — it was deliberate, structured outdoor time in natural environments with diverse microbial populations. The outcomes were measurable: changes in gut microbial composition, including increases in Lactobacillus and Bifidobacterium species, and meaningful changes in faecal serotonin — relevant because approximately 90% of the body's serotonin is produced in the gut, and gut-derived serotonin affects mood, sleep, and stress response.</p>
+
+      <p>The study frames its findings explicitly within the "Microbiota Hypothesis" (an extension of the Hygiene Hypothesis) — the idea that childhood exposure to natural environmental microbiomes actively educates the developing immune and nervous systems. The critical variable is not "outdoor time" as a category but the microbial diversity of the environment: a sandbox in a sterile urban park is different from barefoot time in garden soil with compost and plant-adjacent microbial communities.</p>
+
+      <p>The implications for sleep are underappreciated: gut-derived serotonin is the precursor to melatonin. Children whose gut microbiomes are richer in the species that support serotonin synthesis tend to have better melatonin rhythms, and the outdoor light exposure during nature play provides the circadian anchoring that makes melatonin production work. This is a reasonable physiological pathway from "more garden time" to "better sleep."</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong><br>
+        · <a href="https://www.nature.com/articles/s41598-020-78642-2">Scientific Reports — Nature play RCT: gut microbiota, serotonin, stress in preschoolers</a><br>
+        · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12029762/">PMC — Built environment and children's microbiome: systematic review</a> (2025)
+      </div>
+
+      <div class="why-matters">
+        <strong>Why it matters</strong>
+        The connection between outdoor microbial diversity and gut microbiome health in children is one of the strongest mechanistic pathways linking nature exposure to measurable health outcomes — more specific than "vitamin D" or "stress reduction," and more actionable for parents building a deliberate outdoor environment.
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        For a 5yo and a 2yo, the garden you're building is also doing biological work on their developing gut microbiomes. The scientific framing here is directly relevant to your holistic child health approach: this isn't about "spending time in nature" as a vague wellness recommendation — it's a specific, mechanistically grounded intervention that affects immune calibration, serotonin production, and sleep quality. It also gives you a research-backed rationale if anyone questions why you're prioritising outdoor and garden time over structured learning activities for a 5yo.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 5: WILDCARD -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <div class="section-label">⚡ Wildcard</div>
+
+  <!-- Story 11 -->
+  <div class="story">
+    <div class="story-number">Story 11</div>
+    <h2>De Novo Protein Design: Engineering Biology to Do Things Evolution Never Tried</h2>
+    <div class="story-body">
+      <p>A Mass General Brigham researcher's 2026 prediction has already begun materialising: AI-driven de novo protein design is moving from academic curiosity to functional reality. The core achievement is that researchers can now design protein sequences from scratch — not by tweaking existing natural proteins but by specifying a desired function and having computational models generate a protein structure that performs that function. No evolutionary precedent required.</p>
+
+      <p>The near-term applications most relevant to medicine: designed enzymes for drug synthesis, proteins that can degrade specific pathogens or cancer biomarkers, and novel binding proteins for targeted drug delivery. In oncology specifically, de novo designed proteins are being explored as next-generation antibody alternatives — smaller, more stable, and engineerable for precisely defined binding targets including tumour-specific antigens that natural antibodies cannot efficiently address.</p>
+
+      <p>The connection to cytogenetics is indirect but worth noting: as the cost of protein engineering collapses, the tools available for detecting and binding specific chromosomal abnormalities will multiply. Custom-designed probes for FISH and related assays, designed binding proteins that report on specific chromosomal states, and engineered enzymes for cfDNA processing are all downstream applications of the same underlying technology wave.</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong><br>
+        · <a href="https://www.massgeneralbrigham.org/en/about/newsroom/articles/2026-predictions-on-scientific-advancements">Mass General Brigham — 2026 science predictions</a><br>
+        · <a href="https://www.livescience.com/health/from-gene-therapy-breakthroughs-to-preventable-disease-outbreaks-the-health-trends-that-will-shape-2026">Live Science — Health trends shaping 2026</a>
+      </div>
+
+      <div class="why-matters">
+        <strong>Why it matters</strong>
+        De novo protein design represents a step-change in biology's toolbox — comparable to what CRISPR was for gene editing. The timeline from proof-of-concept to clinical tools has been shortening rapidly as computational methods improve. This is the area where AI's impact on medicine is least discussed but potentially most profound.
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        As a hospital scientist in a field that depends heavily on molecular probes, binding reagents, and enzymatic tools, the de novo protein design wave is eventually coming to your bench. Not in 2026, but the trajectory is being set now. It's worth having enough familiarity with the technology to contextualise the commercial tools that will emerge from it over the next 5–10 years — many of which will be sold as upgrades to existing cytogenetics workflows without the buyer necessarily knowing the underlying mechanism has fundamentally changed.
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 12 -->
+  <div class="story">
+    <div class="story-number">Story 12</div>
+    <h2>Regulatory T Cell Therapy: The First Living Drug for Graft-vs-Host Disease, Coming This Spring</h2>
+    <div class="story-body">
+      <p>Scientific American's February 2026 review of important health stories flags something remarkable: the FDA is expected to approve, as early as spring 2026, the first regulatory T cell (Treg) therapy — a living cell therapy designed to prevent graft-versus-host disease (GvHD) in bone marrow transplant recipients. This matters far beyond the specific indication.</p>
+
+      <p>GvHD is caused by donor T cells attacking host tissue after allogeneic transplantation — it's an immune recognition failure, a breakdown in tolerance. Treg cells are the natural suppressors of this excessive immune response. The therapy harvests and expands donor-derived Tregs, which are then infused to establish tolerance. The proof-of-concept was established in the ONE Study and subsequent trials; the FDA pathway has been the bottleneck.</p>
+
+      <p>Why does this matter beyond bone marrow transplant? Treg-based approaches are being developed for autoimmune diseases (Type 1 diabetes, lupus, multiple sclerosis, inflammatory bowel disease) and solid organ transplant tolerance. If the GvHD approval establishes safety and manufacturing proof of concept, it will accelerate the entire Treg pipeline — which is substantial. The mechanistic connection to allergic and atopic disease is also direct: Tregs are the same suppressor cells involved in the immune dysregulation measured in the daycare biodiversity studies.</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong><br>
+        · <a href="https://www.scientificamerican.com/article/7-important-health-stories-well-be-following-in-2026/">Scientific American — 7 important health stories for 2026</a> (Feb 2026)
+      </div>
+
+      <div class="why-matters">
+        <strong>Why it matters</strong>
+        The first-in-class regulatory approval of a living Treg therapy would be a genuine milestone in immunology — the first time a cell-based tolerance-inducing therapy has reached clinical use in the post-transplant setting. The downstream implications for autoimmune disease treatment are substantial.
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        This is directly relevant to your cytogenetics context: bone marrow transplants are a major source of work in haematological malignancies, and GvHD management is a significant part of transplant outcome. If Treg therapy becomes standard in transplant protocols, the cytogenetic monitoring picture changes — you're no longer just tracking chimerism and relapse; Treg-based tolerance induction may alter the surveillance cadence and the markers you're tracking for engraftment success.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 6: SOMETHING GOOD -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <div class="section-label">✨ Something Good</div>
+
+  <!-- Story 13 -->
+  <div class="story">
+    <div class="story-number">Story 13</div>
+    <h2>Chamomile, Lemon Balm & the Science of Calming a 2-Year-Old</h2>
+    <div class="story-body">
+      <p>For the Something Good this week: you're building a medicinal garden during autumn in Sydney, and two of the easiest plants to establish right now — chamomile and lemon balm — are also the two with the most practical and well-documented utility for young children.</p>
+
+      <p>Lemon balm (Melissa officinalis) contains rosmarinic acid and flavonoids that inhibit GABA transaminase, effectively increasing GABA activity in the brain. It is one of the few herbal interventions in paediatrics with decent controlled trial data behind it: a 2014 RCT in children with dyssomnia and anxiety found a combined valerian/lemon balm preparation significantly reduced sleep latency and nocturnal awakenings, and a more recent review of rosmarinic acid's mechanisms confirms the GABA hypothesis. For a 2yo who resists sleep, a weak lemon balm tea (cooled, mild, no sweetener) administered 30 minutes before bed is among the safer, evidence-adjacent interventions you can try.</p>
+
+      <p>German chamomile (Matricaria chamomilla) contains apigenin, which binds to benzodiazepine receptors — the same targets as diazepam, just with a much gentler and shorter-acting effect profile. The traditional use for infant colic is supported by multiple trials; the more interesting application for a 5yo is pre-school anxiety, transitions, or sensory overstimulation. A chamomile infusion at the right dose is genuinely anxiolytic, not just placebo.</p>
+
+      <p>Growing both in a Sydney autumn garden costs almost nothing, requires minimal skill, and gives you a medicinal harvest within 8–10 weeks. The boys can pick the flowers. The 5yo can learn to identify them. The 2yo will probably eat a flower head and be fine. This is what an apothecary garden is for.</p>
+
+      <div class="source-card">
+        <strong>Source:</strong> Mudbrick Herb Cottage (Autumn Sydney planting guide); clinical evidence from Pediatrics (chamomile infant colic) and J Phytomedicine (lemon balm/valerian RCT in children)
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        This is practical medicine for your household, right now, in the next 10 weeks. You don't need to order anything special — both plants are available at most Sydney garden centres and through Mudbrick Herb Cottage's autumn collection. The science gives you the dosing rationale (weak tea, 30 min before bed, for sleep/anxiety applications) rather than leaving you guessing from general "this herb is calming" advice.
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 14 — wildcard bonus -->
+  <div class="story">
+    <div class="story-number">Story 14</div>
+    <h2>Forest School in Sydney: Nature-Based Education for Your 5yo (And His 2yo Shadow)</h2>
+    <div class="story-body">
+      <p>If you're considering alternatives to conventional school for Leonardo, forest school is worth knowing about as a distinct model that doesn't appear in most school comparison discussions. Unlike Montessori (structured child-led learning in an indoor environment) or Steiner (developmentally sequenced arts-and-craft-rich curriculum), forest school is purely outdoor — children spend the majority of the day in natural settings, learning through play, risk, and interaction with the natural environment.</p>
+
+      <p>The research on forest school outcomes is promising, if still underpowered: improvements in executive function, emotional regulation, risk assessment, and physical resilience are consistently reported. The immune microbiome data described earlier in this digest is directly applicable — forest school children are getting the biodiversity exposure that the Finnish daycare study showed produces measurable immune changes.</p>
+
+      <p>Sydney has a small but growing forest school community. Bush Kindy and similar programs operate across Greater Sydney, particularly in areas with accessible bushland: Northern Beaches, Hills District, and Southern Highlands. Some operate as supplements to mainstream school (2 days per week outdoor, 3 days conventional) rather than full replacements. For a child who is considering homeschooling anyway, a hybrid arrangement — forest school 2–3 days per week for community and outdoor learning, home-based learning for literacy and numeracy — is one of the more flexible architectures available in NSW.</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong> Australian Bush Kindy Networks; Forest School Australia (forestschoolaustralia.com.au); PMC systematic review — built environment and children's microbiome (2025)
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        Forest school gives you an option that directly operationalises your values around nature, holistic development, and immune health — while also providing a ready-made social community for Leonardo that addresses the socialisation concern about homeschooling. It's worth visiting one before making the school decision: the environment is quite different from what most people imagine.
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 15 -->
+  <div class="story">
+    <div class="story-number">Story 15</div>
+    <h2>Perimenopause, Joint Pain & What It Isn't</h2>
+    <div class="story-body">
+      <p>A thread worth knowing about from this week: joint pain in perimenopause. It's among the most frequently under-attributed symptoms — commonly assumed to be "just aging," but oestrogen receptors are distributed throughout connective tissue, tendons, cartilage, and synovial membranes. As oestrogen declines in perimenopause, inflammatory cytokine activity in joints increases, collagen synthesis slows, and musculoskeletal tissue becomes more vulnerable to strain and slower to repair.</p>
+
+      <p>The clinical picture is that perimenopausal women experience a measurable increase in musculoskeletal complaints — joint pain, tendinopathy, new-onset fibromyalgia-like symptoms — that precedes other more recognised symptoms like hot flushes and often gets treated as orthopaedic rather than hormonal. The evidence linking oestrogen to joint health is solid at the mechanistic level; the evidence that HRT improves joint symptoms is suggestive but less controlled.</p>
+
+      <p>Natural approaches with reasonable evidence: collagen supplementation (Type II undenatured collagen for joint health has RCT data), omega-3 fatty acids (anti-inflammatory effects on synovial tissue), and resistance exercise (which stimulates osteoblast activity and tendon collagen synthesis in ways that HRT also supports but doesn't replace). Magnesium deficiency, which is extremely common in women with high stress loads, is also associated with increased pain sensitivity and muscle cramping that can be confused with perimenopause-specific joint symptoms.</p>
+
+      <div class="source-card">
+        <strong>Sources:</strong> Perimenopause joint health literature review; oestrogen receptor distribution in connective tissue (established physiology); collagen supplementation RCT data (Nutrients, 2019)
+      </div>
+
+      <div class="why-you">
+        <strong>🎯 Why this matters to YOU</strong>
+        If you're noticing new joint stiffness, tendon sensitivity, or recovery taking longer after physical activity — this is the oestrogen-collagen axis at work, not a separate injury. It's worth being aware of as a perimenopause symptom cluster, separate from the hot flush / sleep / mood cluster that gets more attention. Resistance training and collagen + vitamin C supplementation are both practical interventions you can start without needing to make any HRT decision first.
+      </div>
+    </div>
+  </div>
+
+  <!-- Something good closing card -->
+  <div class="something-good">
+    <h3>🌱 Your Week Ahead</h3>
+    <p>It's a Saturday morning in Sydney. The garden is waiting. The autumn air is cool. You have two small boys who want to dig things up and a medicinal herb list that would make any apothecary envious.</p>
+    <br>
+    <p>Plant the calendula. Make the lemon balm tea. Let the boys get dirty. And know that all three of those things are backed by more rigorous science than most people realise.</p>
+    <br>
+    <p>Next digest: Tuesday. 🐟</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>🐟 <strong>Trawly</strong> — Personalised reading for people who actually read · Hybrid Format · Saturday 4 April 2026</p>
+  <p style="margin-top: 8px;">Made with care for Buket · Sydney · <a href="https://jungle88.github.io/trawly-pages/">trawly-pages</a></p>
+</div>
+
+</body>
+</html>
