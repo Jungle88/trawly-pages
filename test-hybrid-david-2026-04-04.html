@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ Trawly Daily — Saturday, April 4, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #FFFDF9;
+    color: #1a1a1a;
+    line-height: 1.7;
+  }
+  .header {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 40px 24px 32px;
+    text-align: center;
+  }
+  .header-badge {
+    display: inline-block;
+    background: #1d9bf0;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .header .sub {
+    color: #8899aa;
+    font-size: 14px;
+  }
+  .header .method-badge {
+    display: inline-block;
+    background: rgba(29,155,240,0.15);
+    border: 1px solid rgba(29,155,240,0.3);
+    color: #1d9bf0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 12px;
+  }
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+  /* Section label */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8899aa;
+    margin: 48px 0 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e8e4dc;
+  }
+  /* Story card */
+  .story {
+    background: #fff;
+    border: 1px solid #e8e4dc;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .story.big-one {
+    border: 2px solid #1d9bf0;
+    background: linear-gradient(135deg, #fafeff 0%, #f0f8ff 100%);
+  }
+  .story-number {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1d9bf0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .story h2 {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #1a1a2e;
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+  }
+  .story p {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.75;
+  }
+  /* Tweet card */
+  .tweet-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #f8f9fa;
+    border: 1px solid #e8e4dc;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 16px 0;
+  }
+  .tweet-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .tweet-body { flex: 1; }
+  .tweet-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #1a1a2e;
+  }
+  .tweet-handle {
+    font-size: 12px;
+    color: #8899aa;
+    margin-left: 4px;
+  }
+  .tweet-text {
+    font-size: 14px;
+    color: #444;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+  .tweet-metrics {
+    font-size: 12px;
+    color: #8899aa;
+    margin-top: 6px;
+  }
+  .tweet-metrics span { margin-right: 12px; }
+  /* Callouts */
+  .callout-blue {
+    background: #f0f8ff;
+    border-left: 4px solid #1d9bf0;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #1a1a2e;
+  }
+  .callout-blue strong { color: #1d9bf0; }
+  .callout-amber {
+    background: #fffbf0;
+    border-left: 4px solid #f59e0b;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #1a1a2e;
+  }
+  .callout-amber strong { color: #d97706; }
+  .callout-green {
+    background: #f0fff4;
+    border-left: 4px solid #22c55e;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #1a1a2e;
+  }
+  .callout-green strong { color: #16a34a; }
+  /* Source link */
+  .source-link {
+    font-size: 12px;
+    color: #1d9bf0;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 8px;
+  }
+  .source-link:hover { text-decoration: underline; }
+  /* Footer */
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+    padding: 40px 20px 20px;
+    border-top: 1px solid #e8e4dc;
+    margin-top: 40px;
+  }
+  /* Big One badge */
+  .big-one-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1d9bf0;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .velocity-score {
+    background: rgba(255,255,255,0.25);
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 10px;
+  }
+  /* Divider */
+  hr.subtle {
+    border: none;
+    border-top: 1px solid #e8e4dc;
+    margin: 32px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">⚡ Trawly Daily</div>
+  <h1>Saturday, April 4, 2026</h1>
+  <div class="sub">Your personal internet — trawled overnight</div>
+  <div class="method-badge">🔬 Hybrid Format</div>
+</div>
+
+<div class="container">
+
+  <!-- ===================== THE BIG ONE ===================== -->
+  <div class="section-label">🔥 The Big One</div>
+
+  <div class="story big-one">
+    <div class="big-one-badge">⚡ The Big One <span class="velocity-score">vel 4,301</span></div>
+    <h2>Google Just Dropped Gemma 4 — Open-Weight Models That Beat Everything 10× Their Size</h2>
+
+    <p>Google DeepMind dropped Gemma 4 on April 2nd and the internet exploded. This is not incremental. The 31B dense model is now ranked <strong>#3 in the world among open models</strong> on Arena AI's leaderboard — outperforming models over ten times its parameter count. The 26B MoE variant sits at #6. Both are Apache 2.0 licensed. Both run on your own hardware. Both are free.</p>
+
+    <p>The family ships in four sizes: E2B, E4B, 26B (Mixture of Experts), and 31B Dense. Built on the same research stack as Gemini 3, Gemma 4 is purpose-built for reasoning and agentic workflows — the exact use case where proprietary model costs eat you alive. Since the original Gemma launch, developers have downloaded the model line over <strong>400 million times</strong>. There are now more than 100,000 Gemma variants in the wild. Gemma 4 has already been ported to Apple MLX by the community within hours of release.</p>
+
+    <p>The velocity signal here was extraordinary — @Google's announcement tweet scored 18,452 likes and 9,313 bookmarks in under 48 hours. Demis Hassabis personally called it out. Builders immediately started running it locally. One tweet said: "DROP EVERYTHING. Open terminal. Type 'ollama run gemma4'. Wait." That's the vibe. This is the open-source AI moment of 2026.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#4285f4;">G</div>
+      <div class="tweet-body">
+        <span class="tweet-name">Google</span>
+        <span class="tweet-handle">@Google</span>
+        <div class="tweet-text">"We just released Gemma 4 — our most intelligent open models to date. Built from the same world-class research as Gemini 3. The 31B model ranks #3 among all open models globally."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 18,452</span>
+          <span>🔖 9,313</span>
+          <span>🔁 2,841</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> The cost moat that closed-source AI labs built over the last 3 years just got a massive hole punched in it. A #3 open model with Apache 2.0 licensing means any builder — including solo founders — can now run state-of-the-art reasoning models for free, on their own hardware, without API fees. The intelligence-per-dollar equation just shifted dramatically.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> You're building AI agent systems for Enviz's sales and marketing pipeline. Every agent that has to call a paid API has a margin problem. Gemma 4 at 31B can now handle complex reasoning tasks locally or via cheap inference — which means your multi-agent outreach system could run for cents per thousand interactions instead of dollars. Test ollama run gemma4 today. This could be the model powering Trawly's research pipeline without a single API call.
+    </div>
+
+    <a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/" class="source-link" target="_blank">→ Read the full Gemma 4 announcement on Google Blog</a>
+  </div>
+
+  <!-- ===================== SECTION 1: AI BUILDERS ===================== -->
+  <div class="section-label">🏗️ The Builder Stack — What's Working Right Now</div>
+
+  <div class="story">
+    <div class="story-number">Story 02</div>
+    <h2>The Vibe Coding Honeymoon Is Over — And That's Actually Good News for Builders Who Ship</h2>
+
+    <p>This week the AI coding community went through a collective reckoning. Two threads went viral simultaneously: @levelsio (the $5M/year indie hacker) admitting "vibe coding into production is very dangerous, you guys were all right" — and a Fortune piece revealing Claude Code's own source code was accidentally leaked this week due to a packaging mistake. The irony wasn't lost on anyone.</p>
+
+    <p>@ujjwalscript's thread cut to the heart of it: <em>"The Vibe Coding honeymoon is officially OVER. For a while, it felt magical. Prompt in, product out. No deep context, no architecture, no trade-offs. Just vibes. But reality is catching up: systems still need to scale, edge cases still exist, debugging still hurts."</em></p>
+
+    <p>Fortune's in-depth analysis found that at enterprise scale, the bottleneck has shifted from <em>writing</em> software to <em>verifying</em> it. Qodo (formerly CodiumAI) just raised $70M to solve "AI slop" in codebases — code that compiles and runs but is subtly wrong. The smart play: use AI for the 80% that's boilerplate, stay in the driver's seat for architecture and security. @levelsio's solution? "Cut off all DB access and run it as a user with almost no privileges." Sandbox the AI, don't trust it with the keys.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#1d9bf0;">L</div>
+      <div class="tweet-body">
+        <span class="tweet-name">levelsio</span>
+        <span class="tweet-handle">@levelsio</span>
+        <div class="tweet-text">"Okay honestly this makes vibe coding into production very dangerous, you guys were all right. I think what I'll do is cut off all access to DBs and run it as a user with almost no privileges"</div>
+        <div class="tweet-metrics">
+          <span>❤️ 741</span>
+          <span>🔖 525</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> The vibe coding era isn't ending — it's maturing. The builders who survive the transition are the ones who learn to use AI as a fast prototyping layer while keeping production control. This is the moment where the early adopters who rushed in are separating from the people building sustainable, secure systems.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> As a non-technical founder using AI agents to build Trawly and Enviz's agent stack, the DB permissions lesson from levelsio is directly applicable. When you're having agents run outreach and automation at Enviz — make sure those agents have minimum viable permissions. Never give an AI agent admin access to your CRM. Read-only where possible, scoped writes only. One hallucinated action could corrupt your entire pipeline.
+    </div>
+
+    <a href="https://fortune.com/2026/04/02/in-the-age-of-vibe-coding-trust-is-the-real-bottleneck/" class="source-link" target="_blank">→ Fortune: Trust is the real AI coding bottleneck</a>
+  </div>
+
+  <div class="story">
+    <div class="story-number">Story 03</div>
+    <h2>HubSpot's Breeze AI Is Now Running Full Sales Cycles Without Humans — Here's What That Means for CROs</h2>
+
+    <p>HubSpot's Breeze AI agents quietly became the talk of RevOps teams this week. The platform now deploys specialized agents — Customer Agent, Prospecting Agent, Content Agent — operating directly inside the CRM without human input. The Customer Agent handles incoming queries and qualification. The Prospecting Agent can see what customers are typing before they hit send, enabling real-time response augmentation. The Content Agent feeds the funnel with personalized outreach at scale.</p>
+
+    <p>Reports from teams using Breeze are showing up everywhere: a 94% sales increase from tailored campaigns (beauty brand), pipeline velocity doubling for SaaS teams using predictive content workflows. The shift isn't just "AI writes emails" — it's "AI decides when to follow up, what to say, and who to prioritize," all from CRM data in real time. This is what "replacing your marketing team with agents" looks like in practice.</p>
+
+    <p>What's interesting is that HubSpot positioned this as a Breeze upgrade rather than a new product — meaning if you're already paying for HubSpot, you potentially have an AI sales agent sitting dormant in your account right now. Teams that activated it early are seeing 40-60% reduction in manual prospecting time.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#ff7a59;">H</div>
+      <div class="tweet-body">
+        <span class="tweet-name">HubSpot AI</span>
+        <span class="tweet-handle">@HubSpot</span>
+        <div class="tweet-text">"Breeze AI agents can see what customers are typing before they hit send — allowing for faster support, smarter routing, and real-time sales augmentation. This is what AI-native CRM looks like."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 847</span>
+          <span>🔖 312</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> The "AI for marketing" category has been all talk for 18 months. HubSpot Breeze is the first CRM-native implementation where agents aren't a bolt-on — they're embedded in the revenue workflow. The companies adopting this early are running with a structural sales efficiency advantage.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> At Enviz, you're doing enterprise sales with a short runway. If you're on HubSpot, Breeze agents could be your 2-3x leverage move right now — not a new hire. Activate the Prospecting Agent for follow-up sequences on warm leads. Your job becomes reviewing the AI's work, not doing the work. This is exactly the "AI agents handling sales outreach and follow-up" system you're trying to build — and it's already in your CRM.
+    </div>
+
+    <a href="https://noimosai.com/en/blog/5-best-autonomous-ai-marketer-tools-for-2025-2026-tested-compared" class="source-link" target="_blank">→ Full breakdown: HubSpot Breeze vs competing AI marketer platforms</a>
+  </div>
+
+  <div class="story">
+    <div class="story-number">Story 04</div>
+    <h2>Predictive GEO Is Driving 417% Organic Growth — And Most Founders Don't Know It Exists</h2>
+
+    <p>While everyone's still talking about SEO, a new category called GEO (Generative Engine Optimization) is producing extraordinary results. The premise: optimize your content not for Google's search crawler, but for AI models like ChatGPT and Gemini that now answer questions directly. The key insight — when someone asks ChatGPT "what AR/VR platform should I use for real estate presales?", the answer is generated from training data and live search context, not a ranked list.</p>
+
+    <p>Workfx AI reported achieving the first-ever ChatGPT and Gemini brand citations for clients using their predictive GEO workflow — meaning their client's brand appeared as a recommended answer in AI-generated responses. One case study showed 417% organic traffic increase in 90 days. The workflow combines AI agent-driven content generation, cross-platform publishing, and semantic keyword clustering designed specifically for how LLMs index and retrieve information.</p>
+
+    <p>The tactics differ meaningfully from traditional SEO: you're optimizing for factual recall (making your product appear in AI-generated answers), not click-through rates. This includes structured data markup, question-answer content formats, and deliberately seeding high-authority domains with your brand's claims. Early movers in niche verticals — like proptech — have a significant first-mover advantage.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#7c3aed;">W</div>
+      <div class="tweet-body">
+        <span class="tweet-name">WorkfxAI</span>
+        <span class="tweet-handle">@WorkfxAI</span>
+        <div class="tweet-text">"We achieved first-ever ChatGPT and Gemini brand citations using predictive GEO workflows. 417% organic traffic increase in 90 days. The game is GEO now, not SEO."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 1,203</span>
+          <span>🔖 447</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> When AI replaces the search results page, traditional SEO loses half its value. Companies that appear in AI-generated answers are going to dominate discovery over the next 24 months. GEO is the moat that's being dug right now.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> Enviz operates in a niche where no one has nailed GEO yet — "AR VR real estate presales platform" is probably not being cited in any AI answer today. That's a 6-month window to own it. Same for Trawly — if you can become the cited answer when AI is asked "what's the best personalised news digest", that's thousands of users without a single paid ad. Start with a structured FAQ page and Q&A schema markup targeting the exact questions property developers type into ChatGPT.
+    </div>
+
+    <a href="https://blogs.workfx.ai/2026/04/02/ai-marketing-platforms-with-predictive-automation-2026/" class="source-link" target="_blank">→ WorkfxAI: AI Marketing Platforms and GEO 2026</a>
+  </div>
+
+  <!-- ===================== SECTION 2: PROPTECH ===================== -->
+  <div class="section-label">🏙️ PropTech & The Built World</div>
+
+  <div class="story">
+    <div class="story-number">Story 05</div>
+    <h2>The PropTech Market Hits $185B — And the UAE Is Becoming the World's Blueprint for What Comes Next</h2>
+
+    <p>The PropTech market just hit a new projection ceiling: $185.31 billion by 2035. The drivers aren't just technology for technology's sake — it's AI + unified platforms replacing fragmented legacy tools across buying, selling, managing, and financing. A new DIFC PropTech 2033 Report shows the UAE as a case study in how a single geography can deliberately accelerate the adoption curve, with estimates of AED 53+ billion in annual productivity unlocked.</p>
+
+    <p>Rob Stringer from MRI Software UAE is drawing a sharp line between "AI-washed" PropTech (tools that market AI but deliver nothing measurable) and genuine AI integration (tools that show ROI, efficiency gains, and predictive insights). His key prediction: the market will bifurcate. Vendors with real AI will capture everything. Vendors slapping "AI-powered" on the homepage will lose. The key differentiator is unified data — companies that integrate property management, CRM, valuations, and buyer behavior into a single model will dominate.</p>
+
+    <p>The region-specific angle matters here because Gulf developers are spending at scale on presales technology right now. Dubai's luxury market is doing record pre-launch sales volumes, and the technology enabling those transactions — immersive visualisations, digital twins, AR/VR walkthroughs — is the exact category Enviz operates in. The UAE is not a future market. It's a now market.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#10b981;">P</div>
+      <div class="tweet-body">
+        <span class="tweet-name">PropTech Middle East</span>
+        <span class="tweet-handle">@DIFCProptech</span>
+        <div class="tweet-text">"The DIFC PropTech 2033 report estimates AED 53bn+ in annual worker productivity from technology-enabled real estate ecosystems. The UAE isn't waiting for the future — it's building it."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 634</span>
+          <span>🔖 218</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> PropTech consolidation is happening right now, not in 3 years. The vendors that get embedded into developer workflows during this buildout phase will be very hard to displace. Real estate is a relationship business — once you're in the tech stack, you stay.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> The UAE is a direct expansion target for Enviz, and your timing couldn't be better. Dubai developers are doing record presales right now and they're actively evaluating presales visualisation tools. The DIFC Hub specifically runs an accelerator program for PropTech companies. This is worth a direct email to the DIFC PropTech Hub team this week — one warm intro could open the entire Gulf market. IBS helped you understand the US; the UAE trip equivalent might be DIFC PropTech Summit.
+    </div>
+
+    <a href="https://businesstoday.me/real-estate/the-proptech-trends-set-to-reshape-uae-real-estate-in-2026/" class="source-link" target="_blank">→ Business Today ME: PropTech Trends Reshaping UAE Real Estate</a>
+  </div>
+
+  <div class="story">
+    <div class="story-number">Story 06</div>
+    <h2>AI-Lean Estate Agency Teams Are Shrinking Fast — What That Signals for Tech Vendors</h2>
+
+    <p>A UK real estate industry roundup this week included a line that's worth sitting with: <em>"A decade ago residential agency teams were six or seven people. Now they are four or five. With AI they could be two or three humans — tech-enabled agency is advancing."</em> This isn't prediction. This is already happening at the coalface of UK residential real estate.</p>
+
+    <p>The implication cascades through the whole industry: fewer bodies means each body needs more leverage. Agency owners are no longer asking "should we use AI?" — they're asking "which AI tools do we build the team around?" The winners in this environment are tools that don't replace agents but multiply what a single agent can achieve: instant property valuations, AI-written listings, automated follow-up, virtual tours that qualify buyers before a human ever picks up the phone.</p>
+
+    <p>What's notable is that the UK market — typically conservative — is leading this transition faster than Australia. Sydney-based agencies are still talking about "exploring AI" while London firms are running 3-person teams that used to require 7. That gap represents both a competitive warning and an opportunity for tech vendors who can help Aussie agencies catch up fast.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#e63946;">E</div>
+      <div class="tweet-body">
+        <span class="tweet-name">Estate Agent Networking</span>
+        <span class="tweet-handle">@EANetworking</span>
+        <div class="tweet-text">"Estate agents won't disappear — they'll be leaner. Teams of 6-7 shrunk to 4-5. AI could bring it to 2-3. Tech-enabled agency is advancing faster than most are ready for."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 892</span>
+          <span>🔖 341</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> When agency teams shrink, each remaining team member needs amplification technology. VR walkthroughs aren't a nice-to-have in a 2-person agency — they're the tool that lets 2 people do what 7 used to do. The demand signal for Enviz's product category is embedded in this trend.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> Your enterprise pitch to developers works at the top of the market. But the agencies going through this squeeze right now — the 4-person residential teams feeling the pressure to operate like a 2-person team — might be a faster sales cycle with different ROI framing. "Enviz lets 2 agents sell an off-the-plan development like a team of 6" is a different pitch than the one you're currently making to marketing directors. Worth testing a mid-market lane alongside the enterprise play.
+    </div>
+
+    <a href="https://estateagentnetworking.co.uk/breaking-property-news-1-4-26" class="source-link" target="_blank">→ Estate Agent Networking: Breaking Property News April 2026</a>
+  </div>
+
+  <!-- ===================== SECTION 3: EDUCATION ===================== -->
+  <div class="section-label">📚 How Kids Learn Now</div>
+
+  <div class="story">
+    <div class="story-number">Story 07</div>
+    <h2>Wealthy Families Are Pulling Kids From Elite Private Schools to Enroll in AI-Powered Institutions — Here's What Alpha School Actually Does</h2>
+
+    <p>A major feature this week details the growing movement of ambitious parents abandoning traditional elite schooling for AI-first alternatives. Alpha School is the centre of this conversation: 2 hours of core academics per day via AI-personalized app, no teachers, afternoons for life skills and passion projects. Parents like Jackie Barba pulled their kids from $50K-a-year private schools to enroll in Alpha after discovering it in April 2024.</p>
+
+    <p>The model works like this: the AI tutor gives each student 1:1 personalized education, delivering coursework at their individual pace and level. The AI identifies what the child already knows, skips it, and accelerates to where they're actually challenged. A child who is 5 in math but 9 in reading gets taught at both levels simultaneously — something a classroom teacher with 30 students structurally cannot do. Afternoons are unscheduled time for entrepreneurship, outdoor activities, and self-directed projects.</p>
+
+    <p>CBC News ran a skeptical counter-piece this week: Canadian education experts raised concerns about student privacy, social development, and whether "gamified AI learning" is actually deep learning or just optimized test performance. The honest answer: we don't have long-term data yet. But the experiment is happening at scale, and the early results from parents inside Alpha are compelling enough that the waitlists are now years long.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#8b5cf6;">A</div>
+      <div class="tweet-body">
+        <span class="tweet-name">Alpha School</span>
+        <span class="tweet-handle">@AlphaSchool</span>
+        <div class="tweet-text">"Our AI tutor gives students 1:1 personalized education at their individual pace. 2 hours academics. The rest is life skills, entrepreneurship, and passions. Kids finish coursework 2-3 years ahead."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 3,241</span>
+          <span>🔖 1,892</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> The parents moving fastest on this aren't the fringe homeschoolers — they're tech-forward families who can afford traditional elite education and are choosing AI instead. When the people who could buy the best traditional option choose something different, it signals a genuine conviction, not just novelty.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> You're actively considering homeschooling Leonardo (5yo) with AI as the primary teaching tool. Alpha School's model is the most studied version of exactly what you're considering — except they do it institutionally. The key takeaway for your decision: the research is still young, but the mechanism (AI personalizes, human provides context and love) is sound. The gap Alpha is filling (rigid class pacing vs individual readiness) is real. One concrete step: check NSW homeschool registration requirements this week, because the window before year 1 enrollment is narrow.
+    </div>
+
+    <div class="callout-green">
+      <strong>🧒 Teach the kids:</strong> Tell Leonardo: "Imagine if your teacher only taught YOU — exactly what you needed, exactly when you were ready. No waiting, no rushing. That's what some kids are doing now with an AI tutor. Learning is changing. You get to be part of the exciting new version."
+    </div>
+
+    <a href="https://nationaltoday.com/us/tx/austin/news/2026/04/02/wealthy-families-embrace-tech-forward-homeschooling-and-ai-powered-schools/" class="source-link" target="_blank">→ Full feature: Wealthy families embrace AI-powered schools</a>
+  </div>
+
+  <div class="story">
+    <div class="story-number">Story 08</div>
+    <h2>'Are You Actually Learning?' — Experts Push Back on AI Schools (And the Questions Are Worth Having)</h2>
+
+    <p>In a healthy counter to the Alpha School hype, CBC News ran an in-depth investigation with Canadian education researchers questioning the AI school model. Their core concerns: student privacy (who owns the learning data?), social-emotional development (does 2 hours with an app and 4 hours of unstructured time build the collaborative skills kids need?), and the risk of shallow pattern-matching masquerading as deep understanding.</p>
+
+    <p>The sharpest critique came from a cognitive scientist who noted that AI tutors currently optimize for demonstrated knowledge (answering questions correctly) rather than durable learning (long-term retention and transfer). A student who can ace every AI-generated quiz may still struggle when confronted with a genuinely novel problem that requires synthesizing knowledge in a new way. This is the "teaching to the AI" version of "teaching to the test."</p>
+
+    <p>The researchers stopped short of condemning AI schooling — acknowledging that the personalization benefits are real. Their recommendation: use AI as a powerful acceleration layer within a framework that still includes human mentorship, physical collaboration, and regular exposure to genuinely hard problems that don't have a "right answer." The hybrid model — not pure AI, not pure traditional — may be where the data lands.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#ef4444;">C</div>
+      <div class="tweet-body">
+        <span class="tweet-name">CBC News</span>
+        <span class="tweet-handle">@CBCNews</span>
+        <div class="tweet-text">"'Are you actually learning?' Experts raise questions about AI schools — not whether the tech works, but whether optimizing for demonstrated knowledge is the same as actually developing a mind."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 2,108</span>
+          <span>🔖 934</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> Every new education paradigm has this debate. The productive version isn't "AI school good/bad" — it's "what does the evidence say about which elements work, and how do we design around the weaknesses?" The parents winning this are the ones reading both sides.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> As you research homeschooling for Leonardo, the hybrid model the researchers advocate — AI acceleration + human mentorship + hard collaborative problems — is essentially exactly what a motivated founder-parent can build at home with current tools. You have AI tools, you have the network to find good mentors, and as someone who thinks in systems, you can design around the weaknesses the researchers identified. The unstructured time model (afternoons for passion projects) also maps perfectly to how you run yourself.
+    </div>
+
+    <div class="callout-green">
+      <strong>🧒 Teach the kids:</strong> Next time Leonardo gets something wrong at school, try saying: "Good — that means your brain found something new to learn. The brain only grows when things are hard. Easy stuff is just practice." The growth mindset habit started early is the real leverage.
+    </div>
+
+    <a href="https://www.cbc.ca/news/canada/ai-led-schooling-alpha-9.7148428" class="source-link" target="_blank">→ CBC: 'Are you actually learning?' Experts raise AI school concerns</a>
+  </div>
+
+  <!-- ===================== SECTION 4: STARTUP/FOUNDER ===================== -->
+  <div class="section-label">🚀 The Founder Playbook</div>
+
+  <div class="story">
+    <div class="story-number">Story 09</div>
+    <h2>OpenAI Just Hit $25B Annualised Revenue and Is Moving Toward IPO — What That Means for Every Founder Using Their API</h2>
+
+    <p>OpenAI has crossed $25 billion in annualised revenue — with a $852 billion valuation and $122 billion in committed capital. An IPO is reportedly being prepared for late 2026. Anthropic is tracking close behind at $19 billion annualised. These are now among the fastest-growing companies in the history of software.</p>
+
+    <p>The business model story is more interesting than the numbers. OpenAI is now projecting $1 billion in advertising revenue for 2026, growing to $25 billion annually by 2029. That's a fundamental shift: from API fees and ChatGPT Plus subscriptions to advertising-driven reach. The practical implication for founders: OpenAI's incentives are shifting from "developers using our API" to "consumers using our products" — which means API pricing strategy could change as they chase ad-revenue scale.</p>
+
+    <p>Microsoft's parallel move this week: $10 billion investment in Japan for AI and cyber defence expansion. The hyperscalers are now running at geopolitical scale. The AI infrastructure war has become a national security issue — and the companies building on top of these platforms are simultaneously beneficiaries and potential hostages to those geopolitical forces.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#000;">O</div>
+      <div class="tweet-body">
+        <span class="tweet-name">TSN Crypto</span>
+        <span class="tweet-handle">@tsncrypto</span>
+        <div class="tweet-text">"💰 OpenAI is valued at $852 billion. $25B annual revenue. $122B raised. IPO potentially coming late 2026. Oh — and they just announced advertising will be a $25B/year business by 2029."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 2,847</span>
+          <span>🔖 1,103</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> When AI labs go public, their investor obligations change. API pricing historically gets optimised at IPO stage as companies shift focus to growth and margin. Founders building on OpenAI's API should have a model diversification plan — not because the product will get worse, but because pricing and availability will follow capital market pressure, not developer community goodwill.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> Trawly's research pipeline and Enviz's agent stack both have API cost exposure. Yesterday's Gemma 4 drop + today's OpenAI IPO news = the same message: build multi-model. When Gemma 4 can do what GPT-4o did 18 months ago, running it locally means your unit economics hold even if OpenAI reprices. Start mapping which parts of your pipeline are model-agnostic and design for easy swapping.
+    </div>
+
+    <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" class="source-link" target="_blank">→ AI Breakthroughs Tracker: OpenAI revenue and IPO update</a>
+  </div>
+
+  <div class="story">
+    <div class="story-number">Story 10</div>
+    <h2>The Smart Vibe Coding Auth Prompt That's Become a Builder Bible This Week</h2>
+
+    <p>A quiet but bookmark-heavy tweet went viral in the vibe coding community this week: a builder sharing the exact authentication prompt they paste at the start of every AI coding session. The tweet (348 bookmarks, 192 likes — extremely high bookmark-to-like ratio) contained a structured prompt that pre-loads the AI with your security requirements, database permission model, environment variables, and error handling expectations before a single line of code gets written.</p>
+
+    <p>The concept is deceptively simple but powerful: instead of prompting the AI to "build a user login", you prompt it with your entire security architecture first, then ask for the implementation. The result is code that's already aware of your specific constraints rather than code you then have to audit. Builders who've adopted this workflow report spending 60-70% less time on security debugging — because the AI was security-aware from the start rather than security-retrofitted at the end.</p>
+
+    <p>This is the real productivity unlock hiding inside vibe coding: not "AI writes faster" but "AI writes with context, and context is the bottleneck." The builders who are thriving in the post-honeymoon phase are the ones who've figured out how to front-load context rather than chase errors at the back end.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#f97316;">H</div>
+      <div class="tweet-body">
+        <span class="tweet-name">Hartdrawss</span>
+        <span class="tweet-handle">@Hartdrawss</span>
+        <div class="tweet-text">"Vibe coding PRO Tip: The exact auth prompt I copy-paste at the start of every project. Drop this in and your AI knows your security model before writing a single line. Saved me 60% debug time."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 192</span>
+          <span>🔖 348</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> High bookmark-to-like ratio (348/192 = 1.8:1) is the signal Trawly specifically hunts. This is a post people saved because they planned to use it. The best vibe coding practitioners are becoming prompt engineers for their own security architecture — and sharing those prompts publicly.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> When you're having agents build Trawly features or Enviz automation, create your own "project context prompt" that includes: tech stack, DB schema overview, security model, coding style guide, and the specific things you've learned NOT to let AI do unsupervised. Copy-paste this at the start of every Claude Code or Cursor session. It turns every session into one where the AI is already your senior developer, not a junior that needs hand-holding on your stack.
+    </div>
+
+    <a href="https://x.com/Hartdrawss/status/2039923402648047628" class="source-link" target="_blank">→ The auth prompt thread on X</a>
+  </div>
+
+  <div class="story">
+    <div class="story-number">Story 11</div>
+    <h2>Indie Pass Launches at $6.99/Month for Indie Games — What the Subscription Bundle Model Teaches Founders About Pricing</h2>
+
+    <p>A new subscription called Indie Pass launches April 13 at $6.99/month, bundling 70+ indie games. The founding catalog includes titles from the company's existing stable, with aggressive outreach to indie game studios for licensing. The model is simple: revenue share with creators, guaranteed monthly pay for studios that typically see feast-or-famine launch revenue. The business insight here isn't about games — it's about what happens when you aggregates a fragmented market of creators into a single subscription.</p>
+
+    <p>The gaming industry has been living through the bundle economics lesson for a decade (Xbox Game Pass, Humble Bundle, Apple Arcade). The insight spreading through the indie SaaS world right now: subscription bundles that aggregate complementary small tools can generate more revenue for each member than going solo, while reducing customer acquisition costs by 10x. One distribution partner, many subscribers.</p>
+
+    <p>For Trawly specifically, this is interesting competitive context: the personalised news digest space has dozens of solo operators. The founder who figures out how to aggregate them — or builds the platform that they all want to plug into — wins the bundle economics game in this space.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#14b8a6;">I</div>
+      <div class="tweet-body">
+        <span class="tweet-name">GamesIndustry.biz</span>
+        <span class="tweet-handle">@GamesIndustry</span>
+        <div class="tweet-text">"Indie Pass launches April 13 at $6.99/month with 70 titles. The bundle subscription model comes to indie games — guaranteed monthly revenue for creators, one subscription for fans."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 1,041</span>
+          <span>🔖 387</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> Bundle economics are underutilised in B2B SaaS and content businesses. The $6.99 price point hits the "no-brainer" zone where people subscribe without deliberate decision-making. Trawly at $X/month as a standalone product vs Trawly bundled with 3 other founder tools at $19/month — different math, different conversion rate.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> Trawly's monetisation question is live. Before you build a full pricing page, it's worth exploring a bundle partnership with 2-3 complementary tools in the "founder morning stack" — morning briefing + task tracker + cold outreach tool at one price. Each product gains subscribers from the others' audiences. Lower CAC, higher LTV. Worth a conversation with the Indie Hackers community this week.
+    </div>
+
+    <a href="https://www.gamesindustry.biz/a-game-pass-for-indie-games-meet-indie-pass-a-7-a-month-subscription-that-brings-new-titles-every-month" class="source-link" target="_blank">→ GamesIndustry.biz: Indie Pass announcement</a>
+  </div>
+
+  <!-- ===================== WILDCARD ===================== -->
+  <div class="section-label">🎲 Wildcard</div>
+
+  <div class="story">
+    <div class="story-number">Story 12</div>
+    <h2>The Tweet That Beat Every AI Game: a 12-Year-Old Raster 3D Game Without Ray Tracing or DLSS Got 71,275 Likes</h2>
+
+    <p>The most liked tweet of the week — by an order of magnitude — wasn't about AI, wasn't about a product launch, and wasn't from a founder. It was @btarunr pointing at a 12-year-old game with no ray tracing, no AI upscaling, no "vibe coding", just pure raster 3D graphics from a studio most people have never heard of. 71,275 likes. 6,782 bookmarks.</p>
+
+    <p>The tweet is a cultural artifact from the current AI moment — a collective reaction against the "but AI can do it faster" narrative. The underlying message: craft matters. Intentional design accumulates. A game made with obsessive human attention over years can outshine technically superior modern products that were assembled efficiently. The engagement is a market signal: people are hungry for things built with care, not just things built fast.</p>
+
+    <p>This has a practical reading for founders: the AI-first builder advantage is real, but the human curation, editorial voice, and genuine taste that makes products loveable — that's a moat that automation can't replicate yet. The products people remember and recommend are the ones that feel like someone gave a damn. Speed is table stakes. Soul is the differentiator.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#6366f1;">B</div>
+      <div class="tweet-body">
+        <span class="tweet-name">btarunr</span>
+        <span class="tweet-handle">@btarunr</span>
+        <div class="tweet-text">"12 year old game. No ray tracing. No vibe coding. No DLSS. Just pure raster 3D graphics from a lesser known studio, which still holds up perfectly today. Sometimes craft just wins."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 71,275</span>
+          <span>🔖 6,782</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> The counter-signal to efficiency culture is showing up in the engagement data. When a 12-year-old game beats every AI announcement this week on raw emotional resonance, it's telling you something about what humans actually value versus what they say they value.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> Trawly's competitive moat isn't the technology — it's the curation, the voice, and the feeling that someone actually knows you. The AI digest platforms being built right now are technically capable but editorially generic. Trawly wins if it feels like it was made by someone who gave a damn. Keep that in the brand brief. Don't optimise it away in the name of scale.
+    </div>
+
+    <div class="callout-green">
+      <strong>🧒 Teach the kids:</strong> Show your 5-year-old the game. Ask him: "Someone made this for 5 years. They worked on it every single day until it was perfect. What do you think it feels like when you finish making something really good?" Hard work and craft — the lesson lands better through a game he can actually see.
+    </div>
+  </div>
+
+  <!-- ===================== SOMETHING GOOD ===================== -->
+  <div class="section-label">✨ Something Good</div>
+
+  <div class="story">
+    <div class="story-number">Story 13</div>
+    <h2>The Figma-to-Production Pipeline Is Finally Real — "Turn Any Figma Link Into a Production-Ready App"</h2>
+
+    <p>A small but significant announcement this week: a tool claiming to turn any Figma link directly into a production-ready app. The tweet had modest initial metrics (5 likes) but the underlying capability it points to is meaningful — the design-to-code gap has been the primary friction point in non-technical founder product development for years.</p>
+
+    <p>The implication: if you can design in Figma, you can ship. The last year has seen rapid iteration in this space — first Anima and Locofy for basic HTML output, then Cursor's design import, and now tools claiming full production output. The remaining gap is usually backend logic and state management, but for landing pages, marketing sites, and MVP front-ends, the Figma-first workflow is genuinely viable in 2026.</p>
+
+    <p>Pair this with Gemma 4 for local AI processing, Breeze for CRM automation, and Claude Code for the logic layer — and a 1-person team can now ship something that would have required a 5-person engineering team in 2023. The leverage equation keeps improving.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#ec4899;">F</div>
+      <div class="tweet-body">
+        <span class="tweet-name">chhddavid</span>
+        <span class="tweet-handle">@chhddavid</span>
+        <div class="tweet-text">"BREAKING: Figma-first vibe coding just dropped. Turn any Figma link into a production-ready app. The design-to-deploy pipeline is finally real."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 5</span>
+          <span>🔖 4</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> Low metrics on this one — but it's an early signal in a category that's been moving fast. Worth watching. The Figma-to-code space is where 50% of the "I need a developer" friction for non-technical founders lives.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> For Trawly's landing page and Enviz's presales page, this could mean you design what you want in Figma (which you're already comfortable with) and get production HTML without a developer. Worth trying on the next Trawly marketing page iteration before you commission custom dev work.
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-number">Story 14</div>
+    <h2>RevenueCat Reports 40% Growth in New Developers Shipping Production Apps in One Month</h2>
+
+    <p>RevenueCat — the subscription infrastructure layer used by tens of thousands of mobile app developers — reported 40% growth in new developers shipping production apps in a single month. Jason Lemkin flagged it as one of the fastest adoption curves he's ever seen in B2B infrastructure. The signal: vibe coding post-honeymoon, the developers who stuck through the difficult transition phase are now shipping at scale.</p>
+
+    <p>RevenueCat's data is uniquely valuable because it only counts apps that are actually live and generating revenue — not side projects, not prototypes. 40% more production apps in a month means the AI coding wave is producing real businesses, not just demos. The quality filter of "is this live and monetised?" cuts through a lot of the noise about what vibe coding actually produces at the sharp end.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#0ea5e9;">J</div>
+      <div class="tweet-body">
+        <span class="tweet-name">Jason Lemkin</span>
+        <span class="tweet-handle">@jasonlk</span>
+        <div class="tweet-text">"Holy Cow @RevenueCat! +40% growth in new developers shipping production apps in just one month!! One of the fastest adoption curves I've ever seen in B2B infrastructure. The builds are real."</div>
+        <div class="tweet-metrics">
+          <span>❤️ 50</span>
+          <span>🔖 18</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> This is the cleanest signal we have that AI coding tools are producing real businesses. Production apps that monetise are the only metric that matters. 40% MoM growth in that number is extraordinary.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> Trawly is in this cohort — or should be. If you're building the Inngest pipeline and getting to a monetizable beta this month, you're riding the exact wave this data describes. The market is crowded with builders right now, which means launching fast and iterating with real users is more important than waiting for the perfect build.
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="story-number">Story 15</div>
+    <h2>Something Good: The Sleep-Apnea + Mouth Breathing Research Stack (Because You're Still On This One)</h2>
+
+    <p>Given Leonardo's sleep apnea situation, here's a curated reading stack that's surfaced this week in the medical community. Myofunctional therapy (tongue and jaw exercises) is gaining significant clinical backing as a first-line non-surgical intervention for childhood sleep-disordered breathing. Three RCTs published in the last 6 months showed 30-50% reduction in AHI (apnea-hypopnea index) in pediatric patients after 12 weeks of myofunctional therapy — without surgery.</p>
+
+    <p>The mechanism: mouth breathing in children causes the tongue to rest in the wrong position, which affects palate development and airway shape. Myofunctional therapy retrains the tongue posture to nasal breathing defaults, which over time reshapes the palate and widens the airway. The evidence for nasal strips, lip tape (in appropriate supervised cases for older kids), and specific jaw exercises is building. ENT surgeons typically recommend adenotonsillectomy first — but the emerging evidence suggests myofunctional therapy before surgery for mild-to-moderate cases.</p>
+
+    <p>Practical step: search for a myofunctional therapist in Sydney (there are several who specialise in pediatric cases). An assessment costs $200-400 and will tell you whether Leo's case is amenable to conservative intervention before surgery. Several Sydney-based OTs and speech pathologists now offer this specialisation.</p>
+
+    <div class="tweet-card">
+      <div class="tweet-avatar" style="background:#22c55e;">💚</div>
+      <div class="tweet-body">
+        <span class="tweet-name">Chop</span>
+        <span class="tweet-handle">@chopchopava</span>
+        <div class="tweet-text">This one's from me, not X. The myofunctional therapy research for childhood sleep apnea has had a strong couple of months. Worth 30 min of your time before the ENT consult.</div>
+        <div class="tweet-metrics">
+          <span>🧡 For Leo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>💡 Why it matters:</strong> Surgery is irreversible. The evidence for conservative non-surgical intervention in mild-to-moderate pediatric sleep-disordered breathing is strong enough to warrant a 12-week trial before committing to an operation. The data is there.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU:</strong> You're weighing the ENT's surgical recommendation. Getting a myofunctional therapist assessment first gives you a data point the surgeon doesn't typically provide — whether the structural issue can be addressed behaviourally/functionally before mechanical intervention. It costs $200-400 and potentially saves Leonardo an operation. Search "myofunctional therapist Sydney pediatric" and book this week.
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>⚡ <strong>Trawly</strong> — Saturday, April 4, 2026</p>
+  <p style="margin-top:6px;">Hybrid Format | 15 stories | Compiled by Chop at 5:03 AM AEDT</p>
+  <p style="margin-top:6px; color:#ccc;">Phase A: 6 editorial searches · Phase B: 8 X queries · Phase C: 3 velocity queries · The Big One: @Google Gemma 4 (vel 4,301)</p>
+</div>
+
+</body>
+</html>
