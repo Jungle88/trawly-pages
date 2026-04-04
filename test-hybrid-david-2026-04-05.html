@@ -1,719 +1,654 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>⚡ Trawly Daily — Sun 5 Apr 2026</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #FFFDF9; color: #1a1a2e; line-height: 1.65; }
-    
-    .header { background: #1a1a2e; color: white; padding: 40px 24px 32px; text-align: center; }
-    .header-label { font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: #1d9bf0; font-weight: 600; margin-bottom: 12px; }
-    .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
-    .header .sub { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
-    .header .format-badge { display: inline-block; background: rgba(29,155,240,0.2); border: 1px solid #1d9bf0; color: #1d9bf0; font-size: 11px; padding: 3px 10px; border-radius: 20px; margin-top: 10px; letter-spacing: 1px; font-weight: 600; }
-    
-    .container { max-width: 680px; margin: 0 auto; padding: 0 20px 60px; }
-    
-    .section-label { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: #888; font-weight: 700; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
-    
-    .story { background: white; border-radius: 12px; border: 1px solid #eee; margin-bottom: 20px; overflow: hidden; }
-    .story-body { padding: 24px; }
-    .story-number { font-size: 10px; font-weight: 700; color: #1d9bf0; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
-    .story h2 { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; line-height: 1.3; }
-    .story p { font-size: 15px; color: #444; margin-bottom: 12px; }
-    .story p:last-of-type { margin-bottom: 0; }
-    
-    /* The Big One */
-    .big-one { border: 2px solid #1d9bf0; }
-    .big-one .story-number { color: #1d9bf0; }
-    .big-one h2 { font-size: 22px; }
-    .big-one-badge { background: #1d9bf0; color: white; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 6px 20px; display: block; text-align: center; }
-    
-    /* Tweet card */
-    .tweet-card { display: flex; align-items: flex-start; gap: 12px; background: #f8f9fa; border-radius: 10px; padding: 14px; margin: 16px 24px 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-    .avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; color: white; flex-shrink: 0; }
-    .tweet-meta { flex: 1; min-width: 0; }
-    .tweet-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
-    .tweet-handle { font-size: 13px; color: #888; }
-    .tweet-text { font-size: 14px; color: #333; margin-top: 6px; line-height: 1.5; }
-    .tweet-stats { font-size: 12px; color: #999; margin-top: 8px; display: flex; gap: 16px; }
-    .tweet-stats span { display: flex; align-items: center; gap: 4px; }
-    
-    /* Callouts */
-    .callout { padding: 14px 18px; margin: 0 24px 24px; border-radius: 0 0 8px 8px; font-size: 14px; line-height: 1.55; }
-    .callout-blue { background: #EBF5FF; border-left: 3px solid #1d9bf0; color: #1a3a5c; }
-    .callout-amber { background: #FFF8EC; border-left: 3px solid #F59E0B; color: #7c5a00; }
-    .callout-green { background: #EDFAF3; border-left: 3px solid #22C55E; color: #1a4a2a; }
-    .callout strong { font-weight: 700; display: block; margin-bottom: 4px; }
-    .callout-blue strong::before { content: "💡 "; }
-    .callout-amber strong::before { content: "🎯 "; }
-    .callout-green strong::before { content: "🧒 "; }
-    
-    /* divider between tweet card and callouts */
-    .callouts-wrap { }
-    
-    /* Section themes */
-    .theme-badge { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #1d9bf0; background: rgba(29,155,240,0.1); padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; }
-    
-    /* Story 1 is The Big One */
-    
-    /* Footer */
-    .footer { text-align: center; padding: 40px 20px; color: #999; font-size: 13px; }
-    .footer a { color: #1d9bf0; text-decoration: none; }
-    .footer .brand { font-size: 20px; font-weight: 800; color: #1a1a2e; margin-bottom: 4px; }
-    
-    @media (max-width: 600px) {
-      .header h1 { font-size: 22px; }
-      .story h2 { font-size: 18px; }
-      .callout { margin: 0 16px 16px; }
-      .tweet-card { margin: 16px 16px 0; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ Trawly Daily — Sunday, April 5 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #FFFDF9;
+    color: #1a1a2e;
+    line-height: 1.65;
+  }
+  a { color: #1d9bf0; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* HEADER */
+  .header {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 36px 24px 28px;
+    text-align: center;
+  }
+  .header .logo { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #1d9bf0; margin-bottom: 10px; }
+  .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 6px; }
+  .header .sub { font-size: 14px; color: #a0aec0; }
+  .header .badge {
+    display: inline-block; margin-top: 12px;
+    background: #1d9bf0; color: #fff;
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 4px 12px; border-radius: 20px;
+  }
+
+  /* LAYOUT */
+  .container { max-width: 680px; margin: 0 auto; padding: 0 20px 60px; }
+
+  /* SECTION HEADER */
+  .section-label {
+    margin: 40px 0 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label .line { flex: 1; height: 1px; background: #e2e8f0; }
+  .section-label span {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: #718096;
+    white-space: nowrap;
+  }
+
+  /* STORY CARD */
+  .story {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .story.big-one {
+    border: 2px solid #1d9bf0;
+    background: linear-gradient(135deg, #f0f9ff 0%, #fff 100%);
+  }
+  .story .story-num {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #1d9bf0; margin-bottom: 8px;
+  }
+  .story h2 { font-size: 20px; font-weight: 800; line-height: 1.3; margin-bottom: 12px; color: #1a1a2e; }
+  .story p { font-size: 15px; color: #4a5568; margin-bottom: 12px; }
+
+  /* SOURCE CARD */
+  .source-card {
+    display: flex; align-items: center; gap: 12px;
+    background: #f7fafc; border: 1px solid #e2e8f0;
+    border-radius: 8px; padding: 10px 14px; margin: 14px 0;
+  }
+  .avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px; color: #fff; flex-shrink: 0;
+  }
+  .source-card .meta { flex: 1; }
+  .source-card .handle { font-size: 13px; font-weight: 700; color: #1a1a2e; }
+  .source-card .snippet { font-size: 12px; color: #718096; margin-top: 2px; }
+
+  /* CALLOUT BOXES */
+  .callout-blue {
+    background: #ebf8ff; border-left: 4px solid #1d9bf0;
+    border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 12px 0;
+    font-size: 14px; color: #2b6cb0;
+  }
+  .callout-amber {
+    background: #fffbeb; border-left: 4px solid #f6ad55;
+    border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 12px 0;
+    font-size: 14px; color: #7b341e;
+  }
+  .callout-green {
+    background: #f0fff4; border-left: 4px solid #48bb78;
+    border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 12px 0;
+    font-size: 14px; color: #276749;
+  }
+  .callout-blue strong, .callout-amber strong, .callout-green strong {
+    display: block; margin-bottom: 4px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  /* WILDCARD */
+  .story.wildcard { border-color: #9f7aea; }
+  .story.wildcard .story-num { color: #9f7aea; }
+
+  /* SOMETHING GOOD */
+  .story.something-good { border-color: #48bb78; background: linear-gradient(135deg, #f0fff4 0%, #fff 100%); }
+  .story.something-good .story-num { color: #48bb78; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 32px 20px;
+    background: #1a1a2e; color: #718096; font-size: 12px;
+  }
+  .footer a { color: #1d9bf0; }
+
+  /* DIVIDER */
+  hr.story-divider { border: none; border-top: 1px solid #e2e8f0; margin: 16px 0; }
+</style>
 </head>
 <body>
 
 <div class="header">
-  <div class="header-label">⚡ Trawly Daily</div>
-  <h1>Sunday 5 April 2026</h1>
-  <div class="sub">15 stories · hand-picked for David Esber</div>
-  <div class="sub" style="margin-top:4px">Hybrid Format · Editorial discovery + X velocity scoring</div>
-  <span class="format-badge">Format A — Hybrid</span>
+  <div class="logo">⚡ Trawly Daily</div>
+  <h1>Sunday, April 5 · 2026</h1>
+  <div class="sub">The internet trawled, so you don't have to.</div>
+  <div class="badge">🔬 Hybrid Format</div>
 </div>
 
 <div class="container">
 
-  <!-- ═══════════════ THE BIG ONE ═══════════════ -->
-  <div class="section-label">⚡ THE BIG ONE — Highest velocity post of the week</div>
+  <!-- ===== THE BIG ONE ===== -->
+  <div class="section-label">
+    <div class="line"></div>
+    <span>⚡ The Big One</span>
+    <div class="line"></div>
+  </div>
 
   <div class="story big-one">
-    <span class="big-one-badge">🔥 THE BIG ONE</span>
-    <div class="story-body">
-      <div class="story-number">Story #1</div>
-      <h2>Bill Ackman Goes All-In on Alpha School — The AI That Teaches Your Kids in 2 Hours a Day</h2>
-      <p>
-        Billionaire investor Bill Ackman just dropped 624 bookmarks worth of attention on Alpha School — the AI-powered K-8 network that claims students learn twice as fast as traditional schooling in just two hours of daily AI-led instruction. Ackman's post linked to a deep Knowledge Project episode with Alpha School founder Joe Liemandt, and it lit up the feeds of parents, founders, and investors alike. For context, Alpha School charges $55,000–$65,000 a year, is expanding from its Texas roots to Chicago, and has no teachers in the traditional sense. AI handles the core curriculum. Humans handle the life skills afternoons.
-      </p>
-      <p>
-        The model is essentially this: personalised AI tutors run mastery-based learning for each child, adapting pace in real time. When the data says your kid is at 95% on multiplication, they move to the next thing — not when the teacher gets around to it, not when the semester ends. Alpha claims students score in the top 1% on standardised tests nationally. Critics point to the eye-tracking surveillance (look away for 60 seconds and it flags you), the $65K price tag, and scalability questions. Ackman isn't deterred. Neither are the VC parents pulling their kids out of elite private schools to enrol.
-      </p>
-      <p>
-        What's interesting beyond the school itself is what it represents: the complete unbundling of education. Alpha is essentially a proof of concept that AI-led personalised learning beats teacher-led group instruction on measurable outcomes — and they have the test scores to back it up. The Palantir-backed "Meritocracy Fellowship" as an alternative to university, Elon Musk's AI tutoring platforms, and now this — the alternatives ecosystem is maturing fast.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#1a1a2e;">B</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">Bill Ackman</div>
-        <div class="tweet-handle">@BillAckman</div>
-        <div class="tweet-text">On Alpha School [link to Knowledge Project episode]</div>
-        <div class="tweet-stats">
-          <span>❤️ 538</span>
-          <span>🔖 624</span>
-          <span>👁️ 200,730</span>
-          <span>Apr 1, 2026</span>
-        </div>
+    <div class="story-num">⚡ The Big One · #1</div>
+    <h2>Cursor 3 "Glass" Drops — And It Rewrites the Rules for AI Coding</h2>
+
+    <p>On April 2, Cursor shipped version 3.0 — internally codenamed "Glass" — and it's the most significant rebuild in the AI coding tool wars so far. The entire product has been reconceived around one premise: developers no longer write most code, they orchestrate AI agents that do. The old Composer pane is gone. In its place is a full-screen <strong>Agents Window</strong>, designed for running multiple agents in parallel across repos, branches, local environments, and remote SSH — simultaneously.</p>
+
+    <p>Cursor 3 introduces <strong>Design Mode</strong>, where you can wireframe a UI in natural language and watch agents turn it into working code. Cloud agents now run in Cursor's infrastructure rather than your machine. The official framing from Anysphere: <em>"Built for a world where all code is written by agents, while keeping the depth of a development environment."</em> The company has raised over $3 billion and hit a reported $2B ARR in early 2026 — this release is meant to answer Anthropic's Claude Code and OpenAI's Codex, both of which have been eating market share.</p>
+
+    <p>The debate raging this week: does orchestrating agents require a heavy IDE, or does Claude Code's terminal-native approach win for builders who want speed without overhead? The answer may depend on team size. Solo founders tend to lean Claude Code. Teams of 3+ are finding Cursor 3's multi-agent dashboard hard to give up.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#1a1a2e;">C</div>
+      <div class="meta">
+        <div class="handle">Cursor Changelog · cursor.com</div>
+        <div class="snippet">"Cursor 3 is now available. Run many agents in parallel across repos and environments: locally, in worktrees, in the cloud, and on remote SSH." — Apr 2, 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        Alpha School is the most data-backed argument yet that AI can outperform traditional schooling on measurable outcomes. 624 bookmarks in 4 days means this isn't viral noise — people are saving it to act on. This is the shift from "AI as homework helper" to "AI as primary teacher."
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        You're actively deciding whether to homeschool Leonardo. This is exactly the framework you need: not a vague "AI will personalise learning" claim, but a concrete running school with test scores, a business model, and enough real parents buying in that Bill Ackman is posting about it. The 2-hour core curriculum model is also completely compatible with homeschooling — you don't need $55K/year, you need the approach. Listen to the Knowledge Project episode.
-      </div>
-      <div class="callout callout-green">
-        <strong>Teach the kids</strong>
-        Ask Leonardo: "What do you think a good teacher does?" Then tell him that some schools now use computers as teachers that never get tired, never move on too fast, and keep practising with you until you've got it. Ask: "Is that better or worse than a human teacher?" There's no right answer — but a 5-year-old's answer will surprise you.
-      </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      The IDE is becoming a control tower for AI agents, not a text editor. The bottleneck shifting from writing code to verifying it is the most important structural change in software development in a decade. Every builder needs a mental model for this.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      You're rebuilding Trawly's research pipeline right now on Inngest, and you lean on Claude Code for most of the work. Cursor 3's parallel agent execution and cloud agents could 3x your build throughput — particularly for the multi-step research pipeline with concurrent X queries, deduplication, and HTML rendering. Worth a 30-min trial before your next sprint.
     </div>
   </div>
 
-  <!-- ═══════════════ SECTION 1: THE AGENT WARS ═══════════════ -->
-  <div class="section-label">🤖 THE AGENT WARS — Who's winning the AI coding race</div>
+  <!-- ===== SECTION: THE AI LABOUR SHIFT ===== -->
+  <div class="section-label">
+    <div class="line"></div>
+    <span>🤖 The AI Labour Shift</span>
+    <div class="line"></div>
+  </div>
 
   <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">AI Coding</div>
-      <div class="story-number">Story #2</div>
-      <h2>Cursor 3 Ships: The IDE Is Dead, Long Live the Agent Workspace</h2>
-      <p>
-        Cursor just launched Cursor 3 — and it's not really an IDE anymore. It's an agent orchestration workspace. The new Agents Window lets you spin up multiple parallel AI coding agents, dispatch tasks, monitor outputs, and manage them across local and cloud environments simultaneously. Dan Shipper from Every described it as "a complete rewrite to turn Cursor into an agent orchestration tool for dispatching, monitoring, and managing AI agents." The launch comes as Claude Code has reportedly claimed 54% of the AI coding market per Menlo Ventures, with Cursor and Codex fighting for the rest.
-      </p>
-      <p>
-        What makes this interesting isn't just the feature set — it's the strategic signal. Cursor is moving from "AI-powered editor" to "agent management platform." That's a fundamentally different product category. Instead of one AI helping one developer, you get one developer directing many agents working in parallel. Early users report Composer 2 (the new reasoning engine underneath) doubled in usage over the launch weekend, suggesting real adoption rather than curiosity clicks.
-      </p>
-      <p>
-        The competitive picture right now: Claude Code at 54% market share, Codex 5.3 with unlimited access and new benchmark highs, and now Cursor 3 repositioning as an orchestration layer. The cost concerns are real — running multiple agents in parallel burns through API credits fast. But the productivity ceiling this unlocks for small teams is enormous.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#1d9bf0;">D</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">Dan Shipper 📧</div>
-        <div class="tweet-handle">@danshipper</div>
-        <div class="tweet-text">BREAKING: Cursor 3 is now out! It's a complete rewrite to turn Cursor into an agent orchestration tool for dispatching, monitoring, and managing AI agents locally and in the cloud. We've been testing it for the last week internally @every and here's our vibe check...</div>
-        <div class="tweet-stats">
-          <span>❤️ 156</span>
-          <span>🔖 86</span>
-          <span>Apr 2, 2026</span>
-        </div>
+    <div class="story-num">Story #2</div>
+    <h2>Meta's AI Mandate: 65% of Engineers Must Write 75%+ of Code with AI by Mid-2026</h2>
+
+    <p>A viral X post this week exposed the internal details of Meta's AI workforce strategy — and it's more aggressive than anyone outside had suspected. The claims: Meta has already laid off over 700 people and is planning to eliminate up to 15,000 roles. But the more striking detail isn't the headcount cuts — it's the performance-review system being built around AI usage.</p>
+
+    <p>Starting this year, every Meta employee is <strong>graded on "AI-driven impact"</strong> in their reviews. It's not optional. It's not a pilot. If you don't use AI, you don't advance. Engineers are being rebranded as "AI Builders" and reorganized into smaller "AI-native pods." A gamified internal system called <strong>"Level Up"</strong> rewards employees with badges for hitting AI adoption milestones. The targets in ML divisions: 50-80% AI-assisted code. On Messenger, WhatsApp, and Facebook: 55% of all code changes must be "Agent-Assisted."</p>
+
+    <p>Separately, tech layoffs across the industry have accelerated sharply: 66 tech companies cut 39,482 employees in the first quarter of 2026 alone. Amazon cited "agentic workflows" as a primary driver of 16,000 corporate role eliminations. The narrative of AI augmenting workers is giving way to AI replacing the workflows those workers performed.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#0078d4;">L</div>
+      <div class="meta">
+        <div class="handle">LayoffAI · American Bazaar / Business Insider</div>
+        <div class="snippet">"Meta just showed every CEO in America exactly how to replace their workforce." — March 31, 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        The shift from IDE to agent workspace is the biggest architectural change in developer tooling since GitHub. The model where one person directs many AI agents — rather than one AI assisting one developer — is what makes 2-person startups competitive with 20-person engineering teams.
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        You're building Trawly and Enviz with a tiny team. Cursor 3's parallel agent model means you can orchestrate multiple AI coding workers simultaneously — one building a feature, one writing tests, one reviewing — without needing to hire. This is the leverage play. Worth installing this weekend and seeing how it changes your Claude Code workflow.
-      </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      This is the new hiring market reality. Companies aren't hiring 10 engineers; they're hiring 2 and giving them 8 agents. The performance review as an AI adoption lever is a management innovation that will spread faster than the tools themselves.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      At Enviz, you're already restructuring around AI agents for sales and marketing. Meta's playbook validates your direction — but it also signals what your luxury property developer clients' internal IT and procurement teams are hearing. When you pitch Enviz's AR/VR platform, the buyers you're talking to are under AI adoption pressure from above. Framing Enviz as the AI-native presales layer (not just "a VR tool") lands differently in that context.
     </div>
   </div>
 
   <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">AI Coding</div>
-      <div class="story-number">Story #3</div>
-      <h2>Claude Code at 54% Market Share — What That Actually Means for Builders</h2>
-      <p>
-        Per Menlo Ventures data, Claude Code now holds 54% of the AI coding agent market. That's not a small lead — it's a structural dominance that's reshaping how builders think about their tool stack. The metric that matters most: one Chinese developer (@0xAA_Science) broke down their actual AI agent time allocation publicly: Claude Code 95%, Codex 5% for code review, Cursor less than 1%, and everything else essentially zero. That's not a preference — it's a professional verdict.
-      </p>
-      <p>
-        The Claude Code advantage appears to be its agentic depth — it operates as a true autonomous agent in your terminal, not just an in-editor assistant. Builders report it handles multi-step tasks, navigates large codebases, and executes sequences of operations that other tools still require hand-holding for. The 184-bookmark tweet from @0xAA_Science had 143K impressions — clearly striking a nerve with the developer community.
-      </p>
-      <p>
-        For context: Google engineer claims Claude Code solved in one hour what their team couldn't crack in a year. That's the kind of anecdote that changes hiring plans. The question for founders is no longer "should I use AI coding tools?" but "which combination and at what ratio?"
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#6C3483;">0</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">0xAA</div>
-        <div class="tweet-handle">@0xAA_Science</div>
-        <div class="tweet-text">My current AI Agent time allocation: Claude Code: 95% (primary agent, basically all code written with it). Codex: 5% for reviewing Claude Code output. Cursor: &lt;1%. Everything else: &lt;1%.</div>
-        <div class="tweet-stats">
-          <span>❤️ 285</span>
-          <span>🔖 184</span>
-          <span>👁️ 143,892</span>
-          <span>Mar 29, 2026</span>
-        </div>
+    <div class="story-num">Story #3</div>
+    <h2>The Vibe Coding Trust Crisis: When AI Writes Production Code, Who Checks It?</h2>
+
+    <p>Fortune's AI reporter Sharon Goldman published a sharp piece this week that reframes the vibe coding conversation away from speed and toward accountability. The headline finding: <em>"As AI tools begin to generate production-ready code automatically, the bottleneck is shifting from writing software to verifying it."</em> Even Claude Code's own source code was accidentally leaked this week due to an AI-assisted packaging mistake — a fitting irony.</p>
+
+    <p>Qodo (formerly CodiumAI) just raised <strong>$70 million Series B</strong> to tackle what its CEO calls "AI slop" in codebases — the growing volume of plausible-looking but subtly wrong code being shipped at scale. The company's approach: multi-model systems where one model generates, another critiques and runs adversarial test cases. The insight is that generating code is considerably easier than verifying it is correct, secure, and compliant.</p>
+
+    <p>Meanwhile, Apple has begun cracking down on vibe coding apps in the App Store, citing review policy concerns around apps that generate executable code at runtime. The regulatory and compliance overhang on AI-generated code is just beginning to take shape — particularly in enterprise, where a single misconfigured auth flow can cost millions.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#dc2626;">F</div>
+      <div class="meta">
+        <div class="handle">Fortune · Eye on AI Newsletter</div>
+        <div class="snippet">"Trust is the real bottleneck" — AI coding tools accelerating development, but verification is where deals die. Apr 2, 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        Market share data this decisive in a nascent category usually signals a winner-takes-most dynamic. Claude Code pulling 54% means Anthropic is capturing the high-value, high-frequency builder segment — the people who actually ship products.
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      The first generation of vibe coders who shipped fast are now dealing with the debt. Code review is becoming the most valuable engineering skill in an AI-native world — not generation, but judgment.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      You're building Trawly's backend with AI-generated code. The Qodo framing — "one agent writes, another adversarially reviews" — is a pattern worth building into your Inngest pipeline now before you scale. One bad webhook handler in a digest pipeline that sends 10,000 emails is a costly error.
+    </div>
+  </div>
+
+  <!-- ===== SECTION: AGENTIC REVENUE ===== -->
+  <div class="section-label">
+    <div class="line"></div>
+    <span>💰 Agentic Revenue</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="story">
+    <div class="story-num">Story #4</div>
+    <h2>OpenAI Hits $25B ARR and Eyes IPO — The Fastest Revenue Ramp in Software History</h2>
+
+    <p>The Information confirmed this week that OpenAI crossed <strong>$25 billion in annualized revenue</strong> at the end of February 2026 — up from $21.4B at year-end 2025 and roughly $6B at the end of 2024. That's a 4x revenue increase in 14 months. The company is generating approximately <strong>$2 billion per month</strong> and has begun taking early steps toward a public listing.</p>
+
+    <p>Anthropic is reportedly preparing a parallel IPO process, prompting what financial analysts are calling a "trillion-dollar AI tsunami" — two of the most consequential technology companies in history potentially going public in the same 12-month window. OpenAI's last private round valued it at $157B; current secondary market trades suggest a public valuation of $250B+ is in play.</p>
+
+    <p>The growth driver isn't just ChatGPT consumer subscriptions — it's ChatGPT Pro at $200/month and deep enterprise integrations that are compounding. The shift from individual users to enterprise contracts is where the unit economics become extraordinary: one Fortune 500 company replacing a 40-person team with a Claude/GPT-powered agent stack pays more per month than 50,000 consumer subscribers.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#10b981;">O</div>
+      <div class="meta">
+        <div class="handle">The Information / FinancialContent</div>
+        <div class="snippet">OpenAI: $6B ARR (Dec 2024) → $25B ARR (Feb 2026). Fastest B2B revenue ramp in software history.</div>
       </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        You're already in the Claude Code ecosystem via Chop. This validates the stack. The 95% allocation model (Claude Code for building, something else for review) is worth adopting explicitly for Trawly development — it's not an opinion, it's emerging as a professional standard among serious builders.
-      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      When the AI infrastructure providers IPO, the cost of AI tools will come under new investor pressure to rationalize. Enterprise AI contracts will face new scrutiny. But for small teams using those tools as leverage, the window before cost compression is still very much open.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      Trawly is built on the same infrastructure that's printing $2B/month for OpenAI. The product thesis is sound — the demand is proven. The question is distribution and retention. Use the tailwind: every property developer you pitch at Enviz is already paying for ChatGPT Enterprise. You're not asking them to believe in AI; you're asking them to apply it to their most visual sales problem.
     </div>
   </div>
 
   <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">AI Geopolitics</div>
-      <div class="story-number">Story #4</div>
-      <h2>DeepSeek V4 Will Run on Huawei Chips — China Just Proved the Chip Embargo Isn't Working</h2>
-      <p>
-        Reuters confirmed via The Information: DeepSeek's next model, V4, will run on Huawei's latest chips — not Nvidia. This is a significant geopolitical signal. The US chip export ban was designed to prevent China from training frontier AI models. DeepSeek's move shows that China has built an alternative hardware stack capable of running top-tier AI models, removing the dependency on American silicon. Huawei's Ascend chips are now confirmed to be competitive enough for frontier model training and inference.
-      </p>
-      <p>
-        DeepSeek has consistently outpunched its compute budget — their R1 model stunned the industry when it matched GPT-4 class performance at a fraction of the training cost. V4 running on Huawei chips means China now has both the algorithmic efficiency (DeepSeek) and the domestic hardware (Huawei) to build a completely self-contained AI stack. The embargo failed to stop the clock.
-      </p>
-      <p>
-        The downstream effect for builders: more frontier models entering the market means more competition, lower API pricing, and more options. For geopolitics watchers, it means the US-China AI race just got structurally harder to handicap.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#C0392B;">R</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">Reuters</div>
-        <div class="tweet-handle">@Reuters</div>
-        <div class="tweet-text">DeepSeek's V4 model will run on the latest chips designed by Huawei Technologies — China's AI stack is achieving self-sufficiency from US hardware restrictions.</div>
-        <div class="tweet-stats">
-          <span>📰 Reuters / The Information</span>
-          <span>Apr 3, 2026</span>
-        </div>
+    <div class="story-num">Story #5</div>
+    <h2>Agentic Marketing: When the AI Doesn't Just Suggest — It Ships the Campaign</h2>
+
+    <p>TreasureData published a comprehensive breakdown this week of what they're calling "Agentic Marketing" — and it's the clearest articulation of where the Enviz-style AI-for-sales thesis is heading. The distinction they draw is important: most "AI marketing" today is still a human with a smart assistant (copilot suggests a subject line; marketer approves). Agentic marketing is different — agents receive an objective like "reduce churn by 15%" and figure out how to achieve it across every channel, for every customer, in real time.</p>
+
+    <p>The three pillars: <strong>(1) Execution at Scale, Governed by Humans</strong> — agents don't draft recommendations for one-by-one approval; humans set guardrails, agents execute; <strong>(2) Real-time personalisation</strong> — identify at-risk customers before they hit the 30-day churn mark, not after; <strong>(3) Continuous optimisation</strong> — the agent measures every outcome and adjusts strategy automatically. The critical caveat: it only works when agents have access to unified, trustworthy customer data.</p>
+
+    <p>The Medium piece from the same week frames the commercial implication bluntly: "Your customers aren't churning because your product is bad. They're churning because your product still thinks like a 2019 SaaS tool." BCG research cited shows AI agents accelerate business processes by 30–50%. McKinsey confirms nearly half of enterprises are planning significant agentic deployments.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#7c3aed;">T</div>
+      <div class="meta">
+        <div class="handle">TreasureData Blog · treasuredata.com</div>
+        <div class="snippet">"Agentic Marketing: AI Runs the Campaign, Harnessed by Humans" — Apr 1, 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        The chip embargo was the West's primary leverage point in the AI race. DeepSeek on Huawei chips removes it. This is the "Sputnik moment" for AI hardware self-sufficiency — and it accelerates the bifurcation of the global AI ecosystem into US-aligned and China-aligned stacks.
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        As someone building AI-powered products for Enviz and Trawly, this means the model options available to you will increase and get cheaper faster than most people expect. More competition = lower API costs = better margins on AI-enabled products. And if you're watching crypto/macro (you are), the tech independence narrative in China has significant macro implications for the decoupling trade.
-      </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      Outcome-based pricing — charging per workflow completed rather than per seat — is the pricing model shift that changes the whole SaaS revenue equation. It's already live in the enterprise tier. Solo founders and small teams need to understand this before enterprise buyers expect it.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      You're building the Enviz sales system around AI agents for outreach and follow-up. This piece gives you the vocabulary and framework to explain it to marketing directors at property developers — who are being sold "AI marketing" tools that don't actually do what they promise. Enviz as the platform that delivers "agentic presales" — not just a VR tool but an autonomous buyer-engagement system — is a real positioning angle.
     </div>
   </div>
 
-  <!-- ═══════════════ SECTION 2: FOUNDERS BUILDING ═══════════════ -->
-  <div class="section-label">🚀 FOUNDERS BUILDING — Real numbers, real products</div>
+  <!-- ===== SECTION: PROPTECH ===== -->
+  <div class="section-label">
+    <div class="line"></div>
+    <span>🏢 Proptech & Real Estate Tech</span>
+    <div class="line"></div>
+  </div>
 
   <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">Indie Founder</div>
-      <div class="story-number">Story #5</div>
-      <h2>Marc Lou Ships SuperShrimp: 40+ Products, One Framework, and Why Volume Beats Perfection</h2>
-      <p>
-        Marc Lou (MarcLou.vion) — the indie hacker who's shipped over 40 products — has a new one: SuperShrimp, a no-code/low-code tool for builders. What's being discussed this week isn't just the product but the framework Marc runs: ship fast, iterate based on paying customers, never let a product that isn't working drain more than a week of attention. Marc's public record of 40+ ships and multiple six-figure products is being analysed by a comparison site (SitApp vs SuperShrimp) that itself reflects how seriously people are studying his model.
-      </p>
-      <p>
-        The Marc Lou method is uncomfortable for traditional founders because it rejects the "build for six months then launch" model completely. His actual approach: build the smallest thing that charges money, launch in one to two weeks, promote for a week on X, assess revenue signal, and move on or double down. The products that stick get more attention. The ones that don't fund the next experiment.
-      </p>
-      <p>
-        In an era where AI has dramatically compressed build time, the Marc Lou model becomes even more potent. What took 2 weeks can now take 2 days. The bottleneck has shifted entirely to distribution — which Marc handles via an X audience he's built over years of building in public.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#E67E22;">M</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">Marc Lou</div>
-        <div class="tweet-handle">@marc_louvion</div>
-        <div class="tweet-text">SuperShrimp: built by Marc Lou, who has shipped over 40 products. Another week, another product. The volume play working in real-time.</div>
-        <div class="tweet-stats">
-          <span>📰 Via sitapp.app comparison</span>
-          <span>Apr 4, 2026</span>
-        </div>
+    <div class="story-num">Story #6</div>
+    <h2>Digital Curb Appeal: The 3-Second Rule That's Reshaping Property Presales</h2>
+
+    <p>A deep dive from Economic Times Realty this week identified the four pillars separating market leaders from legacy players in real estate advisory for 2026. The most striking: <strong>"Digital Curb Appeal"</strong> — the ability of a creative asset to stop a scroll and capture intent within three seconds — is now the primary driver of site visits. Advisors are moving beyond static images to immersive 3D walkthroughs and AI-optimized video content that builds emotional resonance before a physical handshake ever occurs.</p>
+
+    <p>The other three pillars are equally actionable: Precision Micro-Market Dominance (geospatial heatmaps that identify high-growth corridors down to 3km), Conversational Commerce (WhatsApp Click-to-Chat replacing cold calling as the primary buyer engagement channel), and Hyper-Personalisation (AI content that adapts to a buyer's browsing behaviour before they've registered interest).</p>
+
+    <p>The DIFC PropTech 2033 Report, cited in the UAE piece this week, adds scale to the picture: PropTech is evolving beyond digital tools into "system-level infrastructure" — shaping productivity, sustainability, and urban resilience across the built environment. The UAE real estate market is explicitly separating "meaningful AI" from "AI-washed" tools, with buyers expecting measurable ROI before committing to any new platform.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#f59e0b;">E</div>
+      <div class="meta">
+        <div class="handle">Economic Times Realty / BusinessToday ME</div>
+        <div class="snippet">"Digital Curb Appeal: the ability to stop a scroll and capture intent within three seconds." — Mar 26, 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        Marc Lou is a proof-of-concept that volume of shipping — not quality of any individual product — is the winning indie strategy in the AI era. His 40+ products aren't failures; they're the portfolio that surfaces the hits.
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        You're running Trawly as a side project while managing Enviz. The temptation is to over-engineer Trawly before charging. Marc's model says: the moment something works well enough to charge, charge. The data you get from paying customers is worth more than the month you spend polishing before launch. Consider this a forcing function: what's the smallest Trawly that charges this week?
-      </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      The property presales market is bifurcating: developers with immersive digital-first experiences are capturing buyer intent before competitors even get a phone call. The "3D walkthrough as the first handshake" is no longer a nice-to-have.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      This is Enviz's pitch, validated by the market. "Digital Curb Appeal" is language your buyers already understand — you're the product that delivers it. The UAE angle is particularly interesting given your Middle East expansion plans: the DIFC PropTech 2033 Report is worth reading as a sales tool. When a Dubai developer hears "DIFC-endorsed framework," your product gets a shortcut to credibility.
     </div>
   </div>
 
   <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">AI Agents + Revenue</div>
-      <div class="story-number">Story #6</div>
-      <h2>Microsoft's 2026 Release Wave 1: Agentic AI Baked Into Every Enterprise Tool</h2>
-      <p>
-        Microsoft's 2026 Release Wave 1 just dropped — and it's the most comprehensive agentic AI push the company has made. Dynamics 365, Power Platform, and M365 Copilot are all getting AI agents baked in at the workflow level. For Dynamics 365 Finance, agents now automate financial processes end-to-end. For supply chain ops, AI handles picking, stock rebalancing, and hands-free scanning. The headline addition: MCP (Model Context Protocol) servers and a new AI workspace called "Immersive Home" for managing agents and monitoring workflow outputs.
-      </p>
-      <p>
-        The significance here is that Microsoft is pushing agentic AI from experimental feature to core infrastructure. When it's in Dynamics 365 — the enterprise workhorse for mid-to-large organisations — agentic AI stops being a startup advantage and starts becoming a table stake. The enterprises that adopt this will dramatically reduce their operational headcount for repeatable tasks.
-      </p>
-      <p>
-        For founders watching the competitive landscape: the window to sell "AI automation" to enterprise is narrowing as Microsoft bakes it in natively. The opportunity is either niche-specific automation that Microsoft won't build, or the integration and change management layer — helping companies actually use what Microsoft provides.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#0078D4;">M</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">Cloud Wars</div>
-        <div class="tweet-handle">@CloudWarsMedia</div>
-        <div class="tweet-text">Microsoft unveils agentic AI push across D365, Power Platform and M365 Copilot in 2026 Release Wave 1. MCP servers, Immersive Home agent workspace, hands-free AI ops — this is the enterprise stack going agentic.</div>
-        <div class="tweet-stats">
-          <span>📰 cloudwars.com</span>
-          <span>Apr 3, 2026</span>
-        </div>
+    <div class="story-num">Story #7</div>
+    <h2>PropTech Market Heading for $185B by 2035 — But "AI-Washed" Tools Are Getting Filtered Out</h2>
+
+    <p>New market sizing from Precedence Research pegs the global PropTech market at $185.31 billion by 2035, driven by AI, ML, VR, and IoT integration across the real estate lifecycle. The growth is real — but the signal from the UAE market this week suggests the industry is getting smarter about which tools actually deliver. MRI Software's UAE MD Rob Stringer was blunt: "The industry will discern between superficial AI-washed PropTech tools and gravitate toward meaningful solutions with built-in AI."</p>
+
+    <p>Real estate businesses are explicitly asking vendors to show measurable ROI, performance improvements, and operational efficiency data before signing enterprise contracts. The "just add AI" pitch that worked in 2023-24 is dead. What replaces it: proof that the tool changes buyer conversion rates, reduces sales cycle length, or increases project absorption speed.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#1d9bf0;">P</div>
+      <div class="meta">
+        <div class="handle">Precedence Research / BusinessToday ME</div>
+        <div class="snippet">Global PropTech market: $185.31B by 2035. "Meaningful AI vs hype" is now the buying criteria. Apr 4, 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        When Microsoft embeds agentic AI in Dynamics and Copilot, it's not a feature launch — it's the redefinition of what enterprise software does. The operational layer is being automated at scale.
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      The market is maturing from "this is cool" to "show me the number." That's good news for established platforms with case studies — and bad news for slide-deck products.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      If Enviz doesn't have a one-pager showing the impact of AR/VR walkthroughs on project enquiry rates, deposit conversion, or off-plan presales velocity — build that now. The buyers you're pitching in Sydney and the Middle East are asking for exactly this. "We increased developer X's qualified enquiries by 40% in 30 days" beats any product demo.
+    </div>
+  </div>
+
+  <!-- ===== SECTION: BUILDING IN PUBLIC ===== -->
+  <div class="section-label">
+    <div class="line"></div>
+    <span>🔨 Building In Public</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="story">
+    <div class="story-num">Story #8</div>
+    <h2>Google Antigravity: Turn a Prompt Into a Production App — Inside Google AI Studio's Biggest Update</h2>
+
+    <p>Google's March 2026 AI recap dropped this week and the headline for builders is <strong>Google Antigravity</strong> — a new coding agent inside Google AI Studio's "Build mode" that turns prompts into production-ready apps. Not prototypes. Not demos. Apps with multiplayer capabilities, databases, real-world service connections, and persistent state. Google's framing is explicit: this is the same leap from chat to autonomous digital coworker.</p>
+
+    <p>The broader March updates show Google's AI strategy accelerating across the stack: Gemini now understands user context proactively (not just reactively), Google Maps has been rebuilt with conversational AI for navigation, Gemini has been integrated deeply into Docs, Sheets, Slides, and Drive for Workspace users, and Personal Intelligence — the personalized AI layer that learns from your calendar, emails, and habits — has been expanded significantly.</p>
+
+    <p>The Gemma 4 open-source model (launched late last week) is also drawing attention for its benchmark performance against much larger closed models — suggesting the gap between frontier closed AI and capable open-source is narrowing faster than anticipated.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#4285f4;">G</div>
+      <div class="meta">
+        <div class="handle">Google AI Blog · blog.google</div>
+        <div class="snippet">"Google AI Studio now lets you turn prompts into production-ready apps using the new Google Antigravity coding agent." — Apr 1, 2026</div>
       </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        Enviz targets marketing directors and sales teams at luxury property developers. Those people sit inside Microsoft stacks. Knowing that their Copilot is getting agentic capabilities means your pitch should shift: Enviz isn't competing with their internal tools — it's the specialist AR/VR presales layer that plugs into the enterprise stack Microsoft is already selling them. That's a more defensible wedge than "we're better than what you're building in-house."
-      </div>
+    </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      Antigravity positions Google as a serious contender in the agentic coding space — not just an AI features company. For solo builders, having three viable competing platforms (Claude Code, Cursor, Antigravity) means leverage on pricing and capability.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      Trawly's next phase involves more complex pipeline architecture. Before committing to one agent coding platform, it's worth a 2-hour spike on Antigravity's Build mode — particularly the database and real-world service connections, which map directly to the multi-source research aggregation Trawly needs.
     </div>
   </div>
 
   <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">Indie Hacker</div>
-      <div class="story-number">Story #7</div>
-      <h2>ByteDance Drops TRAE SOLO: The Parallel AI Coding Tool Nobody Expected</h2>
-      <p>
-        ByteDance quietly launched TRAE SOLO — a standalone AI coding tool that runs tasks in parallel autonomously. While all eyes were on Cursor 3 and Claude Code, ByteDance entered the coding agent race with a tool that runs multiple coding processes simultaneously without requiring an IDE. The reception on developer X has been muted — most people haven't tried it yet — but the strategic implication is significant: ByteDance has the distribution, the infrastructure, and the AI talent to compete with Anthropic and OpenAI in developer tools.
-      </p>
-      <p>
-        What TRAE SOLO represents is the further commoditisation of the coding agent layer. Three months ago, Claude Code was novel. Now ByteDance, Cursor, OpenAI, and Anthropic are all in the race with distinct products. For builders, this is unambiguously good — prices will fall, capabilities will rise, and the best tool for each job will emerge via real usage rather than marketing.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#010101;">T</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">thePandaily</div>
-        <div class="tweet-handle">@thePandaily</div>
-        <div class="tweet-text">@BytedanceTalk just launched #TRAE SOLO, a standalone AI coding tool that runs tasks in parallel autonomously — entering the agent coding race dominated by Claude Code and Cursor.</div>
-        <div class="tweet-stats">
-          <span>📰 Via X/Pandaily</span>
-          <span>Apr 5, 2026</span>
-        </div>
+    <div class="story-num">Story #9</div>
+    <h2>The New Product Hunt Playbook for Founders in 2026 — What Actually Works Now</h2>
+
+    <p>A comprehensive 2026 launch guide from Purshology dropped this week, specifically for indie hackers and SaaS founders. The key changes from 2023-era playbooks: Product Hunt's algorithm now heavily weights <strong>comment quality over vote velocity</strong>, which means early community seeding is less important than having real users with genuine problems talking about your product. Gaming the launch with "vote for me" messages is actively penalized.</p>
+
+    <p>What works now: pre-launch communities built around the problem (not the product), founder transparency threads showing the build process, and launch timing on Tuesday or Wednesday when the highest-intent audience is browsing. The guide emphasises that Product Hunt in 2026 is more useful as a SEO + credibility signal than as a primary growth channel — the real distribution has moved to X threads, Discord communities, and niche newsletters.</p>
+
+    <p>The Hacker News "Who Is Hiring?" April 2026 thread reveals an interesting signal: nearly every company hiring engineers is now listing "AI tool proficiency" as a required skill rather than a nice-to-have. The solo founder who codes with AI is explicitly more competitive than the senior engineer who doesn't.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#ff6154;">P</div>
+      <div class="meta">
+        <div class="handle">Purshology / Product Hunt 2026</div>
+        <div class="snippet">"Launch on Product Hunt Successfully in 2026: A Founder's Playbook" — comment quality > vote velocity. Apr 3, 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        ByteDance in the coding agent race means this category is now a platform war, not a product war. When a company with TikTok's distribution enters a developer tools market, the rules change.
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        More tools competing = cheaper build costs for Trawly. Keep your eye on TRAE SOLO for non-critical tasks — if it's free or cheap at launch (ByteDance frequently subsidises to gain adoption), it could be a useful addition to your agent stack for bulk coding tasks.
-      </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      The distribution game has fundamentally changed. Founders who build in public and document the problem they're solving outperform those who optimize the launch day mechanic. Community before product.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      Trawly's @heytrawly X account is live. This is the moment to document the build publicly — the research pipeline rebuild, the Inngest migration, real numbers from beta. Not a product pitch. A founder transparency thread. That content is what gets Trawly on Product Hunt launch day with real advocates, not just courtesy upvotes.
     </div>
   </div>
 
-  <!-- ═══════════════ SECTION 3: PROPTECH & REAL ESTATE ═══════════════ -->
-  <div class="section-label">🏗️ PROPTECH — What's moving in real estate tech</div>
+  <!-- ===== SECTION: EDUCATION & KIDS ===== -->
+  <div class="section-label">
+    <div class="line"></div>
+    <span>🧒 Education & The Kids</span>
+    <div class="line"></div>
+  </div>
 
   <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">Proptech</div>
-      <div class="story-number">Story #8</div>
-      <h2>UAE PropTech 2026: AI + Unified Platforms Are Reshaping Gulf Real Estate Operations</h2>
-      <p>
-        Business Today Middle East just published a deep look at the PropTech trends reshaping UAE real estate in 2026. The headline shift: AI and unified PropTech platforms are collapsing what used to be fragmented point solutions (CRM, virtual tour, analytics, documents) into single operating stacks. Rob Stringer's analysis highlights that UAE developers — particularly in Dubai and Abu Dhabi — are moving faster than Western markets on adoption because they don't have the legacy system debt that slows down established markets.
-      </p>
-      <p>
-        What's notable for Enviz specifically: the UAE real estate market has an outsized appetite for luxury presales technology. The combination of off-plan developments (selling properties that don't yet exist), international buyers who can't visit in person, and marketing directors under pressure to differentiate creates exactly the environment where AR/VR walkthroughs deliver maximum ROI. The Gulf already has the decision-makers with budgets — the gap is vendors who can deliver at the quality level luxury projects demand.
-      </p>
-      <p>
-        The India angle is also live: Economic Times covered how "Digital Curb Appeal" — stopping the scroll with immersive 3D content within three seconds — is now the primary driver of real estate site visits in high-growth markets. Advisors are shifting from static images to immersive 3D walkthroughs. That's Enviz's exact product, being described as the market standard.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#2ECC71;">U</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">Business Today Middle East</div>
-        <div class="tweet-handle">@businesstodayme</div>
-        <div class="tweet-text">The PropTech trends reshaping UAE real estate in 2026 — AI and unified platforms transforming how developers market and sell off-plan luxury properties across the Gulf.</div>
-        <div class="tweet-stats">
-          <span>📰 businesstoday.me</span>
-          <span>Apr 4, 2026</span>
-        </div>
+    <div class="story-num">Story #10</div>
+    <h2>The AI Tutor Paradox: GPT-4 Boosts Kids' Scores by 127% — Then Removes 17% When Access Is Removed</h2>
+
+    <p>The OECD Digital Education Outlook 2026 published a finding that should be required reading for every parent considering AI-first homeschooling: in a study in Türkiye, GPT-4 boosted student short-term performance by 48% with a standard interface — and by <strong>127% with a tutoring-style interface</strong>. Extraordinary numbers. But when access was removed, those students scored <strong>17% worse</strong> than peers who had learned without AI at all.</p>
+
+    <p>The finding reframes the homeschooling-with-AI question from "does it work?" to "what are we optimising for?" If the goal is test score maximization, AI tutors like Khanmigo win decisively. If the goal is genuine comprehension and the ability to reason without assistance, the design of the AI interaction matters enormously. The key variable: is the AI doing the thinking for the child, or teaching the child how to think?</p>
+
+    <p>The distinction Khanmigo makes explicitly — Sal Khan has described it publicly — is that Khanmigo refuses to give answers. It asks questions back. It says "what do you think?" before offering a path forward. That Socratic approach is what produces durable learning rather than performance enhancement that disappears when the tool does.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#059669;">K</div>
+      <div class="meta">
+        <div class="handle">Think Academy US / OECD Digital Education Outlook 2026</div>
+        <div class="snippet">AI tutoring: +127% short-term performance, -17% when removed. The design of the interaction is everything. Apr 1, 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        The UAE real estate market is one of the highest-velocity luxury presales environments in the world. When that market accelerates its proptech adoption, it creates a procurement cycle that well-positioned vendors can capitalise on quickly.
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        Enviz is targeting US and Middle East markets. This article validates that the UAE appetite for presales tech is real and accelerating. If you haven't already, mapping the Dubai/Abu Dhabi luxury developer landscape for outreach should be next on the agenda — the decision cycles are faster there than in established Western markets where procurement is slower.
-      </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      The AI tutoring revolution is real, but the danger is creating learners who are only capable when connected to AI. The Socratic prompt model — AI that asks rather than answers — is the design pattern that produces genuine understanding.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      You're actively weighing homeschooling Leonardo (5yo) with AI as the primary teaching tool. This finding is the most important data point in that decision. The question isn't "will it make him smarter?" — the data says yes, short term. The question is: are you designing for him to think, or to perform? Start with Khanmigo's Socratic model. Watch how he responds when you take the tool away after a session. That tells you everything.
+    </div>
+
+    <div class="callout-green">
+      <strong>🧒 Teach the kids</strong>
+      Next time Leonardo asks you for an answer — about anything — try saying "What do you think?" first. Then ask him "why do you think that?" It's the same thing the best AI tutors do. The goal isn't the right answer; it's the habit of asking the next question.
     </div>
   </div>
 
   <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">Proptech</div>
-      <div class="story-number">Story #9</div>
-      <h2>"Digital Curb Appeal" — India's Real Estate Market Proves Immersive 3D Is Now Table Stakes</h2>
-      <p>
-        Economic Times Realty just published a piece on how PropTech and data strategy are redefining India's real estate advisory. The standout concept: "Digital Curb Appeal" — the ability to stop a scroll and capture buyer intent within three seconds. Advisors are moving away from static images entirely. The piece explicitly names immersive 3D walkthroughs and AI-optimised video content as the primary tools for building emotional resonance before any physical interaction occurs.
-      </p>
-      <p>
-        The market intelligence here is valuable: in rapidly growing markets (India, UAE, Southeast Asia), the presales technology adoption curve is compressing. What was premium two years ago is becoming baseline expectation. Developers who haven't upgraded their presales stack are losing deals not because their product is worse but because their marketing is less emotionally engaging than competitors who've adopted 3D walkthroughs.
-      </p>
-      <p>
-        This is the second-order opportunity for Enviz: not just "we make cool walkthroughs" but "we protect your sales pipeline from losing deals to developers who invested in immersive presales tech." That's a loss-aversion pitch, which typically converts better than a gain framing in B2B enterprise sales.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#F39C12;">I</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">ET Realty</div>
-        <div class="tweet-handle">@ETRealty</div>
-        <div class="tweet-text">"Digital Curb Appeal" — the ability to stop a scroll and capture intent in 3 seconds — is now the primary driver of real estate site visits. Advisors moving from static images to immersive 3D walkthroughs.</div>
-        <div class="tweet-stats">
-          <span>📰 realty.economictimes.indiatimes.com</span>
-          <span>Apr 1, 2026</span>
-        </div>
+    <div class="story-num">Story #11</div>
+    <h2>Kinder Without Play? U.S. Kindergartens Shift Toward Academic Instruction — And Parents Are Pushing Back</h2>
+
+    <p>Education Week reported this week on a nationwide shift in U.S. kindergarten classrooms toward more academic instruction and less free play — a trend that's been building since COVID disrupted early childhood development. Schools in Colorado Springs were specifically cited, with classrooms now running structured academic blocks where five-year-olds were previously building blocks and doing imaginative play. The policy driver: pressure on schools to show measurable academic readiness outcomes early.</p>
+
+    <p>Child development researchers are alarmed. The consensus from decades of play research is clear: unstructured play in early childhood is the primary engine of executive function development — the skills of planning, impulse control, and working memory that predict academic success far better than early literacy scores. Removing play to create more "academic time" in kindergarten is, by the evidence, counterproductive to the very outcomes the policy seeks.</p>
+
+    <p>The Australian context is different — NSW kindergarten curriculum still includes substantial play-based learning — but the global pressure toward early academic benchmarking is bleeding across every Western school system.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#dc2626;">E</div>
+      <div class="meta">
+        <div class="handle">Education Week · edweek.org</div>
+        <div class="snippet">"Kindergartens nationwide shift toward more academic instruction and less play." — Apr 3, 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        "Digital Curb Appeal" is a crystallisation of what immersive presales tech actually does for developers: it wins the attention war before the first meeting. That's a measurable sales outcome, not a feature.
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        This is your next Enviz sales deck slide. Instead of "we create AR/VR experiences," it becomes: "We build your digital curb appeal — the thing that captures buyer intent before your competitor's agent picks up the phone." That reframe is worth testing in your next prospect conversation this week.
-      </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      This is the institutional school system prioritising metrics over development. The evidence doesn't support the policy — but the policy is spreading. Parents who understand this have options that the system doesn't advertise.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      This is directly relevant to the homeschooling decision for Leonardo. The play-based learning case is strong and evidence-backed. If you homeschool, you can protect his play time while the school system is systematically removing it for kids his age. That's a genuine advantage, not just an ideological preference.
+    </div>
+
+    <div class="callout-green">
+      <strong>🧒 Teach the kids</strong>
+      The best thing you can do for both boys right now costs nothing: block time every day that belongs to them — no screens, no structured activity. Just stuff to explore, things to build, a backyard, maybe a problem with no solution. That's where the thinking muscles grow.
     </div>
   </div>
 
-  <!-- ═══════════════ SECTION 4: AI + EDUCATION ═══════════════ -->
-  <div class="section-label">📚 AI + EDUCATION — The homeschooling revolution in motion</div>
-
-  <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">Education</div>
-      <div class="story-number">Story #10</div>
-      <h2>AI School With No Teachers Opens in Chicago — $55K/Year, 2 Hours of Learning Per Day</h2>
-      <p>
-        Alpha School's Chicago campus opens this fall at $55,000/year for a K-8 education with no teachers. The curriculum is delivered exclusively through AI-powered software, condensed into two hours of personalised daily instruction. The remaining time is spent on life skills, passion projects, and physical activity. Block Club Chicago broke the story of the Chicago Loop location opening — and the reaction split sharply between parents calling it revolutionary and educators calling it surveillance capitalism for children.
-      </p>
-      <p>
-        The surveillance element is real: eye-tracking technology flags students who look away from the screen for 60 seconds. For some parents this is a dealbreaker. For others — particularly in high-achieving tech and finance communities — the mastery-based outcomes outweigh the concerns. The Chicago expansion signals that Alpha isn't treating this as a Texas experiment anymore. They're scaling.
-      </p>
-      <p>
-        Town & Country Magazine's deeper take examined how wealthy families are pulling kids from elite private schools to enrol in AI-powered institutions like Alpha — and what it signals about where education is heading. The article notes that Palantir has even launched the "Meritocracy Fellowship" as an alternative to higher education. The unbundling of school is accelerating from both ends.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#8E44AD;">A</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">Alpha School</div>
-        <div class="tweet-handle">@alphaschool</div>
-        <div class="tweet-text">Alpha students learn twice as fast as their peers and rank in the top 1% nationwide. AI tutor gives students 1:1 personalised education. Afternoons for life skills and passions.</div>
-        <div class="tweet-stats">
-          <span>📰 chicago.blockclub.org / chicagotribune.com</span>
-          <span>Mar 25–28, 2026</span>
-        </div>
-      </div>
-    </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        Alpha School in Chicago proves this isn't a Texas novelty — it's a scalable model attracting real families with real money who've lost faith in traditional schooling. The 2-hour core curriculum framing is going to reshape how parents think about what a "school day" needs to look like.
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        You're considering homeschooling Leonardo, and Alpha School's model is essentially a formalised version of what you're considering: AI as primary tutor, life skills and exploration in the remaining time, and mastery over pace over age-based progression. You don't need their $55K campus — you need their curriculum philosophy. The Knowledge Project episode (linked from Ackman's tweet) is reportedly the best primer on how the model actually works in practice.
-      </div>
-      <div class="callout callout-green">
-        <strong>Teach the kids</strong>
-        Tell Leonardo: "Some schools use a clever computer that watches how you're going and changes what you're learning based on how fast you figure things out. Instead of the whole class moving at the same speed, you move at your speed." Ask him if he'd rather learn faster with a computer or slower with a class. Kids usually have a strong opinion on this.
-      </div>
-    </div>
+  <!-- ===== SECTION: FOUNDERS & REVENUE ===== -->
+  <div class="section-label">
+    <div class="line"></div>
+    <span>📈 Founders & Revenue Signals</span>
+    <div class="line"></div>
   </div>
 
   <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">Education</div>
-      <div class="story-number">Story #11</div>
-      <h2>Wealthy Families Abandoning Private Schools for AI-Powered Alternatives — The Data Is In</h2>
-      <p>
-        National Today (Austin bureau) reported on a growing pattern: wealthy tech and finance families are pulling their children from prestigious private schools — sometimes $50K+/year — to enrol them in AI-powered schools or personalised homeschool setups. The profile parent is typically someone who understands technology, has evaluated the results data, and concluded that the traditional model is optimised for compliance and credentialing rather than actual learning.
-      </p>
-      <p>
-        The people making this switch aren't anti-education — they're pro-outcomes. The argument: if AI can deliver top 1% standardised test results in 2 hours/day, and traditional school takes 6 hours/day to deliver average results, then traditional school is a 3x time inefficiency. For families who care about maximising their children's development window, the math is hard to argue with — and the social proof is now sufficient that it's not a fringe move.
-      </p>
-      <p>
-        What's emerging is a two-track education system: AI-accelerated education for those with access (wealthy enough for Alpha School or engaged enough to homeschool with AI tools), and traditional schooling for everyone else. The equity implications are serious — but for families positioned to take advantage, the gap in outcomes could compound significantly over a child's education.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#27AE60;">N</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">National Today Austin</div>
-        <div class="tweet-handle">@nationaltodayaus</div>
-        <div class="tweet-text">Parents like Jackie Barba have pulled their children out of traditional private schools to enrol in AI-powered institutions like Alpha School, which promise personalised, technologically advanced learning with gamification and flexible schedules.</div>
-        <div class="tweet-stats">
-          <span>📰 nationaltoday.com</span>
-          <span>Apr 2, 2026</span>
-        </div>
+    <div class="story-num">Story #12</div>
+    <h2>Per-Seat SaaS Is Dying — How Agentic AI is Forcing Founders to Rebuild Their Revenue Model</h2>
+
+    <p>A sharp Medium essay this week made a blunt argument: your per-seat SaaS pricing was built for a world where humans were the unit of work. That world is ending. BCG research shows AI agents accelerate business processes by 30-50%. When agents replace the human workflows your pricing assumed, the revenue logic collapses — not because customers are unhappy, but because they're replacing the steps your tool was priced to serve.</p>
+
+    <p>The practical consequence for founders: <strong>shallow automation is the first thing enterprise customers cut</strong>. If your product automates one step in a ten-step workflow but doesn't own the outcome, you're vulnerable the moment a competitor ships the full-stack agent that does all ten. The founders surviving this shift are doing three things: (1) pricing on outcomes rather than seats, (2) embedding deeply into the workflows agents can't yet replace, and (3) building their own agentic layer before someone else builds it on top of their product.</p>
+
+    <p>The outcome-based pricing model is still early — "charge per workflow completed, per SLA attained, per compliance milestone hit" — but it's the model that aligns revenue directly with customer ROI. Every time the agent delivers more value, you expand naturally without a sales conversation.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#7c3aed;">M</div>
+      <div class="meta">
+        <div class="handle">Medium / Write A Catalyst</div>
+        <div class="snippet">"Your pricing model was built for a non-existent world." — How agentic AI is forcing founders to rebuild revenue logic. Apr 2, 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        When wealthy parents — who have the most choice and the most to lose — start moving their kids to AI-powered alternatives, it's a leading indicator of mainstream adoption. These aren't experimental families; they're risk-aware investors in their children's outcomes.
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        You and Buket are exactly the kind of parents described in this piece — informed, outcomes-focused, and with the capacity to provide something different. The social proof problem you might face (what do people think of us homeschooling Leonardo?) is solved by the fact that high-status families in tech and finance are now the ones leading this shift. You're not going against the grain — you're early to the educated mainstream.
-      </div>
-      <div class="callout callout-green">
-        <strong>Teach the kids</strong>
-        With Leonardo: "Learning is like a game where you level up. In normal school, everyone levels up together even if some people are ready to go faster. What if you could level up at your own speed?" Watch him light up — 5-year-olds love video game logic applied to real life.
-      </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      This is the most important strategic question for any founder building software right now. Are you a workflow tool (replaceable) or an outcome layer (sticky)? The answer determines your 2027 revenue ceiling.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      Trawly is currently priced as a subscription product. The outcome-based pricing angle is worth exploring: what if Trawly charged per "decision made" or per "deal closed from research"? That's a harder sell but a stickier product. For now, the lesson is: build the depth that makes Trawly irreplaceable — personalisation that no general AI can replicate without months of your data.
     </div>
   </div>
 
-  <!-- ═══════════════ SECTION 5: SALES & LEVERAGE ═══════════════ -->
-  <div class="section-label">💼 SALES & LEVERAGE — Closing faster, doing more with less</div>
+  <!-- ===== WILDCARD ===== -->
+  <div class="section-label">
+    <div class="line"></div>
+    <span>🃏 Wildcard</span>
+    <div class="line"></div>
+  </div>
 
-  <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">AI Agents</div>
-      <div class="story-number">Story #12</div>
-      <h2>Multi-Model AI Routing Is Now a Must-Have — Here's How to Build the Agentic Sales Stack</h2>
-      <p>
-        FinancialContent published an analysis on why multi-model routing has moved from nice-to-have to essential infrastructure in the agentic AI era. The core argument: no single AI model is best at everything, and modern agentic workflows need to route different tasks to the model best suited for each. Research to GPT-4o, long-form writing to Claude Sonnet, fast classification to a smaller Gemma-class model. The routing layer — knowing which model to call when — is becoming a genuine engineering discipline.
-      </p>
-      <p>
-        For non-technical founders, this is valuable because it reframes the question from "which AI should I use?" to "what task am I routing, and what's the best model for that task?" It's a more mature mental model that prevents the common mistake of using one AI for everything and wondering why quality varies.
-      </p>
-      <p>
-        Applied to sales: the most interesting agentic sales stacks right now use a research agent (finding prospects, qualifying via LinkedIn/web), a personalisation agent (crafting relevant outreach), and a follow-up agent (scheduling, tracking, nudging). Each can run on different models optimised for cost and quality. The founder who builds this stack for Enviz outreach replaces a junior SDR.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#1d9bf0;">F</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">FinancialContent Analysis</div>
-        <div class="tweet-handle">@financialcontent</div>
-        <div class="tweet-text">2026 Agentic AI Era: Multi-model routing has become a must-have, not a nice-to-have. Better agentic workflows use specialised models for each task, sharing context reliably across a multi-agent pipeline.</div>
-        <div class="tweet-stats">
-          <span>📰 markets.financialcontent.com</span>
-          <span>Apr 3, 2026</span>
-        </div>
+  <div class="story wildcard">
+    <div class="story-num">🃏 Wildcard · #13</div>
+    <h2>The April Fools' Day That Got Confused With Real News — And What That Tells You About AI Credulity</h2>
+
+    <p>This year's April Fools' Day generated an unusually pointed meta-story: fake news mistaken for real. The most notable example — a viral PDF claiming India was entering a 2020-style COVID lockdown, shared on April 1, genuinely frightened families who still carry pandemic trauma. The fake was sophisticated enough that multiple media outlets fact-checked it before most people realised the date.</p>
+
+    <p>Tech brands played the game too: Games Workshop produced a full theatrical trailer for "The Emperor Protects: A Warhammer 40,000 Musical" — with real costumes, real music, and production values high enough that a significant portion of the internet believed it was real before the reveal. CNET's roundup called it "the year brands stopped making jokes and started making believable content."</p>
+
+    <p>The deeper signal: as AI-generated content becomes indistinguishable from human-produced content at scale, the April Fools' tradition has evolved from "funny fake" to "genuine ambiguity." The tools for creating convincing fabrications are now available to anyone. The credulity of audiences hasn't kept pace with the sophistication of the fakes. That's not a holiday quirk — it's the new baseline.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#9f7aea;">I</div>
+      <div class="meta">
+        <div class="handle">Indy100 / CNET / Times of India</div>
+        <div class="snippet">"From bizarre product launches to viral hoaxes — the best April Fools' Day 2026 stunts everyone is talking about." — Apr 1-3, 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        Multi-model routing is the maturation of agentic AI — from "use ChatGPT for everything" to "build orchestration logic that uses the right tool for the right job." This is the engineering pattern behind the most effective AI-powered teams right now.
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        Enviz needs a sales machine that punches above its weight. A multi-model agentic sales stack — research agent for prospecting luxury property developers in UAE and US, personalisation agent for outreach, follow-up automation — is buildable in a weekend with Claude Code. This could replace the SDR hire you can't afford right now. Priority project for the week ahead.
-      </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      The bar for "this feels real" is now AI-level production quality. Distinguishing signal from noise — which is literally what Trawly is built to do — becomes more valuable as the noise floor rises.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      Trawly's core value proposition is trust — "the internet trawled, so you don't have to." In a world where AI-generated content is indistinguishable from real news, the curation and credibility layer Trawly provides becomes genuinely premium. This is the marketing angle: not "we save you time" but "we're the reason you can trust what you're reading."
+    </div>
+
+    <div class="callout-green">
+      <strong>🧒 Teach the kids</strong>
+      Next time you and Leonardo see something online, ask: "How would we know if this was real or made up?" Start with obvious examples (cartoon vs photo). Build toward the habit of asking "where did this come from?" before believing it. In the world he's growing up in, that question might be the most important skill you can give him.
     </div>
   </div>
 
-  <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">S&P 500 + AI</div>
-      <div class="story-number">Story #13</div>
-      <h2>Morgan Stanley: Companies Using AI Are Growing Cash Flow at 2x the Rate — The Gap Is Real</h2>
-      <p>
-        Morgan Stanley analysis cited in BuildEZ's April 2026 trends piece puts a number on the AI productivity advantage: companies reporting genuine AI benefits (21% of the S&P 500) are seeing cash flow margins expand at roughly twice the global average. This is the first time the AI productivity thesis has shown up this clearly in public company financial data at scale — not anecdotes, not demos, but P&L impact.
-      </p>
-      <p>
-        The implication for founders is significant: the 21% of companies getting 2x cash flow leverage from AI aren't using AI for show. They've embedded it in core operations. The other 79% are using it for slides and chatbots. The gap between those two groups is going to compound over the next few years in ways that make traditional competitive moats irrelevant.
-      </p>
-      <p>
-        For a startup on short runway, this data point is actually empowering: you don't need to compete with enterprise budgets if you can execute at 2x the cash flow efficiency they can't yet access. Being a 2-person team that operates like a 10-person team using AI isn't a bootstrap story — it's a structural competitive advantage.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#003087;">M</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">Morgan Stanley / BuildEZ</div>
-        <div class="tweet-handle">@buildezai</div>
-        <div class="tweet-text">Morgan Stanley: the 21% of S&P 500 companies reporting real AI benefits are seeing cash flow margins expand at roughly twice the global average. Productivity isn't just a buzzword — it's a bottom-line reality.</div>
-        <div class="tweet-stats">
-          <span>📰 buildez.ai / Morgan Stanley</span>
-          <span>Apr 4–5, 2026</span>
-        </div>
+  <!-- ===== SOMETHING GOOD ===== -->
+  <div class="section-label">
+    <div class="line"></div>
+    <span>✨ Something Good</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="story something-good">
+    <div class="story-num">✨ Something Good · #14</div>
+    <h2>AWS Ships a DevOps Agent That Replaces the 3AM On-Call Rotation</h2>
+
+    <p>Amazon Web Services launched the <strong>AWS DevOps Agent</strong> in general availability this week — an AI that monitors production systems, identifies the root cause of incidents in real time, and executes the remediation steps autonomously. The framing from the announcement: it replaces the 3AM on-call rotation for standard incident types.</p>
+
+    <p>This isn't a monitoring dashboard. It's an agent that reads your runbooks, understands your system topology, and takes action — restarting services, rolling back deploys, scaling resources — without waking a human. For startups running lean infrastructure with no dedicated DevOps hire, this is genuinely transformative. The agent escalates to a human only when the situation is outside its confidence threshold.</p>
+
+    <p>The launch coincides with similar announcements from Okta (identity management for AI agents) and Nvidia (agent-to-agent coordination protocols) — suggesting that the AI agent ecosystem is maturing from individual capability to coordinated infrastructure. The agents are starting to manage each other.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#f59e0b;">A</div>
+      <div class="meta">
+        <div class="handle">AWS Blog / DevOps Community</div>
+        <div class="snippet">"AWS Just Shipped an AI That Replaces Your 3am On-Call Rotation" — AWS DevOps Agent goes GA, Apr 3, 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        This is the first large-scale financial proof that AI productivity gains are real and measurable at the company level. The 2x cash flow margin advantage is a number you can take to a board deck, a fundraising conversation, or a hiring decision.
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        Enviz is on short runway. The 2x cash flow efficiency story is your moat as a small team — you don't need more people if you're operating AI-first. This data also gives you a talking point when pitching to property developers: "Your competitors who've adopted AI-powered presales tech are converting at twice the rate. Here's how Enviz gets you into that group."
-      </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      The 3AM pager is one of the great costs of running production software with a small team. An agent that handles standard incidents autonomously means two-person startups can now run infrastructure that used to require a dedicated SRE.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      As Trawly's pipeline grows in complexity — multiple data sources, Inngest jobs, HTML rendering, email delivery — production incidents will happen. The AWS DevOps Agent is worth evaluating before you need it, not after your first 3AM digest failure takes down 500 subscriber inboxes.
     </div>
   </div>
 
-  <!-- ═══════════════ WILDCARD ═══════════════ -->
-  <div class="section-label">🃏 WILDCARD — Something unexpected</div>
+  <div class="story something-good">
+    <div class="story-num">✨ Something Good · #15</div>
+    <h2>The Quiet Revolution: How Indie Founders Are Using AI to Build $100K/Year Businesses Alone</h2>
 
-  <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">Wildcard</div>
-      <div class="story-number">Story #14</div>
-      <h2>China Bans Addictive Digital Services for Kids — The Government AI Parenting Debate Just Got Bigger</h2>
-      <p>
-        China announced this week that it's moving to regulate "digital humans" (AI avatars/companions) and banning addictive digital services for children. Reuters covered it alongside the DeepSeek V4 story — but the digital human regulation is the more interesting piece. China is banning AI companions and addictive scroll-optimised services for minors at the same time its AI schools (like DeepSeek's education push) are accelerating. The regulatory bifurcation: AI for learning good, AI for engagement bad.
-      </p>
-      <p>
-        This contrast between "AI as educational tool" and "AI as attention extraction machine" is going to define the parenting debate of the 2020s. Alpha School's model is AI as focused learning. TikTok's model is AI as infinite engagement. China is trying to split them at the policy level — which may or may not be achievable, but the attempt is interesting.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#C0392B;">R</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">Reuters</div>
-        <div class="tweet-handle">@Reuters</div>
-        <div class="tweet-text">China moves to regulate digital humans, bans addictive services for children. Government drawing line between AI-for-learning and AI-for-engagement at the policy level.</div>
-        <div class="tweet-stats">
-          <span>📰 reuters.com</span>
-          <span>Apr 3, 2026</span>
-        </div>
-      </div>
-    </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        The digital human regulation signals that governments are starting to draw architectural distinctions within AI — not all AI is the same policy problem. Expect similar frameworks in Western jurisdictions within 18 months.
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        With two young boys, this is directly relevant. The question "what AI is good for my kids?" is one that parents are increasingly asking — and the answer depends on whether the AI is optimising for learning or engagement. Your homeschooling research should include a framework for which AI tools you'd allow Leonardo to use and on what terms. This is a parenting decision disguised as a tech decision.
-      </div>
-      <div class="callout callout-green">
-        <strong>Teach the kids</strong>
-        A great framing for older kids (maybe not yet for a 5-year-old, but useful for when Leonardo is 8–10): "Some apps are designed to help you learn something. Other apps are designed to keep you watching even when you don't want to. Can you tell the difference?" Teaching media literacy early is the antidote to the attention economy.
-      </div>
-    </div>
-  </div>
+    <p>The 2026 indie hacker landscape looks different from two years ago. The Product Hunt playbook piece this week sits alongside a pattern that's visible across builder communities: solo founders are crossing $100K ARR — and even $1M ARR in some cases — with no employees, no investors, and no technical co-founder. The variable that changed: AI coding tools collapsed the time-to-first-revenue from "six months to MVP" to "six weeks to revenue."</p>
 
-  <!-- ═══════════════ SOMETHING GOOD ═══════════════ -->
-  <div class="section-label">✨ SOMETHING GOOD — End on a high</div>
+    <p>The business model that's working: subscription products solving specific, expensive problems for identifiable professional audiences. Not consumer apps. Not general-purpose tools. Narrow, vertical, deeply useful. A solo founder who understands a specific industry problem — say, luxury real estate presales, or AI-curated news digests — can now build and distribute a product that would have required a team of five in 2022.</p>
 
-  <div class="story">
-    <div class="story-body">
-      <div class="theme-badge">Something Good</div>
-      <div class="story-number">Story #15</div>
-      <h2>The Coding Agent War Is Good for Founders — Here's the Scoreboard and Why Competition Wins</h2>
-      <p>
-        Step back and look at what's happened in the last 7 days: Cursor 3 launched as an agent orchestration workspace. Claude Code holds 54% of the market and keeps improving. Codex 5.3 shipped with unlimited access and benchmark highs. ByteDance entered with TRAE SOLO. DeepSeek V4 is coming on Huawei chips. The coding agent market has gone from "one or two interesting tools" to a full-scale platform war in six months.
-      </p>
-      <p>
-        This competition is unambiguously good for founders who build with AI. When Anthropic, OpenAI, Google, ByteDance, and Anysphere (Cursor) are all fighting for your developer stack, prices fall, capabilities accelerate, and the gap between what a 2-person team and a 200-person team can ship narrows. The people who lose in platform wars are the vendors. The people who win are the builders who stay tool-agnostic and leverage whoever's best at each moment.
-      </p>
-      <p>
-        There's something genuinely exciting about building in this moment. The tools available today — for free or near-free — would have required a 20-person engineering team two years ago. The constraint for most founders isn't capability; it's clarity about what to build. If you have that clarity, the tools are there. That's a remarkable thing.
-      </p>
-    </div>
-    <div class="tweet-card">
-      <div class="avatar" style="background:#1d9bf0;">⚡</div>
-      <div class="tweet-meta">
-        <div class="tweet-name">Trawly Synthesis</div>
-        <div class="tweet-handle">@heytrawly</div>
-        <div class="tweet-text">The coding agent scoreboard: Claude Code 54% market share · Codex 5.3 unlimited · Cursor 3 multi-agent orchestration · ByteDance TRAE SOLO · DeepSeek V4 on Huawei. This competition is the best thing that's happened to small teams since AWS dropped server costs to zero.</div>
-        <div class="tweet-stats">
-          <span>🐟 Trawly Synthesis — Apr 5, 2026</span>
-        </div>
+    <p>The threshold has moved. The question isn't "can I build this alone?" — you can. The question is "is the problem specific enough and painful enough that people will pay without being sold?" That's the hard part. The build is no longer the bottleneck. The insight is.</p>
+
+    <div class="source-card">
+      <div class="avatar" style="background:#1d9bf0;">H</div>
+      <div class="meta">
+        <div class="handle">Hacker News / Indie Hacker Community / Purshology</div>
+        <div class="snippet">The era of the one-person $1M company is real and expanding. AI collapsed the build bottleneck. The insight is what remains scarce. Apr 2026</div>
       </div>
     </div>
-    <div class="callouts-wrap">
-      <div class="callout callout-blue">
-        <strong>Why it matters</strong>
-        Platform wars between well-capitalised incumbents benefit the builders who sit above the platform layer. This is one of those rare moments where the infrastructure is getting dramatically better and cheaper at the same time.
-      </div>
-      <div class="callout callout-amber">
-        <strong>Why this matters to YOU</strong>
-        You're building Trawly and running Enviz with a tiny team, a short runway, and a lot to prove. This is the best moment in history to do exactly that. The tools you have access to today — Claude Code, Cursor 3, multi-agent pipelines, AI sales automation — are the competitive moat. Use them. The gap between founders who understand this and those who don't is widening every week.
-      </div>
+
+    <div class="callout-blue">
+      <strong>Why it matters</strong>
+      The structural barriers to building a real business are lower than they have ever been in the history of software. This is the moment. The founders who understand this and act on it in 2026 will look back at this year the way 2010 SaaS founders look at theirs.
+    </div>
+
+    <div class="callout-amber">
+      <strong>🎯 Why this matters to YOU</strong>
+      You're already living this story. Enviz and Trawly — two real products, one person, AI as leverage. The pattern working for other indie founders in 2026 is exactly the pattern you're running. The missing piece isn't effort or tools; it's the distribution flywheel. The Product Hunt prep, the @heytrawly X presence, the founder transparency content — that's what compounds.
     </div>
   </div>
 
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
-  <div class="brand">🐟 Trawly</div>
-  <p>Your internet, trawled daily.</p>
-  <p style="margin-top:8px;">Sun 5 Apr 2026 · 15 stories · <a href="https://jungle88.github.io/trawly-pages/test-hybrid-david-2026-04-05.html">View online</a></p>
-  <p style="margin-top:8px; font-size:11px; color:#bbb;">Hybrid Format — Editorial discovery + X velocity scoring · Built by Chop</p>
+  <p>⚡ Trawly Daily — Sunday, April 5 · 2026</p>
+  <p style="margin-top:8px;">Hybrid Format · Powered by Chop AI · Built for David</p>
+  <p style="margin-top:8px;"><a href="https://jungle88.github.io/trawly-pages/">trawly-pages</a></p>
 </div>
 
 </body>
