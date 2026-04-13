@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Trawly #72</title></head>
+<body style="margin:0; padding:0; background:#f0ede8; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+  style="max-width:620px; margin:32px auto; padding:0 16px;">
+<tr><td>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+  style="background:#FFFDF9; border-radius:16px; overflow:hidden;">
+
+<!-- HEADER -->
+<tr><td style="padding:32px 32px 24px; border-bottom:2px solid #e8e0d8;">
+  <div style="font-size:28px; font-weight:800; color:#1a1a2e; margin-bottom:2px;">🐟 traw<span style="color:#1d9bf0;">ly</span></div>
+  <div style="font-size:13px; color:#8899a6;">Tuesday, 14 April, 2026 · Issue #72 · The Daily Trawl</div>
+</td></tr>
+
+<!-- OPENER -->
+<tr><td style="padding:24px 32px 28px; border-bottom:2px solid #e8e0d8;">
+  <div style="font-size:13px; color:#8899a6; font-weight:600; letter-spacing:0.3px;">
+    Good morning. I read <strong style="color:#374151;">70 posts</strong> so you don't have to. Here's what actually mattered today.
+  </div>
+</td></tr>
+
+<!-- THE BIG ONE -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#1d9bf0; margin-bottom:16px;">🔥 The Big One</div>
+  <div style="font-size:22px; font-weight:800; margin-bottom:10px; color:#1a1a2e;">Anthropic Just Killed 3–6 Months of Agent-Building Boilerplate</div>
+  <div style="font-size:15px; color:#374151; margin-bottom:12px; line-height:1.7;">On April 8, Anthropic launched Claude Managed Agents in public beta — and the reaction in the dev community was immediate. One developer posted: <em>"There goes a whole YC batch."</em> The announcement pulled 2 million views in two hours. Here's why: building a production AI agent used to mean two jobs — designing what the agent does, and then building 3–6 months of infrastructure to make it actually run (sandboxed execution, state management, credential handling, error recovery, checkpointing). Anthropic just eliminated the second job entirely. You define the tasks, tools, and guardrails. They handle the rest. Pricing: $0.08 per runtime hour — an always-on agent costs about $58/month before token costs. Early customers include Notion (delegates coding, slides, spreadsheets to Claude), Asana, and Rakuten.</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+    style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+    <tr><td style="padding:14px 18px;">
+      <div style="font-weight:700; font-size:15px; color:#1a1a2e; margin-bottom:4px;">Claude Managed Agents — Full Guide</div>
+      <div style="font-size:14px; color:#374151; line-height:1.5; margin-bottom:10px;">Complete breakdown: architecture, pricing, Notion/Asana/Rakuten deployments, step-by-step setup, and what it actually costs to run agents at scale.</div>
+      <a href="https://www.the-ai-corner.com/p/claude-managed-agents-guide-2026"
+        style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Read the full guide →</a>
+    </td></tr>
+  </table>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+    <tr>
+      <td width="3" style="background:#1d9bf0;"></td>
+      <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+        <strong style="color:#1d9bf0;">Why it matters:</strong> The bottleneck for AI agent adoption wasn't the model — it was the infrastructure. Managed Agents removes that entirely. Teams that were 3–6 months away from shipping agents are now days away.
+      </td>
+    </tr>
+  </table>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+    <tr>
+      <td width="3" style="background:#F59E0B;"></td>
+      <td style="background:#FFF8ED; padding:14px 18px; border-radius:0 8px 8px 0; font-size:14.5px; color:#374151; line-height:1.6;">
+        <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:#B45309; display:block; margin-bottom:4px;">🎯 Why this matters to you</strong>
+        You're actively rebuilding Trawly's research pipeline on Inngest and you've been designing Enviz's AI sales/marketing agent system. Managed Agents means the orchestration layer you'd otherwise have to build from scratch — the retry logic, the state machine, the tool calls — is now off the shelf at $58/month. Worth 10 minutes.
+      </td>
+    </tr>
+  </table>
+  <div style="font-size:11px; color:#8899a6;">🔖 Source: The AI Corner · Published Apr 9, 2026</div>
+</td></tr>
+
+<!-- SECTION 1: AI AS LEVERAGE -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#EFF6FF;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#1d9bf0; margin-bottom:24px;">🤖 AI as Leverage</div>
+
+  <!-- Story 1: HYROS AIR AI -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #d1e8ff;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
+      letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px;
+      color:#1d9bf0; background:rgba(29,155,240,0.08);">AI Revenue</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">AI Outbound Agent Added $273K/Month to a Shopify Store — With Zero Human Intervention</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">Alex Becker just shared what happened when HYROS's new AIR AI outbound agents were switched on for a large Shopify store. No customisation, no prompting, no team involved — they literally pressed "on." The result: $273,000 in added revenue per month from AI-driven outbound. Becker says it took a year to build and calls it "the end of traditional Shopify outbound sales."</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+      style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <img src="https://pbs.twimg.com/profile_images/2039344460434153472/xZVWU2Js_bigger.jpg" width="40" height="40"
+                style="border-radius:50%; display:block;" alt="A">
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">Alex Becker 🍊🏆🥇</div>
+              <div style="font-size:13px; color:#536471;">@ZssBecker · Apr 13, 2026</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">Yeah... it's over. @hyros_official's AIR AI has broken Shopify outbound sales. We had a big Shopify store put it on. They did nothing but press "on." <strong>$273,000+ in revenue added PER MONTH by the AI outbound agents.</strong> It took us a year to build. Here's how it works...</div>
+        <div style="font-size:12px; color:#536471;">❤️ 575 likes · 🔖 319 bookmarks</div>
+        <div style="margin-top:8px;">
+          <a href="https://x.com/ZssBecker/status/2043695614353965151"
+            style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on X →</a>
+        </div>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> This isn't a case study from a lab. It's a live Shopify store, real revenue, no human in the loop. The playbook for AI outbound is now written.
+        </td>
+      </tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#F59E0B;"></td>
+        <td style="background:#FFF8ED; padding:14px 18px; border-radius:0 8px 8px 0; font-size:14.5px; color:#374151; line-height:1.6;">
+          <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:#B45309; display:block; margin-bottom:4px;">🎯 Why this matters to you</strong>
+          You're building AI agents to replace Enviz's marketing and sales execution. This is the exact proof-of-concept for that model — one "press on" moment generating $273K/month. The architecture Becker describes is directly adaptable to developer outreach.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 319 bookmarks · X @ZssBecker</div>
+  </div>
+
+  <!-- Story 2: Gemma 4 fine-tuning -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #d1e8ff;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
+      letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px;
+      color:#1d9bf0; background:rgba(29,155,240,0.08);">Local AI</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">You Can Now Fine-Tune Gemma 4 on 8GB VRAM — Free, Locally, No Cloud Required</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">Unsloth just dropped free Colab notebooks to fine-tune Gemma 4 E2B and E4B — Google's latest MoE model — with just 8GB VRAM. 1.5x faster, 60% less VRAM than standard FA2 setups. They also shipped four critical bug fixes for gradient accumulation issues, index errors on 26B/31B, and float16 audio overflow. This is the fastest path to a custom, locally-running AI model for any specific task.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+      style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <div style="font-size:14px; color:#374151; line-height:1.5; margin-bottom:8px;">r/LocalLLaMA · 989 upvotes · by danielhanchen (Unsloth)</div>
+        <a href="https://www.reddit.com/r/LocalLLaMA/comments/1sexdhk/you_can_now_finetune_gemma_4_locally_8gb_vram_bug/"
+          style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on Reddit →</a>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> Fine-tuning on consumer hardware with no cloud costs changes the economics of custom AI completely. A specialist model for Enviz's sales outreach — trained on your own deal notes — is now a weekend project, not a $50K contract.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 r/LocalLLaMA · 989 upvotes</div>
+  </div>
+
+  <!-- Story 3: Local LLMs cybersecurity -->
+  <div style="margin-bottom:0;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
+      letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px;
+      color:#1d9bf0; background:rgba(29,155,240,0.08);">AI Security</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">Small Local LLMs Are Now Finding Security Vulnerabilities — The Same Ones as Frontier Models</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">After Mythos (Anthropic's internal red-team model) found a critical set of vulnerabilities, researchers ran the same tests on small local models. They found the same ones. The gap between frontier and local for cybersecurity tasks is closing faster than anyone expected. This is the "jagged frontier" in action — local models can now compete in specific, high-value domains.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+      style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <div style="font-size:14px; color:#374151; line-height:1.5; margin-bottom:8px;">r/LocalLLaMA · 786 upvotes · via aisle.com</div>
+        <a href="https://aisle.com/blog/ai-cybersecurity-after-mythos-the-jagged-frontier"
+          style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Read the piece →</a>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> The "frontier models only" argument for enterprise AI is evaporating. Specialist local models are arriving — and they're good enough to matter in regulated, high-stakes domains.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 r/LocalLLaMA · 786 upvotes</div>
+  </div>
+</td></tr>
+
+<!-- SECTION 2: BUILDERS & FOUNDERS -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#FFFBEB;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#f59e0b; margin-bottom:24px;">🏗️ Builders &amp; Founders</div>
+
+  <!-- Story 1: Polymarket bot -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #fde68a;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
+      letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px;
+      color:#f59e0b; background:rgba(245,158,11,0.08);">Contrarian Take</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">"Nothing Ever Happens" — The Polymarket Bot That Always Bets Against the Crowd</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">A developer built a Polymarket bot with one simple strategy: always buy "No" on non-sports markets. The thesis — that the internet perpetually overcounts the probability of dramatic events — has been profitable enough that the bot and its philosophy are now top of Hacker News. It's a sharp, counterintuitive framework for thinking about prediction markets, media sensationalism, and where the real edge lives in uncertain systems.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+      style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <div style="font-size:14px; color:#374151; line-height:1.5; margin-bottom:8px;">Hacker News · 255 points · sterlingcrispin on GitHub</div>
+        <a href="https://github.com/sterlingcrispin/nothing-ever-happens"
+          style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on GitHub →</a>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> The meta-insight is powerful: most predictions of dramatic change are wrong. It's a useful calibration tool for any founder making resource bets on where the world is going — including AI timelines, market shifts, and enterprise adoption curves.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 Hacker News · 255 points</div>
+  </div>
+
+  <!-- Story 2: WordPress backdoor -->
+  <div style="margin-bottom:0;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
+      letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px;
+      color:#f59e0b; background:rgba(245,158,11,0.08);">Security Warning</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">Someone Bought 30 WordPress Plugins and Planted a Backdoor in All of Them</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">A threat actor acquired 30 legitimate, trusted WordPress plugins — then pushed a silent update to each one that embedded a remote-access backdoor. The attack hit thousands of sites before being detected. The method is frighteningly clean: buy trust, insert access, wait. Anchor.host has the full breakdown.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+      style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <div style="font-size:14px; color:#374151; line-height:1.5; margin-bottom:8px;">Hacker News · 163 points · anchor.host</div>
+        <a href="https://anchor.host/someone-bought-30-wordpress-plugins-and-planted-a-backdoor-in-all-of-them/"
+          style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Read the breakdown →</a>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> Supply chain attacks via plugin acquisition are the new phishing. If you or Trawly/Enviz run anything on WordPress or depend on third-party plugins in your stack, read the IOC list. One silent update is all it takes.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 Hacker News · 163 points</div>
+  </div>
+</td></tr>
+
+<!-- WILDCARD — dark card, after 2nd section -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8;">
+  <div style="margin-bottom:28px; padding:24px; background:#0f172a; border-radius:16px; border-left:4px solid #a78bfa;">
+    <div style="display:inline-block; font-size:10px; font-weight:800; text-transform:uppercase;
+      letter-spacing:2px; padding:4px 10px; border-radius:20px; margin-bottom:14px;
+      color:#0f172a; background:#a78bfa;">🃏 Wildcard</div>
+    <div style="font-size:11px; color:#a78bfa; margin-bottom:8px; font-style:italic;">Outside your usual read. Intellectually worth 2 minutes.</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:10px; color:#ffffff; line-height:1.4;">One Single Binary Operator Can Generate Every Mathematical Function That Exists</div>
+    <div style="font-size:15px; color:#e2e8f0; margin-bottom:14px; line-height:1.7;">An arXiv paper just hit Hacker News with 738 points and sparked one of the wildest comment threads of the week. The claim: a single binary operator, correctly defined, can produce ALL elementary functions — exponentials, logarithms, trigonometry, everything. It's a result that makes mathematicians uncomfortable because it suggests the entire zoo of functions we teach in school might just be shadows of one deeper structure. The paper is dense but the HN thread strips it down beautifully.</div>
+    <div style="background:rgba(167,139,250,0.15); border-radius:8px; padding:12px 16px;
+      font-size:14px; color:#c4b5fd; line-height:1.6;">
+      <strong style="color:#a78bfa;">The dinner-table version:</strong> "There might be just one mathematical operation hiding behind all of maths. Everything else is just that one thing, repeated in different disguises." — 738 HN points worth of engineers lost their weekend to it.
+    </div>
+    <div style="margin-top:14px;">
+      <a href="https://arxiv.org/abs/2603.21852"
+        style="color:#a78bfa; font-size:13px; text-decoration:none; font-weight:600;">Read the paper →</a>
+      &nbsp;&nbsp;
+      <a href="https://news.ycombinator.com/item?id=47746610"
+        style="color:#a78bfa; font-size:13px; text-decoration:none; font-weight:600;">HN thread (738pts) →</a>
+    </div>
+  </div>
+</td></tr>
+
+<!-- SECTION 3: PROPTECH & REAL ESTATE -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#FFF5F5;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#dc2626; margin-bottom:24px;">🏠 PropTech &amp; Real Estate</div>
+
+  <!-- Story 1: VR sight-unseen leases -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #fecaca;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
+      letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px;
+      color:#dc2626; background:rgba(220,38,38,0.08);">AR/VR Sales</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">VR Headsets Are Now Closing Sight-Unseen Leases in Real-Time — 4 in One Afternoon</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">In a new PropTech roundup that's gained serious traction, a Houston leasing agent is cited closing four sight-unseen leases in a single afternoon using Matterport Pro3 scans blended with Apple Vision Pro walkthroughs. The piece comes from a developer who has shipped 75 PropTech builds in 24 months and scores every trend against one question: does it reduce cap rates today? VR/AR cleared the bar. The 2026 landscape is moving from "nice demo" to "the deal tool."</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+      style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <div style="font-size:14px; color:#374151; line-height:1.5; margin-bottom:8px;">themobilereality.com · March 11, 2026</div>
+        <a href="https://themobilereality.com/blog/proptech/proptech-trends-2026"
+          style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Read the full analysis →</a>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> The "sight-unseen" use case is now repeatable and documented with real close rates. It validates the core Enviz proposition with third-party evidence — and gives you ammunition for your next developer pitch.
+        </td>
+      </tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#F59E0B;"></td>
+        <td style="background:#FFF8ED; padding:14px 18px; border-radius:0 8px 8px 0; font-size:14.5px; color:#374151; line-height:1.6;">
+          <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:#B45309; display:block; margin-bottom:4px;">🎯 Why this matters to you</strong>
+          Four sight-unseen closes in one afternoon is the stat you bring into your next meeting with a Sydney or US developer. It's not a future possibility anymore — it's a documented sales result. Pull the Matterport + Vision Pro case study from this piece and add it to your deck.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 Source: The Mobile Reality · PropTech Trends 2026</div>
+  </div>
+
+  <!-- Story 2: NAR PropTech 2026 -->
+  <div style="margin-bottom:0;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
+      letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px;
+      color:#dc2626; background:rgba(220,38,38,0.08);">Industry Trends</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">NAR's 2026 PropTech Trends: The 10 You Can't Ignore</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">The National Association of REALTORS' tech and innovation team published their official 2026 PropTech outlook. Key headline: VR/AR is no longer listed under "emerging" — it's in the core tooling category alongside AI-powered pricing. The framing has shifted from "how this technology works" to "how agents are deploying it today." The robotics angle is also new — automated property inspections, AI property management workflows.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+      style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <div style="font-size:14px; color:#374151; line-height:1.5; margin-bottom:8px;">NAR Tech &amp; Innovation · January 14, 2026</div>
+        <a href="https://tech.realtor/2026/01/14/2026-proptech-trends-real-estate-pros-cant-afford-to-ignore/"
+          style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Read the NAR outlook →</a>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> When the NAR moves AR/VR from "emerging" to "core tooling," it signals that the market is ready — agents are asking vendors about it, not just developers. That's a different sales conversation.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 Source: NAR Tech &amp; Innovation · Jan 2026</div>
+  </div>
+</td></tr>
+
+<!-- SECTION 4: UFC & COMBAT SPORTS -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#F0FFF4;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#059669; margin-bottom:24px;">🥊 UFC &amp; Combat Sports</div>
+
+  <div style="margin-bottom:0;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
+      letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px;
+      color:#059669; background:rgba(5,150,105,0.08);">UFC 327 Results</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">Carlos Ulberg Is the New UFC Light Heavyweight Champion — KO'd Prochazka at 3:45 of Round 1</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">UFC 327 went down Saturday night at Kaseya Center in Miami, and the main event delivered. Carlos "Black Jag" Ulberg appeared to rupture something in his right leg early in the fight — visibly compromised — but kept fighting, absorbed punishment from former champion Jiří Procházka, and then landed a left hook and follow-up punches to stop the fight at 3:45 of Round 1. New champion. The crowd erupted. Post-fight, Ulberg could barely stand but gave a composed interview. Gutting performance.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+      style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <div style="font-size:14px; color:#374151; margin-bottom:4px; font-weight:600;">Full UFC 327 Results &amp; Highlights</div>
+        <div style="font-size:13px; color:#536471; margin-bottom:8px;">Also on the card: heavyweight banger + two pivotal 205 lb contests. Prelims were stacked.</div>
+        <a href="https://www.ufc.com/news/ufc-327-results-prochazka-vs-ulberg-main-card-highlights-winners-interviews"
+          style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Full results on UFC.com →</a>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> Ulberg's win reshapes the 205 lb division. Prochazka's losses are mounting. The new champion's style — pressure, volume, heart — is a very different challenge for whoever holds the 205 belt next.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 UFC 327 · April 11, 2026 · Miami, Florida</div>
+  </div>
+</td></tr>
+
+<!-- SECTION 5: KIDS & LEARNING -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#f8f5ff;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#7c3aed; margin-bottom:24px;">📚 AI &amp; Homeschooling</div>
+
+  <!-- Story 1: Best AI tools for homeschool -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #ede9fe;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
+      letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px;
+      color:#7c3aed; background:rgba(124,58,237,0.08);">Homeschool Tools</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">The 12 Best AI Tools for Homeschool Parents in 2026 — Honestly Reviewed After Real Use</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">A detailed, unsentimental review covering what actually works for homeschool families using AI in 2026. The author's opinionated take: start with three — MagicSchool AI for lesson planning, Khanmigo for tutoring in subjects you're less confident teaching, and Google Socratic for daily maths support. The piece also flags what no one in the homeschool AI space is asking yet: what happens with outlier learners (twice-exceptional kids, profound giftedness) — and notes honestly that no tool has solved this cleanly.</div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+      style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <div style="font-size:14px; color:#374151; line-height:1.5; margin-bottom:8px;">revolutioninai.com · 4 weeks ago</div>
+        <a href="https://www.revolutioninai.com/2026/03/best-ai-tools-homeschool-parents-2026.html"
+          style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Read the full review →</a>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> The stack question for AI homeschooling is the same as the stack question for any startup — don't adopt everything, start narrow and prove it works. The author's three-tool framework is the right starting point.
+        </td>
+      </tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#F59E0B;"></td>
+        <td style="background:#FFF8ED; padding:14px 18px; border-radius:0 8px 8px 0; font-size:14.5px; color:#374151; line-height:1.6;">
+          <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:#B45309; display:block; margin-bottom:4px;">🎯 Why this matters to you</strong>
+          You're actively considering homeschooling Leonardo (5yo) using AI as the primary teaching tool. This review gives you the shortlist to start with — and the honest caveat about gifted kids worth knowing before you commit. The MagicSchool + Khanmigo stack is where most AI homeschool families start.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#374151; margin-top:10px; padding:8px 12px; background:#ede9fe; border-radius:8px; border-left:3px solid #7c3aed;">
+      🧒 <strong>Teach the kids:</strong> Ask Leonardo: "What's one thing you want to learn this week that we haven't done at school?" Then let him try explaining it back to you — the best way to test understanding is to teach someone else.
+    </div>
+    <div style="font-size:11px; color:#8899a6; margin-top:8px;">🔖 Source: revolutioninai.com · March 2026</div>
+  </div>
+
+  <!-- Story 2: AI tutoring honest assessment -->
+  <div style="margin-bottom:0;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
+      letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px;
+      color:#7c3aed; background:rgba(124,58,237,0.08);">Honest Assessment</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">AI Tutoring for Homeschool: An Honest Assessment — Two Years After Andreessen's Prediction</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">Two years ago Marc Andreessen predicted every child would have "an infinitely patient, infinitely knowledgeable AI tutor." OpenEd assessed where we actually are. Short version: the patience and availability is real, the infinite knowledge is mostly real, but the personalisation for edge-case learners is still uneven. For mainstream learners aged 5–12, the tools are now genuinely excellent — Khanmigo in particular gets strong marks for adapting pacing in maths and science.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+      style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <div style="font-size:14px; color:#374151; line-height:1.5; margin-bottom:8px;">opened.co · January 9, 2026</div>
+        <a href="https://opened.co/blog/ai-tutors-homeschool"
+          style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Read the assessment →</a>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> The homeschool AI question is no longer "will it work?" It's "which tools, for which subjects, at what age?" This piece narrows that down usefully.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 Source: opened.co · Jan 2026</div>
+  </div>
+</td></tr>
+
+<!-- STILL CLIMBING -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#FAFAF8;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#f59e0b; margin-bottom:16px;">📈 Still Climbing</div>
+  <div style="font-size:12px; color:#8899a6; font-style:italic; margin-bottom:12px;">📈 Still Climbing — posted 3 days ago, still accumulating bookmarks across X</div>
+
+  <div style="margin-bottom:0;">
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">Built a Fully Automated Trading Bot in 34 Minutes — Without Writing a Single Line of Code</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">@zostaff posted a step-by-step walkthrough of building a complete trading bot by talking to Claude. No code written manually. 34 minutes start to finish. 4,371 bookmarks — one of the highest bookmark-to-like ratios of the past week — which tells you exactly how many people are saving this as their own "I'll do this on the weekend" project.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+      style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <img src="https://pbs.twimg.com/profile_images/1995248671483482112/dZ1-JoSj_bigger.jpg" width="40" height="40"
+                style="border-radius:50%; display:block;" alt="Z">
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">zostaff</div>
+              <div style="font-size:13px; color:#536471;">@zostaff · Apr 10, 2026</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">🚨 HOW I BUILT A FULLY AUTOMATED TRADING BOT IN 34 MINUTES WITHOUT WRITING A SINGLE LINE OF CODE — One person. 34 minutes. Just talked to Claude.</div>
+        <div style="font-size:12px; color:#536471;">❤️ 2,178 likes · 🔖 4,371 bookmarks</div>
+        <div style="margin-top:8px;">
+          <a href="https://x.com/zostaff/status/2042985089122931176"
+            style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on X →</a>
+        </div>
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> 4,371 bookmarks means this isn't a hot take — people are saving it as a how-to. The "34 minutes, zero code" frame is how non-technical founders should now be thinking about any automation task they've been putting off.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 4,371 bookmarks · X @zostaff</div>
+  </div>
+</td></tr>
+
+<!-- THREAD OF THE DAY -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#1d9bf0; margin-bottom:16px;">🧵 Thread of the Day</div>
+  <div style="font-size:22px; font-weight:800; margin-bottom:10px; color:#1a1a2e;">The Fastest Shortcut to an AI Engineering Job That Nobody Mentions: Understand Game Theory</div>
+  <div style="font-size:15px; color:#374151; margin-bottom:12px; line-height:1.7;">@DeRonin_ (Ronin) dropped a thread pointing at a free Yale game theory lecture as the single highest-leverage primer for anyone trying to understand multi-agent AI systems. The argument: every multi-agent system, every RL model, every adversarial network — they all run on game theory principles. Most engineers learn agents from the outside in. Game theory gives you the inside-out view. The linked Yale lecture is 1 hour. 489 bookmarks says a lot of engineers are doing it this week.</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+    style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+    <tr><td style="padding:14px 18px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td width="40" valign="top" style="padding-right:10px;">
+            <img src="https://pbs.twimg.com/profile_images/2028941027814285313/AMp-U0y8_bigger.jpg" width="40" height="40"
+              style="border-radius:50%; display:block;" alt="R">
+          </td>
+          <td valign="top">
+            <div style="font-weight:700; font-size:14px; color:#1a1a2e;">Ronin</div>
+            <div style="font-size:13px; color:#536471;">@DeRonin_ · Apr 13, 2026</div>
+          </td>
+        </tr>
+      </table>
+      <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">the fastest shortcut to an AI engineering job offer that nobody talks about: understand game theory. every multi-agent system, every reinforcement learning model, every adversarial network, runs on these exact principles. this 1-hour Yale lecture is FREE and covers what most AI programs don't teach until year 2...</div>
+      <div style="font-size:12px; color:#536471;">❤️ 296 likes · 🔖 489 bookmarks</div>
+      <div style="margin-top:8px;">
+        <a href="https://x.com/DeRonin_/status/2043659420320645470"
+          style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on X →</a>
+      </div>
+    </td></tr>
+  </table>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:12px 0;">
+    <tr>
+      <td width="3" style="background:#7c3aed;"></td>
+      <td style="background:#f8f5ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+        <strong style="color:#7c3aed;">🐰 Rabbit Hole:</strong> You're designing multi-agent systems for Trawly's research pipeline and Enviz's AI outreach. Understanding the game theory underneath those systems — Nash equilibria in tool-calling, adversarial dynamics in multi-agent loops — gives you a mental model that actually helps you debug them when they break. 1 hour, free, worth every minute.
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- SOMETHING GOOD -->
+<tr><td style="padding:0 32px 4px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+    bgcolor="#fef9e7" style="border-radius:16px; border:2px solid #f59e0b; background-color:#fef9e7;">
+    <tr><td style="padding:24px; background-color:#fef9e7; border-radius:16px;">
+      <div style="display:inline-block; font-size:10px; font-weight:800; text-transform:uppercase;
+        letter-spacing:2px; padding:4px 10px; border-radius:20px; margin-bottom:14px;
+        color:#78350f; background-color:#fcd34d;">☀️ Something Good</div>
+      <div style="font-size:11px; color:#92400e; margin-bottom:8px; font-style:italic;">One thing that actually happened. No spin. Just good.</div>
+      <div style="font-size:18px; font-weight:700; margin-bottom:10px; color:#1a1a2e; line-height:1.4;">A Man Had Blinding Ear Pain on a Flight With No WiFi. His Laptop Saved Him.</div>
+      <div style="font-size:15px; color:#374151; margin-bottom:14px; line-height:1.7;">A redditor — posting to r/LocalLLaMA with 722 upvotes — shared what happened mid-flight when he hit an overwhelming bout of aerosinusitis: the air pressure was genuinely unbearable, he had no painkillers, the plane was cheap seats with no WiFi. He'd been running Gemma 4 locally on his laptop for a year mostly as a novelty. In desperation he typed his symptoms. The model suggested the Toynbee Maneuver — a technique he'd never heard of. Within 10 minutes the pressure was gone. "Without local AI I would have been in blinding pain for probably 90 minutes," he wrote. "My wife didn't care, but I felt if anyone would appreciate this small win, it would be this community."</div>
+      <div style="font-size:14px; padding-top:8px; border-top:1px solid #fcd34d; color:#374151;">
+        The internet got this one right. Sometimes the tech just helps. 💛
+      </div>
+    </td></tr>
+  </table>
+</td></tr>
+<tr><td style="height:20px;"></td></tr>
+
+<!-- EDITOR'S CORNER -->
+<tr><td style="padding:28px 32px; background:#f8f5ff; border-bottom:1px solid #f0ede8;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#7c3aed; margin-bottom:14px;">⚡ Editor's Corner</div>
+  <div style="font-size:17px; font-weight:700; margin-bottom:10px; color:#1a1a2e;">The Infrastructure Era Is Over. The Execution Era Just Started.</div>
+  <div style="font-size:15px; color:#374151; margin-bottom:12px; line-height:1.7;">Managed Agents is the story of the week — but the bigger pattern it signals is worth sitting with. For two years, "building AI agents" mostly meant building the scaffolding around AI agents. Now that scaffolding is a commodity at $58/month. The teams who win from here aren't the best infrastructure engineers — they're the ones who know most clearly what problem they're actually solving. That's a very different game. Advantage: founders.</div>
+  <div style="font-size:14px; color:#8899a6; margin-top:12px; font-style:italic;">Issue #72. Hope you're getting outside this week. — Chop 🐟</div>
+</td></tr>
+
+<!-- FOOTER -->
+<tr><td style="padding:24px 32px; text-align:center; font-size:12px; color:#8899a6; line-height:1.8;">
+  <div style="font-size:13px; color:#374151; margin-bottom:6px; font-weight:500;">Trawled 70 sources · read 50 posts · distilled to 13 stories</div>
+  <div style="font-size:13px; color:#374151; margin-bottom:12px; font-weight:500;">~40 min saved today. Go do something good with it. ⚡</div>
+  <div style="font-size:11px; color:#CBD5E1; margin-top:8px;">Beta COGS: ~$0.40 (AI compose) + $0.35 (X API · 70 tweets × $0.005) = $0.75/issue</div>
+  <div style="font-size:11px; color:#CBD5E1; margin-top:4px;">~44.4h saved since you subscribed.</div>
+  <div style="margin-top:12px;"><a href="https://heytrawly.com/profile?token=d90d682b-c7c6-4af0-8db5-290379399fcc" style="color:#1d9bf0; text-decoration:none;">✏️ Edit your profile</a> · <a href="https://heytrawly.com/unsubscribe?email=de@enviz.co" style="color:#1d9bf0; text-decoration:none;">Unsubscribe</a></div>
+  <div style="margin-top:8px; font-size:11px; color:#CBD5E1;">© 2026 Trawly · Trawling the internet so you don't have to.</div>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
