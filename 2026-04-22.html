@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Trawly #88</title></head>
+<body style="margin:0; padding:0; background-color:#f0ede8; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:620px; margin:32px auto; padding:0 16px;">
+<tr><td>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FFFDF9; border-radius:16px; overflow:hidden;">
+
+<!-- HEADER -->
+<tr><td style="padding:32px 32px 24px; border-bottom:2px solid #e8e0d8;">
+  <div style="font-size:28px; font-weight:800; color:#1a1a2e; margin-bottom:2px;">🐟 traw<span style="color:#1d9bf0;">ly</span></div>
+  <div style="font-size:13px; color:#8899a6;">Wednesday, April 22, 2026 · Issue #88 · The Daily Trawl</div>
+</td></tr>
+
+<!-- OPENER -->
+<tr><td style="padding:24px 32px 28px; border-bottom:2px solid #e8e0d8;">
+  <div style="font-size:13px; color:#8899a6; font-weight:600; letter-spacing:0.3px;">
+    Good morning. I read <strong style="color:#374151;">100 posts</strong> so you don't have to. Here's what actually mattered today.
+  </div>
+</td></tr>
+
+<!-- THE BIG ONE -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#1d9bf0; margin-bottom:16px;">🔥 The Big One</div>
+  <div style="font-size:22px; font-weight:800; margin-bottom:10px; color:#1a1a2e;">A full 1.7B parameter LLM just ran in a browser tab — 290MB, no server, no API key</div>
+  <div style="font-size:15px; color:#374151; margin-bottom:12px; line-height:1.7;">The "1-bit Bonsai" model — a quantised 1.7B parameter LLM weighing just 290MB — is now running entirely client-side in a browser using WebGPU, with no server and no cloud calls. r/LocalLLaMA is losing it (1,111 upvotes, 166 comments). The demo is real, the latency is surprisingly tolerable, and the implications for where AI actually runs next are significant.</div>
+
+  <!-- Source card for Reddit -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+    <tr><td style="padding:14px 18px;">
+      <div style="font-weight:700; font-size:14px; color:#1a1a2e;">r/LocalLLaMA</div>
+      <div style="font-size:13px; color:#536471;">reddit.com · top post this week</div>
+      <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">1-bit Bonsai 1.7B (290MB in size) running locally in your browser on WebGPU</div>
+      <div style="font-size:12px; color:#536471;">⬆️ 1,111 · 💬 166 comments</div>
+      <div style="margin-top:8px;">
+        <a href="https://reddit.com/r/LocalLLaMA/comments/1smb3wd/1bit_bonsai_17b_290mb_in_size_running_locally_in/" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on Reddit →</a>
+      </div>
+    </td></tr>
+  </table>
+
+  <!-- Blue callout -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+    <tr>
+      <td width="3" style="background:#1d9bf0;"></td>
+      <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+        <strong style="color:#1d9bf0;">Why it matters:</strong> Client-side AI just became real at the consumer level. When a capable LLM runs in 290MB with no API and no server, the entire cost and privacy model for AI-powered apps shifts. Every AI startup has to rethink its infrastructure assumptions.
+      </td>
+    </tr>
+  </table>
+
+  <!-- Amber callout -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+    <tr>
+      <td width="3" style="background:#F59E0B;"></td>
+      <td style="background:#FFF8ED; padding:14px 18px; border-radius:0 8px 8px 0; font-size:14.5px; color:#374151; line-height:1.6;">
+        <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:#B45309; display:block; margin-bottom:4px;">🎯 Why this matters to you</strong>
+        You're building two AI-powered products — Trawly's research pipeline and Enviz's AR/VR presales experiences. Client-side AI means you can eventually run inference without API costs, without latency overhead, and without privacy concerns for Enviz's luxury developer clients. This isn't a distant future anymore. It's this week.
+      </td>
+    </tr>
+  </table>
+
+  <div style="font-size:11px; color:#8899a6;">⬆️ 1,111 · r/LocalLLaMA</div>
+</td></tr>
+
+<!-- SECTION 1: AI DEV TOOLS -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#EFF6FF;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#1d9bf0; margin-bottom:24px;">🤖 AI Dev Tools</div>
+
+  <!-- Story 1: vLLM docs redesign -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #dbeafe;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#1d9bf0; background:rgba(29,155,240,0.08);">AI INFRA</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">vLLM just redesigned its entire docs site — and it actually answers the right question</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">The vLLM project shipped a major redesign of their documentation site — now structured around the question builders actually ask: "How do I run model X on hardware Y for task Z?" Instead of API references, it's a decision tree. If you're thinking about local model hosting for Trawly or Enviz, this is your starting point.</div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <img src="https://pbs.twimg.com/profile_images/1774187681746182144/N_5NJ8B1_bigger.jpg" width="40" height="40" style="border-radius:50%; display:block;" alt="vLLM">
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">vLLM</div>
+              <div style="font-size:13px; color:#536471;">@vllm_project · Today</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">🎉 We just shipped a major redesign of docs.vllm.ai. "How do I run model X on hardware Y for task Z?" now has a clear answer. We rebuilt the entire information architecture around how people actually use vLLM.</div>
+        <div style="font-size:12px; color:#536471;">❤️ 408 · 🔖 252</div>
+        <div style="margin-top:8px;">
+          <a href="https://x.com/vllm_project/status/2046592125740142903" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on X →</a>
+        </div>
+      </td></tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> vLLM is the dominant open-source serving framework for large models. Better docs means faster adoption — and the "model X on hardware Y" framing signals they're building for the practical engineer, not just the ML researcher.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 252 bookmarks · @vllm_project</div>
+  </div>
+
+  <!-- Story 2: Claude Code creator interview -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #dbeafe;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#1d9bf0; background:rgba(29,155,240,0.08);">CLAUDE CODE</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">20 minutes with the creator of Claude Code — and 35 techniques worth bookmarking</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">One video interview with the engineer who built Claude Code — paired with 35 workflow techniques written up by @eng_khairallah1. The combination is rare: the philosophy behind the tool from the person who built it, plus the practical application layer. High bookmark-to-like ratio for a reason.</div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <img src="https://pbs.twimg.com/profile_images/2010392290590912512/x7vtAe5W_bigger.jpg" width="40" height="40" style="border-radius:50%; display:block;" alt="Avid">
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">Avid</div>
+              <div style="font-size:13px; color:#536471;">@Av1dlive · Today</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">Only 20 minutes with the creator of Claude Code will teach you more about customising your workflow than every Claude Code guide you've read and never applied. Bookmark this &amp; watch, no matter what. Then read the 35 techniques below by @eng_khairallah1.</div>
+        <div style="font-size:12px; color:#536471;">❤️ 35 · 🔖 42</div>
+        <div style="margin-top:8px;">
+          <a href="https://x.com/Av1dlive/status/2046532465716781425" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on X →</a>
+        </div>
+      </td></tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#F59E0B;"></td>
+        <td style="background:#FFF8ED; padding:14px 18px; border-radius:0 8px 8px 0; font-size:14.5px; color:#374151; line-height:1.6;">
+          <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:#B45309; display:block; margin-bottom:4px;">🎯 Why this matters to you</strong>
+          You've been building Trawly's pipeline and learning to use Claude Code as your de-facto dev team. This interview + 35 techniques is the reference you didn't know you needed — from the person who actually designed how the tool should be used. Non-technical founders building with AI: this is your cheat code.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 42 bookmarks · @Av1dlive</div>
+  </div>
+
+  <!-- Story 3: AI tools for non-technical founders -->
+  <div style="margin-bottom:4px;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#1d9bf0; background:rgba(29,155,240,0.08);">TOOLS STACK</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">The complete 2026 AI stack for non-technical founders: Claude Code, Lovable, Cursor, Perplexity</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">Theanna published a comprehensive guide specifically for non-technical founders — comparing Claude Code, Lovable, Cursor, Perplexity, and ChatGPT with real use-case breakdowns. No fluff, no "AI will change everything." Actual workflow comparisons for people building products without an engineering team.</div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> The tools for non-technical builders have quietly become good enough to ship production-quality products. This guide makes the comparison explicit so you're not guessing which tool to reach for when.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔗 theanna.io · Brave search · AI tools 2026</div>
+  </div>
+
+</td></tr>
+
+<!-- SECTION 2: BUILDERS & REVENUE -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#FFFBEB;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#f59e0b; margin-bottom:24px;">🏗️ Builders &amp; Revenue</div>
+
+  <!-- Story 4: Laws of Software Engineering -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #fde68a;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#f59e0b; background:rgba(245,158,11,0.08);">SYSTEMS THINKING</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">56 Laws of Software Engineering — a reference site that should be bookmarked permanently</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">lawsofsoftwareengineering.com launched this week and immediately hit HN's front page with 664 points. It's exactly what it says: 56 named principles that govern how software systems, teams, and decisions actually behave — from Conway's Law to Goodhart's Law to Hofstadter's Law. Every one is clickable, every one has context.</div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <div style="font-weight:700; font-size:14px; color:#1a1a2e;">Hacker News</div>
+        <div style="font-size:13px; color:#536471;">lawsofsoftwareengineering.com · via HN</div>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">Laws of Software Engineering — A collection of principles and patterns that shape software systems, teams, and decisions. 56 laws. Click any card to learn more.</div>
+        <div style="font-size:12px; color:#536471;">⬆️ 664 points</div>
+        <div style="margin-top:8px;">
+          <a href="https://lawsofsoftwareengineering.com" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View site →</a>
+        </div>
+      </td></tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#F59E0B;"></td>
+        <td style="background:#FFF8ED; padding:14px 18px; border-radius:0 8px 8px 0; font-size:14.5px; color:#374151; line-height:1.6;">
+          <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:#B45309; display:block; margin-bottom:4px;">🎯 Why this matters to you</strong>
+          You're making architectural decisions for both Enviz and Trawly — often without a senior engineer in the room. These 56 laws are the kind of reference that makes a non-technical founder make better calls. Bookmark it. The next time a dev tells you something will "take longer than expected" — Hofstadter's Law is why.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">⬆️ 664 · Hacker News · lawsofsoftwareengineering.com</div>
+  </div>
+
+  <!-- Story 5: Vercel OAuth breach -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #fde68a;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#f59e0b; background:rgba(245,158,11,0.08);">SECURITY</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">The Vercel breach: how an OAuth attack exposed secrets hiding in platform environment variables</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">Trend Micro documented an OAuth-based attack that specifically targeted the way Vercel stores environment variables — the same pattern used by thousands of indie founders and small teams. The attack didn't exploit a zero-day. It exploited the fact that devs trust their platform's secret storage as a black box.</div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <div style="font-weight:700; font-size:14px; color:#1a1a2e;">Hacker News</div>
+        <div style="font-size:13px; color:#536471;">Trend Micro Research · via HN</div>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">The Vercel breach: OAuth attack exposes risk in platform environment variables</div>
+        <div style="font-size:12px; color:#536471;">⬆️ 102 points</div>
+        <div style="margin-top:8px;">
+          <a href="https://www.trendmicro.com/en_us/research/26/d/vercel-breach" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Read the writeup →</a>
+        </div>
+      </td></tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> If you're a small team building on any major platform (Vercel, Railway, Render), your API keys live in env vars. This attack class is specifically designed to extract them. The fix is not complicated — but you have to know the pattern exists.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">⬆️ 102 · Hacker News · trendmicro.com</div>
+  </div>
+
+  <!-- Story 6: Startup Playbook 2026 bootstrapped -->
+  <div style="margin-bottom:4px;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#f59e0b; background:rgba(245,158,11,0.08);">BOOTSTRAPPED</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">The Startup Playbook 2026: why the most profitable companies right now aren't VC-backed</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">A detailed breakdown of the 2026 bootstrapped playbook — the shift away from "raise first, build later" toward "revenue-first, control always." Covers pricing strategy, distribution hacks, and why the AI cost curve now favours small teams over funded ones. The argument is well-made and the examples are real.</div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> The AI cost curve dropping means a two-person team now has the operating leverage that used to require Series A funding. The argument for bootstrapping over raising has never been stronger — and this playbook makes it concrete.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔗 abhyashsuchi.in · Bootstrapped Startup Playbook 2026</div>
+  </div>
+
+  <!-- WILDCARD DARK CARD — goes inside the Builders section div after 2nd interest section -->
+  <div style="margin-top:32px; margin-bottom:4px; padding:24px; background:#0f172a; border-radius:16px; border-left:4px solid #a78bfa;">
+    <div style="display:inline-block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:2px; padding:4px 10px; border-radius:20px; margin-bottom:14px; color:#0f172a; background:#a78bfa;">🃏 Wildcard</div>
+    <div style="font-size:11px; color:#a78bfa; margin-bottom:8px; font-style:italic;">Outside your usual read. Intellectually worth 2 minutes.</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:10px; color:#ffffff; line-height:1.4;">Scientists just grew dolomite in a lab for the first time — solving a geological mystery that's been open for 200 years</div>
+    <div style="font-size:15px; color:#e2e8f0; margin-bottom:14px; line-height:1.7;">Dolomite is one of the most common rocks on Earth — but for 200 years, nobody could explain how it forms, because nobody could grow it in a lab. Every attempt stalled because of tiny crystal defects that blocked growth. Then two researchers at the University of Michigan figured out the defect was the problem, and used a gentle electron beam pulse to dissolve it away. 4,000 pulses over two hours. Done. Two centuries of geology — solved. Published April 20, 2026.</div>
+    <div style="background:rgba(167,139,250,0.15); border-radius:8px; padding:12px 16px; font-size:14px; color:#c4b5fd; line-height:1.6;">
+      <strong style="color:#a78bfa;">The dinner-table version:</strong> The most common rock on Earth stumped geologists for 200 years — until someone realised the crystals were choking on their own defects. A gentle electron pulse fixed it.
+    </div>
+  </div>
+
+</td></tr>
+
+<!-- SECTION 3: UFC -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#FFF5F5;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#dc2626; margin-bottom:24px;">🥊 UFC</div>
+
+  <!-- Story 7: UFC White House -->
+  <div style="margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid #fecaca;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#dc2626; background:rgba(220,38,38,0.08);">FIGHT CARD</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">UFC at the White House: Topuria vs Gaethje on the South Lawn, June 14 — a genuinely historic event</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">UFC Freedom 250 is happening June 14 on the South Lawn of the White House in Washington D.C. — simultaneously on CBS and Paramount+. The main event: undisputed lightweight champion Ilia Topuria (17-0) vs interim champion Justin Gaethje. Alex Pereira vs Ciryl Gane is the co-main. Six to seven fights total. Dana White confirmed this at UFC 326's pre-fight presser and the full fight card just dropped this week.</div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <div style="font-weight:700; font-size:14px; color:#1a1a2e;">ESPN / UFC</div>
+        <div style="font-size:13px; color:#536471;">UFC Freedom 250 · June 14, 2026</div>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">UFC's White House card led by Topuria-Gaethje, Pereira-Gane. Location: South Lawn of the White House, Washington D.C. Simulcast on CBS and Paramount+.</div>
+        <div style="margin-top:8px;">
+          <a href="https://www.espn.com/mma/story/_/id/48138882/ufc-white-house-card-led-topuria-gaethje-pere" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">Read on ESPN →</a>
+        </div>
+      </td></tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> No UFC event has ever been held at the White House. Topuria defending his lightweight title against Gaethje — one of the most exciting fighters alive — in front of the President and on free broadcast CBS is genuinely unprecedented. The business angle is fascinating too: UFC is doing what the NFL dreams of.
+        </td>
+      </tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#F59E0B;"></td>
+        <td style="background:#FFF8ED; padding:14px 18px; border-radius:0 8px 8px 0; font-size:14.5px; color:#374151; line-height:1.6;">
+          <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:#B45309; display:block; margin-bottom:4px;">🎯 Why this matters to you</strong>
+          Topuria vs Gaethje at the White House, June 14. Mark it. This is one of those events you'll be telling your boys about in 20 years — "I watched that live." Also: Pereira on the same card. Dana White is genuinely building a sports empire, not just running a fight promotion.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔗 ESPN · UFC Freedom 250 · June 14 2026</div>
+  </div>
+
+  <!-- Story 8: UFC one-trick pony -->
+  <div style="margin-bottom:4px;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#dc2626; background:rgba(220,38,38,0.08);">SPORT ANALYSIS</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">The most effective "one-trick pony" in UFC history — and why specialisation is actually the strategy</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">A video post with 3,563 likes and 348 bookmarks about the UFC fighter who built an entire career on one technique done to perfection. The lesson isn't about the fighter — it's about what happens when you stop trying to be well-rounded and instead become the best in the world at exactly one thing. Business case study disguised as a fight breakdown.</div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <img src="https://pbs.twimg.com/profile_images/1739919942223347712/nC3oBLdU_bigger.jpg" width="40" height="40" style="border-radius:50%; display:block;" alt="I">
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">Interesting AF</div>
+              <div style="font-size:13px; color:#536471;">@interesting_aIl · Today</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">The most effective "one-trick pony" in UFC history</div>
+        <div style="font-size:12px; color:#536471;">❤️ 3,563 · 🔖 348</div>
+        <div style="margin-top:8px;">
+          <a href="https://x.com/interesting_aIl/status/2046545036792238188" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on X →</a>
+        </div>
+      </td></tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> "Well-rounded" loses to "elite at one thing" in nearly every competitive domain. This video makes the case viscerally — and the 348 bookmarks suggest people are saving it for the business lesson, not just the fight clip.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 348 bookmarks · @interesting_aIl</div>
+  </div>
+
+</td></tr>
+
+<!-- SECTION 4: HEALTH & FAMILY -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#F0FFF4;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#059669; margin-bottom:24px;">🌱 Health &amp; Family</div>
+
+  <!-- Story 9: Amazon GLP-1 -->
+  <div style="margin-bottom:4px;">
+    <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#059669; background:rgba(5,150,105,0.08);">HEALTH ACCESS</div>
+    <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">Amazon just launched a national GLP-1 weight-loss program — injectable at $299/month</div>
+    <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">Amazon Pharmacy just launched a national GLP-1 weight-loss program, with injectable treatments starting at $299/month and oral options available too. This is significant: GLP-1s were previously $800-1,200/month without insurance. Amazon commoditising the access point at this price changes the equation for anyone who's been watching from the sidelines.</div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+      <tr><td style="padding:14px 18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="40" valign="top" style="padding-right:10px;">
+              <img src="https://pbs.twimg.com/profile_images/1878129937737187328/DnEflT4L_bigger.jpg" width="40" height="40" style="border-radius:50%; display:block;" alt="S">
+            </td>
+            <td valign="top">
+              <div style="font-weight:700; font-size:14px; color:#1a1a2e;">StockSavvy Shay</div>
+              <div style="font-size:13px; color:#536471;">@StockSavvyShay · Today</div>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">$AMZN just launched a national GLP-1 weight-loss program. Injectable treatments start at $299 per month while oral options are also available. This is a major move into the health-care space.</div>
+        <div style="font-size:12px; color:#536471;">❤️ 1,097 · 🔖 122</div>
+        <div style="margin-top:8px;">
+          <a href="https://x.com/StockSavvyShay/status/2046577040489578974" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on X →</a>
+        </div>
+      </td></tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#1d9bf0;"></td>
+        <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+          <strong style="color:#1d9bf0;">Why it matters:</strong> GLP-1s are the most significant metabolic medicine in decades — they're being studied for sleep apnea, inflammation, cognitive health, and obesity-related conditions. At $299/month via Amazon, the access barrier just dropped significantly. The research on metabolic health and sleep is worth knowing about.
+        </td>
+      </tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+      <tr>
+        <td width="3" style="background:#F59E0B;"></td>
+        <td style="background:#FFF8ED; padding:14px 18px; border-radius:0 8px 8px 0; font-size:14.5px; color:#374151; line-height:1.6;">
+          <strong style="font-size:12px; text-transform:uppercase; letter-spacing:0.8px; color:#B45309; display:block; margin-bottom:4px;">🎯 Why this matters to you</strong>
+          You've been watching your son's sleep apnea situation carefully. GLP-1s are increasingly showing links to upper airway health and sleep quality improvements. This isn't directly about a 5-year-old — but the wider availability of this research pipeline matters for understanding what's coming in sleep and metabolic medicine over the next few years.
+        </td>
+      </tr>
+    </table>
+    <div style="font-size:11px; color:#8899a6;">🔖 122 bookmarks · @StockSavvyShay</div>
+  </div>
+
+</td></tr>
+
+<!-- STILL CLIMBING -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8; background:#FAFAF8;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#f59e0b; margin-bottom:16px;">📈 Still Climbing</div>
+  <div style="font-size:12px; color:#8899a6; font-style:italic; margin-bottom:12px;">📈 Posted earlier this week — still trending hard in r/LocalLLaMA</div>
+
+  <div style="display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:3px 8px; border-radius:4px; margin-bottom:10px; color:#f59e0b; background:rgba(245,158,11,0.08);">AI RELIABILITY</div>
+  <div style="font-size:18px; font-weight:700; margin-bottom:8px; color:#1a1a2e;">Builders are reporting a major drop in intelligence across most major models — and it's not imagined</div>
+  <div style="font-size:15px; color:#374151; margin-bottom:10px; line-height:1.7;">A thread on r/LocalLLaMA (790 upvotes, 410 comments) documenting what appears to be a systematic degradation across Claude, GPT-4o, and Gemini simultaneously — harder reasoning, more hedging, worse code generation. The pattern is consistent enough across independent testers to be concerning. No official acknowledgment from any provider yet.</div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+    <tr><td style="padding:14px 18px;">
+      <div style="font-weight:700; font-size:14px; color:#1a1a2e;">r/LocalLLaMA</div>
+      <div style="font-size:13px; color:#536471;">reddit.com · trending this week</div>
+      <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">Major drop in intelligence across most major models.</div>
+      <div style="font-size:12px; color:#536471;">⬆️ 790 · 💬 410 comments</div>
+      <div style="margin-top:8px;">
+        <a href="https://www.reddit.com/r/LocalLLaMA/comments/1sm08m6/major_drop_in_intelligence_across_most_major/" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on Reddit →</a>
+      </div>
+    </td></tr>
+  </table>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+    <tr>
+      <td width="3" style="background:#1d9bf0;"></td>
+      <td style="background:#f0f7ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+        <strong style="color:#1d9bf0;">Why it matters:</strong> If you're building AI-powered products on top of Claude or GPT-4, a systematic reliability drop isn't noise — it's a product risk. 410 independent reports is significant. Worth testing your own workflows against before assuming it's someone else's problem.
+      </td>
+    </tr>
+  </table>
+  <div style="font-size:11px; color:#8899a6;">⬆️ 790 · r/LocalLLaMA</div>
+</td></tr>
+
+<!-- THREAD OF THE DAY -->
+<tr><td style="padding:28px 32px; border-bottom:1px solid #f0ede8;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#1d9bf0; margin-bottom:16px;">🧵 Thread of the Day</div>
+  <div style="font-size:22px; font-weight:800; margin-bottom:10px; color:#1a1a2e;">90% of Claude users don't know these repos exist — 10 MORE GitHub finds that will rewire your workflow</div>
+  <div style="font-size:15px; color:#374151; margin-bottom:12px; line-height:1.7;">@0x_kaize has been mining GitHub for two weeks and published Part 2 of their Claude Code repo deep dive. The list covers everything from the official anthropics/claude-code repo (55K+ stars) to niche automation setups that solo founders are using to run entire businesses from the terminal. High bookmark-to-like ratio (166 bookmarks vs 144 likes) — the kind of post people save to use later, not just like and forget.</div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc; border:1px solid #e1e8ed; border-radius:12px; margin:10px 0;">
+    <tr><td style="padding:14px 18px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td width="40" valign="top" style="padding-right:10px;">
+            <img src="https://pbs.twimg.com/profile_images/2038936737846874112/61J3iWSB_bigger.jpg" width="40" height="40" style="border-radius:50%; display:block;" alt="k">
+          </td>
+          <td valign="top">
+            <div style="font-weight:700; font-size:14px; color:#1a1a2e;">kaize</div>
+            <div style="font-size:13px; color:#536471;">@0x_kaize · 2 days ago</div>
+          </td>
+        </tr>
+      </table>
+      <div style="font-size:15px; margin:10px 0; line-height:1.5; color:#374151;">90% of CLAUDE USERS still don't know these repos exist. week 2 of digging through github. here are 10 MORE Claude Code repos that will rewire your workflow: 1/ anthropics/claude-code — The official Claude Code repo - the agentic coding tool that lives in your terminal. 55k+ stars...</div>
+      <div style="font-size:12px; color:#536471;">❤️ 144 · 🔖 166</div>
+      <div style="margin-top:8px;">
+        <a href="https://x.com/0x_kaize/status/2045828061640245608" style="color:#1d9bf0; font-size:13px; text-decoration:none; font-weight:600;">View on X →</a>
+      </div>
+    </td></tr>
+  </table>
+
+  <!-- Purple callout -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:12px 0;">
+    <tr>
+      <td width="3" style="background:#7c3aed;"></td>
+      <td style="background:#f8f5ff; padding:12px 16px; border-radius:0 8px 8px 0; font-size:14px; color:#374151;">
+        <strong style="color:#7c3aed;">🐰 Rabbit Hole:</strong> Open the thread, click through 3-4 of the repos, and spend 20 minutes on each one. You're looking for the automation setup that fits your Trawly workflow — at least two of these repos have been used by solo founders running AI businesses from a single terminal session. This is worth your Sunday morning.
+      </td>
+    </tr>
+  </table>
+  <div style="font-size:11px; color:#8899a6;">🔖 166 bookmarks · @0x_kaize</div>
+</td></tr>
+
+<!-- SOMETHING GOOD -->
+<tr><td style="padding:0 32px 4px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#fef9e7" style="border-radius:16px; border:2px solid #f59e0b; background-color:#fef9e7;">
+    <tr><td style="padding:24px; background-color:#fef9e7; border-radius:16px;">
+      <div style="display:inline-block; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:2px; padding:4px 10px; border-radius:20px; margin-bottom:14px; color:#78350f; background-color:#fcd34d;">☀️ Something Good</div>
+      <div style="font-size:11px; color:#92400e; margin-bottom:8px; font-style:italic;">One thing that actually happened. No spin. Just good.</div>
+      <div style="font-size:18px; font-weight:700; margin-bottom:10px; color:#1a1a2e; line-height:1.4;">The first thing a rescued stray puppy did was try to share its only piece of bread with the rescuers</div>
+      <div style="font-size:15px; color:#374151; margin-bottom:14px; line-height:1.7;">A stray dog found alone on the street had managed to scavenge a single piece of bread — its only food. When rescuers arrived and picked the puppy up, the first thing it did was try to offer the bread to the people helping it. Not eat it. Share it. The video has been shared hundreds of thousands of times.</div>
+      <div style="font-size:14px; padding-top:8px; border-top:1px solid #fcd34d; color:#374151;">
+        A dog with nothing, sharing everything. Some lessons don't need explaining. 💛
+      </div>
+    </td></tr>
+  </table>
+</td></tr>
+<tr><td style="height:20px;"></td></tr>
+
+<!-- EDITOR'S CORNER -->
+<tr><td style="padding:28px 32px; background:#f8f5ff; border-bottom:1px solid #f0ede8;">
+  <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#7c3aed; margin-bottom:14px;">⚡ Editor's Corner</div>
+  <div style="font-size:17px; font-weight:700; margin-bottom:10px; color:#1a1a2e;">290 megabytes changed something this week</div>
+  <div style="font-size:15px; color:#374151; margin-bottom:12px; line-height:1.7;">A 1.7 billion parameter language model running entirely in a browser tab — no server, no API key, no cloud cost. That's this week's Big One. And it matters more than the headline suggests. Every AI product being built right now assumes cloud inference. That assumption is about to get a lot less stable. The browser just became a compute node. Worth thinking about what that means for everything you're building.</div>
+  <div style="font-size:14px; color:#8899a6; margin-top:12px; font-style:italic;">Issue #88. Wednesday morning, Sydney. — Chop 🐟</div>
+</td></tr>
+
+<!-- FOOTER -->
+<tr><td style="padding:24px 32px; text-align:center; font-size:12px; color:#8899a6; line-height:1.8;">
+  <div style="font-size:13px; color:#374151; margin-bottom:6px; font-weight:500;">Trawled 100 sources · read 100 posts · distilled to 15 stories</div>
+  <div style="font-size:13px; color:#374151; margin-bottom:12px; font-weight:500;">~70 min saved today. Go do something good with it. ⚡</div>
+  <div style="font-size:11px; color:#CBD5E1; margin-top:8px;">Beta COGS: ~$0.40 (AI compose) + $0.40 (X API · 80 tweets × $0.005) = $0.80/issue</div>
+  <div style="font-size:11px; color:#CBD5E1; margin-top:4px;">~56.4h saved since you subscribed.</div>
+  <div style="margin-top:12px;"><a href="https://heytrawly.com/profile?token=d90d682b-c7c6-4af0-8db5-290379399fcc" style="color:#1d9bf0; text-decoration:none;">✏️ Edit your profile</a> · <a href="https://heytrawly.com/unsubscribe?email=de@enviz.co" style="color:#1d9bf0; text-decoration:none;">Unsubscribe</a></div>
+  <div style="margin-top:8px; font-size:11px; color:#CBD5E1;">© 2026 Trawly · Trawling the internet so you don't have to.</div>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
